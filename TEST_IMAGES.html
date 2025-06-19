@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tivoli Images Migration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .image-test { margin: 20px 0; border: 1px solid #ccc; padding: 10px; }
+        .image-test h3 { margin: 0 0 10px 0; color: #333; }
+        .image-test img { max-width: 300px; height: 200px; object-fit: cover; border: 2px solid #ddd; }
+        .status { padding: 5px 10px; border-radius: 3px; font-weight: bold; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>🎉 Tivoli Website Image Migration Test</h1>
+    <p>Testing all migrated images from new Supabase instance: <code>sivirxabbuldqkckjwmu</code></p>
+
+    <div class="image-test">
+        <h3>1. Homepage Carousel Images (4 images)</h3>
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/image1.jpg" alt="Carousel 1" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/image2.jpg" alt="Carousel 2" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/image3.jpg" alt="Carousel 3" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/image4.jpg" alt="Carousel 4" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+    </div>
+
+    <div class="image-test">
+        <h3>2. Experience Section Images (6 images)</h3>
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/wedding.jpg" alt="Wedding" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/corporate-hp.jpg" alt="Corporate" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/foodblue_thetivoli.jpg" alt="Dining" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/Luxurious-stays.jpg" alt="Luxury Stays" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/cocktail-aprty.jpg" alt="Cocktails" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/spa.jpg" alt="Spa" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+    </div>
+
+    <div class="image-test">
+        <h3>3. Venue Thumbnail Images</h3>
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/maingate_thetivoli.jpg" alt="The Tivoli" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/thumbnail-royalpalace-hp.jpg" alt="Royal Palace" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/heritage-hp-thumbnail.jpg" alt="Heritage Palace" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/bijwasan-hp-thumbnail.jpg" alt="Bijwasan" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/RoyalCourt-hp-thumbnail.jpg" alt="Royal Court" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/lotuscourt-hp-thumbnail.webp" alt="Lotus Court" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+    </div>
+
+    <div class="image-test">
+        <h3>4. Location Images</h3>
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/delhi-hp.jpg" alt="Delhi" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/haryana-hp-thumbnail.jpg" alt="Haryana" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/noida-hp-thumbnail.jpg" alt="Noida" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/gn-hp-thumbnail.jpg" alt="Greater Noida" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/upperhse-hp-thumbnail.jpg" alt="Upper HSE" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+    </div>
+
+    <div class="image-test">
+        <h3>5. Our Story Image</h3>
+        <img src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/Hero1.jpg" alt="Our Story Hero" onload="showStatus(this, 'success')" onerror="showStatus(this, 'error')">
+    </div>
+
+    <div id="summary" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+        <h3>📊 Migration Summary</h3>
+        <p><strong>Total Images:</strong> 22</p>
+        <p><strong>Successfully Loaded:</strong> <span id="success-count">0</span></p>
+        <p><strong>Failed to Load:</strong> <span id="error-count">0</span></p>
+        <p><strong>Migration Status:</strong> <span id="migration-status">Testing...</span></p>
+    </div>
+
+    <script>
+        let successCount = 0;
+        let errorCount = 0;
+        const totalImages = 22;
+
+        function showStatus(img, status) {
+            if (status === 'success') {
+                successCount++;
+                img.style.border = '2px solid #28a745';
+            } else {
+                errorCount++;
+                img.style.border = '2px solid #dc3545';
+                img.style.opacity = '0.5';
+            }
+            
+            updateSummary();
+        }
+
+        function updateSummary() {
+            document.getElementById('success-count').textContent = successCount;
+            document.getElementById('error-count').textContent = errorCount;
+            
+            const statusEl = document.getElementById('migration-status');
+            if (successCount + errorCount === totalImages) {
+                if (successCount === totalImages) {
+                    statusEl.innerHTML = '<span class="success">✅ MIGRATION SUCCESSFUL</span>';
+                } else {
+                    statusEl.innerHTML = `<span class="error">⚠️ ${errorCount} IMAGES FAILED</span>`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
