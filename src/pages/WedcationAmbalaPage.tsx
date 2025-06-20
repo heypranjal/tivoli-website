@@ -131,7 +131,11 @@ export default function WedcationAmbalaPage() {
                   return (
                     <div key={amenity.id} className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                        <IconComponent className="w-4 h-4 text-[#CD9F59]" />
+                        {IconComponent ? (
+                          <IconComponent className="w-4 h-4 text-[#CD9F59]" />
+                        ) : (
+                          <Heart className="w-4 h-4 text-[#CD9F59]" />
+                        )}
                       </div>
                       <span className="text-neutral-600 text-xs">{amenity.name}</span>
                     </div>

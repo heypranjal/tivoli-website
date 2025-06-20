@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { getVenueThumbnail } from '@/utils/image-catalog';
 
 // Function to get proper route for each venue in Featured Venues
-const getFeaturedVenueRoute = (venue: any): string => {
+const getFeaturedVenueRoute = (venue: { slug: string }): string => {
   const venueRoutes: Record<string, string> = {
     // Tivoli Properties
     'tivoli-grand-palace': '/delhi/tivoli-grand-palace',
     'tivoli-royal-suite': '/palwal-haryana/tivoli-royal-palace', 
     'tivoli-lake-palace': '/rewari-haryana/tivoli-heritage-palace',
-    'tivoli-riviera-palace': '/delhi/bijwasan',
+    'tivoli-riviera-palace': '/delhi/tivoli-bijwasan',
     'tivoli-mountain-resort': '/delhi/royal-court-okhla',
     'tivoli-beach-villa': '/noida/tivoli-lotus-court',
     // Upper HSE Properties

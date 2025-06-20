@@ -5,7 +5,6 @@
  * - Updated: Added The Tivoli-Fact Sheet section with external link
  */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 

@@ -14,9 +14,9 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    host: '0.0.0.0',  // Explicitly bind to all interfaces
+    host: true,       // Use true to auto-detect best host
     port: 5173,       // Use standard Vite port
-    strictPort: false, // Allow fallback to other ports if needed
+    strictPort: false, // Allow fallback to other ports
     open: false,      // Don't auto-open browser for testing
     cors: true,       // Enable CORS
   },

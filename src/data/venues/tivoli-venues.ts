@@ -14,7 +14,6 @@
  */
 
 import { Hotel } from '@/types/hotel'
-import { MapPin, Wifi, School as Pool, Dumbbell, Utensils, Car, Wine, Space as Spa, Coffee } from 'lucide-react'
 
 export const tivoliVenues: Hotel[] = [
   {
@@ -44,7 +43,7 @@ export const tivoliVenues: Hotel[] = [
       email: 'reservations@thetivolihotels.com'
     },
     amenities: [
-      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Wifi' },
+      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Signal' },
       { id: 'pool', name: 'Swimming Pool', description: 'Temperature-controlled outdoor pool', icon: 'Pool' },
       { id: 'fitness', name: 'Fitness Center', description: '24/7 state-of-the-art fitness center with personal training', icon: 'Dumbbell' },
       { id: 'dining', name: 'Fine Dining', description: 'Multiple award-winning restaurants and bars', icon: 'Utensils' },
@@ -160,7 +159,7 @@ export const tivoliVenues: Hotel[] = [
       email: 'reservations@thetivolihotels.com'
     },
     amenities: [
-      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Wifi' },
+      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Signal' },
       { id: 'pool', name: 'Swimming Pool', description: 'Temperature-controlled outdoor pool', icon: 'Pool' },
       { id: 'fitness', name: 'Fitness Center', description: '24/7 state-of-the-art fitness center with personal training', icon: 'Dumbbell' },
       { id: 'dining', name: 'Fine Dining', description: 'Multiple award-winning restaurants and bars', icon: 'Utensils' },

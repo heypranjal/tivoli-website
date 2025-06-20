@@ -7,11 +7,11 @@
  * - Room count selection
  * - Booking actions
  */
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { DateRange, DayPicker } from 'react-day-picker';
 import { Plus, Minus, Calendar, X, Hotel } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { format, addDays, isBefore, isAfter } from 'date-fns';
+import { format, isBefore, isAfter } from 'date-fns';
 
 interface HotelBookingWidgetProps {
   price: number;
@@ -23,8 +23,6 @@ interface HotelBookingWidgetProps {
 }
 
 export default function HotelBookingWidget({
-  price,
-  currency = '₹',
   roomCount = 1,
   onBookingSubmit,
   isMobile = false,

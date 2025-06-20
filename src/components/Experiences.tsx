@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heart, Crown, Coffee, Users, Utensils, BellRing as Ring } from 'lucide-react';
-import { getExperienceImages, homepageImages } from '@/utils/image-catalog';
+import { getExperienceImages } from '@/utils/image-catalog';
 
 const experienceImageUrls = getExperienceImages();
 
@@ -50,14 +50,6 @@ const experiences = [
 ];
 
 export default function Experiences() {
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   return (
     <section className="py-6 md:py-12 bg-neutral-50 relative">

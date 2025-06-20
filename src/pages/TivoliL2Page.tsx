@@ -9,11 +9,11 @@
  * - Location and contact information
  */
 import React from 'react';
-import { Wifi, Dumbbell, School as Pool, Utensils, Clock, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Heart } from 'lucide-react';
+import { Signal, Dumbbell, School as Pool, Utensils, Clock, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Heart } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 
 const features = [
-  { id: 'wifi', name: 'Free Wi-Fi', icon: Wifi, description: 'High-speed internet throughout the property' },
+  { id: 'wifi', name: 'Free Wi-Fi', icon: Signal, description: 'High-speed internet throughout the property' },
   { id: 'fitness', name: 'Fitness Centre', icon: Dumbbell, description: 'State-of-the-art equipment and trainers' },
   { id: 'pool', name: 'Swimming Pool', icon: Pool, description: 'Temperature-controlled pool with loungers' },
   { id: 'dining', name: 'Multi-cuisine Restaurant', icon: Utensils, description: 'Global flavors and local delicacies' },

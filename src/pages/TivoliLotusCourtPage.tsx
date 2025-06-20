@@ -14,14 +14,14 @@
  */
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Wifi, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Signal, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { hotels } from '@/data/hotels';
 import VenueBookingForm from '@/components/VenueBookingForm';
 import HotelBookingWidget from '@/components/HotelBookingWidget';
 
 const amenityIcons = {
-  Wifi,
+  Wifi: Signal,
   Pool: School,
   Dumbbell,
   Utensils,
@@ -42,7 +42,7 @@ const villaAmenities = [
   { id: 'bbq', name: 'BBQ', icon: Flame, cost: '₹650' },
   { id: 'lawn', name: 'Lawn', icon: Sprout },
   { id: 'pool', name: 'Swimming Pool', icon: School },
-  { id: 'wifi', name: 'Wi-Fi', icon: Wifi },
+  { id: 'wifi', name: 'Wi-Fi', icon: Signal },
   { id: 'ac', name: 'AC', icon: Wind },
   { id: 'music', name: 'Music System/Speaker', icon: Music },
   { id: 'tv', name: 'TV', icon: Tv },
@@ -95,7 +95,8 @@ export default function TivoliLotusCourtPage() {
             {[
               hotel.images[1],
               hotel.images[2],
-              hotel.images[3]
+              hotel.images[3],
+              hotel.images[4]
             ].map((image, index) => (
               <div key={index} className="relative h-[190px] md:h-[240px] rounded-lg overflow-hidden border border-neutral-200 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <img
@@ -103,6 +104,14 @@ export default function TivoliLotusCourtPage() {
                   alt={`${hotel.name} - ${index + 2}`}
                   className="w-full h-full object-cover"
                 />
+                {index === 3 && hotel.images.length > 5 && (
+                  <button
+                    onClick={() => setShowAllImages(true)}
+                    className="absolute inset-0 bg-black/50 flex items-center justify-center text-white font-medium"
+                  >
+                    +{hotel.images.length - 5} More
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -135,7 +144,11 @@ export default function TivoliLotusCourtPage() {
                   return (
                     <div key={amenity.id} className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                        <IconComponent className="w-4 h-4 text-[#CD9F59]" />
+                        {IconComponent ? (
+                          <IconComponent className="w-4 h-4 text-[#CD9F59]" />
+                        ) : (
+                          <Heart className="w-4 h-4 text-[#CD9F59]" />
+                        )}
                       </div>
                       <span className="text-neutral-600 text-xs">{amenity.name}</span>
                     </div>

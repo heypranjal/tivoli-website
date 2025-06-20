@@ -11,20 +11,23 @@
  */
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Wifi, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Signal, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { hotels } from '@/data/hotels';
 import VenueBookingForm from '@/components/VenueBookingForm';
 import HotelBookingWidget from '@/components/HotelBookingWidget';
 
 const amenityIcons = {
-  Wifi,
+  Signal,
+  Wifi: Signal,
   Pool: School,
+  School,
   Dumbbell,
   Utensils,
   Car,
   Wine,
   Spa: Space,
+  Space,
   Coffee
 };
 
@@ -48,8 +51,15 @@ export default function RoyalcourtokhlaPage() {
   // Find hotel by slug
   const hotel = hotels.find(h => h.slug === 'royal-court-okhla');
 
+  // Debug logging
+  console.log('Hotels array length:', hotels.length);
+  console.log('Looking for hotel with slug: royal-court-okhla');
+  console.log('Found hotel:', hotel);
+  console.log('All hotel slugs:', hotels.map(h => h.slug));
+
   // If no hotel found, redirect to home
   if (!hotel) {
+    console.error('Hotel with slug "royal-court-okhla" not found!');
     return <Navigate to="/" />;
   }
 
@@ -88,162 +98,183 @@ export default function RoyalcourtokhlaPage() {
         </div>
 
         {/* Hotel Title Section */}
-        <div className="max-w-4xl mx-auto px-4 md:px-0 space-y-4">
-            <h1 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-2">Tivoli Royal Court-Okhla</h1>
-            <div className="flex items-center gap-4">
-              <p className="flex items-center text-neutral-600">
-                <MapPin className="w-4 h-4 mr-1" />
-                {hotel.address.city}, {hotel.address.country}
+        <div className="max-w-4xl mx-auto px-4 md:px-0 space-y-6">
+          <h1 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-2">Tivoli Royal Court - Okhla</h1>
+          <div className="flex items-center gap-4">
+            <p className="flex items-center text-neutral-600">
+              <MapPin className="w-4 h-4 mr-1" />
+              D-185, Pocket D, Okhla Phase I, Okhla Industrial Area, New Delhi – 110020
+            </p>
+            <button className="p-2 hover:bg-neutral-100 rounded-full transition-colors">
+              <Share2 className="w-5 h-5 text-neutral-600" />
+            </button>
+            <button 
+              className="p-2 hover:bg-neutral-100 rounded-full transition-colors"
+              onClick={() => setIsWishlist(!isWishlist)}
+            >
+              <Heart className={`w-5 h-5 ${isWishlist ? 'fill-[#CD9F59] text-[#CD9F59]' : 'text-neutral-600'}`} />
+            </button>
+          </div>
+        </div>
+
+        {/* Your Extraordinary Moments Section */}
+        <section className="py-8 md:py-12 bg-white">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="text-center mb-8">
+              <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                Premier Destination
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                Your Extraordinary Moments, Our Signature Spaces
+              </h2>
+              <p className="text-neutral-600 max-w-4xl mx-auto leading-relaxed">
+                Step into a world where every celebration becomes extraordinary. Tivoli Royal Court presents two magnificent halls – REGENCY and ASTORIA – each designed to transform your vision into reality. Whether you're planning an intimate gathering of 100 or a grand celebration for 450 guests, our versatile spaces adapt seamlessly to your needs.
               </p>
-              <button className="p-2 hover:bg-neutral-100 rounded-full transition-colors">
-                <Share2 className="w-5 h-5 text-neutral-600" />
-              </button>
-              <button 
-                className="p-2 hover:bg-neutral-100 rounded-full transition-colors"
-                onClick={() => setIsWishlist(!isWishlist)}
-              >
-                <Heart className={`w-5 h-5 ${isWishlist ? 'fill-[#CD9F59] text-[#CD9F59]' : 'text-neutral-600'}`} />
-              </button>
             </div>
 
-            <div>
-              <h3 className="font-serif text-xl text-neutral-800 mb-2">Key Amenities</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {hotel.amenities.slice(0, 8).map((amenity) => {
-                  const IconComponent = amenityIcons[amenity.icon as keyof typeof amenityIcons];
-                  return (
-                    <div key={amenity.id} className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                        <IconComponent className="w-4 h-4 text-[#CD9F59]" />
-                      </div>
-                      <span className="text-neutral-600 text-xs">{amenity.name}</span>
-                    </div>
-                  );
-                })}
+            {/* Venue Statistics */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
+              <div className="text-center bg-neutral-50 p-6 rounded-xl">
+                <div className="text-2xl md:text-3xl font-serif text-[#CD9F59] mb-2">200</div>
+                <div className="text-sm text-neutral-600">Parking Spaces</div>
+              </div>
+              <div className="text-center bg-neutral-50 p-6 rounded-xl">
+                <div className="text-2xl md:text-3xl font-serif text-[#CD9F59] mb-2">100-450</div>
+                <div className="text-sm text-neutral-600">Guest Capacity</div>
+              </div>
+              <div className="text-center bg-neutral-50 p-6 rounded-xl">
+                <div className="text-2xl md:text-3xl font-serif text-[#CD9F59] mb-2">6,500</div>
+                <div className="text-sm text-neutral-600">Sq. Ft. Event Space</div>
+              </div>
+              <div className="text-center bg-neutral-50 p-6 rounded-xl">
+                <div className="text-2xl md:text-3xl font-serif text-[#CD9F59] mb-2">2</div>
+                <div className="text-sm text-neutral-600">Signature Halls</div>
               </div>
             </div>
 
-            {/* Highlights Section */}
-            <div className="mt-4">
-              <h3 className="font-serif text-xl text-neutral-800 mb-2">Hotel Highlights</h3>
-              <div className="bg-neutral-50 rounded-lg p-6">
-                <p className="text-neutral-600 leading-relaxed">
-                  Experience luxury and elegance at {hotel.name}, where timeless sophistication 
-                  meets modern comfort. Our venue offers spectacular spaces for celebrations, 
-                  meetings, and unforgettable stays in the heart of Okhla.
+            {/* Venue Details */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {/* ASTORIA */}
+              <div className="bg-neutral-50 rounded-xl p-8">
+                <h3 className="font-serif text-2xl text-neutral-800 mb-4">ASTORIA</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-neutral-600">Location:</span>
+                    <span className="font-medium">1st & 2nd Floor Combined</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-600">Space:</span>
+                    <span className="font-medium">9,000 sq ft</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-600">Features:</span>
+                    <span className="font-medium">Green rooms for VIP guests</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* REGENCY */}
+              <div className="bg-neutral-50 rounded-xl p-8">
+                <h3 className="font-serif text-2xl text-neutral-800 mb-4">REGENCY</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-neutral-600">Location:</span>
+                    <span className="font-medium">Ground Floor</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-600">Space:</span>
+                    <span className="font-medium">8,000 sq ft</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-600">Features:</span>
+                    <span className="font-medium">Dedicated valet parking area</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Wedding Section */}
+        <section className="py-8 md:py-12 bg-neutral-50">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="text-center mb-8">
+              <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                Dream Weddings
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                Wedding
+              </h2>
+              <div className="max-w-4xl mx-auto text-neutral-600 leading-relaxed">
+                <p className="mb-6">
+                  Experience the pinnacle of luxury and sophistication at Tivoli Royal Court, Okhla, where every wedding is a masterpiece crafted to perfection. Situated in the vibrant area of Okhla, this exquisite venue offers a stunning backdrop for your special day, combining elegance with modern amenities.
+                </p>
+                <p className="mb-6">
+                  Tivoli Royal Court spans beautifully landscaped gardens, providing ample space for both intimate gatherings and grand celebrations. Choose from various indoor and outdoor settings, including a lavish ballroom and picturesque lawns, each designed to accommodate weddings of any scale. The venue is adorned with opulent decor, featuring elegant chandeliers and intricate details that create a romantic atmosphere.
+                </p>
+                <p className="mb-6">
+                  Our dedicated team at Tivoli Royal Court is committed to bringing your vision to life. With meticulous attention to detail, we offer: From bespoke floral arrangements to customized catering options, every element is carefully curated to reflect your unique style. Delight your guests with gourmet catering services that offer a diverse range of cuisines, ensuring a memorable dining experience.
+                </p>
+                <p>
+                  At Tivoli Royal Court, we understand that your wedding day is one of the most significant moments of your life. Our promise is to deliver an unforgettable experience filled with luxury and grace. Celebrate amidst our manicured gardens and elegant interiors, where every moment is crafted to create cherished memories for years to come.
                 </p>
               </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-        {/* Luxury Experiences Section */}
-        <section className="py-6 md:py-12 bg-white">
+        {/* Social Gatherings Section */}
+        <section className="py-8 md:py-12 bg-white">
           <div className="container mx-auto px-4 md:px-8 lg:px-12">
             <div className="text-center mb-8">
               <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
-                Curated Experiences
+                Memorable Events
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
-                Discover Royal Luxury
+              <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                Social Gatherings
               </h2>
-              <p className="text-neutral-600 max-w-2xl mx-auto">
-                Immerse yourself in a world of refined experiences, where every moment is crafted to perfection
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Pre-weding Rituals */}
-              <div className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                  <img
-                    src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//pre%20wedding.jpg"
-                    alt="Corporate Events"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                  <div className="absolute inset-x-6 bottom-6 text-white">
-                    <h3 className="font-serif text-xl mb-2">Pre-weding Rituals</h3>
-                    <p className="text-sm text-white/90">Traditional, joyful, colorful, sacred, festive, cultural, musical, emotional, celebratory events.</p>
+              <div className="max-w-4xl mx-auto text-neutral-600 leading-relaxed">
+                <p className="mb-6">
+                  At Tivoli Royal Court, Okhla, we believe that every social gathering deserves a touch of elegance and sophistication. Our venue is meticulously designed to cater to a variety of events, ensuring that each occasion is memorable and seamlessly executed.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-8">
+                  <div>
+                    <h3 className="font-serif text-xl text-neutral-800 mb-4">Spacious Banquet Halls</h3>
+                    <p className="text-neutral-600 mb-4">
+                      With two luxurious indoor venues, Regency and Astoria, we can accommodate gatherings of up to 600 guests. The pillarless design and high ceilings create an open and inviting atmosphere for any celebration.
+                    </p>
+                    
+                    <h3 className="font-serif text-xl text-neutral-800 mb-4">Beautiful Outdoor Areas</h3>
+                    <p className="text-neutral-600">
+                      Our lush gardens provide a stunning backdrop for outdoor events, perfect for cocktail parties, family gatherings, and more.
+                    </p>
                   </div>
-                </div>
-              </div>
-
-              {/* Swimming Pool*/}
-              <div className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                  <img
-                    src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//swimming%20pool2rewari.jpg"
-                    alt="Heritage Architecture"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                  <div className="absolute inset-x-6 bottom-6 text-white">
-                    <h3 className="font-serif text-xl mb-2">Poolside Soirées</h3>
-                    <p className="text-sm text-white/90">Exclusive retreats with private pools perfect for magical poolside weddings</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Royal Events */}
-              <div className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                  <img
-                    src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//grand%20celebrations%20rewari.jpg"
-                    alt="Royal Events"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                  <div className="absolute inset-x-6 bottom-6 text-white">
-                    <h3 className="font-serif text-xl mb-2">Grand Celebrations</h3>
-                    <p className="text-sm text-white/90">Magnificent venues for unforgettable events</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Premium Rooms*/}
-              <div className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                  <img
-                    src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//standard%20room.jpg"
-                    alt="Cultural Activities"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                  <div className="absolute inset-x-6 bottom-6 text-white">
-                    <h3 className="font-serif text-xl mb-2">90 Premium Rooms</h3>
-                    <p className="text-sm text-white/90">Our property features 90 stylish Premium Rooms designed for your comfort</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Dinning Hall*/}
-              <div className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                  <img
-                    src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//dinningorg.jpg"
-                    alt="Wellness"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                  <div className="absolute inset-x-6 bottom-6 text-white">
-                    <h3 className="font-serif text-xl mb-2">Dinning Hall</h3>
-                    <p className="text-sm text-white/90">Elegant. Ambient. Refined. A dining experience like no other.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Corporate Events */}
-              <div className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                  <img
-                    src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//corporate%20events.png"
-                    alt="Wellness"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                  <div className="absolute inset-x-6 bottom-6 text-white">
-                    <h3 className="font-serif text-xl mb-2">Corporate Events</h3>
-                    <p className="text-sm text-white/90">Experience flawless corporate events hosted at elegant, serene retreats</p>
+                  
+                  <div>
+                    <h3 className="font-serif text-xl text-neutral-800 mb-4">Perfect For</h3>
+                    <ul className="space-y-2 text-neutral-600">
+                      <li>• Birthday parties</li>
+                      <li>• Anniversary celebrations</li>
+                      <li>• Corporate events</li>
+                      <li>• Any special occasion</li>
+                    </ul>
+                    
+                    <h3 className="font-serif text-xl text-neutral-800 mb-4 mt-6">Our Services</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="font-medium text-neutral-800">In-House Catering</h4>
+                        <p className="text-sm text-neutral-600">Diverse menu with both vegetarian and non-vegetarian options</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-neutral-800">Customized Decor</h4>
+                        <p className="text-sm text-neutral-600">Thematic decorations that reflect your vision and style</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-neutral-800">Entertainment Options</h4>
+                        <p className="text-sm text-neutral-600">In-house DJ services and live music accommodation</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -251,199 +282,35 @@ export default function RoyalcourtokhlaPage() {
           </div>
         </section>
 
-        {/* Wedding at Tivoli Royal Court */}
-        <section className="py-6 md:py-12 bg-white">
+        {/* Location & Map Section */}
+        <section className="py-8 md:py-12 bg-neutral-50">
           <div className="container mx-auto px-4 md:px-8 lg:px-12">
-            <div className="text-center mb-6">
+            <div className="text-center mb-8">
               <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
-                Your Dream Wedding Destination
+                Visit Us
               </span>
-              <h2 className="font-serif text-2xl md:text-3xl text-neutral-800 mb-3">
-                Wedding at Tivoli Royal Court
+              <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                Location & Directions
               </h2>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                <img
-                  src={hotel.images[0]}
-                  alt="Tivoli Royal Court Wedding Venue"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">
-                      <p className="text-xs font-medium text-neutral-800">Capacity</p>
-                      <p className="text-lg font-serif text-[#CD9F59]">1500 PAX</p>
-                    </div>
-                    <div className="bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">
-                      <p className="text-xs font-medium text-neutral-800">Lawn Area</p>
-                      <p className="text-lg font-serif text-[#CD9F59]">Lush Green</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-neutral-50 p-4 rounded-xl">
-                    <Car className="w-6 h-6 text-[#CD9F59] mb-2" />
-                    <h3 className="font-serif text-lg text-neutral-800 mb-2">Ample Parking</h3>
-                    <p className="text-sm text-neutral-600">Spacious parking area for all your guests</p>
-                  </div>
-                  <div className="bg-neutral-50 p-4 rounded-xl">
-                    <School className="w-6 h-6 text-[#CD9F59] mb-2" />
-                    <h3 className="font-serif text-lg text-neutral-800 mb-2">Pool Access</h3>
-                    <p className="text-sm text-neutral-600">Beautiful poolside setting for events</p>
-                  </div>
-                </div>
-                
-                <div className="bg-neutral-50 p-4 rounded-xl">
-                  <Utensils className="w-6 h-6 text-[#CD9F59] mb-2" />
-                  <h3 className="font-serif text-lg text-neutral-800 mb-2">Exquisite Cuisine</h3>
-                  <p className="text-sm text-neutral-600">
-                    Our master chefs craft personalized menus featuring both traditional delicacies 
-                    and international cuisine, ensuring a memorable culinary experience for your guests.
-                  </p>
-                </div>
-                
-                <button 
-                  onClick={() => document.querySelector('#venue-booking-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full py-3 bg-[#CD9F59] text-white rounded-lg hover:bg-[#B88D47] transition-colors duration-300 font-medium tracking-wide"
-                >
-                  Plan Your Wedding
-                </button>
-              </div>
+            <div className="w-full h-[450px] rounded-xl overflow-hidden shadow-lg">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14022.452802100332!2d77.27713!3d28.521283!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce170c07e2e9b%3A0x95b531847cdf6946!2sTivoli%20Royal%20Court!5e0!3m2!1sen!2sus!4v1750361698528!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style={{border: 0}} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </section>
 
-        <hr className="border-b border-[#CD9F59]/20 my-8" />
-          
-        {/* Main Content */}
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-12">
-          {/* Dining */}
-          <div className="mb-12 max-w-7xl mx-auto">
-            <div className="text-center mb-8">
-              <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
-                Culinary Excellence
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
-                Fine Dining
-              </h2>
-              <p className="text-neutral-600 max-w-2xl mx-auto">
-                Experience exquisite culinary journeys crafted by our master chefs
-              </p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              {hotel.dining.map((restaurant) => (
-                <div key={restaurant.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
-                  <div className="relative h-72 lg:h-96">
-                    <img
-                      src={restaurant.image}
-                      alt={restaurant.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="font-serif text-2xl md:text-3xl mb-2">
-                        {restaurant.name}
-                      </h3>
-                      <p className="text-white/90 text-sm">
-                        {restaurant.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="p-6 bg-white flex-1">
-                    <div className="flex items-center justify-between mb-4 pb-4 border-b border-neutral-200">
-                      <div className="flex items-center">
-                        <Utensils className="w-5 h-5 text-[#CD9F59] mr-2" />
-                        <span className="text-neutral-800 font-medium">{restaurant.cuisine}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="w-5 h-5 text-[#CD9F59] mr-2" />
-                        <span className="text-neutral-800">{restaurant.hours}</span>
-                      </div>
-                    </div>
-                    <button className="w-full py-3 border-2 border-[#CD9F59] text-[#CD9F59] rounded-lg hover:bg-[#CD9F59] hover:text-white transition-colors duration-300 font-medium tracking-wide">
-                      View Menu
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact & Location */}
-          <div id="venue-booking-form">
-            <VenueBookingForm />
-          </div>
-
-          <div className="bg-[#F8F9FA] py-10">
-            <div className="max-w-5xl mx-auto px-4 md:px-8 lg:px-0">
-              <div className="text-center mb-6">
-                <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-3 block">
-                  Reach Us
-                </span>
-                <h2 className="font-serif text-2xl md:text-3xl text-neutral-800 mb-2">
-                  Contact & Location
-                </h2>
-                <div className="w-20 h-[1px] bg-[#CD9F59] mx-auto" />
-              </div>
-              <div className="space-y-6">
-                {/* Map */}
-                <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.0876812357444!2d77.1567!3d28.4989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI5JzU2LjAiTiA3N8KwMDknMjQuMSJF!5e0!3m2!1sen!2sin!4v1710934800000!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-                
-                {/* Contact Details */}
-                <div className="bg-white p-8 rounded-xl shadow-lg border border-[#CD9F59]/10">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Contact Info */}
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                          <Phone className="w-5 h-5 text-[#CD9F59]" />
-                        </div>
-                        <div>
-                          <h3 className="font-serif text-xl text-neutral-800 mb-1">Contact Us</h3>
-                          <a href={`tel:${hotel.contact.phone}`} className="block text-neutral-600 hover:text-[#CD9F59] transition-colors">
-                            {hotel.contact.phone}
-                          </a>
-                          <a href={`mailto:${hotel.contact.email}`} className="block text-neutral-600 hover:text-[#CD9F59] transition-colors">
-                            {hotel.contact.email}
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Location Info */}
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                          <MapPin className="w-5 h-5 text-[#CD9F59]" />
-                        </div>
-                        <div>
-                          <h3 className="font-serif text-xl text-neutral-800 mb-1">Address</h3>
-                          <p className="text-neutral-600">{hotel.address.street}</p>
-                          <p className="text-neutral-600">{hotel.address.city}, {hotel.address.state} {hotel.address.postalCode}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Venue Booking Form */}
+        <div id="venue-booking-form">
+          <VenueBookingForm />
         </div>
       </div>
     </div>

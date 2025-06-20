@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, TrendingUp, FileText, Users, Mail, ExternalLink } from 'lucide-react';
+import { Users, ExternalLink } from 'lucide-react';
 import Navigation from '../components/Navigation';
 
 // Profile data with images and LinkedIn links

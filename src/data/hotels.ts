@@ -1,5 +1,4 @@
 import { Hotel } from '@/types/hotel';
-import { MapPin, Wifi, School as Pool, Dumbbell, Utensils, Car, Wine, Space as Spa, Coffee } from 'lucide-react';
 
 export const hotels: Hotel[] = [
   {
@@ -10,7 +9,7 @@ export const hotels: Hotel[] = [
     slug: 'tivoli-grand-palace',
     description: 'Experience unparalleled luxury at Tivoli Grand Palace, where timeless elegance meets modern sophistication. Nestled in the heart of Delhi, this architectural masterpiece offers a perfect blend of traditional Indian hospitality and contemporary comfort.',
     images: [
-      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//SSS_9999.jpg',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//hero1.jpg',
       'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto4%20(1).jpg',
       'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//SSS_9948.jpg',
       'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//DJI_20250211165024_0664_D%20copy.jpg'
@@ -36,7 +35,7 @@ export const hotels: Hotel[] = [
         id: 'wifi',
         name: 'High-Speed WiFi',
         description: 'Complimentary high-speed internet access throughout the property',
-        icon: 'Wifi'
+        icon: 'Signal'
       },
       {
         id: 'pool',
@@ -219,7 +218,7 @@ export const hotels: Hotel[] = [
         id: 'wifi',
         name: 'High-Speed WiFi',
         description: 'Complimentary high-speed internet access throughout the property',
-        icon: 'Wifi'
+        icon: 'Signal'
       },
       {
         id: 'pool',
@@ -359,7 +358,7 @@ export const hotels: Hotel[] = [
         id: 'wifi',
         name: 'High-Speed WiFi',
         description: 'Complimentary high-speed internet access throughout the property',
-        icon: 'Wifi'
+        icon: 'Signal'
       },
       {
         id: 'pool',
@@ -484,7 +483,7 @@ const wedcationAmbalaHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -593,7 +592,7 @@ const wedcationIsranaHotel = {
   slug: 'wedcation-by-tivoli-israna',
   description: 'Experience unparalleled luxury at Wedcation by Tivoli-Israna, where timeless elegance meets modern sophistication. Nestled in the heart of Israna, this architectural masterpiece offers a perfect blend of traditional Indian hospitality and contemporary comfort.',
   images: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna1.jpg',
+    'https://lh3.googleusercontent.com/p/AF1QipOMH7hKihgOyCoC2tnI71tV2co4K9uAbM07jJI1=s1360-w1360-h1020-rw',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna2.jpg',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna3.jpg',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna4.jpg'
@@ -619,7 +618,7 @@ const wedcationIsranaHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -727,10 +726,14 @@ const lotusCourtHotel = {
   slug: 'tivoli-lotus-court',
   description: 'Experience unparalleled luxury at Tivoli Lotus Court, where timeless elegance meets modern sophistication. Nestled in the heart of Noida, this architectural masterpiece offers a perfect blend of traditional Indian hospitality and contemporary comfort.',
   images: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/lotuscourt//lotushomeimage4.JPG',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/lotuscourt//lotushomeimage3.jpg',
-    'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//lawn.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/lotuscourt//lotushomeimage2.JPG'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//lotushomeimage4.JPG',
+    'https://lh3.googleusercontent.com/p/AF1QipP1l88dxwXNVL8qn6pR9enQO9u3NCMhqOiSzvBv=s1360-w1360-h1020-rw',
+    'https://lh3.googleusercontent.com/p/AF1QipPXEDXpLUMY-PImbH8MiNqSnQ5yB3BTEoI4VSDL=s1360-w1360-h1020-rw',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//lotusDinninghall.jpg',
+    'https://lh3.googleusercontent.com/p/AF1QipMjXtjXCkoI4zfz0ulmU5MZY4VvSiGrJ_kxxIkz=s1360-w1360-h1020-rw',
+    'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//corporate%20events%20(1).png',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//standard%20room.jpg'
   ],
   rating: 5,
   address: {
@@ -753,7 +756,7 @@ const lotusCourtHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -831,7 +834,7 @@ const lotusCourtHotel = {
       cuisine: 'Indian',
       hours: '7:00 PM - 11:00 PM',
       dress: 'Formal',
-      image: ''
+      image: 'https://lh3.googleusercontent.com/p/AF1QipPSLkPH-P8awHrUFA5kxDxlPVqHnoYn-GNjj5hD=s1360-w1360-h1020-rw'
     }
   ],
   features: [
@@ -862,9 +865,9 @@ const bijwasanHotel = {
   description: 'Experience unparalleled luxury at Tivoli Bijwasan, where timeless elegance meets modern sophistication. Nestled in the heart of Delhi, this architectural masterpiece offers a perfect blend of traditional Indian hospitality and contemporary comfort.',
   images: [
     'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//bijwasan-hp-thumbnail.jpg',
-    'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80',
-    'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80'
+    'https://lh3.googleusercontent.com/p/AF1QipP1r_igTNb3Z6DIMer5Pmg9RkzIK4NPZZGN-jg=s1360-w1360-h1020-rw',
+    'https://lh3.googleusercontent.com/p/AF1QipOg3JBaIJNBTDx3_QykesTahu1CGHUOE3zqG54=s1360-w1360-h1020-rw',
+    'https://lh3.googleusercontent.com/p/AF1QipNaFd5bEQT8Xr2-6sFg5XUmayKsn85dDrEvebI=s1360-w1360-h1020-rw'
   ],
   rating: 5,
   address: {
@@ -887,7 +890,7 @@ const bijwasanHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -1021,7 +1024,7 @@ const royalCourtOkhlaHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'parking',
@@ -1101,10 +1104,10 @@ const omniaDwarkaHotel = {
   slug: 'omnia-dwarka-expressway',
   description: 'Experience contemporary luxury at Omnia by Tivoli-Dwarka Expressway, where modern sophistication meets urban comfort. Located in the prestigious Dwarka Expressway area, this modern masterpiece offers an unparalleled blend of urban elegance and refined hospitality.',
   images: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniatiwolidwarka//dwarkahome1.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniatiwolidwarka//dwarkahome2.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniatiwolidwarka//dwarkahome3.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniatiwolidwarka//dwarkahome4.jpg'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome1.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome2.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome3.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome4.jpg'
   ],
   rating: 5,
   address: {
@@ -1127,7 +1130,7 @@ const omniaDwarkaHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -1261,7 +1264,7 @@ const omniaGreaterNoidaHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -1396,7 +1399,7 @@ const upperHseSultanpurHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -1531,7 +1534,7 @@ const omniaNoidaHotel = {
       id: 'wifi',
       name: 'High-Speed WiFi',
       description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Wifi'
+      icon: 'Signal'
     },
     {
       id: 'pool',
@@ -1631,3 +1634,6 @@ const omniaNoidaHotel = {
 };
 
 hotels.push(omniaNoidaHotel);
+
+// Ensure hotels array is exported as default for compatibility
+export default hotels;

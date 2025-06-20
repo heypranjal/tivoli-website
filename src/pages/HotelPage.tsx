@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Wifi, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout } from 'lucide-react';
+import { MapPin, Phone, Mail, Share2, Heart, Signal, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { hotels } from '@/data/hotels';
-import HotelBookingWidget from '@/components/HotelBookingWidget';
 import VenueBookingForm from '@/components/VenueBookingForm';
 
 const amenityIcons = {
-  Wifi,
+  Signal,
   Pool: School,
   Dumbbell,
   Utensils,
@@ -17,24 +16,13 @@ const amenityIcons = {
   Coffee
 };
 
-const villaAmenities = [
-  { id: 'bbq', name: 'BBQ', icon: Flame, cost: '₹650' },
-  { id: 'lawn', name: 'Lawn', icon: Sprout },
-  { id: 'pool', name: 'Swimming Pool', icon: School },
-  { id: 'wifi', name: 'Wi-Fi', icon: Wifi },
-  { id: 'ac', name: 'AC', icon: Wind },
-  { id: 'music', name: 'Music System/Speaker', icon: Music },
-  { id: 'tv', name: 'TV', icon: Tv },
-  { id: 'wheelchair', name: 'Wheelchair Friendly', icon: Wheelchair }
-];
 
 export default function HotelPage() {
   const { location, brand, hotelSlug } = useParams();
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [showAllImages, setShowAllImages] = useState(false);
   const [isWishlist, setIsWishlist] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
+  const [showAllImages, setShowAllImages] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (direction: 'left' | 'right') => {
@@ -75,17 +63,6 @@ export default function HotelPage() {
     return <Navigate to={`/${hotel.brand}/${hotel.slug}`} />;
   }
 
-  const nextImage = () => {
-    setActiveImageIndex((prev) => 
-      prev === hotel.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevImage = () => {
-    setActiveImageIndex((prev) => 
-      prev === 0 ? hotel.images.length - 1 : prev + 1
-    );
-  };
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -147,64 +124,71 @@ export default function HotelPage() {
             </button>
           </div>
 
-          <div>
-            <h3 className="font-serif text-xl text-neutral-800 mb-2">Key Amenities</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-              {hotel.amenities.slice(0, 8).map((amenity) => {
-                const IconComponent = amenityIcons[amenity.icon as keyof typeof amenityIcons];
-                return (
-                  <div key={amenity.id} className="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-                    <div className="w-8 h-8 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                      <IconComponent className="w-4 h-4 text-[#CD9F59]" />
+          {/* Only show Key Amenities for non-Bijwasan hotels */}
+          {hotel.slug !== 'tivoli-bijwasan' && (
+            <div>
+              <h3 className="font-serif text-xl text-neutral-800 mb-2">Key Amenities</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                {hotel.amenities.slice(0, 8).map((amenity) => {
+                  const IconComponent = amenityIcons[amenity.icon as keyof typeof amenityIcons];
+                  return (
+                    <div key={amenity.id} className="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                      <div className="w-8 h-8 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
+                        <IconComponent className="w-4 h-4 text-[#CD9F59]" />
+                      </div>
+                      <span className="text-neutral-600 text-xs">{amenity.name}</span>
                     </div>
-                    <span className="text-neutral-600 text-xs">{amenity.name}</span>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Highlights Section */}
-          <div className="mt-4">
-            <h3 className="font-serif text-xl text-neutral-800 mb-4">Hotel Highlights</h3>
-            <div className="bg-neutral-50 rounded-lg p-6">
-              <p className="text-neutral-600 leading-relaxed">
-                Escape the city's chaos and discover The Tivoli, a luxurious wedding destination in New Delhi. 
-                With sprawling lawns, a semi-indoor pool, and versatile indoor spaces, it's the perfect venue 
-                for unforgettable weddings, stylish soirées, and grand celebrations under the stars in a serene, 
-                elegant setting.
-              </p>
-            </div>
-          </div>
-
-          {/* 360° Virtual Tour Section */}
-          <section className="py-6 md:py-12 bg-white">
-            <div className="container mx-auto">
-              <div className="text-center mb-8">
-                <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
-                  360° Virtual Tour
-                </span>
-                <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
-                  Experience Our Space
-                </h2>
-                <p className="text-neutral-600 max-w-2xl mx-auto">
-                  Take an immersive virtual tour of our magnificent property and discover every stunning detail
+          {/* Only show Hotel Highlights for non-Bijwasan hotels */}
+          {hotel.slug !== 'tivoli-bijwasan' && (
+            <div className="mt-4">
+              <h3 className="font-serif text-xl text-neutral-800 mb-4">Hotel Highlights</h3>
+              <div className="bg-neutral-50 rounded-lg p-6">
+                <p className="text-neutral-600 leading-relaxed">
+                  Escape the city's chaos and discover The Tivoli, a luxurious wedding destination in New Delhi. 
+                  With sprawling lawns, a semi-indoor pool, and versatile indoor spaces, it's the perfect venue 
+                  for unforgettable weddings, stylish soirées, and grand celebrations under the stars in a serene, 
+                  elegant setting.
                 </p>
               </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg">
-                <div className="w-full h-[200px] md:h-[400px] lg:h-[600px]">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://my.matterport.com/show/?m=wvqVHKk6FBr"
-                    frameBorder="0"
-                    allow="fullscreen; autoplay; vr"
-                    allowFullScreen
-                  ></iframe>
+            </div>
+          )}
+
+          {/* Only show 360° Virtual Tour for non-Bijwasan hotels */}
+          {hotel.slug !== 'tivoli-bijwasan' && (
+            <section className="py-6 md:py-12 bg-white">
+              <div className="container mx-auto">
+                <div className="text-center mb-8">
+                  <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                    360° Virtual Tour
+                  </span>
+                  <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
+                    Experience Our Space
+                  </h2>
+                  <p className="text-neutral-600 max-w-2xl mx-auto">
+                    Take an immersive virtual tour of our magnificent property and discover every stunning detail
+                  </p>
+                </div>
+                <div className="relative overflow-hidden rounded-xl shadow-lg">
+                  <div className="w-full h-[200px] md:h-[400px] lg:h-[600px]">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://my.matterport.com/show/?m=wvqVHKk6FBr"
+                      frameBorder="0"
+                      allow="fullscreen; autoplay; vr"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Luxury Experiences Section */}
           <section className="py-6 md:py-12 bg-white">
@@ -321,7 +305,377 @@ export default function HotelPage() {
             </div>
           </section>
 
-          {/* Spaces Section */}
+          {/* Tivoli Bijwasan Specific Content */}
+          {hotel.slug === 'tivoli-bijwasan' && (
+            <>
+              {/* Hero Introduction Section */}
+              <section className="py-6 md:py-12 bg-neutral-50">
+                <div className="container mx-auto px-4">
+                  <div className="text-center mb-12">
+                    <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                      Premier Destination
+                    </span>
+                    <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                      Delhi's Premier Banquet & Event Destination
+                    </h2>
+                    <p className="text-neutral-600 max-w-4xl mx-auto text-lg leading-relaxed">
+                      Experience timeless celebrations at Tivoli Bijwasan, nestled in the heart of New Delhi. 
+                      Spread across 3 acres of lush greenery, our magnificent venue features two grand banquet halls – 
+                      The Marquee Glass House and The Pavilion – perfect for hosting weddings, corporate gatherings, 
+                      and celebrations of every scale.
+                    </p>
+                  </div>
+
+                  {/* Key Statistics */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+                      <div className="text-2xl font-serif text-[#CD9F59] mb-2">3 Acres</div>
+                      <p className="text-neutral-600 text-sm">Lush Greenery</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+                      <div className="text-2xl font-serif text-[#CD9F59] mb-2">41,760</div>
+                      <p className="text-neutral-600 text-sm">Total Sq Ft</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+                      <div className="text-2xl font-serif text-[#CD9F59] mb-2">300-1000</div>
+                      <p className="text-neutral-600 text-sm">Guest Capacity</p>
+                    </div>
+                    <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+                      <div className="text-2xl font-serif text-[#CD9F59] mb-2">500</div>
+                      <p className="text-neutral-600 text-sm">Parking Spaces</p>
+                    </div>
+                  </div>
+
+                  {/* Address & Parking */}
+                  <div className="bg-white rounded-xl p-8 shadow-lg">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div>
+                        <h3 className="font-serif text-xl text-neutral-800 mb-4">Location</h3>
+                        <p className="text-neutral-600 leading-relaxed">
+                          74b, Bijwasan Rd, opposite Petrol Pump, KapasHera Extension, New Delhi, Delhi, 110061
+                        </p>
+                      </div>
+                      <div>
+                        <h3 className="font-serif text-xl text-neutral-800 mb-4">Parking</h3>
+                        <p className="text-neutral-600 leading-relaxed">
+                          Spacious 3-acre dedicated parking area that can accommodate up to 500 vehicles
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Venue Details Section */}
+              <section className="py-6 md:py-12 bg-white">
+                <div className="container mx-auto px-4">
+                  <div className="text-center mb-12">
+                    <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                      Magnificent Spaces
+                    </span>
+                    <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                      Our Venue Offerings
+                    </h2>
+                    <p className="text-neutral-600 max-w-2xl mx-auto">
+                      Two spectacular banquet halls, beautiful gardens, and luxurious amenities for unforgettable celebrations
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    {/* Marquee Glass House */}
+                    <div className="bg-neutral-50 rounded-xl p-8">
+                      <h3 className="font-serif text-2xl text-neutral-800 mb-4">The Marquee Glass House</h3>
+                      <div className="space-y-3">
+                        <div className="flex justify-between">
+                          <span className="text-neutral-600">Space:</span>
+                          <span className="font-medium text-neutral-800">20,800 sqft</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-neutral-600">Style:</span>
+                          <span className="font-medium text-neutral-800">Covered Banquet Space</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-neutral-600">Features:</span>
+                          <span className="font-medium text-neutral-800">Glass Architecture</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* The Pavilion */}
+                    <div className="bg-neutral-50 rounded-xl p-8">
+                      <h3 className="font-serif text-2xl text-neutral-800 mb-4">The Pavilion</h3>
+                      <div className="space-y-3">
+                        <div className="flex justify-between">
+                          <span className="text-neutral-600">Space:</span>
+                          <span className="font-medium text-neutral-800">20,960 sqft</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-neutral-600">Style:</span>
+                          <span className="font-medium text-neutral-800">Covered Banquet Space</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-neutral-600">Features:</span>
+                          <span className="font-medium text-neutral-800">Elegant Design</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Additional Amenities */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="bg-[#CD9F59]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span className="text-[#CD9F59] text-2xl font-serif">🏊</span>
+                      </div>
+                      <h4 className="font-serif text-lg text-neutral-800 mb-2">Poolside Venue</h4>
+                      <p className="text-neutral-600 text-sm">Beautiful poolside settings for intimate celebrations</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-[#CD9F59]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span className="text-[#CD9F59] text-2xl font-serif">🌿</span>
+                      </div>
+                      <h4 className="font-serif text-lg text-neutral-800 mb-2">Lush Gardens</h4>
+                      <p className="text-neutral-600 text-sm">Two beautiful garden areas for outdoor events</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-[#CD9F59]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span className="text-[#CD9F59] text-2xl font-serif">🏨</span>
+                      </div>
+                      <h4 className="font-serif text-lg text-neutral-800 mb-2">Accommodation</h4>
+                      <p className="text-neutral-600 text-sm">15 luxurious rooms for your guests</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Wedding Section */}
+              <section className="py-6 md:py-12 bg-neutral-50">
+                <div className="container mx-auto px-4">
+                  <div className="text-center mb-12">
+                    <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                      Dream Celebrations
+                    </span>
+                    <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                      Your Perfect Wedding Destination
+                    </h2>
+                    <p className="text-neutral-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                      Experience the epitome of elegance at Tivoli Bijwasan, where every wedding is transformed 
+                      into a magnificent celebration. Nestled in New Delhi, our stunning venue spans across 3 acres 
+                      of beautiful greenery, providing a breathtaking backdrop for your special day.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                    <div>
+                      <h3 className="font-serif text-2xl text-neutral-800 mb-6">Multiple Stunning Venues</h3>
+                      <div className="space-y-4">
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-[#CD9F59] rounded-full mt-2"></div>
+                          <div>
+                            <h4 className="font-medium text-neutral-800">The Magnificent Marquee Glass House</h4>
+                            <p className="text-neutral-600 text-sm">(20,800 sqft)</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-[#CD9F59] rounded-full mt-2"></div>
+                          <div>
+                            <h4 className="font-medium text-neutral-800">The Elegant Pavilion</h4>
+                            <p className="text-neutral-600 text-sm">(20,960 sqft)</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-[#CD9F59] rounded-full mt-2"></div>
+                          <div>
+                            <h4 className="font-medium text-neutral-800">Two Beautiful Garden Settings</h4>
+                            <p className="text-neutral-600 text-sm">Manicured outdoor spaces</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-[#CD9F59] rounded-full mt-2"></div>
+                          <div>
+                            <h4 className="font-medium text-neutral-800">A Romantic Poolside Venue</h4>
+                            <p className="text-neutral-600 text-sm">Intimate water-side celebrations</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-[#CD9F59] rounded-full mt-2"></div>
+                          <div>
+                            <h4 className="font-medium text-neutral-800">Two Sophisticated Banquet Halls</h4>
+                            <p className="text-neutral-600 text-sm">Indoor elegance and comfort</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white rounded-xl p-8 shadow-lg">
+                      <h3 className="font-serif text-2xl text-neutral-800 mb-6">Luxury Amenities</h3>
+                      <div className="space-y-4">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-4 bg-[#CD9F59] rounded-full"></div>
+                          <span className="text-neutral-600">15 luxurious guest rooms</span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-4 bg-[#CD9F59] rounded-full"></div>
+                          <span className="text-neutral-600">Parking for up to 500 vehicles</span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-4 bg-[#CD9F59] rounded-full"></div>
+                          <span className="text-neutral-600">Personalized planning services</span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-4 bg-[#CD9F59] rounded-full"></div>
+                          <span className="text-neutral-600">Bespoke floral arrangements</span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-4 bg-[#CD9F59] rounded-full"></div>
+                          <span className="text-neutral-600">Gourmet catering by Global Spice Company</span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-4 bg-[#CD9F59] rounded-full"></div>
+                          <span className="text-neutral-600">Dedicated event coordination team</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-lg">
+                    <p className="text-neutral-600 text-lg leading-relaxed text-center">
+                      "Celebrate against the backdrop of our manicured gardens and elegant interiors, where each moment 
+                      is crafted to perfection. At The Tivoli, we promise an unforgettable experience filled with luxury 
+                      and grace, making your wedding a cherished memory for years to come."
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Social Gatherings Section */}
+              <section className="py-6 md:py-12 bg-white">
+                <div className="container mx-auto px-4">
+                  <div className="text-center mb-12">
+                    <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                      Versatile Celebrations
+                    </span>
+                    <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-6">
+                      Social Gatherings & Events
+                    </h2>
+                    <p className="text-neutral-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                      Tivoli Bijwasan in New Delhi stands as a premier destination for social gatherings that create 
+                      timeless memories. Our stunning Glass House and Pavilion venues, set amidst 3 acres of verdant 
+                      landscape, offer versatile spaces that adapt seamlessly to events of every scale.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div className="text-center">
+                      <div className="bg-neutral-50 rounded-xl p-8 h-full">
+                        <div className="text-4xl mb-4">🏛️</div>
+                        <h3 className="font-serif text-xl text-neutral-800 mb-4">Versatile Event Spaces</h3>
+                        <p className="text-neutral-600 text-sm leading-relaxed">
+                          Multiple setting options including the magnificent Marquee Glass House, elegant Pavilion, 
+                          refreshing poolside area, and beautiful garden spaces.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="bg-neutral-50 rounded-xl p-8 h-full">
+                        <div className="text-4xl mb-4">👥</div>
+                        <h3 className="font-serif text-xl text-neutral-800 mb-4">Flexible Capacity</h3>
+                        <p className="text-neutral-600 text-sm leading-relaxed">
+                          Over 41,000 square feet of combined space accommodating celebrations from intimate 
+                          family gatherings of 300 to grand festivities of 1,000 guests.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="bg-neutral-50 rounded-xl p-8 h-full">
+                        <div className="text-4xl mb-4">✨</div>
+                        <h3 className="font-serif text-xl text-neutral-800 mb-4">Luxurious Amenities</h3>
+                        <p className="text-neutral-600 text-sm leading-relaxed">
+                          15 well-appointed rooms, expansive parking for 500 vehicles, fully air-conditioned 
+                          indoor venues, and natural outdoor beauty.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-neutral-50 rounded-xl p-8">
+                    <h3 className="font-serif text-2xl text-neutral-800 mb-6 text-center">Perfect For</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div className="text-center">
+                        <div className="text-2xl mb-2">💒</div>
+                        <p className="text-neutral-600 font-medium">Wedding Receptions</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl mb-2">🎉</div>
+                        <p className="text-neutral-600 font-medium">Anniversary Celebrations</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl mb-2">🏢</div>
+                        <p className="text-neutral-600 font-medium">Corporate Events</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl mb-2">🎊</div>
+                        <p className="text-neutral-600 font-medium">Special Occasions</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Map Section */}
+              <section className="py-6 md:py-12 bg-neutral-50">
+                <div className="container mx-auto px-4">
+                  <div className="text-center mb-8">
+                    <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                      Visit Us
+                    </span>
+                    <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
+                      Location & Directions
+                    </h2>
+                    <p className="text-neutral-600 max-w-2xl mx-auto">
+                      Conveniently located in the heart of New Delhi with easy access and ample parking
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14021.084941283174!2d77.063992!3d28.531566!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ba69dddc3e1%3A0x11c796eefc4bc045!2sTivoli%20Bijwasan!5e0!3m2!1sen!2sus!4v1750360975269!5m2!1sen!2sus" 
+                      width="100%" 
+                      height="450" 
+                      style={{border:0}} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="w-full"
+                    ></iframe>
+                  </div>
+                </div>
+              </section>
+
+              {/* Lead Capture Form Section */}
+              <section className="py-6 md:py-12 bg-white">
+                <div className="container mx-auto px-4">
+                  <div className="text-center mb-8">
+                    <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
+                      Plan Your Event
+                    </span>
+                    <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
+                      Book Your Celebration
+                    </h2>
+                    <p className="text-neutral-600 max-w-2xl mx-auto">
+                      Let us help you create an unforgettable experience at Delhi's premier luxury venue
+                    </p>
+                  </div>
+                  <VenueBookingForm />
+                </div>
+              </section>
+            </>
+          )}
+
+          {/* Only show Spaces Section for non-Bijwasan hotels */}
+          {hotel.slug !== 'tivoli-bijwasan' && (
           <div className="mt-8">
             <h3 className="font-serif text-xl text-neutral-800 mb-4">Spaces</h3>
             <div className="relative group">
@@ -441,8 +795,10 @@ export default function HotelPage() {
               </button>
             </div>
           </div>
+          )}
 
-          {/* Main Content */}
+          {/* Only show Main Content sections for non-Bijwasan hotels */}
+          {hotel.slug !== 'tivoli-bijwasan' && (
           <div className="container mx-auto py-6 md:py-12">
             {/* Dining */}
             <div className="mb-20">
@@ -609,6 +965,7 @@ export default function HotelPage() {
               </div>
             </div>
           </div>
+          )}
         </div>
       </div>
     </div>

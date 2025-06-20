@@ -9,7 +9,6 @@
  */
 
 import { Hotel } from '@/types/hotel'
-import { MapPin, Wifi, School as Pool, Dumbbell, Utensils, Car, Wine, Space as Spa, Coffee } from 'lucide-react'
 
 export const upperHseVenues: Hotel[] = [
   {
@@ -39,7 +38,7 @@ export const upperHseVenues: Hotel[] = [
       email: 'sultanpur@upperhsehotels.com'
     },
     amenities: [
-      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Wifi' },
+      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Signal' },
       { id: 'pool', name: 'Swimming Pool', description: 'Temperature-controlled rooftop pool', icon: 'Pool' },
       { id: 'fitness', name: 'Fitness Center', description: '24/7 state-of-the-art fitness center with personal training', icon: 'Dumbbell' },
       { id: 'dining', name: 'Urban Dining', description: 'Contemporary urban dining experiences', icon: 'Utensils' },

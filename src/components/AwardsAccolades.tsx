@@ -36,14 +36,6 @@ const awards = [
 ];
 
 export default function AwardsAccolades() {
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   return (
     <section className="py-6 md:py-12 bg-neutral-50 relative">
@@ -73,7 +65,6 @@ export default function AwardsAccolades() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
           {awards.map((award) => {
-            const IconComponent = award.icon;
             return (
               <div 
                 key={award.id} 

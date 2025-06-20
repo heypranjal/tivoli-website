@@ -5,13 +5,13 @@
  */
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Wifi, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock, ExternalLink, Play, Eye, Camera } from 'lucide-react';
+import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Signal, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock, ExternalLink, Play, Eye, Camera } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import VenueBookingForm from '@/components/VenueBookingForm';
 import { hotels } from '@/data/hotels';
 
 const amenityIcons = {
-  Wifi,
+  Wifi: Signal,
   Pool: School,
   Dumbbell,
   Utensils,

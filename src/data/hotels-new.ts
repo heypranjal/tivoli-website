@@ -55,7 +55,7 @@ const additionalTivoliVenues: Hotel[] = [
       email: 'heritage@tivolihotels.com'
     },
     amenities: [
-      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access', icon: 'Wifi' },
+      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access', icon: 'Signal' },
       { id: 'pool', name: 'Swimming Pool', description: 'Temperature-controlled outdoor pool', icon: 'Pool' },
       { id: 'fitness', name: 'Fitness Center', description: '24/7 fitness center with personal training', icon: 'Dumbbell' },
       { id: 'dining', name: 'Fine Dining', description: 'Multiple award-winning restaurants', icon: 'Utensils' },

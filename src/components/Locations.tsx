@@ -12,12 +12,12 @@ const locations = [
 ];
 
 // Function to get proper route for each venue
-const getVenueRoute = (venue: any): string => {
+const getVenueRoute = (venue: { id: string }): string => {
   // Map venue IDs to their correct routes based on App.tsx routing
   const venueRoutes: Record<string, string> = {
     'delhi-1': '/delhi/tivoli-grand-palace', // The Tivoli-New Delhi
     'delhi-2': '/delhi/upper-hse-sultanpur', // Upper HSE Sultanpur  
-    'delhi-3': '/delhi/bijwasan', // Tivoli Bijwasan
+    'delhi-3': '/delhi/tivoli-bijwasan', // Tivoli Bijwasan
     'delhi-4': '/delhi/royal-court-okhla', // Tivoli Royal Court-Okhla
     'delhi-5': '/rewari-haryana/tivoli-lake-palace', // Tivoli Heritage Palace-Rewari
     'noida-1': '/noida/tivoli-lotus-court', // Tivoli Lotus Court-Noida

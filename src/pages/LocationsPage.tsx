@@ -4,22 +4,6 @@ import { MapPin } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { hotels } from '@/data/hotels';
 
-// Group hotels by location and brand
-const groupedHotels = hotels.reduce((acc, hotel) => {
-  const location = hotel.location.toLowerCase();
-  const brand = hotel.brand.toLowerCase();
-  
-  if (!acc[location]) {
-    acc[location] = {};
-  }
-  
-  if (!acc[location][brand]) {
-    acc[location][brand] = [];
-  }
-  
-  acc[location][brand].push(hotel);
-  return acc;
-}, {} as Record<string, Record<string, typeof hotels>>);
 
 const brands = {
   tivoli: 'THE TIVOLI',
@@ -41,10 +25,8 @@ const locationsList = [
 
 export default function LocationsPage() {
   const { brand, location: locationParam } = useParams();
-  const locationPath = useLocation();
-  const [activeLocation, setActiveLocation] = useState(locationParam || 'delhi');
+  const [activeLocation, setActiveLocation] = useState(locationParam || 'all');
   const [activeBrand, setActiveBrand] = useState(brand || 'all');
-  const [currentPage, setCurrentPage] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const itemsPerPage = 3;
 
@@ -74,13 +56,6 @@ export default function LocationsPage() {
 
   const totalPages = Math.ceil(filteredHotels.length / itemsPerPage);
   
-  const handlePrevious = () => {
-    setCurrentPage(prev => Math.max(0, prev - 1));
-  };
-  
-  const handleNext = () => {
-    setCurrentPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
-  };
 
   return (
     <div className="min-h-screen bg-white">

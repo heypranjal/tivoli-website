@@ -10,14 +10,14 @@
  */
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Wifi, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Star, Users, Calendar, Share2, Heart, Signal, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronLeft, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { hotels } from '@/data/hotels';
 import VenueBookingForm from '@/components/VenueBookingForm';
 import HotelBookingWidget from '@/components/HotelBookingWidget';
 
 const amenityIcons = {
-  Wifi,
+  Wifi: Signal,
   Pool: School,
   Dumbbell,
   Utensils,
@@ -108,63 +108,7 @@ export default function TivoliBijwasanPage() {
               </button>
             </div>
 
-            <div>
-              <h3 className="font-serif text-xl text-neutral-800 mb-4">Key Amenities</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {hotel.amenities.slice(0, 8).map((amenity) => {
-                  const IconComponent = amenityIcons[amenity.icon as keyof typeof amenityIcons];
-                  return (
-                    <div key={amenity.id} className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                        <IconComponent className="w-4 h-4 text-[#CD9F59]" />
-                      </div>
-                      <span className="text-neutral-600 text-xs">{amenity.name}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
 
-            {/* Highlight Section */}
-            <div className="mt-8">
-              <h3 className="font-serif text-xl text-neutral-800 mb-4">Hotel Pranjal </h3>
-              <div className="bg-neutral-50 rounded-lg p-6">
-                <p className="text-neutral-600 leading-relaxed">
-                  Experience contemporary luxury at {hotel.name}, where modern sophistication meets urban comfort. 
-                  Our venue offers spectacular spaces for celebrations, meetings, and unforgettable stays in the 
-                  heart of Delhi's Bijwasan area.
-                </p>
-              </div>
-            </div>
-
-            {/* 360° Virtual Tour Section */}
-            {/* <section className="py-6 md:py-12 bg-white">
-              <div className="container mx-auto">
-                <div className="text-center mb-8">
-                  <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
-                    360° Virtual Tour
-                  </span>
-                  <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
-                    Experience Our Space
-                  </h2>
-                  <p className="text-neutral-600 max-w-2xl mx-auto">
-                    Take an immersive virtual tour of our magnificent property and discover every stunning detail
-                  </p>
-                </div>
-                <div className="relative overflow-hidden rounded-xl shadow-lg">
-                  <div className="w-full h-[200px] md:h-[400px] lg:h-[600px]">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src="https://my.matterport.com/show/?m=wvqVHKk6FBr"
-                      frameBorder="0"
-                      allow="fullscreen; autoplay; vr"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </section> */}
 
             {/* Luxury Experiences Section */}
             <section className="py-6 md:py-12">
@@ -290,97 +234,6 @@ export default function TivoliBijwasanPage() {
           </div>
         </div>
 
-        <hr className="border-b border-[#CD9F59]/20 my-12" />
-          
-        {/* Main Content */}
-        <div className="container mx-auto px-4 py-20">
-          {/* Dining */}
-          <div className="mb-20">
-            <h2 className="font-serif text-3xl text-neutral-800 mb-12 text-center">
-              Dining
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {hotel.dining.map((restaurant) => (
-                <div key={restaurant.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div className="relative h-64">
-                    <img
-                      src={restaurant.image}
-                      alt={restaurant.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-serif text-2xl text-neutral-800 mb-2">
-                      {restaurant.name}
-                    </h3>
-                    <p className="text-neutral-600 mb-4">
-                      {restaurant.description}
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-neutral-500">Cuisine:</span>
-                        <p className="font-medium">{restaurant.cuisine}</p>
-                      </div>
-                      <div>
-                        <span className="text-neutral-500">Hours:</span>
-                        <p className="font-medium">{restaurant.hours}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact & Location */}
-          <div>
-            <h2 className="font-serif text-3xl text-neutral-800 mb-12 text-center">
-              Contact & Location
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h3 className="font-serif text-2xl text-neutral-800 mb-6">
-                    Contact Information
-                  </h3>
-                  <div className="space-y-4">
-                    <a href={`tel:${hotel.contact.phone}`} className="flex items-center text-neutral-600 hover:text-[#CD9F59] transition-colors">
-                      <Phone className="w-5 h-5 mr-3" />
-                      <span>{hotel.contact.phone}</span>
-                    </a>
-                    <a href={`mailto:${hotel.contact.email}`} className="flex items-center text-neutral-600 hover:text-[#CD9F59] transition-colors">
-                      <Mail className="w-5 h-5 mr-3" />
-                      <span>{hotel.contact.email}</span>
-                    </a>
-                    <div className="flex items-start text-neutral-600">
-                      <MapPin className="w-5 h-5 mr-3 mt-1" />
-                      <div>
-                        <p>{hotel.address.street}</p>
-                        <p>{hotel.address.city}, {hotel.address.state} {hotel.address.postalCode}</p>
-                        <p>{hotel.address.country}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <h3 className="font-serif text-2xl text-neutral-800 mb-6">
-                  Location Details
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start text-neutral-600">
-                    <MapPin className="w-5 h-5 mr-3 mt-1" />
-                    <div>
-                      <p className="font-medium mb-2">Getting Here</p>
-                      <p>Located in {hotel.address.city}, our hotel is easily accessible from major transportation hubs.</p>
-                      <p className="mt-2">Coordinates: {hotel.address.coordinates.lat}, {hotel.address.coordinates.lng}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

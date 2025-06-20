@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building, Users, Wifi, MapPin } from 'lucide-react';
+import { Building, Users, MapPin } from 'lucide-react';
 
 interface HotelDetailsProps {
   totalRooms: number;

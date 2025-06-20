@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Hotel } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 const upcomingHotels = [
   {
@@ -32,14 +32,6 @@ const upcomingHotels = [
 ];
 
 export default function UpcomingHotels() {
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   return (
     <section className="py-6 md:py-12 relative">
