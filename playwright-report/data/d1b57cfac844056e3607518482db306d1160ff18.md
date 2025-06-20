@@ -1,0 +1,346 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - link "TIVOLI":
+    - /url: /
+  - link "Hotels":
+    - /url: /
+  - button "Brands":
+    - text: Brands
+    - img
+  - link "The Tivoli":
+    - /url: /brands/tivoli
+    - img
+    - text: The Tivoli
+  - link "Wedcation":
+    - /url: /brands/wedcation
+    - img
+    - text: Wedcation
+  - link "The Upper HSE":
+    - /url: /brands/upper-hse
+    - img
+    - text: The Upper HSE
+  - link "Omnia":
+    - /url: /brands/omnia
+    - img
+    - text: Omnia
+  - button "Locations":
+    - text: Locations
+    - img
+  - link "Delhi":
+    - /url: /locations/delhi
+    - img
+    - text: Delhi
+  - link "Noida":
+    - /url: /locations/noida
+    - img
+    - text: Noida
+  - link "Greater Noida":
+    - /url: /locations/greater-noida
+    - img
+    - text: Greater Noida
+  - link "Ambala":
+    - /url: /locations/ambala
+    - img
+    - text: Ambala
+  - link "Israna":
+    - /url: /locations/israna
+    - img
+    - text: Israna
+  - button "Offers"
+  - button "Loyalty"
+  - link "Weddings":
+    - /url: /weddings
+  - link "Our Story":
+    - /url: /our-story
+  - link "Sustainability":
+    - /url: /sustainability
+  - link "People":
+    - /url: /people
+- img "Luxury Hotel 1"
+- img "Luxury Hotel 2"
+- img "Luxury Hotel 3"
+- img "Luxury Hotel 4"
+- button:
+  - img
+- button:
+  - img
+- button
+- button
+- button
+- button
+- button "Book Your Stay"
+- button:
+  - img
+- heading "Book Your Stay" [level=2]
+- paragraph: Complete the form below to make your reservation
+- img
+- heading "Booking Request Submitted!" [level=3]
+- paragraph: Thank you for your interest in Tivoli Hotels. Our team will contact you within 24 hours to confirm your booking details.
+- heading "Booking Summary:" [level=4]
+- paragraph:
+  - strong: "Venue:"
+  - text: Omnia by Tivoli-Dwarka Expressway - New Delhi
+- paragraph:
+  - strong: "Event:"
+  - text: Wedding
+- paragraph:
+  - strong: "Date:"
+  - text: 7/15/2024
+- paragraph:
+  - strong: "Guests:"
+  - text: 50 people
+- paragraph:
+  - strong: "Contact:"
+  - text: test@example.com
+- button "Submit Another Booking"
+- main:
+  - heading "Our Hotels" [level=2]
+  - paragraph: Discover our collection of extraordinary destinations, where every moment becomes a cherished memory
+  - button "THE TIVOLI"
+  - button "WEDCATION"
+  - button "THE UPPER HSE"
+  - button "OMNIA"
+  - paragraph: Timeless Luxury & Sophistication
+  - link "The Tivoli Explore The Tivoli Delhi":
+    - /url: /delhi/tivoli-grand-palace
+    - img "The Tivoli"
+    - text: Explore
+    - heading "The Tivoli" [level=3]
+    - paragraph:
+      - img
+      - text: Delhi
+  - link "Tivoli Royal Palace Explore Tivoli Royal Palace Palwal-Haryana":
+    - /url: /palwal-haryana/tivoli-royal-palace
+    - img "Tivoli Royal Palace"
+    - text: Explore
+    - heading "Tivoli Royal Palace" [level=3]
+    - paragraph:
+      - img
+      - text: Palwal-Haryana
+  - link "Tivoli Heritage Palalce Explore Tivoli Heritage Palalce Rewari-Haryana":
+    - /url: /rewari-haryana/tivoli-heritage-palace
+    - img "Tivoli Heritage Palalce"
+    - text: Explore
+    - heading "Tivoli Heritage Palalce" [level=3]
+    - paragraph:
+      - img
+      - text: Rewari-Haryana
+  - button "Previous venues":
+    - img
+  - button "Next venues":
+    - img
+  - button "Go to page 1"
+  - button "Go to page 2"
+  - img "Luxury Hotel Interior"
+  - text: The Tivoli Experience
+  - heading "A Legacy of Luxury & Timeless Elegance" [level=2]
+  - paragraph: Since our founding in 1988, Tivoli Hotels & Resorts has set the standard for luxury hospitality. What began as a single property has blossomed into a collection of extraordinary destinations, each embodying our commitment to unparalleled service and timeless elegance.
+  - paragraph: Our philosophy is rooted in the art of gracious hospitality, where every detail is crafted to create memorable experiences. From the architectural grandeur of our properties to the personalized attention we provide each guest, we strive to exceed expectations at every turn.
+  - paragraph: Today, the Tivoli brand stands as a symbol of luxury across the globe, with properties in the world's most coveted destinations. Each hotel and resort in our collection tells its own unique story while maintaining the exceptional standards that define the Tivoli experience.
+  - text: Discover Our Properties
+  - heading "Our Locations" [level=2]
+  - paragraph: Experience luxury across India's most prestigious destinations
+  - button "Delhi"
+  - button "Noida"
+  - button "Greater Noida"
+  - button "Ambala"
+  - button "Israna"
+  - link "The Tivoli-New Delhi View Details The Tivoli-New Delhi Delhi tivoli":
+    - /url: /delhi/tivoli-grand-palace
+    - img "The Tivoli-New Delhi"
+    - text: View Details
+    - heading "The Tivoli-New Delhi" [level=3]
+    - paragraph:
+      - img
+      - text: Delhi
+    - text: tivoli
+  - link "The Upper HSE by Tivoli-Sultanpur View Details The Upper HSE by Tivoli-Sultanpur Delhi tivoli":
+    - /url: /delhi/upper-hse-sultanpur
+    - img "The Upper HSE by Tivoli-Sultanpur"
+    - text: View Details
+    - heading "The Upper HSE by Tivoli-Sultanpur" [level=3]
+    - paragraph:
+      - img
+      - text: Delhi
+    - text: tivoli
+  - link "Tivoli Bijwasan View Details Tivoli Bijwasan Delhi tivoli":
+    - /url: /delhi/tivoli-bijwasan
+    - img "Tivoli Bijwasan"
+    - text: View Details
+    - heading "Tivoli Bijwasan" [level=3]
+    - paragraph:
+      - img
+      - text: Delhi
+    - text: tivoli
+  - button "Previous venues":
+    - img
+  - button "Next venues":
+    - img
+  - button "Go to page 1"
+  - button "Go to page 2"
+  - text: Curated for You
+  - heading "Unforgettable Experiences. Unmatched Curations." [level=2]
+  - paragraph: Discover our collection of bespoke experiences designed to create lasting memories
+  - img "Weddings & Celebrations"
+  - img
+  - paragraph: Extravagant ceremonies, custom catering, private ballrooms, and impeccable wedding coordination.
+  - button "Discover More"
+  - heading "Weddings & Celebrations" [level=3]
+  - img "Corporate Events"
+  - img
+  - paragraph: Corporate Events personalised boardroom, Cutting edge Technology, impeccable hospitality elevates business gatherings.
+  - button "Discover More"
+  - heading "Corporate Events" [level=3]
+  - img "Fine Dining"
+  - img
+  - paragraph: Fine Dining Masterful chefs craft regional delicacies with international flair, royal service ensured.
+  - button "Discover More"
+  - heading "Fine Dining" [level=3]
+  - img "Luxurious Stays"
+  - img
+  - paragraph: Luxurious Stays Silk-adorned suites, personal butlers, and heritage-inspired décor create unforgettable memories.
+  - button "Discover More"
+  - heading "Luxurious Stays" [level=3]
+  - img "Cocktail Parties"
+  - img
+  - paragraph: Cocktail Parties Artisanal mixologists blend rare spirits with Indian spices, creating magical evenings.
+  - button "Discover More"
+  - heading "Cocktail Parties" [level=3]
+  - img "Wellness & Spa"
+  - img
+  - paragraph: Wellness & Spa Ancient Ayurvedic rituals blend with modern therapies, rejuvenating body and soul.
+  - button "Discover More"
+  - heading "Wellness & Spa" [level=3]
+  - text: Recognition of Excellence
+  - heading "Awards & Accolades" [level=2]
+  - paragraph: Our commitment to excellence has been recognized by the most prestigious institutions in hospitality
+  - img "World Luxury Hotel Awards"
+  - heading "World Luxury Hotel Awards" [level=3]
+  - text: "2023"
+  - paragraph: Best Luxury Hotel Brand
+  - paragraph: Recognized for exceptional luxury hospitality across our global portfolio
+  - img "Forbes Travel Guide"
+  - heading "Forbes Travel Guide" [level=3]
+  - text: "2023"
+  - paragraph: Five-Star Rating
+  - paragraph: Awarded to multiple Tivoli properties for outstanding service excellence
+  - img "Condé Nast Traveler"
+  - heading "Condé Nast Traveler" [level=3]
+  - text: "2023"
+  - paragraph: Readers' Choice Awards
+  - paragraph: Voted among the top 50 hotel brands worldwide
+  - img "Travel + Leisure"
+  - heading "Travel + Leisure" [level=3]
+  - text: "2023"
+  - paragraph: World's Best Awards
+  - paragraph: Recognized for exceptional guest experiences and service standards
+  - text: In the News
+  - heading "Latest Press Coverage" [level=2]
+  - paragraph: Discover the latest news and updates from Tivoli Hotels & Resorts
+  - img "Tivoli Hotels Announces Expansion into Southeast Asia"
+  - text: Hospitality Today March 15, 2024
+  - heading "Tivoli Hotels Announces Expansion into Southeast Asia" [level=3]
+  - paragraph: Luxury hotel chain Tivoli Hotels & Resorts reveals ambitious expansion plans across major Southeast Asian destinations.
+  - link "Read Full Article":
+    - /url: "#"
+    - text: Read Full Article
+    - img
+  - 'img "Sustainable Luxury: Tivoli''s Green Initiative"'
+  - text: Forbes February 28, 2024
+  - 'heading "Sustainable Luxury: Tivoli''s Green Initiative" [level=3]'
+  - paragraph: Leading the way in sustainable luxury hospitality, Tivoli Hotels implements groundbreaking environmental practices.
+  - link "Read Full Article":
+    - /url: "#"
+    - text: Read Full Article
+    - img
+  - img "The Future of Luxury Hospitality"
+  - text: Bloomberg January 20, 2024
+  - heading "The Future of Luxury Hospitality" [level=3]
+  - paragraph: Interview with Tivoli's CEO on the evolving landscape of luxury hospitality and future industry trends.
+  - link "Read Full Article":
+    - /url: "#"
+    - text: Read Full Article
+    - img
+  - button "View All Press Releases"
+  - text: Coming Soon
+  - heading "New & Upcoming Hotels" [level=2]
+  - paragraph: Experience the next chapter of luxury as we expand our presence across India
+  - img "Wedcation by Tivoli-Aligarh"
+  - text: Opening Q4 2024
+  - paragraph: A modern architectural marvel featuring contemporary design and traditional Indian elements.
+  - heading "Wedcation by Tivoli-Aligarh" [level=3]
+  - paragraph:
+    - img
+    - text: Aligarh
+  - text: tivoli
+  - img "Wedcation by Tivoli-Karnal"
+  - text: Opening Q1 2025
+  - paragraph: Urban luxury redefined with panoramic city views and state-of-the-art amenities.
+  - heading "Wedcation by Tivoli-Karnal" [level=3]
+  - paragraph:
+    - img
+    - text: Greater Noida
+  - text: tivoli
+  - img "Wedcation by Tivoli-Jim Corbett"
+  - text: Opening Q2 2025
+  - paragraph: A harmonious blend of nature and luxury in the heart of the city beautiful.
+  - heading "Wedcation by Tivoli-Jim Corbett" [level=3]
+  - paragraph:
+    - img
+    - text: Chandigarh
+  - text: omnia
+- contentinfo:
+  - heading "Head Office" [level=4]
+  - img
+  - paragraph: Tivoli Hospitality Group
+  - paragraph: 1-Chhatrpur, New Delhi-110074, India
+  - link "amit.sood@thetivolihotels.com":
+    - /url: mailto:amit.sood@thetivolihotels.com
+    - img
+    - text: amit.sood@thetivolihotels.com
+  - link "01147479999":
+    - /url: tel:01147479999
+    - img
+    - text: "01147479999"
+  - heading "Tivoli Net" [level=4]
+  - paragraph: Regional Sales & Reservations
+  - paragraph: The Tivoli
+  - paragraph: Omnia
+  - paragraph: The Upper HSE
+  - paragraph: Wedcation
+  - link "View All Regional Offices":
+    - /url: /tivolinet
+    - img
+    - text: View All Regional Offices
+  - 'link "Central Reservations: 01147479999"':
+    - /url: tel:01147479999
+    - img
+    - text: "Central Reservations: 01147479999"
+  - heading "Hotel Locations" [level=4]
+  - list:
+    - listitem:
+      - img
+      - paragraph: Delhi
+      - paragraph: The Tivoli-New Delhi, Tivoli Royal Court-Okhla
+    - listitem:
+      - img
+      - paragraph: Noida
+      - paragraph: Tivoli Lotus Court, Omnia by Tivoli-Noida
+    - listitem:
+      - img
+      - paragraph: Ambala
+      - paragraph: Wedcation by Tivoli-Ambala
+  - heading "Find Us" [level=4]
+  - iframe
+  - paragraph: © 2025 Tivoli Hotels & Resorts. All rights reserved.
+  - link "Privacy Policy":
+    - /url: https://docs.google.com/document/d/1u-V_fFaQ38qcNdsPJHTkgSfqM5ZNQr8IO0cRCJdkQZ8/edit?usp=sharing
+  - link "Terms of Service":
+    - /url: https://docs.google.com/document/d/1ZhGmgPL8-UrSvSTQdR8RMRV3XYZvSFCyYXpghNfKop0/edit?usp=sharing
+  - link "Digital QR":
+    - /url: /digital-qr
+  - link "Cookie Policy":
+    - /url: "#"
+```
