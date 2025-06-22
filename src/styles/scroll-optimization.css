@@ -1,0 +1,156 @@
+/**
+ * Scroll Performance Optimization Styles
+ * Reduces jitter and improves 60fps scrolling experience
+ */
+
+/* Global scroll optimization */
+html {
+  scroll-behavior: smooth;
+  /* Improve scroll performance on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  /* Reduce paint on scroll */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize scrolling containers */
+.scroll-optimized {
+  /* GPU acceleration for smooth scrolling */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* Reduce repaints during scroll */
+  will-change: transform;
+}
+
+/* Optimize image containers to prevent layout shifts */
+.image-container {
+  /* Prevent layout shifts */
+  contain: layout style paint;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize animated elements during scroll */
+.scroll-animation {
+  /* Only animate transform and opacity for better performance */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Reduce animations during scroll for performance */
+@media (prefers-reduced-motion: no-preference) {
+  .transition-on-scroll {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+}
+
+/* Disable animations during fast scroll for performance */
+.scroll-performance-mode * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Optimize skeleton animations */
+.skeleton-shimmer {
+  /* Use transform instead of background-position for better performance */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Optimize intersection observer targets */
+.lazy-load-target {
+  /* Improve intersection observer performance */
+  contain: layout;
+}
+
+/* Optimize grid layouts for scroll performance */
+.grid-optimized {
+  /* Use CSS Grid with proper containment */
+  contain: layout style;
+  /* GPU acceleration */
+  transform: translateZ(0);
+}
+
+/* Optimize text rendering during scroll */
+.text-optimized {
+  /* Improve text rendering performance */
+  text-rendering: optimizeSpeed;
+  /* Prevent font loading from affecting layout */
+  font-display: swap;
+}
+
+/* Reduce complexity during scroll */
+.scroll-simplified {
+  /* Simplify rendering during scroll */
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Critical rendering path optimization */
+.above-fold {
+  /* Prioritize above-the-fold content */
+  contain: none;
+  will-change: auto;
+}
+
+.below-fold {
+  /* Optimize below-the-fold content */
+  contain: layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 300px;
+}
+
+/* Optimize sticky elements */
+.sticky-optimized {
+  position: sticky;
+  /* Reduce repaints for sticky elements */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Media query for low-performance devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize for mobile devices */
+@media (max-width: 768px) {
+  .mobile-scroll-optimized {
+    /* Reduce complexity on mobile */
+    transform: none;
+    will-change: auto;
+  }
+  
+  /* Simplify hover effects on mobile */
+  .hover-desktop-only:hover {
+    transform: none !important;
+  }
+}

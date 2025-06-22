@@ -1,9 +1,10 @@
 /**
  * Image Migration Script
- * Phase 3: Image Migration
- * Created: 2025-06-20
+ * Phase 5: Database Migration & Data Population
+ * Updated: 2025-06-20
  * 
- * Downloads external images and uploads them to Supabase Storage
+ * Migrates images from external URLs to Supabase Storage
+ * and updates the database with new URLs
  */
 
 import { createClient } from '@supabase/supabase-js'
@@ -53,7 +54,7 @@ async function uploadToSupabase(
   
   // Upload to Supabase Storage
   const { data: uploadData, error: uploadError } = await supabase.storage
-    .from('tivoli-media')
+    .from('hotel-images')
     .upload(path, imageBuffer, {
       upsert: true,
       contentType: 'image/jpeg'
@@ -65,7 +66,7 @@ async function uploadToSupabase(
 
   // Get public URL
   const { data: { publicUrl } } = supabase.storage
-    .from('tivoli-media')
+    .from('hotel-images')
     .getPublicUrl(path)
 
   // Create media record in database

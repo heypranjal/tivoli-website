@@ -10,7 +10,17 @@
     "preview": "vite preview",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "migrate:prepare": "tsx scripts/run-migrations.ts",
+    "migrate:test": "tsx scripts/run-migrations.ts test",
+    "migrate:images": "tsx scripts/migrate-images.ts",
+    "migrate:tivoli": "tsx scripts/migrate-tivoli-data.ts",
+    "test:services": "tsx scripts/test-services.ts",
+    "test:comprehensive": "tsx scripts/comprehensive-test.ts",
+    "test:performance": "tsx scripts/performance-monitor.ts",
+    "test:errors": "tsx scripts/error-tracker.ts",
+    "production:prep": "tsx scripts/production-prep.ts",
+    "production:check": "npm run test:comprehensive && npm run test:performance && npm run production:prep"
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.0.7",
@@ -30,7 +40,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
-    "@playwright/test": "^1.53.0",
+    "@playwright/test": "^1.53.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

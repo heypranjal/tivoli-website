@@ -1,41 +1,29 @@
 /**
- * App Component
- * Updated: Adjusted layout to accommodate fixed navigation
- * - Removed absolute positioning from navigation
- * - Added proper spacing for fixed header
- * - Maintained all existing routes and functionality
+ * App Component - Refactored for Supabase
+ * Phase 4: Component Refactoring
+ * Updated: 2025-06-20
+ * 
+ * Now uses dynamic HotelPage component instead of individual hotel pages
  */
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { MapPin, Mail, Phone } from 'lucide-react';
-import WedcationAmbalaPage from './pages/WedcationAmbalaPage';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import FeaturedVenues from './components/FeaturedVenues';
+import OurHotels from './components/OurHotels';
 import Locations from './components/Locations';
 import Experiences from './components/Experiences';
 import UpcomingHotels from './components/UpcomingHotels';
 import OurStory from './components/OurStory';
 import AwardsAccolades from './components/AwardsAccolades';
 import Press from './components/Press';
-import TivoliRoyalPalacePage from './pages/TivoliRoyalPalacePage';
-import TivoliHeritagePalacePage from './pages/TivoliHeritagePalacePage';
-import TivoliLotusCourtPage from './pages/TivoliLotusCourtPage';
-import OmniaDwarkaExpresswayPage from './pages/OmniaDwarkaExpresswayPage';
-import WedcationIsranaPage from './pages/WedcationIsranaPage';
-import TivoliL2Page from './pages/TivoliL2Page';
 import HotelPage from './pages/HotelPage';
 import People from './pages/Investors';
-import RoyalcourtokhlaPage from './pages/RoyalcourtokhlaPage';
 import DigitalQRPage from './pages/DigitalQRPage';
 import LocationsPage from './pages/LocationsPage';
 import BrandsPage from './pages/BrandsPage';
 import SustainabilityPage from './pages/SustainabilityPage';
 import OurStoryPage from './pages/OurStoryPage';
-import UpperHseSultanpurPage from './pages/UpperHseSultanpurPage';
-import OmniaGreaterNoidaPage from './pages/OmniaGreaterNoidaPage';
-import TivoliBijwasanPage from './pages/TivoliBijwasanPage';
-import TivoliGrandPalacePage from './pages/TivoliGrandPalacePage';
 
 function App() {
   return (
@@ -46,7 +34,7 @@ function App() {
           <>
             <Hero />
             <main>
-              <FeaturedVenues />
+              <OurHotels />
               <OurStory />
               <Locations />
               <Experiences />
@@ -63,23 +51,12 @@ function App() {
         <Route path="/brands" element={<BrandsPage />} />
         <Route path="/our-story" element={<OurStoryPage />} />
         <Route path="/sustainability" element={<SustainabilityPage />} />
-        <Route path="/delhi/tivoli-grand-palace" element={<TivoliGrandPalacePage />} />
-        <Route path="/delhi/upper-hse-sultanpur" element={<UpperHseSultanpurPage />} />
-        <Route path="/delhi/bijwasan" element={<TivoliBijwasanPage />} />
-        <Route path="/delhi/royal-court-okhla" element={<RoyalcourtokhlaPage />} />
         <Route path="/digital-qr" element={<DigitalQRPage />} />
-        <Route path="/palwal-haryana/:hotelSlug" element={<TivoliRoyalPalacePage />} />
-        <Route path="/rewari-haryana/:hotelSlug" element={<TivoliHeritagePalacePage />} />
-        <Route path="/tivoli-l2" element={<TivoliL2Page />} />
-        <Route path="/noida/tivoli-lotus-court" element={<TivoliLotusCourtPage />} />
-        <Route path="/noida/:hotelSlug" element={<TivoliLotusCourtPage />} />
-        <Route path="/delhi/omnia-dwarka-expressway" element={<OmniaDwarkaExpresswayPage />} />
-        <Route path="/greater-noida/omnia-greater-noida" element={<OmniaGreaterNoidaPage />} />
-        <Route path="/greater-noida/:hotelSlug" element={<OmniaGreaterNoidaPage />} />
-        <Route path="/ambala/wedcation-ambala" element={<WedcationAmbalaPage />} />
-        <Route path="/ambala/:hotelSlug" element={<WedcationAmbalaPage />} />
-        <Route path="/israna/wedcation-israna" element={<WedcationIsranaPage />} />
-        <Route path="/israna/:hotelSlug" element={<WedcationIsranaPage />} />
+        {/* Dynamic hotel pages - all hotels now use single HotelPage component */}
+        <Route path="/hotel/:hotelSlug" element={<HotelPage />} />
+        {/* Redirect for renamed hotel */}
+        <Route path="/hotel/tivoli-grand-palace" element={<Navigate to="/hotel/the-tivoli" replace />} />
+        {/* Legacy route support for SEO - redirects to new dynamic routing */}
         <Route path="/:location/:hotelSlug" element={<HotelPage />} />
         <Route path="/:brand/:hotelSlug" element={<HotelPage />} />
       </Routes>

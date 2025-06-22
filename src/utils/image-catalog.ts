@@ -41,28 +41,28 @@ export const homepageImages: HomepageImages = {
   // Hero Carousel Images (Auto-rotating on homepage)
   carousel: [
     {
-      bucket: 'homepage_image',
-      path: 'image1.jpg',
-      alt: 'Tivoli Hotels Luxury Experience',
-      caption: 'Discover unparalleled luxury at Tivoli Hotels'
+      bucket: 'thetivolinewdelhi1',
+      path: 'thetivoliporticoheromaster-1%20(1).png',
+      alt: 'The Tivoli Portico - Luxury Hotel Entrance',
+      caption: 'Welcome to The Tivoli - Where luxury meets hospitality'
     },
     {
-      bucket: 'homepage_image', 
-      path: 'image2.jpg',
-      alt: 'Premium Hotel Amenities',
-      caption: 'World-class amenities and services'
+      bucket: 'thetivolinewdelhi1', 
+      path: 'The%20Tivoli-Lobby%20hero-5.png',
+      alt: 'The Tivoli Elegant Lobby',
+      caption: 'Sophisticated interiors and timeless elegance'
     },
     {
-      bucket: 'homepage_image',
-      path: 'image3.jpg', 
-      alt: 'Elegant Hotel Interior',
-      caption: 'Sophistication meets comfort'
+      bucket: 'thetivolinewdelhi1',
+      path: 'The%20Tivoli%20Pool%20Hero6.png', 
+      alt: 'The Tivoli Swimming Pool',
+      caption: 'Relax and unwind in our luxury pool area'
     },
     {
-      bucket: 'homepage_image',
-      path: 'image4.jpg',
-      alt: 'Tivoli Hospitality Excellence',
-      caption: 'Creating memorable experiences'
+      bucket: 'thetivolinewdelhi1',
+      path: 'The%20Tivoli%20facade%20hero2.png',
+      alt: 'The Tivoli Hotel Facade',
+      caption: 'Architectural excellence in the heart of Delhi'
     }
   ],
 
@@ -109,9 +109,9 @@ export const homepageImages: HomepageImages = {
   // Venue Thumbnail Images (Used in Featured Venues)
   venuesThumbnails: {
     'tivoli-grand-palace': {
-      bucket: 'homepage_image',
-      path: 'maingate_thetivoli.jpg',
-      alt: 'The Tivoli Delhi - Main Gate',
+      bucket: 'thetivolinewdelhi1',
+      path: 'thetivoliporticoheromaster-1%20(1).png',
+      alt: 'The Tivoli Delhi - Luxury Hotel Entrance',
       caption: 'The Tivoli - Premium luxury in Delhi'
     },
     'tivoli-royal-palace': {

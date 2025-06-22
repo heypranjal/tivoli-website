@@ -12,6 +12,7 @@
  * - homepage_image: Hero carousel and general site images
  * - royalpalacepalwal: Tivoli Royal Palace Palwal property images
  * - tivoliheritagerewari: Tivoli Heritage Palace Rewari images
+ * - thetivolinewdelhi1: The Tivoli New Delhi flagship property images
  * - tivoli-dining-photo: Restaurant and dining images
  * - wedcationambala: Wedcation Ambala property images
  * - omniatiwolidwarka: Omnia Dwarka Expressway images
@@ -33,6 +34,7 @@ export const VALID_BUCKETS = [
   'homepage_image',
   'royalpalacepalwal', 
   'tivoliheritagerewari',
+  'thetivolinewdelhi1',
   'tivoli-dining-photo',
   'wedcationambala',
   'omniatiwolidwarka',

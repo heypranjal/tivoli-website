@@ -348,7 +348,33 @@ export interface Database {
 }
 
 // Extended types for joined queries
-export interface HotelWithRelations extends Database['public']['Tables']['hotels']['Row'] {
+export interface HotelWithRelations {
+  // Base hotel properties
+  id: string
+  slug: string
+  name: string
+  brand_id: string
+  location_id: string
+  description: string | null
+  rating: number
+  street: string | null
+  city: string | null
+  state: string | null
+  postal_code: string | null
+  latitude: number | null
+  longitude: number | null
+  phone: string | null
+  email: string | null
+  meta_title: string | null
+  meta_description: string | null
+  featured_image_id: string | null
+  sort_order: number
+  is_featured: boolean
+  is_active: boolean
+  created_at: string
+  updated_at: string
+  
+  // Relations
   brand: Database['public']['Tables']['brands']['Row']
   location: Database['public']['Tables']['locations']['Row']
   featured_image?: Database['public']['Tables']['media']['Row']
@@ -371,6 +397,9 @@ export interface HotelWithRelations extends Database['public']['Tables']['hotels
     cancellation: string
     pets: string
   }
+  
+  // Computed properties for backward compatibility
+  address?: string
 }
 
 export interface MediaWithRelations extends Database['public']['Tables']['media']['Row'] {

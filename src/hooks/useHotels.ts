@@ -118,10 +118,10 @@ export function useHotelsForFeaturedVenues() {
   const featuredVenues = hotels?.map(hotel => ({
     id: hotel.slug,
     name: hotel.name,
-    location: hotel.location.name,
-    brand: hotel.brand.slug,
-    image: hotel.featured_image?.public_url || hotel.images?.[0]?.media.public_url || '',
-    href: `/${hotel.location.slug}/${hotel.slug}`
+    location: hotel.location?.name || 'Unknown',
+    brand: hotel.brand?.slug || 'unknown',
+    image: hotel.featured_image?.public_url || hotel.images?.[0]?.media?.public_url || '',
+    href: `/hotel/${hotel.slug}`
   })) || []
 
   return {
@@ -140,12 +140,12 @@ export function useHotelsForLocationPage(filters?: HotelFilters) {
     id: hotel.id,
     slug: hotel.slug,
     name: hotel.name,
-    location: hotel.location.name,
-    brand: hotel.brand.display_name,
-    brandSlug: hotel.brand.slug,
+    location: hotel.location?.name || 'Unknown',
+    brand: hotel.brand?.display_name || 'Unknown',
+    brandSlug: hotel.brand?.slug || 'unknown',
     description: hotel.description || '',
-    image: hotel.featured_image?.public_url || hotel.images?.[0]?.media.public_url || '',
-    href: `/${hotel.location.slug}/${hotel.slug}`,
+    image: hotel.featured_image?.public_url || hotel.images?.[0]?.media?.public_url || '',
+    href: `/hotel/${hotel.slug}`,
     rating: hotel.rating,
     isFeatured: hotel.is_featured
   })) || []

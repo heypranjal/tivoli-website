@@ -1,17 +1,43 @@
 /**
  * Test Supabase Services
- * Phase 2: Data Migration
- * Created: 2025-06-20
+ * Phase 5: Database Migration & Data Population
+ * Updated: 2025-06-20
  * 
  * Script to test the service layer and verify data migration
  */
 
+import { createClient } from '@supabase/supabase-js'
 import { brandService, locationService, hotelService } from '../src/lib/supabase-services'
+
+// Initialize Supabase client for testing
+const supabaseUrl = process.env.VITE_SUPABASE_URL
+const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('❌ Missing Supabase environment variables')
+  console.error('Please ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set')
+  process.exit(1)
+}
+
+console.log('🔗 Connecting to Supabase:', supabaseUrl.substring(0, 30) + '...')
 
 async function testServices() {
   console.log('🧪 Testing Supabase Services\n')
   
   try {
+    // Test basic connection first
+    console.log('🔍 Testing basic connection...')
+    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+    const { data: healthCheck, error: healthError } = await supabase
+      .from('brands')
+      .select('count')
+      .limit(1)
+    
+    if (healthError) {
+      throw new Error(`Connection failed: ${healthError.message}`)
+    }
+    
+    console.log('✅ Database connection successful\n')
     // Test brands
     console.log('📊 Testing brands service...')
     const brands = await brandService.getAllBrands()
@@ -59,10 +85,23 @@ async function testServices() {
       console.log(`   ⚡ Features: ${singleHotel.features?.length || 0}`)
     }
     
+    console.log('\n📊 Service Test Summary:')
+    console.log('✅ Brands service working')
+    console.log('✅ Locations service working')
+    console.log('✅ Hotels service working')
+    console.log('✅ Featured hotels working')
+    console.log('✅ Brand filtering working')
+    console.log('✅ Single hotel fetch working')
     console.log('\n🎉 All service tests passed!')
+    console.log('\n🚀 Your Supabase setup is ready for production!')
     
   } catch (error) {
     console.error('❌ Service test failed:', error)
+    console.error('\nTroubleshooting:')
+    console.error('1. Ensure your Supabase project is active')
+    console.error('2. Check your environment variables are correct')
+    console.error('3. Verify the database migrations were executed')
+    console.error('4. Check Row Level Security policies allow public access')
     process.exit(1)
   }
 }

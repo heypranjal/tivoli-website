@@ -1,0 +1,449 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - link "TIVOLI":
+    - /url: /
+  - link "Hotels":
+    - /url: /
+  - button "Brands":
+    - text: Brands
+    - img
+  - link "The Tivoli":
+    - /url: /locations?brand=tivoli
+    - img
+    - text: The Tivoli
+  - link "Omnia":
+    - /url: /locations?brand=omnia
+    - img
+    - text: Omnia
+  - link "The Upper HSE":
+    - /url: /locations?brand=upper-hse
+    - img
+    - text: The Upper HSE
+  - link "Wedcation":
+    - /url: /locations?brand=wedcation
+    - img
+    - text: Wedcation
+  - button "Locations":
+    - text: Locations
+    - img
+  - link "Delhi":
+    - /url: /locations?location=delhi
+    - img
+    - text: Delhi
+  - link "Noida":
+    - /url: /locations?location=noida
+    - img
+    - text: Noida
+  - link "Greater Noida":
+    - /url: /locations?location=greater-noida
+    - img
+    - text: Greater Noida
+  - link "Palwal":
+    - /url: /locations?location=palwal
+    - img
+    - text: Palwal
+  - link "Rewari":
+    - /url: /locations?location=rewari
+    - img
+    - text: Rewari
+  - link "Ambala":
+    - /url: /locations?location=ambala
+    - img
+    - text: Ambala
+  - link "Israna":
+    - /url: /locations?location=israna
+    - img
+    - text: Israna
+  - button "Offers"
+  - button "Loyalty"
+  - link "Weddings":
+    - /url: /weddings
+  - link "Our Story":
+    - /url: /our-story
+  - link "Sustainability":
+    - /url: /sustainability
+  - link "People":
+    - /url: /people
+- navigation:
+  - link "TIVOLI":
+    - /url: /
+  - link "Hotels":
+    - /url: /
+  - button "Brands":
+    - text: Brands
+    - img
+  - link "The Tivoli":
+    - /url: /locations?brand=tivoli
+    - img
+    - text: The Tivoli
+  - link "Omnia":
+    - /url: /locations?brand=omnia
+    - img
+    - text: Omnia
+  - link "The Upper HSE":
+    - /url: /locations?brand=upper-hse
+    - img
+    - text: The Upper HSE
+  - link "Wedcation":
+    - /url: /locations?brand=wedcation
+    - img
+    - text: Wedcation
+  - button "Locations":
+    - text: Locations
+    - img
+  - link "Delhi":
+    - /url: /locations?location=delhi
+    - img
+    - text: Delhi
+  - link "Noida":
+    - /url: /locations?location=noida
+    - img
+    - text: Noida
+  - link "Greater Noida":
+    - /url: /locations?location=greater-noida
+    - img
+    - text: Greater Noida
+  - link "Palwal":
+    - /url: /locations?location=palwal
+    - img
+    - text: Palwal
+  - link "Rewari":
+    - /url: /locations?location=rewari
+    - img
+    - text: Rewari
+  - link "Ambala":
+    - /url: /locations?location=ambala
+    - img
+    - text: Ambala
+  - link "Israna":
+    - /url: /locations?location=israna
+    - img
+    - text: Israna
+  - button "Offers"
+  - button "Loyalty"
+  - link "Weddings":
+    - /url: /weddings
+  - link "Our Story":
+    - /url: /our-story
+  - link "Sustainability":
+    - /url: /sustainability
+  - link "People":
+    - /url: /people
+- paragraph: No images available
+- heading "About Tivoli Heritage Palace" [level=2]
+- paragraph: Experience the grandeur of your special occasions at Tivoli Heritage Palace, nestled in the charming town of Kanhawas, Rewari. Our magnificent venue seamlessly blends royal heritage with contemporary luxury, featuring multiple versatile spaces including our signature GlassHouse banquet hall, two additional banquet halls, and beautiful outdoor settings.
+- paragraph: Located in the prestigious heritage city of Rewari, Tivoli Heritage Palace offers an unmatched blend of royal grandeur and modern luxury. Our palace features elegantly appointed rooms, world-class dining venues, spectacular event spaces, and comprehensive amenities designed to create unforgettable experiences.
+- img
+- text: 90 Rooms
+- img
+- text: 3 Dining Venues
+- img
+- text: 1,000 Event Capacity
+- img
+- text: 24/7 Concierge Service
+- heading "Accommodations" [level=2]
+- paragraph: Experience luxury and comfort in our thoughtfully designed rooms and suites, each crafted to provide an exceptional stay
+- img
+- text: undefined sq. mt
+- heading "Deluxe Room" [level=3]
+- text: Available
+- paragraph: Spacious garden view room with study area, featuring modern amenities and comfortable king bed for a relaxing stay.
+- img
+- text: Up to 2 guests
+- heading "Key Amenities" [level=4]
+- img
+- text: undefined sq. mt
+- heading "Super Deluxe Room" [level=3]
+- text: Available
+- paragraph: Premium swimming pool view room with enhanced amenities, air conditioning, and elegant interiors for an elevated experience.
+- img
+- text: Up to 2 guests
+- heading "Key Amenities" [level=4]
+- img
+- text: undefined sq. mt
+- heading "Palace Premium Room" [level=3]
+- text: Available
+- paragraph: Elegantly appointed rooms with heritage furniture, modern bathroom amenities, and complimentary Wi-Fi.
+- img
+- text: Up to 2 guests
+- heading "Key Amenities" [level=4]
+- heading "Experience the Space" [level=2]
+- paragraph: Take a comprehensive virtual tour of Tivoli Heritage Palace and explore every corner of our magnificent property through our interactive 3D experience.
+- heading "Tivoli Heritage Palace" [level=3]
+- img
+- paragraph: Explore 3D Space
+- img
+- text: Opens in new window POWERED BY Spalba
+- paragraph: Take an immersive virtual tour of our magnificent property and discover every stunning detail
+- button "Start Virtual Tour":
+  - img
+  - text: Start Virtual Tour
+  - img
+- text: Curated Experiences
+- heading "Discover Heritage Luxury" [level=2]
+- paragraph: Immerse yourself in a world of refined experiences, where every moment is crafted to perfection
+- img "Grand Weddings"
+- text: wedding
+- heading "Grand Weddings" [level=3]
+- paragraph
+- paragraph: Seamless royal wedding experiences with multiple versatile spaces, outdoor ceremonies on expansive lawns, and magical poolside venues.
+- img
+- img "GlassHouse Banquet"
+- text: venue
+- heading "GlassHouse Banquet" [level=3]
+- paragraph
+- paragraph: Our signature GlassHouse banquet hall provides an elegant, fully air-conditioned venue for your most important celebrations.
+- img
+- img "Corporate Conferences"
+- text: business
+- heading "Corporate Conferences" [level=3]
+- paragraph
+- paragraph: Three fully air-conditioned banquet halls with flexible configurations for 100-1000 attendees, perfect for business events.
+- img
+- img "Social Gatherings"
+- text: social
+- heading "Social Gatherings" [level=3]
+- paragraph
+- paragraph: Milestone celebrations, family reunions, and festive gatherings in our beautiful heritage setting with modern amenities.
+- img
+- img "Pre-Wedding Shoots"
+- text: photography
+- heading "Pre-Wedding Shoots" [level=3]
+- paragraph
+- paragraph: Capture your special moments in our picturesque heritage setting with royal architecture and beautiful outdoor spaces.
+- img
+- heading "Event Spaces" [level=2]
+- paragraph: Discover our exceptional venues designed to host memorable events of every scale
+- img "GlassHouse Banquet Hall"
+- img
+- text: Capacity 500-1000 guests
+- heading "GlassHouse Banquet Hall" [level=3]
+- img
+- text: Signature venue
+- paragraph: Our signature GlassHouse banquet hall offering elegant ambiance for the most important celebrations
+- list:
+  - listitem: • Fully Air-Conditioned
+  - listitem: • Signature Design
+  - listitem: • Premium Setup
+  - listitem: • Professional Lighting
+- button "View Details"
+- img "Banquet Hall 2"
+- img
+- text: Capacity 300-600 guests
+- heading "Banquet Hall 2" [level=3]
+- img
+- text: Additional hall
+- paragraph: Additional banquet hall with versatile configuration options for medium to large events
+- list:
+  - listitem: • Fully Air-Conditioned
+  - listitem: • Flexible Setup
+  - listitem: • Modern Amenities
+  - listitem: • Professional Staff
+- button "View Details"
+- img "Banquet Hall 3"
+- img
+- text: Capacity 100-400 guests
+- heading "Banquet Hall 3" [level=3]
+- img
+- text: Intimate venue
+- paragraph: Perfect for smaller gatherings, corporate meetings, and intimate celebrations
+- list:
+  - listitem: • Fully Air-Conditioned
+  - listitem: • Intimate Setting
+  - listitem: • Corporate Ready
+  - listitem: • Audio/Visual Support
+- button "View Details"
+- img "Outdoor Lawns"
+- img
+- text: Capacity 500-800 guests
+- heading "Outdoor Lawns" [level=3]
+- img
+- text: Two expansive lawns
+- paragraph: Two beautiful outdoor lawns surrounded by lush landscaping, perfect for destination weddings
+- list:
+  - listitem: • Natural Setting
+  - listitem: • Weather Backup
+  - listitem: • Garden Views
+  - listitem: • Outdoor Ceremonies
+- button "View Details"
+- heading "Dining Experiences" [level=2]
+- paragraph: Embark on a culinary journey through our exceptional dining venues, each offering unique flavors and ambiance
+- img "Coffee Shop"
+- img
+- text: Coffee, Beverages, Light Snacks
+- heading "Coffee Shop" [level=3]
+- paragraph: Cozy coffee shop offering freshly brewed beverages, light snacks, and comfortable seating for relaxation between events.
+- img
+- heading "Hours:" [level=4]
+- paragraph: 6:00 AM - 10:00 PM
+- img
+- heading "Dress Code:" [level=4]
+- paragraph
+- button "View Menu"
+- img "Catering Services"
+- img
+- text: Multi-cuisine, Custom Menus
+- heading "Catering Services" [level=3]
+- paragraph: Professional catering services featuring buffet service, pre-plated options, custom menus, and live counters for all your event needs.
+- img
+- heading "Hours:" [level=4]
+- paragraph: Event-based timing
+- img
+- heading "Dress Code:" [level=4]
+- paragraph
+- button "View Menu"
+- heading "Gallery" [level=2]
+- paragraph: Explore our exquisite spaces, luxury accommodations, and world-class amenities through our curated collection of images and videos
+- img
+- text: Photo
+- heading "Hotel Facade" [level=3]
+- paragraph: The magnificent facade of The Tivoli
+- img
+- text: Photo
+- heading "Main Gate" [level=3]
+- paragraph: Grand entrance to The Tivoli
+- img
+- text: Photo
+- heading "Swimming Pool" [level=3]
+- paragraph: Luxurious poolside area for relaxation
+- img
+- text: Photo
+- heading "Hotel Porch" [level=3]
+- paragraph: Elegant porch area overlooking the gardens
+- img
+- text: Photo
+- heading "Hotel Lobby" [level=3]
+- paragraph: Sophisticated lobby with luxury interiors
+- paragraph: YOUR DREAM WEDDING DESTINATION
+- heading "Wedding at The Tivoli-New Delhi" [level=2]
+- paragraph: Capacity
+- paragraph: 1500 PAX
+- paragraph: Lawn Area
+- paragraph: Lush Green
+- img
+- heading "Ample Parking" [level=3]
+- paragraph: Spacious parking area for all your guests
+- img
+- heading "Pool Access" [level=3]
+- paragraph: Beautiful poolside setting for events
+- img
+- heading "Exquisite Cuisine" [level=3]
+- paragraph: Our master chefs craft personalized menus featuring both traditional delicacies and international cuisine.
+- button "Plan Your Wedding":
+  - text: Plan Your Wedding
+  - img
+- heading "Location & Contact" [level=2]
+- paragraph: Find us at our prime location and get in touch for reservations or inquiries
+- img
+- heading "Address" [level=4]
+- paragraph: Kanhawas, 5PF3+53X Kanhawas Rewari, Haryana 123401 India
+- img
+- heading "Phone" [level=4]
+- link "+91-9818553333":
+  - /url: tel:+91-9818553333
+- img
+- heading "Email" [level=4]
+- link "reservations@thetivolihotels.com":
+  - /url: mailto:reservations@thetivolihotels.com
+- iframe
+- heading "Plan Your Special Occasion" [level=2]
+- paragraph: Let our expert team help you create unforgettable memories at Tivoli Heritage Palace. From intimate gatherings to grand celebrations, we ensure every detail is perfect.
+- text: Book Your Event
+- heading "Plan Your Special Occasion" [level=2]
+- text: Name
+- textbox "Enter your name"
+- text: Event Type
+- combobox:
+  - option "Select event type" [selected]
+  - option "Wedding"
+  - option "MICE"
+  - option "Birthday Party"
+  - option "Cocktail Party"
+  - option "Corporate Event"
+  - option "Other"
+- img
+- text: Event Date
+- textbox
+- img
+- text: Number of Guests
+- spinbutton
+- img
+- text: Phone Number
+- textbox "Enter phone number"
+- img
+- text: Email (Optional)
+- textbox "Enter email address"
+- img
+- text: Room Requirements
+- radio "Yes, need rooms"
+- text: Yes, need rooms
+- radio "No rooms needed" [checked]
+- text: No rooms needed Budget Range (Optional)
+- combobox:
+  - option "Select budget range" [selected]
+  - option "Under ₹5 Lakhs"
+  - option "₹5 - ₹10 Lakhs"
+  - option "₹10 - ₹20 Lakhs"
+  - option "₹20 - ₹50 Lakhs"
+  - option "Above ₹50 Lakhs"
+- img
+- text: Special Requirements (Optional)
+- textbox "Any special requirements or additional information..."
+- button "Submit Enquiry"
+- contentinfo:
+  - heading "Head Office" [level=4]
+  - img
+  - paragraph: Tivoli Hospitality Group
+  - paragraph: 1-Chhatrpur, New Delhi-110074, India
+  - link "amit.sood@thetivolihotels.com":
+    - /url: mailto:amit.sood@thetivolihotels.com
+    - img
+    - text: amit.sood@thetivolihotels.com
+  - link "01147479999":
+    - /url: tel:01147479999
+    - img
+    - text: "01147479999"
+  - heading "Tivoli Net" [level=4]
+  - paragraph: Regional Sales & Reservations
+  - paragraph: The Tivoli
+  - paragraph: Omnia
+  - paragraph: The Upper HSE
+  - paragraph: Wedcation
+  - link "View All Regional Offices":
+    - /url: /tivolinet
+    - img
+    - text: View All Regional Offices
+  - 'link "Central Reservations: 01147479999"':
+    - /url: tel:01147479999
+    - img
+    - text: "Central Reservations: 01147479999"
+  - heading "Hotel Locations" [level=4]
+  - list:
+    - listitem:
+      - img
+      - paragraph: Delhi
+      - paragraph: The Tivoli-New Delhi, Tivoli Royal Court-Okhla
+    - listitem:
+      - img
+      - paragraph: Noida
+      - paragraph: Tivoli Lotus Court, Omnia by Tivoli-Noida
+    - listitem:
+      - img
+      - paragraph: Ambala
+      - paragraph: Wedcation by Tivoli-Ambala
+  - heading "Find Us" [level=4]
+  - iframe
+  - paragraph: © 2025 Tivoli Hotels & Resorts. All rights reserved.
+  - link "Privacy Policy":
+    - /url: https://docs.google.com/document/d/1u-V_fFaQ38qcNdsPJHTkgSfqM5ZNQr8IO0cRCJdkQZ8/edit?usp=sharing
+  - link "Terms of Service":
+    - /url: https://docs.google.com/document/d/1ZhGmgPL8-UrSvSTQdR8RMRV3XYZvSFCyYXpghNfKop0/edit?usp=sharing
+  - link "Digital QR":
+    - /url: /digital-qr
+  - link "Cookie Policy":
+    - /url: "#"
+- button "Open Tanstack query devtools":
+  - img
+```

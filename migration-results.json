@@ -1,0 +1,1159 @@
+[
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-grand-palace",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-grand-palace/rooms/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/rooms/1.jpg",
+    "mediaId": "9df409ad-d60f-4482-b181-acbd137368cc"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-grand-palace",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-grand-palace/rooms/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/rooms/2.jpg",
+    "mediaId": "fb9da0b0-82b6-494b-a0cf-095895b729d1"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-grand-palace",
+      "context": "rooms/suite",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-grand-palace/rooms/11.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/rooms/11.jpg",
+    "mediaId": "0ce10d1b-e69c-497b-9a5c-cb56016e4417"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1601551345929-64e5579b8f33?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-grand-palace",
+      "context": "rooms/suite",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-grand-palace/rooms/12.jpg"
+    },
+    "success": false,
+    "error": "Failed to download image: 404 Not Found"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-grand-palace",
+      "context": "dining/Zuun",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-grand-palace/dining/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/dining/2.jpg",
+    "mediaId": "4bbcb600-89fd-41eb-85ce-72176ca9890b"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-royal-suite",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-royal-suite/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: tivoli-royal-suite"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-royal-suite",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-royal-suite/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: tivoli-royal-suite"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-royal-suite",
+      "context": "rooms/suite",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-royal-suite/rooms/11.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: tivoli-royal-suite"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1601551345929-64e5579b8f33?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-royal-suite",
+      "context": "rooms/suite",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-royal-suite/rooms/12.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: tivoli-royal-suite"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-lake-palace",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lake-palace/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: tivoli-lake-palace"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-lake-palace",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lake-palace/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: tivoli-lake-palace"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "wedcation-by-tivoli-ambala",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/wedcation-by-tivoli-ambala/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: wedcation-by-tivoli-ambala"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "wedcation-by-tivoli-ambala",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/wedcation-by-tivoli-ambala/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: wedcation-by-tivoli-ambala"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipOMH7hKihgOyCoC2tnI71tV2co4K9uAbM07jJI1=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "wedcation-by-tivoli-israna",
+      "context": "hero",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/wedcation-by-tivoli-israna/hero/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: wedcation-by-tivoli-israna"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "wedcation-by-tivoli-israna",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/wedcation-by-tivoli-israna/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: wedcation-by-tivoli-israna"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "wedcation-by-tivoli-israna",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/wedcation-by-tivoli-israna/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: wedcation-by-tivoli-israna"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipP1l88dxwXNVL8qn6pR9enQO9u3NCMhqOiSzvBv=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "tivoli-lotus-court",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lotus-court/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/2.jpg",
+    "mediaId": "54d47b94-d817-4c8a-b867-3d5a899c663a"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipPXEDXpLUMY-PImbH8MiNqSnQ5yB3BTEoI4VSDL=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "tivoli-lotus-court",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lotus-court/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/3.jpg",
+    "mediaId": "3c1b5ab2-6cd7-4896-b890-59b4d5feb4ba"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipMjXtjXCkoI4zfz0ulmU5MZY4VvSiGrJ_kxxIkz=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "tivoli-lotus-court",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lotus-court/gallery/5.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/5.jpg",
+    "mediaId": "b339a08c-1ba5-476a-959a-739d553703c7"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-lotus-court",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lotus-court/gallery/6.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/6.jpg",
+    "mediaId": "5ca760d0-7b7e-4efa-b76d-740db388c56c"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-lotus-court",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lotus-court/rooms/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/rooms/1.jpg",
+    "mediaId": "ee71fe08-3b41-4017-a3b2-4e950b3f3e94"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-lotus-court",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lotus-court/rooms/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/rooms/2.jpg",
+    "mediaId": "56483b57-d4d7-417e-937d-64b44956ae6a"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipPSLkPH-P8awHrUFA5kxDxlPVqHnoYn-GNjj5hD=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "tivoli-lotus-court",
+      "context": "dining/dining-lotus",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-lotus-court/dining/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/dining/1.jpg",
+    "mediaId": "31019325-26c7-47be-ab0a-d6560abd0181"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipP1r_igTNb3Z6DIMer5Pmg9RkzIK4NPZZGN-jg=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "tivoli-bijwasan",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-bijwasan/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/gallery/2.jpg",
+    "mediaId": "6af61ef8-4cb2-49f6-b0d9-e3c47a9ea6b3"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipOg3JBaIJNBTDx3_QykesTahu1CGHUOE3zqG54=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "tivoli-bijwasan",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-bijwasan/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/gallery/3.jpg",
+    "mediaId": "b1639245-b249-4fde-ae5a-81f36adfd8d5"
+  },
+  {
+    "original": {
+      "url": "https://lh3.googleusercontent.com/p/AF1QipNaFd5bEQT8Xr2-6sFg5XUmayKsn85dDrEvebI=s1360-w1360-h1020-rw",
+      "source": "google",
+      "hotel": "tivoli-bijwasan",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-bijwasan/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/gallery/4.jpg",
+    "mediaId": "00645ac2-ba01-4be6-a178-d966d0c1de2e"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-bijwasan",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-bijwasan/rooms/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/rooms/1.jpg",
+    "mediaId": "8cde0dd6-b14f-4917-9429-952d207f97a4"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-bijwasan",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-bijwasan/rooms/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/rooms/2.jpg",
+    "mediaId": "7aa85fc8-97ab-46f3-9585-b0da4fe80cc2"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "tivoli-bijwasan",
+      "context": "dining/dining-bijwasan",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/tivoli-bijwasan/dining/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/dining/1.jpg",
+    "mediaId": "b8d1144b-908f-45d6-9ffe-4001c70c8139"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80",
+      "source": "unsplash",
+      "hotel": "royal-court-okhla",
+      "context": "hero",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/royal-court-okhla/hero/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: royal-court-okhla"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1464808322410-1a934aab61e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "royal-court-okhla",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/royal-court-okhla/gallery/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: royal-court-okhla"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "royal-court-okhla",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/royal-court-okhla/gallery/3.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: royal-court-okhla"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "royal-court-okhla",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/royal-court-okhla/gallery/4.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: royal-court-okhla"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "royal-court-okhla",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/royal-court-okhla/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: royal-court-okhla"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "royal-court-okhla",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/royal-court-okhla/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: royal-court-okhla"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "royal-court-okhla",
+      "context": "dining/dining-royal-court",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/royal-court-okhla/dining/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: royal-court-okhla"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-dwarka-expressway",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-dwarka-expressway/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-dwarka-expressway"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-dwarka-expressway",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-dwarka-expressway/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-dwarka-expressway"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-greater-noida",
+      "context": "hero",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-greater-noida/hero/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-greater-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-greater-noida",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-greater-noida/gallery/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-greater-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-greater-noida",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-greater-noida/gallery/3.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-greater-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-greater-noida",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-greater-noida/gallery/4.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-greater-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-greater-noida",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-greater-noida/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-greater-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-greater-noida",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-greater-noida/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-greater-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-greater-noida",
+      "context": "dining/dining-omnia-gn",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-greater-noida/dining/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-greater-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "upper-hse-sultanpur",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/upper-hse-sultanpur/gallery/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: upper-hse-sultanpur"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80",
+      "source": "unsplash",
+      "hotel": "upper-hse-sultanpur",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/upper-hse-sultanpur/gallery/3.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: upper-hse-sultanpur"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "upper-hse-sultanpur",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/upper-hse-sultanpur/gallery/4.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: upper-hse-sultanpur"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "upper-hse-sultanpur",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/upper-hse-sultanpur/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: upper-hse-sultanpur"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "upper-hse-sultanpur",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/upper-hse-sultanpur/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: upper-hse-sultanpur"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "upper-hse-sultanpur",
+      "context": "dining/dining-upper-hse",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/upper-hse-sultanpur/dining/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: upper-hse-sultanpur"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-noida",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-noida/gallery/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-noida",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-noida/gallery/3.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-noida",
+      "context": "gallery",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-noida/gallery/4.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-noida",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-noida/rooms/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-noida",
+      "context": "rooms/deluxe",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-noida/rooms/2.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-noida"
+  },
+  {
+    "original": {
+      "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "source": "unsplash",
+      "hotel": "omnia-noida",
+      "context": "dining/dining-omnia-noida",
+      "migrationStatus": "migrate",
+      "newPath": "hotels/omnia-noida/dining/1.jpg"
+    },
+    "success": false,
+    "error": "Hotel not found: omnia-noida"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//hero1.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-grand-palace",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-grand-palace/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//hero1.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto4%20(1).jpg",
+      "source": "supabase",
+      "hotel": "tivoli-grand-palace",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-grand-palace/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto4%20(1).jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//SSS_9948.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-grand-palace",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-grand-palace/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//SSS_9948.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//DJI_20250211165024_0664_D%20copy.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-grand-palace",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-grand-palace/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//DJI_20250211165024_0664_D%20copy.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//blue%20grotto.webp",
+      "source": "supabase",
+      "hotel": "tivoli-grand-palace",
+      "context": "dining/Blue-Grotto",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-grand-palace/dining/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//blue%20grotto.webp"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//aria.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-grand-palace",
+      "context": "dining/ Aria",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-grand-palace/dining/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//aria.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//Trafalgar%20bar.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-grand-palace",
+      "context": "dining/Trafalgar's",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-grand-palace/dining/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-dining-photo//Trafalgar%20bar.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalhomephoto1.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-royal-suite",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-royal-suite/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalhomephoto1.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto2.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-royal-suite",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-royal-suite/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto2.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto3.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-royal-suite",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-royal-suite/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto3.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto4.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-royal-suite",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-royal-suite/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto4.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto5.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-royal-suite",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-royal-suite/gallery/5.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto5.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//palwal%20dining.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-royal-suite",
+      "context": "dining/dining-royal",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-royal-suite/dining/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//palwal%20dining.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainphoto6.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-lake-palace",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lake-palace/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainphoto6.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainpagephoto2.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-lake-palace",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lake-palace/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainpagephoto2.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainpagephoto4.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-lake-palace",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lake-palace/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainpagephoto4.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainphoto6.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-lake-palace",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lake-palace/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//mainphoto6.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahome2.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-ambala",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-ambala/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahome2.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahomeimage.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-ambala",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-ambala/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahomeimage.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahomeimage.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-ambala",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-ambala/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahomeimage.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahome5.JPG",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-ambala",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-ambala/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambalahome5.JPG"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambaladinning.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-ambala",
+      "context": "dining/dining-wedcation",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-ambala/dining/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//ambaladinning.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna2.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-israna",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-israna/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna2.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna3.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-israna",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-israna/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna3.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna4.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-israna",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-israna/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna4.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna-dining.jpg",
+      "source": "supabase",
+      "hotel": "wedcation-by-tivoli-israna",
+      "context": "dining/dining-wedcation-israna",
+      "migrationStatus": "skip",
+      "newPath": "hotels/wedcation-by-tivoli-israna/dining/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//israna-dining.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//lotushomeimage4.JPG",
+      "source": "supabase",
+      "hotel": "tivoli-lotus-court",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lotus-court/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//lotushomeimage4.JPG"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//lotusDinninghall.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-lotus-court",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lotus-court/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//lotusDinninghall.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//corporate%20events%20(1).png",
+      "source": "supabase",
+      "hotel": "tivoli-lotus-court",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lotus-court/gallery/7.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//corporate%20events%20(1).png"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//standard%20room.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-lotus-court",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-lotus-court/gallery/8.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//standard%20room.jpg"
+  },
+  {
+    "original": {
+      "url": "https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//bijwasan-hp-thumbnail.jpg",
+      "source": "supabase",
+      "hotel": "tivoli-bijwasan",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/tivoli-bijwasan/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//bijwasan-hp-thumbnail.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome1.jpg",
+      "source": "supabase",
+      "hotel": "omnia-dwarka-expressway",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/omnia-dwarka-expressway/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome1.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome2.jpg",
+      "source": "supabase",
+      "hotel": "omnia-dwarka-expressway",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/omnia-dwarka-expressway/gallery/2.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome2.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome3.jpg",
+      "source": "supabase",
+      "hotel": "omnia-dwarka-expressway",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/omnia-dwarka-expressway/gallery/3.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome3.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome4.jpg",
+      "source": "supabase",
+      "hotel": "omnia-dwarka-expressway",
+      "context": "gallery",
+      "migrationStatus": "skip",
+      "newPath": "hotels/omnia-dwarka-expressway/gallery/4.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//dwarkahome4.jpg"
+  },
+  {
+    "original": {
+      "url": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniatiwolidwarka//Dwarkadinning.jpg",
+      "source": "supabase",
+      "hotel": "omnia-dwarka-expressway",
+      "context": "dining/dining-omnia",
+      "migrationStatus": "skip",
+      "newPath": "hotels/omnia-dwarka-expressway/dining/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniatiwolidwarka//Dwarkadinning.jpg"
+  },
+  {
+    "original": {
+      "url": "https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//sultanpur-upperhse-hp-thumbnail.jpg",
+      "source": "supabase",
+      "hotel": "upper-hse-sultanpur",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/upper-hse-sultanpur/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//sultanpur-upperhse-hp-thumbnail.jpg"
+  },
+  {
+    "original": {
+      "url": "https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//omnia-noida-hp-thumbnail.jpg",
+      "source": "supabase",
+      "hotel": "omnia-noida",
+      "context": "hero",
+      "migrationStatus": "skip",
+      "newPath": "hotels/omnia-noida/hero/1.jpg"
+    },
+    "success": true,
+    "newUrl": "https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//omnia-noida-hp-thumbnail.jpg"
+  }
+]

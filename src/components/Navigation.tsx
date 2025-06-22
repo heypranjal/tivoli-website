@@ -1,31 +1,15 @@
 /**
- * Navigation Component
- * Updated: Implemented fixed navigation that stays at top while scrolling
- * - Added fixed positioning with smooth transitions
- * - Implemented background blur and shadow effects on scroll
- * - Maintained responsive design and mobile menu functionality
- * - Added proper z-index layering to stay above content
- * - Smooth transition between transparent and solid backgrounds
- * - Removed "Meetings" and moved "Weddings" to main navigation
+ * Navigation Component - Refactored for Supabase
+ * Phase 4: Component Refactoring
+ * Updated: 2025-06-20
+ * 
+ * Now uses dynamic data from Supabase for brands and locations
  */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Hotel, MapPin } from 'lucide-react';
-
-const brands = [
-  { id: 'tivoli', name: 'The Tivoli', path: '/brands/tivoli' },
-  { id: 'wedcation', name: 'Wedcation', path: '/brands/wedcation' },
-  { id: 'upper-hse', name: 'The Upper HSE', path: '/brands/upper-hse' },
-  { id: 'omnia', name: 'Omnia', path: '/brands/omnia' }
-];
-
-const locations = [
-  { id: 'delhi', name: 'Delhi', path: '/locations/delhi' },
-  { id: 'noida', name: 'Noida', path: '/locations/noida' },
-  { id: 'greater-noida', name: 'Greater Noida', path: '/locations/greater-noida' },
-  { id: 'ambala', name: 'Ambala', path: '/locations/ambala' },
-  { id: 'israna', name: 'Israna', path: '/locations/israna' }
-];
+import { useBrands } from '@/hooks/useBrands';
+import { useLocations } from '@/hooks/useLocations';
 
 export default function Navigation() {
   const location = useLocation();
@@ -33,6 +17,10 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  
+  // Fetch dynamic data
+  const { data: brands = [] } = useBrands();
+  const { data: locations = [] } = useLocations();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -131,12 +119,12 @@ export default function Navigation() {
                     {brands.map((brand) => (
                       <Link
                         key={brand.id}
-                        to={brand.path}
+                        to={`/locations?brand=${brand.slug}`}
                         className="flex items-center px-4 py-2 text-sm text-neutral-600 hover:text-[#CD9F59] hover:bg-neutral-50 transition-colors"
                         onClick={() => setActiveDropdown(null)}
                       >
                         <Hotel className="w-4 h-4 mr-2" />
-                        {brand.name}
+                        {brand.display_name}
                       </Link>
                     ))}
                   </div>
@@ -167,7 +155,7 @@ export default function Navigation() {
                     {locations.map((location) => (
                       <Link
                         key={location.id}
-                        to={location.path}
+                        to={`/locations?location=${location.slug}`}
                         className="flex items-center px-4 py-2 text-sm text-neutral-600 hover:text-[#CD9F59] hover:bg-neutral-50 transition-colors"
                         onClick={() => setActiveDropdown(null)}
                       >
@@ -286,11 +274,11 @@ export default function Navigation() {
                   {brands.map((brand) => (
                     <Link
                       key={brand.id}
-                      to={brand.path}
+                      to={`/locations?brand=${brand.slug}`}
                       className="block px-8 py-3 text-neutral-600 hover:text-[#CD9F59] transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {brand.name}
+                      {brand.display_name}
                     </Link>
                   ))}
                 </div>
@@ -309,7 +297,7 @@ export default function Navigation() {
                   {locations.map((location) => (
                     <Link
                       key={location.id}
-                      to={location.path}
+                      to={`/locations?location=${location.slug}`}
                       className="flex items-center px-8 py-2 text-sm text-neutral-600 hover:text-[#CD9F59] transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
