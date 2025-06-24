@@ -133,9 +133,9 @@ export function useHotels(filters: HotelFilters = {}) {
     const { data, error } = await query;
     if (error) throw error;
     return data || [];
-  }, [filters]);
+  }, [filters.brand, filters.location, filters.featured]);
 
-  return useSupabaseQuery(['hotels', filters], queryFn);
+  return useSupabaseQuery(['hotels', filters.brand, filters.location, filters.featured], queryFn);
 }
 
 // Hook for fetching hotel media/images
@@ -164,9 +164,9 @@ export function useHotelMedia(hotelId: string, filters: MediaFilters = {}, optio
     const { data, error } = await query;
     if (error) throw error;
     return data || [];
-  }, [hotelId, filters]);
+  }, [hotelId, filters.media_type]);
 
-  return useSupabaseQuery(['hotel-media', hotelId, filters], queryFn, {
+  return useSupabaseQuery(['hotel-media', hotelId, filters.media_type], queryFn, {
     enabled: options.enabled !== undefined ? (options.enabled && !!hotelId) : !!hotelId,
     staleTime: 10 * 60 * 1000 // Media queries cached for 10 minutes
   });
