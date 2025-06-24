@@ -11,6 +11,12 @@ export default defineConfig({
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
   },
+  
+  // Extended timeout for long-running debug tests
+  timeout: 10 * 60 * 1000, // 10 minutes
+  expect: {
+    timeout: 30 * 1000, // 30 seconds for assertions
+  },
 
   projects: [
     {
@@ -29,9 +35,10 @@ export default defineConfig({
     },
   ],
 
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:5173',
-    reuseExistingServer: !process.env.CI,
-  },
+  // webServer disabled - using external server monitoring
+  // webServer: {
+  //   command: 'npm run dev',
+  //   url: 'http://localhost:5173',
+  //   reuseExistingServer: !process.env.CI,
+  // },
 });

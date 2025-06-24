@@ -239,7 +239,7 @@ export default function TivoliHeritagePalacePage() {
       <Navigation />
       
       {/* Hero Section - Priority Loading */}
-      <section className="mt-16 above-fold heritage-hero-overlay">
+      <section className="above-fold heritage-hero-overlay">
         {showSkeletonUI ? (
           <SkeletonHero />
         ) : shouldLoad('hero') ? (

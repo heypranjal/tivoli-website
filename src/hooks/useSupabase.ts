@@ -4,7 +4,8 @@
  * Designed for optimal performance and error handling
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { createClient } from '@supabase/supabase-js';
 import { Database, HotelWithRelations, HotelFilters, MediaFilters } from '@/types/supabase';
 import { Hotel } from '@/types/hotel';
@@ -24,51 +25,43 @@ export const supabase = supabaseUrl && supabaseKey
   ? createClient<Database>(supabaseUrl, supabaseKey)
   : null;
 
-// Generic hook for data fetching with loading and error states
+// React Query wrapper for Supabase queries - eliminates infinite loops
 export function useSupabaseQuery<T>(
+  queryKey: (string | number | boolean | object)[],
   queryFn: () => Promise<T>,
-  dependencies: any[] = [],
-  options: { enabled?: boolean; refetchOnMount?: boolean } = {}
+  options: {
+    enabled?: boolean;
+    staleTime?: number;
+    gcTime?: number;
+    refetchOnMount?: boolean;
+  } = {}
 ) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { enabled = true, staleTime = 5 * 60 * 1000, gcTime = 10 * 60 * 1000, refetchOnMount = true } = options;
 
-  const { enabled = true, refetchOnMount = true } = options;
-
-  const executeQuery = useCallback(async () => {
-    if (!enabled || !supabase) {
+  const query = useQuery({
+    queryKey,
+    queryFn: async () => {
       if (!supabase) {
-        setError('Supabase not configured. Please check environment variables.');
-        setLoading(false);
+        throw new Error('Supabase not configured. Please check environment variables.');
       }
-      return;
+      return await queryFn();
+    },
+    enabled: enabled && !!supabase,
+    staleTime,
+    gcTime,
+    refetchOnMount,
+    retry: (failureCount, error: any) => {
+      if (error?.status === 404 || error?.status === 401) return false;
+      return failureCount < 2;
     }
-    
-    try {
-      setLoading(true);
-      setError(null);
-      const result = await queryFn();
-      setData(result);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Supabase query error:', err);
-    } finally {
-      setLoading(false);
-    }
-  }, [queryFn, enabled, ...dependencies]);
+  });
 
-  useEffect(() => {
-    if (refetchOnMount) {
-      executeQuery();
-    }
-  }, [executeQuery, refetchOnMount]);
-
-  const refetch = useCallback(() => {
-    executeQuery();
-  }, [executeQuery]);
-
-  return { data, loading, error, refetch };
+  return {
+    data: query.data || null,
+    loading: query.isLoading,
+    error: query.error ? (query.error instanceof Error ? query.error.message : 'An error occurred') : null,
+    refetch: query.refetch
+  };
 }
 
 // Hook for fetching a single hotel with all relations
@@ -109,7 +102,7 @@ export function useHotel(slug: string) {
     return data;
   }, [slug]);
 
-  return useSupabaseQuery(queryFn, [slug], { enabled: !!slug });
+  return useSupabaseQuery(['hotel', slug], queryFn, { enabled: !!slug });
 }
 
 // Hook for fetching multiple hotels with filters
@@ -142,7 +135,7 @@ export function useHotels(filters: HotelFilters = {}) {
     return data || [];
   }, [filters]);
 
-  return useSupabaseQuery(queryFn, [filters]);
+  return useSupabaseQuery(['hotels', filters], queryFn);
 }
 
 // Hook for fetching hotel media/images
@@ -173,8 +166,9 @@ export function useHotelMedia(hotelId: string, filters: MediaFilters = {}, optio
     return data || [];
   }, [hotelId, filters]);
 
-  return useSupabaseQuery(queryFn, [hotelId, filters], { 
-    enabled: options.enabled !== undefined ? (options.enabled && !!hotelId) : !!hotelId 
+  return useSupabaseQuery(['hotel-media', hotelId, filters], queryFn, {
+    enabled: options.enabled !== undefined ? (options.enabled && !!hotelId) : !!hotelId,
+    staleTime: 10 * 60 * 1000 // Media queries cached for 10 minutes
   });
 }
 
@@ -191,7 +185,9 @@ export function useBrands() {
     return data || [];
   }, []);
 
-  return useSupabaseQuery(queryFn);
+  return useSupabaseQuery(['brands'], queryFn, {
+    staleTime: 30 * 60 * 1000 // Brands rarely change, cache for 30 minutes
+  });
 }
 
 // Hook for fetching locations
@@ -207,7 +203,9 @@ export function useLocations() {
     return data || [];
   }, []);
 
-  return useSupabaseQuery(queryFn);
+  return useSupabaseQuery(['locations'], queryFn, {
+    staleTime: 30 * 60 * 1000 // Locations rarely change, cache for 30 minutes  
+  });
 }
 
 // Utility function to convert Supabase hotel data to legacy Hotel interface

@@ -11,18 +11,20 @@ import { QueryClient } from '@tanstack/react-query'
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // Global defaults for all queries
-      staleTime: 1 * 60 * 1000, // 1 minute default
-      gcTime: 5 * 60 * 1000, // 5 minutes default
+      // Optimized defaults for hotel data
+      staleTime: 10 * 60 * 1000, // 10 minutes - hotel data doesn't change often
+      gcTime: 30 * 60 * 1000, // 30 minutes - keep in cache longer for better UX
       retry: (failureCount, error: any) => {
         // Don't retry for 404s or authentication errors
         if (error?.status === 404 || error?.status === 401) {
           return false
         }
-        // Retry up to 3 times for other errors
-        return failureCount < 3
+        // Reduced retries to prevent API spam
+        return failureCount < 2
       },
-      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 5000), // Faster retries
+      refetchOnWindowFocus: false, // Prevent unnecessary refetches
+      refetchOnMount: false, // Use cached data when possible
     },
     mutations: {
       // Global defaults for mutations

@@ -1,11 +1,11 @@
 /**
  * Upper HSE Brand Venues Data
- * Contemporary urban hotels under THE UPPER HSE brand
+ * Delhi's Ultra Luxury Oval Glass House
  * 
  * Properties included:
- * - The Upper HSE by Tivoli-Sultanpur
+ * - The Upper HSE - Sultanpur by Tivoli
  * 
- * File size: ~120 lines (target: <300)
+ * Updated with factual information
  */
 
 import { Hotel } from '@/types/hotel'
@@ -13,99 +13,190 @@ import { Hotel } from '@/types/hotel'
 export const upperHseVenues: Hotel[] = [
   {
     id: 'upper-hse-sultanpur',
-    name: 'The Upper HSE by Tivoli-Sultanpur',
+    name: 'The Upper HSE - Sultanpur by Tivoli',
     brand: 'upper-hse',
     location: 'delhi',
     slug: 'upper-hse-sultanpur',
-    description: 'Experience contemporary luxury at The Upper HSE by Tivoli-Sultanpur, where modern sophistication meets urban comfort. Located in the prestigious Sultanpur area, this modern masterpiece offers an unparalleled blend of urban elegance and refined hospitality.',
+    description: 'Delhi\'s Ultra Luxury Oval Glass House. Welcome to "The Upper HSE" by Tivoli, Delhi\'s premier ultra-luxury venue, boasting an iconic oval-shaped glass house. This exquisite property can comfortably accommodate 200 to 1000 guests, making it an ideal choice for weddings, pre-wedding ceremonies, and corporate events. The venue features a singular glass house complemented by a lush lawn area, offering versatility and elegance.',
     images: [
       'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/upper-hse-venues/sultanpur-upperhse-hp-thumbnail.jpg',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80',
-      'https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=1932&q=80',
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+      'https://images.unsplash.com/photo-1519167758481-83f29c7c8756?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80',
+      'https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&auto=format&fit=crop&w=1932&q=80',
+      'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
     ],
     rating: 5,
     address: {
-      street: 'MG Road, Sultanpur',
+      street: 'Farm No.1, Sultanpur Estate, Mandi Rd, DLF Farms',
       city: 'New Delhi',
       state: 'Delhi',
       country: 'India',
       postalCode: '110030',
-      coordinates: { lat: 28.4916, lng: 77.2097 }
+      coordinates: { lat: 28.491442099999997, lng: 77.1632989 }
     },
     contact: {
-      phone: '+919811553333',
-      email: 'sultanpur@upperhsehotels.com'
+      phone: '9818553333',
+      email: 'reservations@thetivolihotels.com',
+      whatsapp: '8588850354',
+      website: 'https://tivolibanquets.com/'
     },
     amenities: [
-      { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Signal' },
-      { id: 'pool', name: 'Swimming Pool', description: 'Temperature-controlled rooftop pool', icon: 'Pool' },
-      { id: 'fitness', name: 'Fitness Center', description: '24/7 state-of-the-art fitness center with personal training', icon: 'Dumbbell' },
-      { id: 'dining', name: 'Urban Dining', description: 'Contemporary urban dining experiences', icon: 'Utensils' },
-      { id: 'parking', name: 'Valet Parking', description: 'Complimentary valet parking for hotel guests', icon: 'Car' },
-      { id: 'bar', name: 'Rooftop Bar', description: 'Stylish rooftop bar with city views', icon: 'Wine' },
-      { id: 'spa', name: 'Urban Spa', description: 'Modern urban spa with wellness treatments', icon: 'Spa' },
-      { id: 'lounge', name: 'Executive Lounge', description: 'Contemporary executive lounge with co-working facilities', icon: 'Coffee' }
+      { id: 'parking', name: 'Valet Parking', description: 'Parking for 200 vehicles with valet service', icon: 'Car' },
+      { id: 'glass-house', name: 'Ultra Luxury Oval Glass House', description: '10,000 sq.ft iconic oval-shaped glass house', icon: 'Building' },
+      { id: 'lawn', name: 'Open Lush Garden', description: '30,000 sq.ft outdoor lawn area', icon: 'Trees' },
+      { id: 'catering', name: 'In-house & Outside Catering', description: 'Flexible catering options with custom menus', icon: 'Utensils' },
+      { id: 'rooms', name: 'Complimentary Accommodation', description: '4 complimentary rooms for event guests', icon: 'Bed' },
+      { id: 'soundproof', name: 'Sound Proof Glasses', description: 'Professional sound isolation for events', icon: 'Volume2' },
+      { id: 'ac-hall', name: 'AC Hall', description: 'Climate-controlled event spaces', icon: 'Wind' },
+      { id: 'pre-function', name: 'Pre-function Area', description: 'Dedicated pre-event gathering space', icon: 'Users' }
     ],
     rooms: [
       {
-        id: 'deluxe',
-        name: 'Urban Deluxe Room',
-        description: 'Contemporary 42 sq.m. room with urban sophistication',
-        size: '42 sq.m.',
+        id: 'complimentary-1',
+        name: 'Complimentary Room 1',
+        description: 'Comfortable accommodation for event guests with modern amenities',
+        size: 'Standard',
         maxOccupancy: 2,
-        bedType: 'King or Twin',
+        bedType: 'Queen Bed',
         images: [
-          'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-          'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+          'https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
         ],
-        amenities: ['City View', 'Rain Shower', 'Smart TV', 'Mini Bar', '24/7 Room Service'],
-        price: { currency: 'INR', amount: 24000 }
+        amenities: ['Air Conditioning', 'Attached Bathroom', 'Basic Amenities'],
+        price: { currency: 'INR', amount: 0, note: 'Complimentary with event booking' }
       },
       {
-        id: 'suite',
-        name: 'Urban Suite',
-        description: 'Luxurious 80 sq.m. suite with separate living area and city views',
-        size: '80 sq.m.',
-        maxOccupancy: 3,
-        bedType: 'King',
+        id: 'complimentary-2',
+        name: 'Complimentary Room 2',
+        description: 'Comfortable accommodation for event guests with modern amenities',
+        size: 'Standard',
+        maxOccupancy: 2,
+        bedType: 'Queen Bed',
         images: [
-          'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
-          'https://images.unsplash.com/photo-1601551345929-64e5579b8f33?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+          'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
         ],
-        amenities: ['City Skyline View', 'Private Balcony', 'Butler Service', 'Jacuzzi', 'Executive Lounge Access'],
-        price: { currency: 'INR', amount: 42000 }
+        amenities: ['Air Conditioning', 'Attached Bathroom', 'Basic Amenities'],
+        price: { currency: 'INR', amount: 0, note: 'Complimentary with event booking' }
+      },
+      {
+        id: 'complimentary-3',
+        name: 'Complimentary Room 3',
+        description: 'Comfortable accommodation for event guests with modern amenities',
+        size: 'Standard',
+        maxOccupancy: 2,
+        bedType: 'Queen Bed',
+        images: [
+          'https://images.unsplash.com/photo-1540518614846-7eded47bb47b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        ],
+        amenities: ['Air Conditioning', 'Attached Bathroom', 'Basic Amenities'],
+        price: { currency: 'INR', amount: 0, note: 'Complimentary with event booking' }
+      },
+      {
+        id: 'complimentary-4',
+        name: 'Complimentary Room 4',
+        description: 'Comfortable accommodation for event guests with modern amenities',
+        size: 'Standard',
+        maxOccupancy: 2,
+        bedType: 'Queen Bed',
+        images: [
+          'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        ],
+        amenities: ['Air Conditioning', 'Attached Bathroom', 'Basic Amenities'],
+        price: { currency: 'INR', amount: 0, note: 'Complimentary with event booking' }
       }
     ],
     dining: [
       {
-        id: 'hse-kitchen',
-        name: 'HSE Kitchen',
-        description: 'Contemporary urban dining with fusion cuisine',
-        cuisine: 'Fusion',
-        hours: '6:00 AM - 12:00 AM',
-        dress: 'Smart Casual',
-        image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/upper-hse-venues/sultanpur-dining.jpg'
+        id: 'catering-service',
+        name: 'Catering Services',
+        description: 'Professional catering services with custom menus, live counters, and flexible dining options',
+        cuisine: 'Multi-Cuisine',
+        hours: 'As per event requirements',
+        dress: 'As per event theme',
+        features: ['In-house Catering', 'Outside Catering Allowed', 'Custom Menus', 'Live Counters'],
+        image: 'https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+      }
+    ],
+    spaces: [
+      {
+        id: 'oval-glass-house',
+        name: 'Ultra Luxury Oval Glass House',
+        description: 'Delhi\'s premier ultra-luxury venue featuring an iconic oval-shaped glass house with sound proof glasses and AC hall',
+        capacity: { min: 200, max: 1000 },
+        area: '10,000 sq.ft',
+        type: 'Banquet Hall',
+        image: 'https://images.unsplash.com/photo-1519167758481-83f29c7c8756?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        features: ['Sound Proof Glasses', 'AC Hall', 'Audio Visual Equipment', 'Professional Lighting'],
+        configurations: [
+          { style: 'Classroom', capacity: 600 },
+          { style: 'U-Shape', capacity: 200 },
+          { style: 'Theatre', capacity: 1000 },
+          { style: 'Cocktail', capacity: 1000 }
+        ]
       },
       {
-        id: 'rooftop-bar',
-        name: 'Sky Lounge',
-        description: 'Rooftop bar with panoramic city views',
-        cuisine: 'Bar & Grill',
-        hours: '5:00 PM - 1:00 AM',
-        dress: 'Smart Casual',
-        image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/upper-hse-venues/sultanpur-rooftop.jpg'
+        id: 'open-lush-garden',
+        name: 'Open Lush Garden',
+        description: 'Expansive outdoor lawn area complementing the glass house, perfect for outdoor ceremonies and receptions',
+        capacity: { min: 200, max: 1000 },
+        area: '30,000 sq.ft',
+        type: 'Outdoor Lawn',
+        image: 'https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        features: ['Garden Setting', 'Open Air', 'Lawn Area', 'Scenic Views'],
+        configurations: [
+          { style: 'Wedding Setup', capacity: 800 },
+          { style: 'Corporate Event', capacity: 600 },
+          { style: 'Reception', capacity: 1000 }
+        ]
       }
     ],
     features: [
-      'Contemporary Architecture', 'Urban Spa', 'Rooftop Dining', 'Swimming Pool',
-      'Business Center', 'Event Spaces', 'Concierge Service', '24/7 Room Service'
+      'Ultra Luxury Oval Glass House (10,000 sq.ft)',
+      'Open Lush Garden (30,000 sq.ft)', 
+      'Parking for 200 vehicles with Valet Service',
+      'Pre-function Area',
+      'Sound Proof Glasses',
+      'AC Hall',
+      '4 Complimentary Rooms',
+      'In-house & Outside Catering',
+      'Destination Weddings',
+      'Pre-Wedding Shoots',
+      'Corporate Events',
+      'Social Gatherings'
     ],
+    services: [
+      'Destination Weddings',
+      'Pre-Wedding Shoots', 
+      'Corporate Events',
+      'MICE Events',
+      'Birthday Celebrations',
+      'Cocktail Parties',
+      'Social Gatherings',
+      'Stay + Event Packages',
+      'Loyalty Programs'
+    ],
+    transportation: {
+      airport: '15 km',
+      railway: {
+        'New Delhi Railway Station': '21 km',
+        'Old Delhi Railway Station': '26 km'
+      },
+      metro: 'Sultanpur Metro Station',
+      landmark: 'Near Iconic Chattarpur Temple'
+    },
+    nearbyAttractions: [
+      'Iconic Chhatarpur Temple',
+      'Garden of Five Senses', 
+      'Qutub Minar'
+    ],
+    socialMedia: {
+      instagram: 'https://www.instagram.com/theupperhousebytivoli/',
+      facebook: 'https://www.facebook.com/theupperhousebytivoli/'
+    },
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.6049320382813!2d77.1632989!3d28.491442099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1fdbcba0b08b%3A0xb6cea74e5c7dfb37!2sThe%20Upper%20HSE%20by%20Tivoli!5e0!3m2!1sen!2sin!4v1750683207349!5m2!1sen!2sin',
     policies: {
-      checkIn: '3:00 PM',
-      checkOut: '12:00 PM',
-      cancellation: '24 hours before arrival',
-      pets: 'Service animals only'
+      checkIn: 'Event-based arrival',
+      checkOut: 'Event completion',
+      cancellation: 'As per event contract terms',
+      pets: 'Not allowed'
     }
   }
 ]

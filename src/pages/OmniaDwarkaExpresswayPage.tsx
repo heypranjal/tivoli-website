@@ -1,357 +1,237 @@
 /**
- * OmniaDwarkaExpresswayPage Component
- * Displays detailed information about Omnia by Tivoli - Dwarka Expressway
+ * Omnia By Tivoli - Dwarka Expressway Page with Progressive Loading
+ * Comprehensive, database-driven detail page following The Tivoli design patterns
+ * Features: Complete data integration, modular components, progressive UX, performance optimization
  */
-import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Share2, Heart, Signal, School, Dumbbell, Utensils, Car, Wine, Space, Coffee, ChevronRight, Flame, Wind, Music, Tv, Armchair as Wheelchair, Sprout, Clock } from 'lucide-react';
+
+import React, { useEffect, Suspense } from 'react';
+import { useParams } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
-import { hotels } from '@/data/hotels';
 import VenueBookingForm from '@/components/VenueBookingForm';
-import HotelBookingWidget from '@/components/HotelBookingWidget';
+import { useHotelRooms } from '@/hooks/useHotelRooms';
+import { useProgressiveLoading } from '@/hooks/useProgressiveLoading';
+import { 
+  HeroSection,
+  OverviewSection,
+  AccommodationsSection,
+  VirtualTourSection,
+  ExperiencesSection,
+  SpacesSection,
+  DiningSection,
+  GallerySection,
+  WeddingDestinationSection,
+  ContactSection,
+} from '@/components/hotel';
+import { 
+  SkeletonHero,
+  SkeletonOverview,
+  SkeletonAccommodations,
+  SkeletonExperiences,
+  SkeletonSpaces,
+  SkeletonDining,
+  SkeletonGallery,
+  SkeletonWedding,
+  SkeletonContact
+} from '@/components/ui/SkeletonComponents';
+import { useOmniaDwarkaExpressway } from '@/hooks/useOmniaDwarkaExpressway';
 
-const amenityIcons = {
-  Wifi: Signal,
-  Pool: School,
-  Dumbbell,
-  Utensils,
-  Car,
-  Wine,
-  Spa: Space,
-  Coffee
-};
+const OmniaDwarkaExpresswayPage: React.FC = () => {
+  const { hotelSlug } = useParams<{ hotelSlug: string }>();
+  
+  // Progressive loading configuration - same as Tivoli pattern
+  const { shouldLoad } = useProgressiveLoading({
+    immediate: ['navigation', 'hero'],
+    priority: ['overview'],
+    secondary: ['accommodations', 'virtual-tour'],
+    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
+    background: ['wedding', 'contact', 'booking-form']
+  });
 
-export default function OmniaDwarkaExpresswayPage() {
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [showAllImages, setShowAllImages] = useState(false);
-  const [isWishlist, setIsWishlist] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isPortrait, setIsPortrait] = useState(false);
+  // Hotel data with caching
+  const {
+    data: hotelData,
+    loading,
+    error,
+    spaces,
+    diningVenues,
+    experiences,
+    galleryImages,
+    quickStats,
+    socialMedia,
+  } = useOmniaDwarkaExpressway(hotelSlug || 'omnia-dwarka-expressway');
 
+  // Rooms data with progressive loading and caching
+  const { 
+    rooms, 
+    loading: roomsLoading, 
+    error: roomsError 
+  } = useHotelRooms('55f959f2-aec2-415a-bb08-2469bb787542');
+
+  // Set page title and meta description
   useEffect(() => {
-    const checkLayout = () => {
-      setIsMobile(window.innerWidth < 768);
-      setIsPortrait(window.innerHeight > window.innerWidth);
-    };
-    checkLayout();
-    window.addEventListener('resize', checkLayout);
-    return () => window.removeEventListener('resize', checkLayout);
-  }, []);
+    if (hotelData) {
+      document.title = `${hotelData.name} - Luxury Hotel in ${hotelData.address.city}`;
+      
+      // Set meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', 
+          `${hotelData.description} Located in ${hotelData.address.city}, featuring luxury accommodations, world-class dining, and exceptional event spaces.`
+        );
+      }
+    }
+  }, [hotelData]);
 
-  // Find hotel by slug
-  const hotel = hotels.find(h => h.id === 'omnia-dwarka');
+  // Show skeleton UI while data loads (much faster than full loading screen)
+  const showSkeletonUI = loading && !hotelData;
 
-  // If no hotel found, redirect to home
-  if (!hotel) {
-    return <Navigate to="/" />;
-  }
-
-  return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
-      <div className="container mx-auto px-4 pt-20 md:pt-24 relative ml-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {/* Main Image */}
-          <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden">
-            <img
-              src={hotel.images[0]}
-              alt={hotel.name} 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
-          </div>
-          
-          {/* Secondary Images Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {hotel.images.slice(1, 5).map((image, index) => (
-              <div key={index} className="relative h-[190px] md:h-[240px] rounded-lg overflow-hidden border border-neutral-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <img
-                  src={image}
-                  alt={`${hotel.name} - ${index + 2}`}
-                  className="w-full h-full object-cover"
-                />
-                {index === 3 && hotel.images.length > 5 && (
-                  <button
-                    onClick={() => setShowAllImages(true)}
-                    className="absolute inset-0 bg-black/50 flex items-center justify-center text-white font-medium"
-                  >
-                    +{hotel.images.length - 5} More
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Hotel Title Section */}
-        <div className={`flex justify-between items-start gap-8 ${isMobile ? 'flex-col' : ''}`}>
-          <div className="flex-1 space-y-8">
-            <h1 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-2">{hotel.name}</h1> 
-            <div className="flex items-center gap-4">
-              <p className="flex items-center text-neutral-600">
-                <MapPin className="w-4 h-4 mr-1" />
-                {hotel.address.city}, {hotel.address.country}
-              </p>
-              <button className="p-2 hover:bg-neutral-100 rounded-full transition-colors">
-                <Share2 className="w-5 h-5 text-neutral-600" />
-              </button>
-              <button 
-                className="p-2 hover:bg-neutral-100 rounded-full transition-colors"
-                onClick={() => setIsWishlist(!isWishlist)}
-              >
-                <Heart className={`w-5 h-5 ${isWishlist ? 'fill-[#CD9F59] text-[#CD9F59]' : 'text-neutral-600'}`} />
-              </button>
-            </div>
-
-            <div>
-              <h3 className="font-serif text-xl text-neutral-800 mb-4">Key Amenities</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {hotel.amenities.slice(0, 8).map((amenity) => {
-                  const IconComponent = amenityIcons[amenity.icon as keyof typeof amenityIcons];
-                  return (
-                    <div key={amenity.id} className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#CD9F59]/10 flex items-center justify-center">
-                        {IconComponent ? (
-                          <IconComponent className="w-4 h-4 text-[#CD9F59]" />
-                        ) : (
-                          <Heart className="w-4 h-4 text-[#CD9F59]" />
-                        )}
-                      </div>
-                      <span className="text-neutral-600 text-xs">{amenity.name}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Highlights Section */}
-            <div className="mt-8">
-              <h3 className="font-serif text-xl text-neutral-800 mb-4">Hotel Highlights</h3>
-              <div className="bg-neutral-50 rounded-lg p-6">
-                <p className="text-neutral-600 leading-relaxed">
-                  Experience contemporary luxury at {hotel.name}, where modern sophistication 
-                  meets urban comfort. Our venue offers spectacular spaces for business meetings, 
-                  social gatherings, and unforgettable stays in the heart of Delhi.
-                </p>
-              </div>
-            </div>
-
-            {/* Luxury Experiences Section */}
-            <section className="py-6 md:py-12">
-              <div className="text-center mb-8">
-                <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-2 block">
-                  Urban Experiences
-                </span>
-                <h2 className="font-serif text-3xl md:text-4xl text-neutral-800 mb-4">
-                  Contemporary Luxury
-                </h2>
-                <p className="text-neutral-600 max-w-2xl mx-auto">
-                  Discover a world of modern refinement and sophisticated experiences
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Rooftop Lounge */}
-                <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                      alt="Rooftop Lounge"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                    <div className="absolute inset-x-6 bottom-6 text-white">
-                      <h3 className="font-serif text-xl mb-2">Rooftop Lounge</h3>
-                      <p className="text-sm text-white/90">Panoramic city views and sophisticated ambiance</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Business Center */}
-                <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                      alt="Business Center"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                    <div className="absolute inset-x-6 bottom-6 text-white">
-                      <h3 className="font-serif text-xl mb-2">Business Center</h3>
-                      <p className="text-sm text-white/90">State-of-the-art facilities for corporate needs</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Infinity Pool */}
-                <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
-                      alt="Infinity Pool"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                    <div className="absolute inset-x-6 bottom-6 text-white">
-                      <h3 className="font-serif text-xl mb-2">Infinity Pool</h3>
-                      <p className="text-sm text-white/90">Rooftop swimming with stunning city views</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Fine Dining */}
-                <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                      alt="Fine Dining"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                    <div className="absolute inset-x-6 bottom-6 text-white">
-                      <h3 className="font-serif text-xl mb-2">Fine Dining</h3>
-                      <p className="text-sm text-white/90">Contemporary cuisine with a global perspective</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Urban Spa */}
-                <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                      alt="Urban Spa"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                    <div className="absolute inset-x-6 bottom-6 text-white">
-                      <h3 className="font-serif text-xl mb-2">Urban Spa</h3>
-                      <p className="text-sm text-white/90">Modern wellness treatments and relaxation</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Event Spaces */}
-                <div className="group cursor-pointer">
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80"
-                      alt="Event Spaces"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-                    <div className="absolute inset-x-6 bottom-6 text-white">
-                      <h3 className="font-serif text-xl mb-2">Event Spaces</h3>
-                      <p className="text-sm text-white/90">Versatile venues for memorable occasions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-          
-          <div className={`${isMobile ? 'w-full' : 'w-[400px]'} relative`}>
-            <HotelBookingWidget
-              price={hotel.rooms[0].price.amount}
-              roomCount={9}
-              isMobile={isMobile}
-              isPortrait={isPortrait}
-            />
-          </div>
-        </div>
-
-        <hr className="border-b border-[#CD9F59]/20 my-12" />
-          
-        {/* Main Content */}
-        <div className="container mx-auto px-4 py-20">
-          {/* Dining */}
-          <div className="mb-20">
-            <h2 className="font-serif text-3xl text-neutral-800 mb-12 text-center">
-              Dining
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {hotel.dining.map((restaurant) => (
-                <div key={restaurant.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div className="relative h-64">
-                    <img
-                      src={restaurant.image}
-                      alt={restaurant.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-serif text-2xl text-neutral-800 mb-2">
-                      {restaurant.name}
-                    </h3>
-                    <p className="text-neutral-600 mb-4">
-                      {restaurant.description}
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-neutral-500">Cuisine:</span>
-                        <p className="font-medium">{restaurant.cuisine}</p>
-                      </div>
-                      <div>
-                        <span className="text-neutral-500">Hours:</span>
-                        <p className="font-medium">{restaurant.hours}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact & Location */}
-          <div>
-            <h2 className="font-serif text-3xl text-neutral-800 mb-12 text-center">
-              Contact & Location
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h3 className="font-serif text-2xl text-neutral-800 mb-6">
-                    Contact Information
-                  </h3>
-                  <div className="space-y-4">
-                    <a href={`tel:${hotel.contact.phone}`} className="flex items-center text-neutral-600 hover:text-[#CD9F59] transition-colors">
-                      <Phone className="w-5 h-5 mr-3" />
-                      <span>{hotel.contact.phone}</span>
-                    </a>
-                    <a href={`mailto:${hotel.contact.email}`} className="flex items-center text-neutral-600 hover:text-[#CD9F59] transition-colors">
-                      <Mail className="w-5 h-5 mr-3" />
-                      <span>{hotel.contact.email}</span>
-                    </a>
-                    <div className="flex items-start text-neutral-600">
-                      <MapPin className="w-5 h-5 mr-3 mt-1" />
-                      <div>
-                        <p>{hotel.address.street}</p>
-                        <p>{hotel.address.city}, {hotel.address.state} {hotel.address.postalCode}</p>
-                        <p>{hotel.address.country}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <h3 className="font-serif text-2xl text-neutral-800 mb-6">
-                  Location Details
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start text-neutral-600">
-                    <MapPin className="w-5 h-5 mr-3 mt-1" />
-                    <div>
-                      <p className="font-medium mb-2">Getting Here</p>
-                      <p>Located in {hotel.address.city}, our hotel is easily accessible from major transportation hubs.</p>
-                      <p className="mt-2">Coordinates: {hotel.address.coordinates.lat}, {hotel.address.coordinates.lng}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  // Error state - same pattern as Tivoli
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-md mx-auto text-center">
+            <h1 className="text-2xl font-serif text-neutral-800 mb-4">Unable to Load Hotel</h1>
+            <p className="text-neutral-600 mb-6">{error}</p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="bg-[#CD9F59] text-white px-6 py-2 rounded hover:bg-[#B8934E] transition-colors"
+            >
+              Try Again
+            </button>
           </div>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white scroll-optimized">
+      {/* Navigation loads immediately */}
+      <Navigation />
+      
+      {/* Hero Section - Priority Loading */}
+      <div className="above-fold">
+        {showSkeletonUI ? (
+          <SkeletonHero />
+        ) : shouldLoad('hero') && hotelData ? (
+          <HeroSection
+            hotelName={hotelData.name}
+            location={hotelData.address.city}
+            state={hotelData.address.state}
+            images={galleryImages}
+          />
+        ) : (
+          <SkeletonHero />
+        )}
+      </div>
+
+      {/* Main Content Container - Exact same structure as Tivoli */}
+      <div className="container mx-auto px-4 py-8 below-fold">
+        <div className="max-w-6xl mx-auto space-y-16">
+          
+          {/* Overview Section - Priority Loading */}
+          {showSkeletonUI ? (
+            <SkeletonOverview />
+          ) : shouldLoad('overview') && hotelData ? (
+            <OverviewSection
+              hotelName={hotelData.name}
+              description={hotelData.description}
+              location={hotelData.address.city}
+              additionalDescription={`Located in the prestigious ${hotelData.address.city} area, Omnia By Tivoli offers an exceptional blend of contemporary luxury and urban sophistication. Our hotel features elegantly designed rooms, modern event facilities, and innovative dining venues designed to exceed every expectation.`}
+              quickStats={quickStats}
+            />
+          ) : (
+            <SkeletonOverview />
+          )}
+
+          {/* Accommodations Section - Secondary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonAccommodations />
+          ) : shouldLoad('accommodations') ? (
+            <AccommodationsSection
+              rooms={rooms}
+              loading={roomsLoading}
+              error={roomsError}
+            />
+          ) : (
+            <SkeletonAccommodations />
+          )}
+
+          {/* Experiences Section - Tertiary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonExperiences />
+          ) : shouldLoad('experiences') ? (
+            <ExperiencesSection experiences={experiences} />
+          ) : (
+            <SkeletonExperiences />
+          )}
+
+          {/* Spaces Section - Tertiary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonSpaces />
+          ) : shouldLoad('spaces') ? (
+            <SpacesSection spaces={spaces} />
+          ) : (
+            <SkeletonSpaces />
+          )}
+
+          {/* Dining Section - Tertiary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonDining />
+          ) : shouldLoad('dining') ? (
+            <DiningSection diningVenues={diningVenues} />
+          ) : (
+            <SkeletonDining />
+          )}
+
+          {/* Gallery Section - Tertiary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonGallery />
+          ) : shouldLoad('gallery') && galleryImages ? (
+            <GallerySection 
+              images={galleryImages}
+              hotelName={hotelData?.name || 'Omnia By Tivoli'}
+            />
+          ) : (
+            <SkeletonGallery />
+          )}
+
+          {/* Wedding Destination Section - Background Loading */}
+          {showSkeletonUI ? (
+            <SkeletonWedding />
+          ) : shouldLoad('wedding') && hotelData ? (
+            <WeddingDestinationSection hotelName={hotelData.name} />
+          ) : (
+            <SkeletonWedding />
+          )}
+
+          {/* Contact Section - Background Loading */}
+          {shouldLoad('contact') && hotelData && (
+            <ContactSection 
+              address={hotelData.address}
+              contact={hotelData.contact}
+              socialMedia={socialMedia}
+              mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.021852610181!2d77.02719617549735!3d28.539062875715874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1b67382dfcff%3A0x154300e1107068bc!2sOmnia%20by%20Tivoli%20Dwarka!5e0!3m2!1sen!2sin!4v1750654233027!5m2!1sen!2sin"
+            />
+          )}
+
+        </div>
+      </div>
+
+      {/* Booking Form - Loads in background, outside main container */}
+      {shouldLoad('booking-form') && hotelData && (
+        <Suspense fallback={<div className="h-64" />}>
+          <VenueBookingForm 
+            hotelName={hotelData.name}
+            hotelId={hotelData.id}
+            spaces={spaces}
+          />
+        </Suspense>
+      )}
     </div>
   );
-}
+};
+
+export default OmniaDwarkaExpresswayPage;

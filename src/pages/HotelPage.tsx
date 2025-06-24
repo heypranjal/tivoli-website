@@ -16,6 +16,11 @@ import EnhancedTivoliNewDelhiPage from './EnhancedTivoliNewDelhiPage';
 import EnhancedTivoliRoyalPalacePage from './EnhancedTivoliRoyalPalacePage';
 import TivoliHeritagePalacePage from './TivoliHeritagePalacePage';
 import EnhancedTivoliBijwasanPage from './EnhancedTivoliBijwasanPage';
+import TivoliLotusCourtPage from './TivoliLotusCourtPage';
+import OmniaDwarkaExpresswayPage from './OmniaDwarkaExpresswayPage';
+import EnhancedUpperHSEPage from './EnhancedUpperHSEPage';
+import EnhancedWedcationAmbalaPage from './EnhancedWedcationAmbalaPage';
+import EnhancedWedcationIsranaPage from './EnhancedWedcationIsranaPage';
 import { 
   MapPin, 
   Phone, 
@@ -69,6 +74,31 @@ export default function HotelPage() {
   // Use enhanced page for Tivoli Bijwasan
   if (hotelSlug === 'tivoli-bijwasan') {
     return <EnhancedTivoliBijwasanPage />;
+  }
+  
+  // Use enhanced page for Tivoli Lotus Court
+  if (hotelSlug === 'tivoli-lotus-court') {
+    return <TivoliLotusCourtPage />;
+  }
+  
+  // Use enhanced page for Omnia Dwarka Expressway
+  if (hotelSlug === 'omnia-dwarka-expressway') {
+    return <OmniaDwarkaExpresswayPage />;
+  }
+  
+  // Use enhanced page for Upper HSE Sultanpur
+  if (hotelSlug === 'upper-hse-sultanpur') {
+    return <EnhancedUpperHSEPage />;
+  }
+  
+  // Use enhanced page for Wedcation by Tivoli Ambala
+  if (hotelSlug === 'wedcation-by-tivoli-ambala') {
+    return <EnhancedWedcationAmbalaPage />;
+  }
+  
+  // Use enhanced page for Wedcation by Tivoli Israna
+  if (hotelSlug === 'wedcation-by-tivoli-israna') {
+    return <EnhancedWedcationIsranaPage />;
   }
   
   const { data: hotelData, loading: isLoading, error } = useHotel(hotelSlug || '');

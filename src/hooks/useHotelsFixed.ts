@@ -6,11 +6,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { createClient } from '@supabase/supabase-js'
 
-// Direct Supabase client (bypassing the service layer temporarily)
-const supabase = createClient(
-  'https://sivirxabbuldqkckjwmu.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpdmlyeGFiYnVsZHFrY2tqd211Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAyMzk1NTcsImV4cCI6MjA2NTgxNTU1N30.gOX_CiexVuZsdrV8GqpAiO0qKtGev1cNIFZRwXjc1q4'
-)
+// Use centralized Supabase client from environment variables
+import { supabase } from './useSupabase'
+
+// Fallback for when Supabase is not configured
+const createFallbackClient = () => null
 
 /**
  * Get all brands for tabs
@@ -19,20 +19,39 @@ export function useBrands() {
   return useQuery({
     queryKey: ['brands'],
     queryFn: async () => {
-      const { data: brands, error } = await supabase
-        .from('brands')
-        .select('*')
-        .eq('is_active', true)
-        .order('sort_order')
-      
-      if (error) {
-        throw error
+      try {
+        // Return empty array if Supabase not configured
+        if (!supabase) {
+          console.warn('Supabase not configured, returning empty brands array');
+          return [];
+        }
+
+        const { data: brands, error } = await supabase
+          .from('brands')
+          .select('*')
+          .eq('is_active', true)
+          .order('sort_order')
+        
+        if (error) {
+          throw error
+        }
+        
+        return brands || []
+      } catch (error) {
+        console.error('Brands query failed:', error);
+        // Return empty array instead of throwing to prevent crashes
+        return [];
       }
-      
-      return brands || []
     },
     staleTime: 10 * 60 * 1000, // 10 minutes
     gcTime: 15 * 60 * 1000,
+    retry: (failureCount, error) => {
+      // Don't retry network errors excessively
+      if (error?.message?.includes('fetch') || error?.message?.includes('network')) {
+        return false;
+      }
+      return failureCount < 1; // Limit retries for brands
+    },
   })
 }
 
@@ -43,6 +62,16 @@ export function useHotelsByBrand(brandSlug?: string) {
   return useQuery({
     queryKey: ['hotels', { brand: brandSlug }],
     queryFn: async () => {
+      // Add timeout and circuit breaker for stability
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+      
+      try {
+        // Return empty array if Supabase not configured
+        if (!supabase) {
+          console.warn('Supabase not configured, returning empty array');
+          return [];
+        }
       // First get the brand ID if we have a brandSlug
       let brandId = null;
       if (brandSlug && brandSlug !== 'all') {
@@ -96,10 +125,26 @@ export function useHotelsByBrand(brandSlug?: string) {
       })) || []
       
       return venues
+      } catch (error) {
+        clearTimeout(timeoutId);
+        console.error('Hotel query failed:', error);
+        
+        // Return empty array instead of throwing to prevent crashes
+        return [];
+      } finally {
+        clearTimeout(timeoutId);
+      }
     },
     enabled: !!brandSlug,
     staleTime: 5 * 60 * 1000,
     gcTime: 10 * 60 * 1000,
+    retry: (failureCount, error) => {
+      // Don't retry if it's a timeout or abort error
+      if (error?.name === 'AbortError' || error?.message?.includes('timeout')) {
+        return false;
+      }
+      return failureCount < 2; // Limit retries
+    },
   })
 }
 
@@ -110,41 +155,68 @@ export function useHotelsForFeaturedVenuesFixed() {
   return useQuery({
     queryKey: ['hotels', { featured: true }],
     queryFn: async () => {
-      const { data: hotels, error } = await supabase
-        .from('hotels')
-        .select(`
-          *,
-          brand:brands(*),
-          location:locations(*),
-          featured_image:media(*),
-          images:hotel_media(
-            media_type,
-            sort_order,
-            is_primary,
-            media:media(*)
-          )
-        `)
-        .eq('is_active', true)
-        .eq('is_featured', true)
-        .order('sort_order')
+      // Add timeout and circuit breaker for stability
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
       
-      if (error) {
-        throw error
+      try {
+        // Return empty array if Supabase not configured
+        if (!supabase) {
+          console.warn('Supabase not configured, returning empty array');
+          return [];
+        }
+
+        const { data: hotels, error } = await supabase
+          .from('hotels')
+          .select(`
+            *,
+            brand:brands(*),
+            location:locations(*),
+            featured_image:media(*),
+            images:hotel_media(
+              media_type,
+              sort_order,
+              is_primary,
+              media:media(*)
+            )
+          `)
+          .eq('is_active', true)
+          .eq('is_featured', true)
+          .order('sort_order')
+        
+        if (error) {
+          throw error
+        }
+        
+        // Transform data safely
+        const featuredVenues = hotels?.map(hotel => ({
+          id: hotel.slug,
+          name: hotel.name,
+          location: hotel.location?.name || hotel.city || 'India',
+          brand: hotel.brand?.slug || 'unknown',
+          image: hotel.featured_image?.public_url || hotel.images?.[0]?.media?.public_url || '',
+          href: `/hotel/${hotel.slug}`
+        })) || []
+        
+        return featuredVenues
+      } catch (error) {
+        clearTimeout(timeoutId);
+        console.error('Featured venues query failed:', error);
+        
+        // Return empty array instead of throwing to prevent crashes
+        return [];
+      } finally {
+        clearTimeout(timeoutId);
       }
-      
-      // Transform data safely
-      const featuredVenues = hotels?.map(hotel => ({
-        id: hotel.slug,
-        name: hotel.name,
-        location: hotel.location?.name || hotel.city || 'India',
-        brand: hotel.brand?.slug || 'unknown',
-        image: hotel.featured_image?.public_url || hotel.images?.[0]?.media?.public_url || '',
-        href: `/hotel/${hotel.slug}`
-      })) || []
-      
-      return featuredVenues
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000,
+    retry: (failureCount, error) => {
+      // Don't retry if it's a timeout or abort error
+      if (error?.name === 'AbortError' || error?.message?.includes('timeout')) {
+        return false;
+      }
+      return failureCount < 2; // Limit retries
+    },
   })
 }

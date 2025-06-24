@@ -137,7 +137,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
       <Navigation />
       
       {/* Hero Section - Priority Loading */}
-      <div className="mt-16 above-fold">
+      <div className="above-fold">
         {showSkeletonUI ? (
           <SkeletonHero />
         ) : shouldLoad('hero') && hotelData ? (

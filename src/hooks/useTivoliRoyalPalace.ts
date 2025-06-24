@@ -279,11 +279,21 @@ export function useTivoliRoyalPalace(slug: string = 'tivoli-royal-palace') {
     }
   );
 
-  // Disable media query to prevent infinite loading
+  // Memoize the media filters to prevent infinite re-renders
+  const mediaFilters = useMemo(() => ({ 
+    media_type: 'gallery' as const 
+  }), []);
+
+  // Memoize the media options to prevent infinite re-renders
+  const mediaOptions = useMemo(() => ({ 
+    enabled: !!hotelData?.id 
+  }), [hotelData?.id]);
+
+  // Fetch media data from database (with stable object references)
   const { data: mediaData, loading: mediaLoading } = useHotelMedia(
-    '', 
-    { media_type: 'gallery' },
-    { enabled: false }
+    hotelData?.id || '', 
+    mediaFilters,
+    mediaOptions
   );
 
   // Faster timeout for better UX

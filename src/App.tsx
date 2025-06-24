@@ -24,6 +24,7 @@ import LocationsPage from './pages/LocationsPage';
 import BrandsPage from './pages/BrandsPage';
 import SustainabilityPage from './pages/SustainabilityPage';
 import OurStoryPage from './pages/OurStoryPage';
+import MonitoringDashboard from './components/MonitoringDashboard';
 
 function App() {
   return (
@@ -165,6 +166,9 @@ function App() {
           </div>
         </div>
       </footer>
+      
+      {/* Global Monitoring Dashboard */}
+      <MonitoringDashboard />
     </div>
   );
 }

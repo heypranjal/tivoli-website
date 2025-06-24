@@ -120,9 +120,15 @@ export function SmartImage({
     setHasLoaded(true)
   }
 
-  const handleError = () => {
+  const handleError = (error?: any) => {
+    console.warn('Image loading failed:', finalUrl, error?.message || 'Unknown error')
     setImageError(true)
     setIsLoading(false)
+    
+    // Prevent ORB errors from propagating
+    if (error?.target) {
+      error.target.src = ''
+    }
   }
 
   // Calculate container styles for layout stability

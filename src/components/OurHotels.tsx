@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useBrands, useHotelsByBrand } from '@/hooks/useHotelsFixed';
 import { SmartImage } from '@/components/ui/SmartImage';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export default function OurHotels() {
   const [selectedBrand, setSelectedBrand] = useState('tivoli'); // Default to THE TIVOLI
@@ -60,17 +61,17 @@ export default function OurHotels() {
   // Loading state
   if (isLoading) {
     return (
-      <section className="py-20 bg-neutral-50">
+      <section className="py-12 bg-neutral-50">
         <div className="container mx-auto px-4 md:px-16">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif text-neutral-800 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-serif text-neutral-800 mb-3">
               Our Hotels
             </h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               Discover our collection of luxury properties across India
             </p>
           </div>
-          <div className="flex items-center justify-center py-20">
+          <div className="flex items-center justify-center py-12">
             <Loader2 className="w-8 h-8 animate-spin text-[#CD9F59]" />
           </div>
         </div>
@@ -81,17 +82,17 @@ export default function OurHotels() {
   // Error state
   if (error) {
     return (
-      <section className="py-20 bg-neutral-50">
+      <section className="py-12 bg-neutral-50">
         <div className="container mx-auto px-4 md:px-16">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif text-neutral-800 mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-serif text-neutral-800 mb-3">
               Our Hotels
             </h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               Discover our collection of luxury properties across India
             </p>
           </div>
-          <div className="text-center py-20 text-neutral-600">
+          <div className="text-center py-12 text-neutral-600">
             <p>Unable to load our hotels at this time.</p>
             <p className="text-sm mt-2">Please try refreshing the page.</p>
           </div>
@@ -101,20 +102,28 @@ export default function OurHotels() {
   }
 
   return (
-    <section className="py-20 bg-neutral-50">
+    <ErrorBoundary fallback={
+      <section className="py-12 bg-neutral-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-serif text-neutral-800 mb-4">Our Hotels</h2>
+          <p className="text-neutral-600">Unable to load hotels at this time. Please refresh the page.</p>
+        </div>
+      </section>
+    }>
+      <section className="py-12 bg-neutral-50">
       <div className="container mx-auto px-4 md:px-16">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-neutral-800 mb-4">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-serif text-neutral-800 mb-3">
             Our Hotels
           </h2>
-          <p className="text-lg text-neutral-600 max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-neutral-600 max-w-3xl mx-auto mb-6">
             Discover our collection of extraordinary destinations, where every moment becomes a cherished memory.
           </p>
         </div>
 
         {/* Brand Tabs */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-6">
           <div className="flex space-x-8">
             {brands?.map((brand) => (
               <button
@@ -136,7 +145,7 @@ export default function OurHotels() {
         </div>
 
         {/* Subtitle */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <p className="text-neutral-600 font-medium">
             Timeless Luxury & Sophistication
           </p>
@@ -144,7 +153,7 @@ export default function OurHotels() {
 
         {/* Hotels Carousel */}
         {!hotels || hotels.length === 0 ? (
-          <div className="text-center py-20 text-neutral-600">
+          <div className="text-center py-12 text-neutral-600">
             <p>No hotels available for this brand.</p>
           </div>
         ) : (
@@ -155,6 +164,7 @@ export default function OurHotels() {
                    style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                 {hotels.map((hotel) => (
                   <div
+                    key={hotel.id}
                     className="group flex-shrink-0"
                     style={{ 
                       width: itemsPerSlide === 1 ? 'calc(100% - 1rem)' : 
@@ -223,6 +233,7 @@ export default function OurHotels() {
         )}
 
       </div>
-    </section>
+      </section>
+    </ErrorBoundary>
   );
 }
