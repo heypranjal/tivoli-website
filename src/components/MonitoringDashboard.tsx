@@ -55,8 +55,8 @@ const MonitoringDashboard: React.FC = () => {
   useEffect(() => {
     const cleanup = installAllInterceptors();
     
-    // Start fresh session when dashboard opens
-    startNewSession();
+    // Don't auto-start session - let user control when to start monitoring
+    // startNewSession();
     
     return cleanup;
   }, []);
@@ -120,11 +120,7 @@ const MonitoringDashboard: React.FC = () => {
       {/* Floating monitor button */}
       {!showDetails && (
         <button
-          onClick={() => {
-            setShowDetails(true);
-            // Start new session when opening dashboard
-            startNewSession();
-          }}
+          onClick={() => setShowDetails(true)}
           className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-colors"
           title="Open Monitoring Dashboard"
         >
