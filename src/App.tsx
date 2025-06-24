@@ -24,7 +24,7 @@ import LocationsPage from './pages/LocationsPage';
 import BrandsPage from './pages/BrandsPage';
 import SustainabilityPage from './pages/SustainabilityPage';
 import OurStoryPage from './pages/OurStoryPage';
-import MonitoringDashboard from './components/MonitoringDashboard';
+import MonitoringPage from './pages/MonitoringPage';
 
 function App() {
   return (
@@ -53,6 +53,7 @@ function App() {
         <Route path="/our-story" element={<OurStoryPage />} />
         <Route path="/sustainability" element={<SustainabilityPage />} />
         <Route path="/digital-qr" element={<DigitalQRPage />} />
+        <Route path="/monitoring" element={<MonitoringPage />} />
         {/* Dynamic hotel pages - all hotels now use single HotelPage component */}
         <Route path="/hotel/:hotelSlug" element={<HotelPage />} />
         {/* Redirect for renamed hotel */}
@@ -166,9 +167,6 @@ function App() {
           </div>
         </div>
       </footer>
-      
-      {/* Global Monitoring Dashboard */}
-      <MonitoringDashboard />
     </div>
   );
 }
