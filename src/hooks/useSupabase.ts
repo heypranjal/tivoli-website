@@ -36,7 +36,7 @@ export function useSupabaseQuery<T>(
     refetchOnMount?: boolean;
   } = {}
 ) {
-  const { enabled = true, staleTime = 5 * 60 * 1000, gcTime = 10 * 60 * 1000, refetchOnMount = true } = options;
+  const { enabled = true, staleTime = 5 * 60 * 1000, gcTime = 10 * 60 * 1000, refetchOnMount = false } = options;
 
   const query = useQuery({
     queryKey,
