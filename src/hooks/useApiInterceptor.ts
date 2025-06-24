@@ -52,6 +52,7 @@ export function useApiInterceptor() {
       // Only track meaningful API requests
       let requestId: string | null = null;
       if (shouldTrackRequest(url)) {
+        console.log('🎯 Tracking API call:', method, url);
         requestId = addApiHit({
           url,
           method,
@@ -190,7 +191,7 @@ export function useApiInterceptor() {
 
   // Filter out noise - only track meaningful API requests
   function shouldTrackRequest(url: string): boolean {
-    return (
+    const shouldTrack = (
       // Track Supabase API calls (actual database queries)
       url.includes('supabase.co/rest/v1/') ||
       // Track Supabase Edge Functions
@@ -229,6 +230,13 @@ export function useApiInterceptor() {
       !url.includes('youtube.com') &&
       !url.includes('twitter.com')
     );
+    
+    // Debug logging to see what URLs are being processed
+    if (url.includes('supabase') || url.includes('/api/')) {
+      console.log('🔍 Checking URL:', url, '→', shouldTrack ? 'TRACK' : 'SKIP');
+    }
+    
+    return shouldTrack;
   }
 
 

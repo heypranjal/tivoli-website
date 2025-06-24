@@ -266,7 +266,7 @@ export function useTivoliLotusCourtNoida(slug: string = 'tivoli-lotus-court') {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeoutReached(true);
-    }, 1500); // Reduced to 1.5 seconds
+    }, 10000); // Increased to 10 seconds for testing API tracking
 
     return () => clearTimeout(timer);
   }, []);
