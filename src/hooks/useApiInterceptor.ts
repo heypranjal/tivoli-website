@@ -193,12 +193,12 @@ export function useApiInterceptor() {
     return (
       // Track Supabase API calls (actual database queries)
       url.includes('supabase.co/rest/v1/') ||
-      // Track external API calls
-      (url.startsWith('http') && !url.includes('localhost') && !url.includes('127.0.0.1')) ||
-      // Track specific internal endpoints
-      url.includes('/api/')
+      // Track Supabase Edge Functions
+      url.includes('supabase.co/functions/v1/') ||
+      // Track internal API endpoints only
+      (url.includes('/api/') && !url.includes('/api/health'))
     ) && (
-      // Exclude development tools and static assets
+      // Exclude all static assets and external resources
       !url.includes('chrome-extension://') &&
       !url.includes('webpack') &&
       !url.includes('.hot-update.') &&
@@ -209,8 +209,25 @@ export function useApiInterceptor() {
       !url.endsWith('.css') &&
       !url.endsWith('.png') &&
       !url.endsWith('.jpg') &&
+      !url.endsWith('.jpeg') &&
+      !url.endsWith('.gif') &&
+      !url.endsWith('.webp') &&
       !url.endsWith('.svg') &&
-      !url.includes('devtools')
+      !url.endsWith('.ico') &&
+      !url.endsWith('.woff') &&
+      !url.endsWith('.woff2') &&
+      !url.endsWith('.ttf') &&
+      !url.includes('devtools') &&
+      !url.includes('unsplash.com') &&
+      !url.includes('images.unsplash.com') &&
+      !url.includes('cdn.') &&
+      !url.includes('fonts.') &&
+      !url.includes('google') &&
+      !url.includes('gstatic') &&
+      !url.includes('facebook.com') &&
+      !url.includes('instagram.com') &&
+      !url.includes('youtube.com') &&
+      !url.includes('twitter.com')
     );
   }
 
