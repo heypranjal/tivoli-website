@@ -35,7 +35,7 @@ interface SystemStatus {
   };
 }
 
-const SERVER_CHECK_INTERVAL = 5000; // 5 seconds
+const SERVER_CHECK_INTERVAL = 30000; // 30 seconds - reduced monitoring overhead
 const MAX_CONSECUTIVE_FAILURES = 3;
 const HEALTH_CHECK_TIMEOUT = 3000; // 3 seconds
 
