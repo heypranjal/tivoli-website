@@ -94,15 +94,9 @@ export const RoomCard: React.FC<RoomCardProps> = ({
     return null;
   };
 
-  // Format price display
+  // Format price display - disabled
   const getPriceDisplay = () => {
-    if (!room.price_inr) return null;
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(room.price_inr);
+    return null;
   };
 
   const sizeDisplay = getRoomSizeDisplay();
@@ -142,14 +136,6 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </div>
         )}
 
-        {/* Price Overlay */}
-        {showPrice && priceDisplay && (
-          <div className="absolute bottom-4 right-4 bg-[#CD9F59]/90 backdrop-blur-sm px-3 py-1 rounded-full">
-            <span className="text-xs font-medium text-white">
-              From {priceDisplay}
-            </span>
-          </div>
-        )}
       </div>
 
       {/* Room Details */}

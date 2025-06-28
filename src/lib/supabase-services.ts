@@ -114,6 +114,35 @@ export const locationService = {
  */
 export const hotelService = {
   async getHotels(filters?: HotelFilters): Promise<HotelWithRelations[]> {
+    // First, resolve brand and location slugs to IDs if provided
+    let brandId: string | undefined
+    let locationId: string | undefined
+
+    if (filters?.brand) {
+      console.log('🔍 Resolving brand slug to ID:', filters.brand)
+      const brand = await brandService.getBrandBySlug(filters.brand)
+      if (brand) {
+        brandId = brand.id
+        console.log('✅ Found brand ID:', brandId, 'for slug:', filters.brand)
+      } else {
+        console.log('❌ Brand not found for slug:', filters.brand)
+        return [] // Return empty array if brand doesn't exist
+      }
+    }
+
+    if (filters?.location) {
+      console.log('🔍 Resolving location slug to ID:', filters.location)
+      const location = await locationService.getLocationBySlug(filters.location)
+      if (location) {
+        locationId = location.id
+        console.log('✅ Found location ID:', locationId, 'for slug:', filters.location)
+      } else {
+        console.log('❌ Location not found for slug:', filters.location)
+        return [] // Return empty array if location doesn't exist
+      }
+    }
+
+    // Build the main query
     let query = supabase
       .from('hotels')
       .select(`
@@ -130,21 +159,30 @@ export const hotelService = {
       `)
       .eq('is_active', true)
 
-    if (filters?.brand) {
-      query = query.eq('brands.slug', filters.brand)
+    // Apply filters using foreign key IDs
+    if (brandId) {
+      console.log('🎯 Filtering hotels by brand_id:', brandId)
+      query = query.eq('brand_id', brandId)
     }
 
-    if (filters?.location) {
-      query = query.eq('locations.slug', filters.location)
+    if (locationId) {
+      console.log('🎯 Filtering hotels by location_id:', locationId)
+      query = query.eq('location_id', locationId)
     }
 
     if (filters?.featured !== undefined) {
+      console.log('🎯 Filtering hotels by featured status:', filters.featured)
       query = query.eq('is_featured', filters.featured)
     }
 
     const { data, error } = await query.order('sort_order')
     
-    if (error) throw error
+    if (error) {
+      console.error('❌ Hotel query error:', error)
+      throw error
+    }
+
+    console.log('✅ Hotels query successful, found:', data?.length || 0, 'hotels')
     return data as HotelWithRelations[] || []
   },
 
@@ -222,6 +260,35 @@ export const hotelService = {
     
     if (error) throw error
     return data
+  },
+
+  async searchHotels(query: string): Promise<HotelWithRelations[]> {
+    console.log('🔍 Searching hotels with query:', query)
+    const { data, error } = await supabase
+      .from('hotels')
+      .select(`
+        *,
+        brand:brands(*),
+        location:locations(*),
+        featured_image:media(*),
+        images:hotel_media(
+          media_type,
+          sort_order,
+          is_primary,
+          media:media(*)
+        )
+      `)
+      .or(`name.ilike.%${query}%,description.ilike.%${query}%`)
+      .eq('is_active', true)
+      .order('sort_order')
+    
+    if (error) {
+      console.error('❌ Hotel search error:', error)
+      throw error
+    }
+    
+    console.log('✅ Hotel search successful, found:', data?.length || 0, 'results for:', query)
+    return data as HotelWithRelations[] || []
   }
 }
 

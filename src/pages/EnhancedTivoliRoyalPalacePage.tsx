@@ -60,6 +60,7 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
 
   // Mock data for sections not yet in database
   const galleryImages = [
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//updated-tivolipalwalHomephoto3.jpg',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/hero-image.jpg',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/exterior-view.jpg',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/banquet-hall.jpg',
@@ -453,7 +454,6 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
               "@type": "Rating",
               "ratingValue": hotelData.rating || 4.5
             },
-            "priceRange": "₹₹₹",
             "hasMap": `https://www.google.com/maps/search/?api=1&query=${hotelData.latitude || 28.1461},${hotelData.longitude || 77.3316}`,
             "url": window.location.href,
             "image": galleryImages[0],

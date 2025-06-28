@@ -343,8 +343,7 @@ export default function TivoliHeritagePalacePage() {
                 cuisine: restaurant.cuisine || 'International',
                 hours: restaurant.hours || '6:00 AM - 11:00 PM',
                 image: restaurant.image_id || 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinningorg.jpg',
-                priceRange: '₹₹₹',
-                specialties: []
+                                specialties: []
               })) || [
                 {
                   id: '1',
@@ -353,8 +352,7 @@ export default function TivoliHeritagePalacePage() {
                   cuisine: 'Beverages, Snacks',
                   hours: '6:00 AM - 10:00 PM',
                   image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinningorg.jpg',
-                  priceRange: '₹₹',
-                  specialties: ['Fresh Coffee', 'Light Snacks', 'Quick Service']
+                                    specialties: ['Fresh Coffee', 'Light Snacks', 'Quick Service']
                 },
                 {
                   id: '2',
@@ -363,8 +361,7 @@ export default function TivoliHeritagePalacePage() {
                   cuisine: 'Multi-cuisine Catering',
                   hours: 'By Appointment',
                   image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/grand%20celebrations%20rewari.jpg',
-                  priceRange: '₹₹₹',
-                  specialties: ['Event Catering', 'Custom Menus', 'Wedding Packages']
+                                    specialties: ['Event Catering', 'Custom Menus', 'Wedding Packages']
                 }
               ]}
             />
@@ -493,7 +490,7 @@ export default function TivoliHeritagePalacePage() {
             },
             "amenityFeature": hotel.amenities?.map(a => ({
               "@type": "LocationFeatureSpecification",
-              "name": a.amenity.name
+              "name": a.name
             })) || []
           })}
         </script>

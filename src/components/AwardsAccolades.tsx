@@ -14,7 +14,7 @@ const awards = [
     name: 'Forbes Travel Guide',
     category: 'Five-Star Rating',
     year: '2023',
-    image: 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg',
     description: 'Awarded to multiple Tivoli properties for outstanding service excellence'
   },
   {

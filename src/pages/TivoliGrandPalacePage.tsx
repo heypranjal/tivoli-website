@@ -133,7 +133,7 @@ export default function TivoliGrandPalacePage() {
       <Navigation />
       
       {/* Hero Gallery Section */}
-      <div className="relative h-[70vh] overflow-hidden mt-16">
+      <div className="relative h-[80vh] overflow-hidden mt-16">
         <div className="relative w-full h-full">
           <img
             src={galleryImages[activeImageIndex]}

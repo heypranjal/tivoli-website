@@ -7,7 +7,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { MapPin, Loader2, Star } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import { useHotelsForLocationPage } from '@/hooks/useHotels';
@@ -18,8 +18,18 @@ import type { HotelFilters } from '@/types/supabase';
 
 export default function LocationsPage() {
   const { brand, location: locationParam } = useParams();
-  const [activeLocation, setActiveLocation] = useState(locationParam || 'all');
-  const [activeBrand, setActiveBrand] = useState(brand || 'all');
+  const [searchParams] = useSearchParams();
+  
+  // Get query parameters for brand and location filtering
+  const queryBrand = searchParams.get('brand');
+  const queryLocation = searchParams.get('location');
+  
+  const [activeLocation, setActiveLocation] = useState(
+    queryLocation || locationParam || 'all'
+  );
+  const [activeBrand, setActiveBrand] = useState(
+    queryBrand || brand || 'all'
+  );
   const [isMobile, setIsMobile] = useState(false);
 
   // Build filters for hotel query
@@ -44,13 +54,22 @@ export default function LocationsPage() {
   }, []);
 
   useEffect(() => {
+    // Handle path parameters (for backward compatibility)
     if (locationParam) {
       setActiveLocation(locationParam);
     }
     if (brand) {
       setActiveBrand(brand);
     }
-  }, [locationParam, brand]);
+    
+    // Handle query parameters (primary method from navigation)
+    if (queryLocation) {
+      setActiveLocation(queryLocation);
+    }
+    if (queryBrand) {
+      setActiveBrand(queryBrand);
+    }
+  }, [locationParam, brand, queryLocation, queryBrand]);
 
   // Get current brand display name
   const getCurrentBrandName = () => {

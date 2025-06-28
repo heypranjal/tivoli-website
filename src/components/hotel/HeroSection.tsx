@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   if (!images || images.length === 0) {
     return (
-      <div className={`relative h-[70vh] bg-gray-200 ${className}`}>
+      <div className={`relative h-[80vh] bg-gray-200 ${className}`}>
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-gray-500">No images available</p>
         </div>
@@ -42,7 +42,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   }
 
   return (
-    <div className={`relative h-[70vh] overflow-hidden ${className}`}>
+    <div className={`relative h-[80vh] overflow-hidden ${className}`}>
       <div className="relative w-full h-full">
         <img
           src={images[activeImageIndex]}

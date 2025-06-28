@@ -102,7 +102,7 @@ const EnhancedUpperHSEPage: React.FC = () => {
       <Navigation />
       
       {/* Hero Section - Tivoli Style */}
-      <div className="relative h-[70vh] overflow-hidden">
+      <div className="relative h-[80vh] overflow-hidden">
         <div className="relative w-full h-full">
           <img
             src={hotelData.images[currentImageIndex]}
@@ -558,7 +558,6 @@ const EnhancedUpperHSEPage: React.FC = () => {
             "@type": "Rating",
             "ratingValue": hotelData.rating
           },
-          "priceRange": "₹₹₹₹",
           "hasMap": `https://www.google.com/maps/search/?api=1&query=${hotelData.address.coordinates?.lat},${hotelData.address.coordinates?.lng}`,
           "url": window.location.href,
           "image": hotelData.images[0]

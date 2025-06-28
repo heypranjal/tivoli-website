@@ -172,7 +172,7 @@ const TIVOLI_ENHANCED_DATA = {
       title: 'Corporate Events',
       subtitle: 'Professional Excellence',
       description: 'Experience flawless corporate events hosted at elegant, sophisticated venues with state-of-the-art facilities',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//corporate%20events%20(1).png',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//zunn.jpg',
       category: 'Business'
     },
     {
@@ -349,8 +349,7 @@ export function useTivoliNewDelhi(slug: string = 'the-tivoli') {
             maxOccupancy: 2,
             bedType: 'King or Twin',
             images: [],
-            amenities: ['City View', 'Rain Shower', 'Mini Bar', 'Smart TV', '24/7 Room Service'],
-            price: { currency: 'INR', amount: 25000 }
+            amenities: ['City View', 'Rain Shower', 'Mini Bar', 'Smart TV', '24/7 Room Service']
           }
         ],
         dining: [],

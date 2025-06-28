@@ -69,38 +69,38 @@ export const homepageImages: HomepageImages = {
   // Experience Section Images
   experiences: [
     {
-      bucket: 'homepage_image',
-      path: 'wedding.jpg',
+      bucket: 'experience',
+      path: 'Wedding.png',
       alt: 'Wedding Celebrations',
       caption: 'Magical wedding celebrations'
     },
     {
-      bucket: 'homepage_image',
-      path: 'corporate-hp.jpg', 
+      bucket: 'experience',
+      path: 'Corporate%20Event.png', 
       alt: 'Corporate Events',
       caption: 'Professional corporate events'
     },
     {
-      bucket: 'homepage_image',
-      path: 'foodblue_thetivoli.jpg',
+      bucket: 'tivoli-dining-photo',
+      path: 'food-5.png',
       alt: 'Fine Dining Experience',
       caption: 'Exquisite culinary experiences'
     },
     {
-      bucket: 'homepage_image',
-      path: 'Luxurious-stays.jpg',
+      bucket: 'experience',
+      path: 'Luxurious%20Stay.png',
       alt: 'Luxurious Hotel Stays',
       caption: 'Unmatched luxury accommodations'
     },
     {
-      bucket: 'homepage_image',
-      path: 'cocktail-aprty.jpg',
+      bucket: 'experience',
+      path: 'cocktail.png',
       alt: 'Cocktail Parties',
       caption: 'Elegant cocktail experiences'
     },
     {
       bucket: 'homepage_image',
-      path: 'spa.jpg',
+      path: 'updated-homepagae-image2.jpg',
       alt: 'Spa and Wellness',
       caption: 'Rejuvenating spa treatments'
     }
@@ -134,7 +134,7 @@ export const homepageImages: HomepageImages = {
     },
     'tivoli-royal-court': {
       bucket: 'homepage_image',
-      path: 'RoyalCourt-hp-thumbnail.jpg',
+      path: 'updated-homepagae-RoyalCourt-hp-thumbnail.jpg',
       alt: 'Tivoli Royal Court Okhla',
       caption: 'Royal Court - Contemporary elegance'
     },
@@ -149,6 +149,18 @@ export const homepageImages: HomepageImages = {
       path: 'upperhse-hp-thumbnail.jpg',
       alt: 'Upper HSE Sultanpur',
       caption: 'Upper HSE - Contemporary urban experience'
+    },
+    'omnia-dwarka-expressway': {
+      bucket: 'omniativolidwarka',
+      path: 'dwarkahome3.jpg',
+      alt: 'Omnia by Tivoli Dwarka Expressway',
+      caption: 'Omnia Dwarka - Modern luxury on the expressway'
+    },
+    'tivoli-royal-court-okhla': {
+      bucket: 'homepage_image',
+      path: 'updated-homepagae-RoyalCourt-hp-thumbnail.jpg',
+      alt: 'Tivoli Royal Court Okhla',
+      caption: 'Royal Court Okhla - Premier event venue in Delhi'
     }
   },
 
@@ -183,7 +195,7 @@ export const homepageImages: HomepageImages = {
   // Our Story Section
   ourStory: {
     bucket: 'homepage_image',
-    path: 'Hero1.jpg',
+    path: 'updated-homepagae-heritage-hp-thumbnail.jpg',
     alt: 'Tivoli Hotels Story',
     caption: 'Our journey of hospitality excellence'
   }

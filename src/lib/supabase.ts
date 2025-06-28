@@ -26,6 +26,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     autoRefreshToken: true,
     persistSession: true,
+    storageKey: 'tivoli-main-auth',
   },
   global: {
     headers: {

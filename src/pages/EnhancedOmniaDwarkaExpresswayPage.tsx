@@ -314,7 +314,6 @@ const EnhancedOmniaDwarkaExpresswayPage: React.FC = () => {
               "ratingValue": hotelData.rating,
               "reviewCount": "50"
             },
-            "priceRange": "₹₹₹₹",
             "amenityFeature": hotelData.amenities.map(amenity => ({
               "@type": "LocationFeatureSpecification",
               "name": amenity.name,

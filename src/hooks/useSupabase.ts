@@ -9,6 +9,8 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { createClient } from '@supabase/supabase-js';
 import { Database, HotelWithRelations, HotelFilters, MediaFilters } from '@/types/supabase';
 import { Hotel } from '@/types/hotel';
+// Import static hotel data as fallback
+import hotels from '@/data/hotels';
 
 // Initialize Supabase client
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -22,7 +24,11 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 export const supabase = supabaseUrl && supabaseKey 
-  ? createClient<Database>(supabaseUrl, supabaseKey)
+  ? createClient<Database>(supabaseUrl, supabaseKey, {
+      auth: {
+        storageKey: 'tivoli-hooks-auth',
+      },
+    })
   : null;
 
 // React Query wrapper for Supabase queries - eliminates infinite loops
@@ -66,40 +72,57 @@ export function useSupabaseQuery<T>(
 
 // Hook for fetching a single hotel with all relations
 export function useHotel(slug: string) {
-  const queryFn = useCallback(async (): Promise<HotelWithRelations | null> => {
-    if (!supabase) {
-      throw new Error('Supabase not configured. Please check environment variables.');
+  const queryFn = useCallback(async (): Promise<Hotel | null> => {
+    // Try Supabase first if configured
+    if (supabase) {
+      try {
+        const { data, error } = await supabase
+          .from('hotels')
+          .select(`
+            *,
+            brand:brands(*),
+            location:locations(*),
+            featured_image:media!hotels_featured_image_id_fkey(*),
+            images:hotel_media(
+              media_type,
+              sort_order,
+              is_primary,
+              media:media(*)
+            ),
+            amenities:hotel_amenities(
+              custom_description,
+              sort_order,
+              amenity:amenities(*)
+            ),
+            rooms(*),
+            dining(*),
+            features:hotel_features(feature_name, sort_order),
+            policies:hotel_policies(*)
+          `)
+          .eq('slug', slug)
+          .eq('is_active', true)
+          .maybeSingle();
+
+        // If found in Supabase, transform and return
+        if (data && !error) {
+          return transformHotelData(data);
+        }
+      } catch (error) {
+        console.warn('Supabase query failed, falling back to static data:', error);
+      }
     }
     
-    const { data, error } = await supabase
-      .from('hotels')
-      .select(`
-        *,
-        brand:brands(*),
-        location:locations(*),
-        featured_image:media!hotels_featured_image_id_fkey(*),
-        images:hotel_media(
-          media_type,
-          sort_order,
-          is_primary,
-          media:media(*)
-        ),
-        amenities:hotel_amenities(
-          custom_description,
-          sort_order,
-          amenity:amenities(*)
-        ),
-        rooms(*),
-        dining(*),
-        features:hotel_features(feature_name, sort_order),
-        policies:hotel_policies(*)
-      `)
-      .eq('slug', slug)
-      .eq('is_active', true)
-      .maybeSingle();
-
-    if (error) throw error;
-    return data;
+    // Fallback to static data
+    console.log('Falling back to static data for hotel:', slug);
+    const staticHotel = hotels.find(hotel => hotel.slug === slug);
+    
+    if (staticHotel) {
+      console.log('Found hotel in static data:', staticHotel.name);
+      return staticHotel;
+    }
+    
+    console.log('Hotel not found in static data:', slug);
+    return null;
   }, [slug]);
 
   return useSupabaseQuery(['hotel', slug], queryFn, { enabled: !!slug });

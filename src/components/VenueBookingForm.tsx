@@ -266,11 +266,11 @@ export default function VenueBookingForm() {
                 className="w-full px-4 py-2.5 bg-neutral-50 border border-neutral-200 rounded-lg focus:outline-none focus:border-[#CD9F59] transition-colors appearance-none"
               >
                 <option value="">Select budget range</option>
-                <option value="under-5-lakhs">Under ₹5 Lakhs</option>
-                <option value="5-10-lakhs">₹5 - ₹10 Lakhs</option>
-                <option value="10-20-lakhs">₹10 - ₹20 Lakhs</option>
-                <option value="20-50-lakhs">₹20 - ₹50 Lakhs</option>
-                <option value="above-50-lakhs">Above ₹50 Lakhs</option>
+                <option value="under-5-lakhs">Under 5 Lakhs</option>
+                <option value="5-10-lakhs">5 - 10 Lakhs</option>
+                <option value="10-20-lakhs">10 - 20 Lakhs</option>
+                <option value="20-50-lakhs">20 - 50 Lakhs</option>
+                <option value="above-50-lakhs">Above 50 Lakhs</option>
               </select>
               <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400 pointer-events-none" />
             </div>

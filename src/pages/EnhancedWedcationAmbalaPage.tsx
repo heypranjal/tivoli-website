@@ -309,7 +309,6 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
               "@type": "Rating",
               "ratingValue": hotelData.rating
             },
-            "priceRange": "₹₹₹",
             "amenityFeature": hotelData.amenities.map(amenity => ({
               "@type": "LocationFeatureSpecification",
               "name": amenity.name,

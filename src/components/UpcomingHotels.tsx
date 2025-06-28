@@ -6,7 +6,7 @@ const upcomingHotels = [
     id: '1',
     name: 'Wedcation by Tivoli-Aligarh',
     location: 'Aligarh',
-    image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//aligarhv1.png',
     brand: 'tivoli',
     openingDate: 'Q4 2024',
     description: 'A modern architectural marvel featuring contemporary design and traditional Indian elements.'
@@ -14,8 +14,8 @@ const upcomingHotels = [
   {
     id: '2',
     name: 'Wedcation by Tivoli-Karnal',
-    location: 'Greater Noida',
-    image: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
+    location: 'Karnal',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//Karnal%20(1).png',
     brand: 'tivoli',
     openingDate: 'Q1 2025',
     description: 'Urban luxury redefined with panoramic city views and state-of-the-art amenities.'
@@ -23,8 +23,8 @@ const upcomingHotels = [
   {
     id: '3',
     name: 'Wedcation by Tivoli-Jim Corbett',
-    location: 'Chandigarh',
-    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    location: 'Ramnagar-Uttrakhand',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//jimday%20(1).png',
     brand: 'omnia',
     openingDate: 'Q2 2025',
     description: 'A harmonious blend of nature and luxury in the heart of the city beautiful.'

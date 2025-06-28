@@ -70,7 +70,7 @@ export default function SustainabilityPage() {
       <Navigation />
       
       {/* Hero Section with Vatavaran Logo */}
-      <div className="relative h-[70vh]">
+      <div className="relative h-[80vh]">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"

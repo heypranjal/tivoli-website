@@ -184,7 +184,7 @@ const ROYAL_PALACE_ENHANCED_DATA = {
       title: 'Heritage Corporate Events',
       subtitle: 'Royal Business Excellence',
       description: 'Conduct prestigious corporate events in royal settings with state-of-the-art facilities and heritage ambiance',
-      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/royalpalacepalwal//Heritage%20Corporate.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//zunn.jpg',
       category: 'Business'
     },
     {

@@ -28,10 +28,9 @@ interface AccommodationsSectionProps {
   error?: string | null;
 }
 
-// Format price for display
+// Format price for display - disabled
 const formatPrice = (price: number | null): string => {
-  if (!price) return 'Available';
-  return `From ₹${price.toLocaleString('en-IN')}/night`;
+  return 'Contact for rates';
 };
 
 // Get amenity icon
@@ -199,9 +198,6 @@ export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(
                 <div className="flex-1 p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="font-serif text-xl text-neutral-800">{roomData.name}</h3>
-                    <div className="text-lg font-semibold text-[#CD9F59]">
-                      {roomData.priceRange}
-                    </div>
                   </div>
                   
                   <p className="text-neutral-600 mb-4 leading-relaxed">

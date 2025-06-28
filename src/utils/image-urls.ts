@@ -39,7 +39,8 @@ export const VALID_BUCKETS = [
   'wedcationambala',
   'omniatiwolidwarka',
   'wedcationisrana',
-  'lotuscourt'
+  'lotuscourt',
+  'experience'
 ] as const
 
 export type BucketName = typeof VALID_BUCKETS[number]
@@ -156,6 +157,7 @@ export const imageHelpers = {
   omniaDwarka: (imagePath: string) => getImageUrl('omniatiwolidwarka', imagePath),
   wedcationIsrana: (imagePath: string) => getImageUrl('wedcationisrana', imagePath),
   lotusCourt: (imagePath: string) => getImageUrl('lotuscourt', imagePath),
+  experience: (imagePath: string) => getImageUrl('experience', imagePath),
 }
 
 export default {

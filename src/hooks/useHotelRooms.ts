@@ -22,7 +22,11 @@ interface UseHotelRoomsReturn {
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    storageKey: 'tivoli-rooms-auth',
+  },
+});
 
 // Cached room fetching function
 const fetchRoomsData = async (hotelId: string): Promise<HotelRoom[]> => {

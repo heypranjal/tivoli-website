@@ -8,11 +8,14 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { MapPin, Mail, Phone } from 'lucide-react';
+import { StagewiseToolbar } from '@stagewise/toolbar-react';
+import { ReactPlugin } from '@stagewise-plugins/react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import OurHotels from './components/OurHotels';
 import Locations from './components/Locations';
 import Experiences from './components/Experiences';
+import CulinaryDelight from './components/CulinaryDelight';
 import UpcomingHotels from './components/UpcomingHotels';
 import OurStory from './components/OurStory';
 import AwardsAccolades from './components/AwardsAccolades';
@@ -25,10 +28,16 @@ import BrandsPage from './pages/BrandsPage';
 import SustainabilityPage from './pages/SustainabilityPage';
 import OurStoryPage from './pages/OurStoryPage';
 import MonitoringPage from './pages/MonitoringPage';
+import WeddingPage from './pages/WeddingPage';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
+    <StagewiseToolbar
+      config={{
+        plugins: [ReactPlugin],
+      }}
+    />
       <Navigation />
       <Routes>
         <Route path="/" element={
@@ -39,6 +48,7 @@ function App() {
               <OurStory />
               <Locations />
               <Experiences />
+              <CulinaryDelight />
               <AwardsAccolades />
               <Press />
               <UpcomingHotels />
@@ -54,6 +64,7 @@ function App() {
         <Route path="/sustainability" element={<SustainabilityPage />} />
         <Route path="/digital-qr" element={<DigitalQRPage />} />
         <Route path="/monitoring" element={<MonitoringPage />} />
+        <Route path="/weddings" element={<WeddingPage />} />
         {/* Dynamic hotel pages - all hotels now use single HotelPage component */}
         <Route path="/hotel/:hotelSlug" element={<HotelPage />} />
         {/* Redirect for renamed hotel */}

@@ -61,7 +61,7 @@ export default function Hero() {
     document.body.style.overflow = '';
   };
   return (
-    <div className="relative h-[50vh] md:h-[60vh]">
+    <div className="relative h-[80vh]">
       {/* Hero Image */}
       <div className="absolute inset-0">
         {carouselImages.map((image, index) => (

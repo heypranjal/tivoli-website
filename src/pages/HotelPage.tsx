@@ -21,6 +21,7 @@ import OmniaDwarkaExpresswayPage from './OmniaDwarkaExpresswayPage';
 import EnhancedUpperHSEPage from './EnhancedUpperHSEPage';
 import EnhancedWedcationAmbalaPage from './EnhancedWedcationAmbalaPage';
 import EnhancedWedcationIsranaPage from './EnhancedWedcationIsranaPage';
+import EnhancedRoyalCourtPage from './EnhancedRoyalCourtPage';
 import { 
   MapPin, 
   Phone, 
@@ -101,6 +102,11 @@ export default function HotelPage() {
     return <EnhancedWedcationIsranaPage />;
   }
   
+  // Use enhanced page for Tivoli Royal Court - Okhla
+  if (hotelSlug === 'tivoli-royal-court-okhla') {
+    return <EnhancedRoyalCourtPage />;
+  }
+  
   const { data: hotelData, loading: isLoading, error } = useHotel(hotelSlug || '');
   
   // Transform the data to match expected structure
@@ -147,10 +153,9 @@ export default function HotelPage() {
     );
   }
 
-  const galleryImages = hotel.images?.filter(img => img.media_type === 'gallery').map(img => img.media.public_url) || [];
-  const heroImage = hotel.images?.find(img => img.media_type === 'hero')?.media.public_url || 
-                   hotel.featured_image?.public_url || 
-                   galleryImages[0] || '';
+  // Handle transformed data where images is an array of URL strings
+  const galleryImages = Array.isArray(hotel.images) ? hotel.images : [];
+  const heroImage = galleryImages[0] || '';
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
@@ -165,7 +170,7 @@ export default function HotelPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[70vh] overflow-hidden">
+      <section className="relative h-[80vh] overflow-hidden">
         <SmartHeroImage
           src={heroImage}
           alt={hotel.name}
@@ -175,12 +180,12 @@ export default function HotelPage() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white px-4">
               <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-4 block">
-                {hotel.brand?.display_name}
+                {hotel.brand === 'tivoli' ? 'THE TIVOLI' : hotel.brand?.toUpperCase()}
               </span>
               <h1 className="font-serif text-4xl md:text-6xl mb-4">{hotel.name}</h1>
               <div className="flex items-center justify-center text-white/90 mb-6">
                 <MapPin className="w-5 h-5 mr-2" />
-                <span>{hotel.location?.name}, {hotel.location?.state}</span>
+                <span>{hotel.address?.city || hotel.location}, {hotel.address?.state}</span>
               </div>
               <div className="flex items-center justify-center mb-8">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -219,28 +224,28 @@ export default function HotelPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div className="space-y-4">
                 <h3 className="text-xl font-serif text-neutral-800 mb-4">Contact Information</h3>
-                {hotel.phone && (
+                {hotel.contact?.phone && (
                   <div className="flex items-center">
                     <Phone className="w-5 h-5 text-[#CD9F59] mr-3" />
-                    <a href={`tel:${hotel.phone}`} className="text-neutral-600 hover:text-[#CD9F59]">
-                      {hotel.phone}
+                    <a href={`tel:${hotel.contact.phone}`} className="text-neutral-600 hover:text-[#CD9F59]">
+                      {hotel.contact.phone}
                     </a>
                   </div>
                 )}
-                {hotel.email && (
+                {hotel.contact?.email && (
                   <div className="flex items-center">
                     <Mail className="w-5 h-5 text-[#CD9F59] mr-3" />
-                    <a href={`mailto:${hotel.email}`} className="text-neutral-600 hover:text-[#CD9F59]">
-                      {hotel.email}
+                    <a href={`mailto:${hotel.contact.email}`} className="text-neutral-600 hover:text-[#CD9F59]">
+                      {hotel.contact.email}
                     </a>
                   </div>
                 )}
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-[#CD9F59] mr-3 mt-1" />
                   <div className="text-neutral-600">
-                    {hotel.street && <p>{hotel.street}</p>}
-                    <p>{hotel.city}, {hotel.state} {hotel.postal_code}</p>
-                    <p>{hotel.location.country}</p>
+                    {hotel.address?.street && <p>{hotel.address.street}</p>}
+                    <p>{hotel.address?.city}, {hotel.address?.state} {hotel.address?.postalCode}</p>
+                    <p>{hotel.address?.country || 'India'}</p>
                   </div>
                 </div>
               </div>
@@ -251,11 +256,11 @@ export default function HotelPage() {
                   <h3 className="text-xl font-serif text-neutral-800 mb-4">Amenities</h3>
                   <div className="grid grid-cols-1 gap-3">
                     {hotel.amenities.slice(0, 6).map((amenity) => {
-                      const IconComponent = iconMap[amenity.amenity.icon_name || ''] || Wifi;
+                      const IconComponent = iconMap[amenity.icon || ''] || Wifi;
                       return (
-                        <div key={amenity.amenity.id} className="flex items-center">
+                        <div key={amenity.id} className="flex items-center">
                           <IconComponent className="w-4 h-4 text-[#CD9F59] mr-3" />
-                          <span className="text-neutral-600">{amenity.amenity.name}</span>
+                          <span className="text-neutral-600">{amenity.name}</span>
                         </div>
                       );
                     })}
@@ -335,28 +340,28 @@ export default function HotelPage() {
                     <h3 className="text-xl font-serif text-neutral-800 mb-2 mt-2">{room.name}</h3>
                     <p className="text-neutral-600 mb-4">{room.description}</p>
                     <div className="grid grid-cols-2 gap-4 text-sm text-neutral-600 mb-4">
-                      {room.size_display && (
+                      {room.size && (
                         <div className="flex items-center">
                           <span className="font-medium">Size:</span>
-                          <span className="ml-2">{room.size_display}</span>
+                          <span className="ml-2">{room.size}</span>
                         </div>
                       )}
-                      {room.max_occupancy && (
+                      {room.maxOccupancy && (
                         <div className="flex items-center">
                           <Users className="w-4 h-4 mr-1" />
-                          <span>{room.max_occupancy} guests</span>
+                          <span>{room.maxOccupancy} guests</span>
                         </div>
                       )}
-                      {room.bed_type && (
+                      {room.bedType && (
                         <div className="flex items-center">
                           <span className="font-medium">Bed:</span>
-                          <span className="ml-2">{room.bed_type}</span>
+                          <span className="ml-2">{room.bedType}</span>
                         </div>
                       )}
-                      {room.price_inr && (
+                      {room.price?.amount && (
                         <div className="flex items-center">
                           <span className="font-medium">From:</span>
-                          <span className="ml-2 text-[#CD9F59] font-medium">₹{room.price_inr.toLocaleString()}</span>
+                          <span className="ml-2 text-[#CD9F59] font-medium">₹{room.price.amount.toLocaleString()}</span>
                         </div>
                       )}
                     </div>
@@ -378,10 +383,10 @@ export default function HotelPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {hotel.dining.map((restaurant) => (
                 <div key={restaurant.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  {restaurant.image_id && (
+                  {restaurant.image && (
                     <div className="aspect-[4/3]">
                       <SmartImage
-                        src={restaurant.image_id}
+                        src={restaurant.image}
                         alt={restaurant.name}
                         className="w-full h-full object-cover"
                         optimize={{
@@ -408,10 +413,10 @@ export default function HotelPage() {
                           <span>{restaurant.hours}</span>
                         </div>
                       )}
-                      {restaurant.dress_code && (
+                      {restaurant.dress && (
                         <div className="flex items-center">
                           <span className="font-medium">Dress Code:</span>
-                          <span className="ml-2">{restaurant.dress_code}</span>
+                          <span className="ml-2">{restaurant.dress}</span>
                         </div>
                       )}
                     </div>
@@ -435,22 +440,22 @@ export default function HotelPage() {
                 <div className="text-center">
                   <Calendar className="w-8 h-8 text-[#CD9F59] mx-auto mb-3" />
                   <h3 className="font-medium text-neutral-800 mb-2">Check-in</h3>
-                  <p className="text-neutral-600">{hotel.policies.check_in}</p>
+                  <p className="text-neutral-600">{hotel.policies?.checkIn}</p>
                 </div>
                 <div className="text-center">
                   <Calendar className="w-8 h-8 text-[#CD9F59] mx-auto mb-3" />
                   <h3 className="font-medium text-neutral-800 mb-2">Check-out</h3>
-                  <p className="text-neutral-600">{hotel.policies.check_out}</p>
+                  <p className="text-neutral-600">{hotel.policies?.checkOut}</p>
                 </div>
                 <div className="text-center">
                   <Clock className="w-8 h-8 text-[#CD9F59] mx-auto mb-3" />
                   <h3 className="font-medium text-neutral-800 mb-2">Cancellation</h3>
-                  <p className="text-neutral-600">{hotel.policies.cancellation}</p>
+                  <p className="text-neutral-600">{hotel.policies?.cancellation}</p>
                 </div>
                 <div className="text-center">
                   <Users className="w-8 h-8 text-[#CD9F59] mx-auto mb-3" />
                   <h3 className="font-medium text-neutral-800 mb-2">Pets</h3>
-                  <p className="text-neutral-600">{hotel.policies.pets}</p>
+                  <p className="text-neutral-600">{hotel.policies?.pets}</p>
                 </div>
               </div>
             </div>

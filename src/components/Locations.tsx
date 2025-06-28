@@ -7,6 +7,7 @@ const locations = [
   { id: 'delhi', name: 'Delhi' }, 
   { id: 'noida', name: 'Noida' }, 
   { id: 'greater-noida', name: 'Greater Noida' },
+  { id: 'palwal', name: 'Palwal' },
   { id: 'ambala', name: 'Ambala' }, 
   { id: 'israna', name: 'Israna' }
 ];
@@ -15,96 +16,101 @@ const locations = [
 const getVenueRoute = (venue: { id: string }): string => {
   // Map venue IDs to their correct routes based on App.tsx routing
   const venueRoutes: Record<string, string> = {
-    'delhi-1': '/delhi/tivoli-grand-palace', // The Tivoli-New Delhi
-    'delhi-2': '/delhi/upper-hse-sultanpur', // Upper HSE Sultanpur  
-    'delhi-3': '/delhi/tivoli-bijwasan', // Tivoli Bijwasan
-    'delhi-4': '/delhi/royal-court-okhla', // Tivoli Royal Court-Okhla
-    'delhi-5': '/rewari-haryana/tivoli-lake-palace', // Tivoli Heritage Palace-Rewari
-    'noida-1': '/noida/tivoli-lotus-court', // Tivoli Lotus Court-Noida
-    'noida-2': '/noida/omnia-noida', // Omnia by Tivoli-Noida
-    'greater-noida-1': '/greater-noida/omnia-greater-noida', // Omnia Greater Noida
-    'ambala-1': '/ambala/wedcation-ambala', // Wedcation Ambala
-    'israna-1': '/israna/wedcation-israna', // Wedcation Israna
+    'delhi-1': '/hotel/tivoli-grand-palace', // The Tivoli-New Delhi
+    'delhi-2': '/hotel/upper-hse-sultanpur', // Upper HSE Sultanpur  
+    'delhi-3': '/hotel/tivoli-bijwasan', // Tivoli Bijwasan
+    'delhi-4': '/hotel/tivoli-royal-court-okhla', // Tivoli Royal Court-Okhla
+    'delhi-5': '/hotel/tivoli-heritage-palace', // Tivoli Heritage Palace-Rewari
+    'noida-1': '/hotel/tivoli-lotus-court', // Tivoli Lotus Court-Noida
+    'greater-noida-1': '/hotel/omnia-greater-noida', // Omnia Greater Noida
+    'ambala-1': '/hotel/wedcation-by-tivoli-ambala', // Wedcation Ambala
+    'israna-1': '/hotel/wedcation-by-tivoli-israna', // Wedcation Israna
+    'palwal-1': '/hotel/tivoli-royal-palace', // Tivoli Royal Palace Palwal
+    'dwarka-1': '/hotel/omnia-dwarka-expressway', // Omnia Dwarka Expressway
   };
   
   return venueRoutes[venue.id] || '#';
 };
 
-// Using the same venues data but with updated locations
+// Using the same venues data but with updated locations and current images
 const venues = [
   {
     id: 'delhi-1',
     name: 'The Tivoli-New Delhi',
     location: 'Delhi',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//swimmingpool_thetivoli.jpg',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1/thetivoliporticoheromaster-1%20(1).png',
     brand: 'tivoli'
   },
   {
     id: 'delhi-2',
     name: 'The Upper HSE by Tivoli-Sultanpur',
     location: 'Delhi',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//sultanpur-upperhse-hp-thumbnail.jpg',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/upper-hse-venues/theupperhse1.webp',
     brand: 'tivoli'
   },
   {
     id: 'delhi-3',
     name: 'Tivoli Bijwasan',
     location: 'Delhi',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//bijwasan-hp-thumbnail.jpg',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/gallery/2.jpg',
     brand: 'tivoli'
   },
   {
     id: 'delhi-4',
     name: 'Tivoli Royal Court-Okhla',
     location: 'Delhi',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//RoyalCourt-hp-thumbnail.jpg',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg',
     brand: 'tivoli'
   },
   {
     id: 'delhi-5',
     name: 'Tivoli Heritage Palace-Rewari',
     location: 'Delhi',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//heritage-hp-thumbnail.jpg',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//Tivoli%20Heritage%20Palace.webp',
     brand: 'tivoli'
   },
   {
     id: 'noida-1',
     name: 'Tivoli Lotus Court-Noida',
     location: 'Noida',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//lotuscourt-hp-thumbnail.webp',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/2.jpg',
     brand: 'tivoli'
-  },
-  {
-    id: 'noida-2',
-    name: 'Omnia by Tivoli-Noida',
-    location: 'Noida', 
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//omnia-noida-hp-thumbnail.jpg',
-    brand: 'omnia'
   },
   {
     id: 'greater-noida-1',
     name: 'Omnia by Tivoli-Greater Noida',
     location: 'Greater Noida',
-    image: 'https://images.unsplash.com/photo-1445991842772-097fea258e7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniagreaternoida/OmniaGreaterNoida.webp',
     brand: 'omnia'
   },
-  
   {
     id: 'ambala-1',
     name: 'Wedcation by Tivoli-Ambala',
     location: 'Ambala',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//ambala-wedcation-hp-thumbnail.JPG',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/ambalawedcation.webp',
     brand: 'wedcation'
   },
-  
   {
     id: 'israna-1',
     name: 'Wedcation by Tivoli-Israna',
     location: 'Israna',
-    image: 'https://pbkxpylwatscfjzbmwur.supabase.co/storage/v1/object/public/homepage_image//Israna-Wedcation-hp-thumbnail.jpg',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/wedcationisrana.webp',
     brand: 'wedcation'
   },
-  
+  {
+    id: 'palwal-1',
+    name: 'Tivoli Royal Palace Palwal',
+    location: 'Palwal',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/updated-homepagae-thumbnail-royalpalace-hp.jpg',
+    brand: 'tivoli'
+  },
+  {
+    id: 'dwarka-1',
+    name: 'Omnia by Tivoli Dwarka Expressway',
+    location: 'Delhi',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka/dwarkahome3.jpg',
+    brand: 'omnia'
+  }
 ];
 
 export default function Locations() {
@@ -120,7 +126,10 @@ export default function Locations() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const filteredVenues = venues.filter(venue => venue.location.toLowerCase() === activeLocation);
+  const filteredVenues = venues.filter(venue => {
+    const locationId = venue.location.toLowerCase().replace(/\s+/g, '-');
+    return locationId === activeLocation;
+  });
   const totalPages = Math.ceil(filteredVenues.length / itemsPerPage);
   
   const handlePrevious = () => {
