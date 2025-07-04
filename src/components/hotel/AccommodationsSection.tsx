@@ -6,7 +6,8 @@
 import React, { memo } from 'react';
 import { Home, Tv, Bath, Coffee, User, Loader2, AlertCircle } from 'lucide-react';
 import { SmartImage } from '../ui/SmartImage';
-import type { HotelRoom } from '../../hooks/useHotelRooms';
+import { RoomImageCarousel } from './RoomImageCarousel';
+import type { HotelRoom, RoomImage } from '../../hooks/useHotelRooms';
 
 // Legacy interface for backward compatibility
 interface LegacyRoom {
@@ -145,6 +146,36 @@ export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(
             amenity.toLowerCase().includes('24-hour housekeeping')
           ).slice(0, 4);
           
+          // Get all room images from database
+          const getRoomImages = (): RoomImage[] => {
+            if (isLegacyRoom) {
+              const legacyRoom = room as LegacyRoom;
+              return legacyRoom.images?.map((imageUrl, index) => ({
+                id: `legacy-${room.id}-${index}`,
+                url: imageUrl,
+                alt: `${room.name} - Image ${index + 1}`,
+                isPrimary: index === 0,
+                sortOrder: index
+              })) || [];
+            } else {
+              // Use room images from database, fallback to default if none
+              const dbRoom = room as HotelRoom;
+              if (dbRoom.images && dbRoom.images.length > 0) {
+                return dbRoom.images;
+              } else {
+                // Fallback to default image for rooms without multiple images
+                const defaultImageUrl = getDefaultRoomImage(room.name);
+                return [{
+                  id: `default-${room.id}`,
+                  url: defaultImageUrl,
+                  alt: `${room.name} - Main View`,
+                  isPrimary: true,
+                  sortOrder: 0
+                }];
+              }
+            }
+          };
+
           const roomData = {
             id: room.id,
             name: room.name,
@@ -158,44 +189,30 @@ export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(
               ? (room as LegacyRoom).capacity 
               : room.max_occupancy || 2,
             amenities: keyAmenities,
-            image: isLegacyRoom 
-              ? (room as LegacyRoom).images?.[0] || getDefaultRoomImage(room.name)
-              : getDefaultRoomImage(room.name),
+            images: getRoomImages(),
             priceRange: isLegacyRoom 
               ? (room as LegacyRoom).priceRange 
               : formatPrice(room.price_inr)
           };
 
           return (
-            <div key={roomData.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              {/* Horizontal Layout */}
-              <div className="flex flex-col md:flex-row">
-                {/* Image Section */}
-                <div className="relative md:w-2/5">
-                  <SmartImage
-                    src={roomData.image}
-                    alt={roomData.name}
-                    className="w-full h-64 md:h-full object-cover"
-                    lazy={true}
-                    placeholder="blur"
-                    aspectRatio={4/3}
-                    optimize={{
-                      width: 400,
-                      height: 300,
-                      quality: 85,
-                      format: 'webp'
-                    }}
+            <div key={roomData.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              {/* Horizontal Layout with Smooth Expansion Effect */}
+              <div className="flex flex-col md:flex-row room-expansion-container md:h-80">
+                {/* Image Section - Expandable */}
+                <div className="room-image-section h-80 md:h-80 relative">
+                  <RoomImageCarousel
+                    images={roomData.images}
+                    roomName={roomData.name}
+                    roomSize={roomData.size}
+                    className="h-full"
+                    autoAdvance={true}
+                    autoAdvanceInterval={5000}
                   />
-                  <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md">
-                    <div className="flex items-center text-xs text-neutral-700">
-                      <Home className="w-3 h-3 mr-1" />
-                      {roomData.size}
-                    </div>
-                  </div>
                 </div>
                 
-                {/* Content Section */}
-                <div className="flex-1 p-6">
+                {/* Content Section - Adaptive */}
+                <div className="room-content-section p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="font-serif text-xl text-neutral-800">{roomData.name}</h3>
                   </div>

@@ -9,8 +9,17 @@ type RoomAmenity = {
   amenity_name: string;
 };
 
+export interface RoomImage {
+  id: string;
+  url: string;
+  alt: string;
+  isPrimary: boolean;
+  sortOrder: number;
+}
+
 export interface HotelRoom extends Room {
   amenities: string[];
+  images: RoomImage[];
 }
 
 interface UseHotelRoomsReturn {
@@ -61,6 +70,27 @@ const fetchRoomsData = async (hotelId: string): Promise<HotelRoom[]> => {
     console.warn('Failed to fetch room amenities:', amenitiesError.message);
   }
 
+  // Fetch room images
+  const { data: roomImagesData, error: imagesError } = await supabase
+    .from('room_media')
+    .select(`
+      room_id,
+      sort_order,
+      is_primary,
+      media!inner (
+        id,
+        public_url,
+        alt_text,
+        filename
+      )
+    `)
+    .in('room_id', roomIds)
+    .order('sort_order');
+
+  if (imagesError) {
+    console.warn('Failed to fetch room images:', imagesError.message);
+  }
+
   // Group amenities by room_id
   const amenitiesByRoom: Record<string, string[]> = {};
   (amenitiesData || []).forEach((amenity: RoomAmenity) => {
@@ -70,13 +100,32 @@ const fetchRoomsData = async (hotelId: string): Promise<HotelRoom[]> => {
     amenitiesByRoom[amenity.room_id].push(amenity.amenity_name);
   });
 
-  // Combine rooms with their amenities
-  const roomsWithAmenities: HotelRoom[] = roomsData.map(room => ({
+  // Group images by room_id
+  const imagesByRoom: Record<string, RoomImage[]> = {};
+  (roomImagesData || []).forEach((roomImage: any) => {
+    if (!imagesByRoom[roomImage.room_id]) {
+      imagesByRoom[roomImage.room_id] = [];
+    }
+    
+    const image: RoomImage = {
+      id: roomImage.media.id,
+      url: roomImage.media.public_url,
+      alt: roomImage.media.alt_text || `${roomsData.find(r => r.id === roomImage.room_id)?.name || 'Room'} - Image`,
+      isPrimary: roomImage.is_primary,
+      sortOrder: roomImage.sort_order
+    };
+    
+    imagesByRoom[roomImage.room_id].push(image);
+  });
+
+  // Combine rooms with their amenities and images
+  const roomsWithAmenitiesAndImages: HotelRoom[] = roomsData.map(room => ({
     ...room,
-    amenities: amenitiesByRoom[room.id] || []
+    amenities: amenitiesByRoom[room.id] || [],
+    images: imagesByRoom[room.id] || []
   }));
 
-  return roomsWithAmenities;
+  return roomsWithAmenitiesAndImages;
 };
 
 export const useHotelRooms = (hotelId: string): UseHotelRoomsReturn => {

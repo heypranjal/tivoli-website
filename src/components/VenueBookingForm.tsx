@@ -119,15 +119,6 @@ export default function VenueBookingForm() {
   return (
     <div className="bg-[#F8F9FA] py-10">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-6">
-          <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-3 block">
-            Book Your Event
-          </span>
-          <h2 className="font-serif text-2xl md:text-3xl text-neutral-800 mb-2">
-            Plan Your Special Occasion
-          </h2>
-          <div className="w-20 h-[1px] bg-[#CD9F59] mx-auto" />
-        </div>
 
         <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg border border-[#CD9F59]/10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
