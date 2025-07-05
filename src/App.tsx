@@ -82,7 +82,7 @@ function App() {
                 <h4 className="font-sans text-xs uppercase tracking-widest mb-2">Head Office</h4>
                 <div className="space-y-3">
                   <div className="flex items-start text-neutral-300">
-                    <MapPin className="w-4 h-4 mr-2 mt-1 text-[#CD9F59]" />
+                    <MapPin className="w-5 h-5 mr-2 mt-1 text-[#CD9F59] flex-shrink-0" />
                     <div>
                       <p className="font-medium text-sm">Tivoli Hospitality Group</p>
                       <p className="font-light text-xs text-neutral-400">1-Chhatrpur, New Delhi-110074, India</p>
@@ -126,24 +126,31 @@ function App() {
               <h4 className="font-sans text-xs uppercase tracking-widest mb-1">Hotel Locations</h4>
               <ul className="space-y-3">
                 <li className="flex items-start text-neutral-300">
-                  <MapPin className="w-4 h-4 mr-2 mt-1 text-[#CD9F59]" />
+                  <MapPin className="w-5 h-5 mr-2 mt-1 text-[#CD9F59] flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">Delhi</p>
-                    <p className="font-light text-xs text-neutral-400">The Tivoli-New Delhi, Tivoli Royal Court-Okhla</p>
+                    <p className="font-medium text-sm">Delhi location</p>
+                    <p className="font-light text-xs text-neutral-400">The Tivoli New Delhi, Tivoli Bijwasan, Tivoli Royal court - Okhla, Tivoli Upper HSE, Omnia by Tivoli Dwarka Expressway</p>
                   </div>
                 </li>
                 <li className="flex items-start text-neutral-300">
-                  <MapPin className="w-4 h-4 mr-2 mt-1 text-[#CD9F59]" />
+                  <MapPin className="w-5 h-5 mr-2 mt-1 text-[#CD9F59] flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">Noida</p>
-                    <p className="font-light text-xs text-neutral-400">Tivoli Lotus Court, Omnia by Tivoli-Noida</p>
+                    <p className="font-medium text-sm">Noida location</p>
+                    <p className="font-light text-xs text-neutral-400">Tivoli Lotus court - Noida</p>
                   </div>
                 </li>
                 <li className="flex items-start text-neutral-300">
-                  <MapPin className="w-4 h-4 mr-2 mt-1 text-[#CD9F59]" />
+                  <MapPin className="w-5 h-5 mr-2 mt-1 text-[#CD9F59] flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">Ambala</p>
-                    <p className="font-light text-xs text-neutral-400">Wedcation by Tivoli-Ambala</p>
+                    <p className="font-medium text-sm">PANIPAT</p>
+                    <p className="font-light text-xs text-neutral-400">Wedcation by Tivoli Israna Panipat</p>
+                  </div>
+                </li>
+                <li className="flex items-start text-neutral-300">
+                  <MapPin className="w-5 h-5 mr-2 mt-1 text-[#CD9F59] flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-sm">AMBALA</p>
+                    <p className="font-light text-xs text-neutral-400">Wedcation by Tivoli Ambala</p>
                   </div>
                 </li>
               </ul>
