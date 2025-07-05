@@ -1,35 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-
-const pressReleases = [
-  {
-    id: '1',
-    title: 'Tivoli Hotels Announces Expansion into Southeast Asia',
-    publication: 'Hospitality Today',
-    date: 'March 15, 2024',
-    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80',
-    excerpt: 'Luxury hotel chain Tivoli Hotels & Resorts reveals ambitious expansion plans across major Southeast Asian destinations.',
-    link: '#'
-  },
-  {
-    id: '2',
-    title: 'Sustainable Luxury: Tivoli\'s Green Initiative',
-    publication: 'Forbes',
-    date: 'February 28, 2024',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80',
-    excerpt: 'Leading the way in sustainable luxury hospitality, Tivoli Hotels implements groundbreaking environmental practices.',
-    link: '#'
-  },
-  {
-    id: '3',
-    title: 'The Future of Luxury Hospitality',
-    publication: 'Bloomberg',
-    date: 'January 20, 2024',
-    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80',
-    excerpt: 'Interview with Tivoli\'s CEO on the evolving landscape of luxury hospitality and future industry trends.',
-    link: '#'
-  }
-];
+import { pressReleases } from '../data/press';
 
 export default function Press() {
 
@@ -61,16 +32,21 @@ export default function Press() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           {pressReleases.map((press) => (
-            <div 
+            <a 
               key={press.id}
-              className="group cursor-pointer"
+              href={press.link}
+              target={press.link.startsWith('http') ? '_blank' : undefined}
+              rel={press.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="group cursor-pointer block"
             >
               {/* Image Container */}
               <div className="relative overflow-hidden mb-2 md:mb-3 rounded-lg shadow-lg aspect-[4/3]">
                 <img
                   src={press.image}
                   alt={press.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className={`w-full h-full transition-transform duration-700 group-hover:scale-110 ${
+                    press.id === '1' ? 'object-cover object-top' : 'object-cover'
+                  }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                 
@@ -97,15 +73,12 @@ export default function Press() {
                 <p className="elegant-text text-xs md:text-sm line-clamp-2">
                   {press.excerpt}
                 </p>
-                <a 
-                  href={press.link}
-                  className="inline-flex items-center text-[#CD9F59] hover:text-[#B88D47] transition-colors font-sans text-xs uppercase tracking-wider"
-                >
+                <span className="inline-flex items-center text-[#CD9F59] hover:text-[#B88D47] transition-colors font-sans text-xs uppercase tracking-wider">
                   Read Full Article
                   <ArrowUpRight className="w-3 h-3 ml-1" />
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 

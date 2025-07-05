@@ -22,6 +22,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const [loading, setLoading] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
   const [playerReady, setPlayerReady] = useState(false);
+  const [thumbnailError, setThumbnailError] = useState(false);
 
   const handlePlayClick = () => {
     setLoading(true);
@@ -53,7 +54,8 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   };
 
   const videoId = getVideoId(url);
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  // Start with hqdefault for better compatibility, especially for the problematic videos
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   // Add styles to hide YouTube branding
   useEffect(() => {
@@ -96,15 +98,42 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         {/* Custom Thumbnail */}
         {showOverlay && (
           <div className="absolute inset-0 z-10">
-            <img 
-              src={thumbnailUrl} 
-              alt={title}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                // Fallback to standard quality if maxres not available
-                e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
-              }}
-            />
+            {!thumbnailError ? (
+              <img 
+                src={thumbnailUrl} 
+                alt={title}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src.includes('hqdefault')) {
+                    // First fallback: medium quality
+                    target.src = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+                  } else if (target.src.includes('mqdefault')) {
+                    // Second fallback: default thumbnail (most compatible)
+                    target.src = `https://img.youtube.com/vi/${videoId}/default.jpg`;
+                  } else if (target.src.includes('default.jpg')) {
+                    // Third fallback: try maxres (in case it's now available)
+                    target.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                  } else if (target.src.includes('maxresdefault')) {
+                    // Fourth fallback: standard quality
+                    target.src = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+                  } else {
+                    // All thumbnails failed, show custom background
+                    setThumbnailError(true);
+                  }
+                }}
+              />
+            ) : (
+              // Custom elegant background when no thumbnail is available
+              <div className="w-full h-full bg-gradient-to-br from-[#CD9F59]/20 via-neutral-800 to-black flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#CD9F59]/20 flex items-center justify-center">
+                    <Play className="w-8 h-8 text-[#CD9F59]" />
+                  </div>
+                  <h4 className="text-white text-lg font-serif">{title}</h4>
+                </div>
+              </div>
+            )}
             <div className="absolute inset-0 bg-black/20" />
           </div>
         )}
@@ -155,13 +184,13 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
           <div className="absolute inset-0 flex items-center justify-center z-20">
             <button
               onClick={handlePlayClick}
-              className="w-16 h-16 md:w-20 md:h-20 bg-[#CD9F59] hover:bg-[#B88D47] rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300 shadow-2xl"
+              className="w-11 h-11 md:w-14 md:h-14 bg-[#CD9F59] hover:bg-[#B88D47] rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300 shadow-2xl"
               aria-label={`Play ${title}`}
             >
               {loading ? (
-                <Loader2 className="w-8 h-8 md:w-10 md:h-10 text-white animate-spin" />
+                <Loader2 className="w-6 h-6 md:w-7 md:h-7 text-white animate-spin" />
               ) : (
-                <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" />
+                <Play className="w-6 h-6 md:w-7 md:h-7 text-white ml-1" />
               )}
             </button>
           </div>

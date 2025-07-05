@@ -3,9 +3,10 @@
  * Showcases wedding videos by categories with lead generation form
  * Features embedded YouTube videos with custom styling
  */
-import React from 'react';
-import { Heart, Sparkles, Crown } from 'lucide-react';
+import React, { useRef } from 'react';
+import { Heart, Sparkles, Crown, ChevronLeft, ChevronRight } from 'lucide-react';
 import VideoPlayer from '@/components/VideoPlayer';
+import ReelPlayer from '@/components/ReelPlayer';
 import VenueBookingForm from '@/components/VenueBookingForm';
 
 // Wedding video data organized by categories
@@ -42,10 +43,85 @@ const weddingVideos = {
       url: 'https://youtu.be/SZRw_acTSkU',
       title: 'Elegant Cocktail Party'
     }
+  ],
+  showcase: [
+    {
+      id: 'showcase-1',
+      url: 'https://youtu.be/VsPMbgjml7I',
+      title: 'Tivoli Wedding Showcase'
+    },
+    {
+      id: 'showcase-2',
+      url: 'https://youtu.be/2XYNKxg-fB4',
+      title: 'Luxury Wedding Experience'
+    },
+    {
+      id: 'showcase-3',
+      url: 'https://youtu.be/ywimCF8jWSk',
+      title: 'Elegant Wedding Moments'
+    },
+    {
+      id: 'showcase-4',
+      url: 'https://youtu.be/N9zq4E6ycvc',
+      title: 'Perfect Wedding Celebration'
+    },
+    {
+      id: 'showcase-5',
+      url: 'https://youtu.be/0E2dQqhU1Xc',
+      title: 'Unforgettable Wedding Day'
+    }
+  ],
+  reels: [
+    {
+      id: 'reel-1',
+      url: 'https://youtube.com/shorts/jMF5FzgmmsA?feature=share',
+      title: 'Wedding Reel 1'
+    },
+    {
+      id: 'reel-2',
+      url: 'https://youtube.com/shorts/f5vsjOaEIhA?feature=share',
+      title: 'Wedding Reel 2'
+    },
+    {
+      id: 'reel-3',
+      url: 'https://youtube.com/shorts/PuxsNpls1h4?feature=share',
+      title: 'Wedding Reel 3'
+    },
+    {
+      id: 'reel-4',
+      url: 'https://youtube.com/shorts/P2OqX0VUx-8?feature=share',
+      title: 'Wedding Reel 4'
+    },
+    {
+      id: 'reel-5',
+      url: 'https://youtube.com/shorts/F7au_LvJaEc?feature=share',
+      title: 'Wedding Reel 5'
+    }
   ]
 };
 
 export default function WeddingPage() {
+  const reelScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollToReel = (direction: 'left' | 'right') => {
+    const container = reelScrollRef.current;
+    if (!container) return;
+    
+    const reelWidth = 256; // w-64 = 16rem = 256px
+    const gap = 16; // gap-4 = 1rem = 16px
+    const scrollAmount = reelWidth + gap;
+    
+    const currentScroll = container.scrollLeft;
+    const newScrollLeft = direction === 'left' 
+      ? Math.max(0, currentScroll - scrollAmount)
+      : currentScroll + scrollAmount;
+    
+    container.scrollTo({
+      left: newScrollLeft,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -190,6 +266,123 @@ export default function WeddingPage() {
                 title={video.title}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wedding Showcase Section */}
+      <section className="py-12 md:py-16 bg-gradient-to-b from-neutral-50 to-white relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#CD9F59]/30 to-transparent" />
+        
+        <div className="container mx-auto px-4 md:px-12">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-[1px] bg-[#CD9F59]" />
+              <div className="w-3 h-3 rotate-45 border border-[#CD9F59] mx-4" />
+              <div className="w-16 h-[1px] bg-[#CD9F59]" />
+            </div>
+            
+            <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-3 block">
+              Wedding Showcase
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl mb-4 text-neutral-800">
+              Tivoli Wedding Gallery
+            </h2>
+            <p className="elegant-text text-base md:text-lg text-neutral-600">
+              Discover the beauty and elegance of weddings at Tivoli Hotels through our exclusive showcase collection
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+            {weddingVideos.showcase.map((video, index) => (
+              <div key={video.id} className={`${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
+                <VideoPlayer
+                  url={video.url}
+                  title={video.title}
+                  className="h-full"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wedding Reels Section */}
+      <section className="py-12 md:py-16 bg-neutral-900 relative overflow-hidden">
+        {/* Decorative background patterns */}
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(205,159,89,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(205,159,89,0.05),transparent_50%)]" />
+        
+        <div className="container mx-auto px-4 md:px-12 relative">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-[1px] bg-[#CD9F59]" />
+              <div className="w-3 h-3 rotate-45 border border-[#CD9F59] mx-4" />
+              <div className="w-16 h-[1px] bg-[#CD9F59]" />
+            </div>
+            
+            <span className="text-sm uppercase tracking-[0.2em] text-[#CD9F59] font-sans mb-3 block">
+              Wedding Reels
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl mb-4 text-white">
+              Moments in Motion
+            </h2>
+            <p className="elegant-text text-base md:text-lg text-neutral-300">
+              Experience our wedding celebrations through these captivating short films
+            </p>
+          </div>
+
+          {/* Horizontal scrolling reel container */}
+          <div className="relative">
+            <div 
+              ref={reelScrollRef}
+              className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+            >
+              {weddingVideos.reels.map((reel, index) => (
+                <div key={reel.id} className="flex-shrink-0 w-64 snap-start">
+                  <ReelPlayer
+                    url={reel.url}
+                    title={reel.title}
+                    className="w-full h-full"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Navigation Arrows */}
+            <button
+              onClick={() => {
+                console.log('Left arrow clicked');
+                scrollToReel('left');
+              }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#CD9F59]/90 hover:bg-[#CD9F59] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 shadow-lg"
+              aria-label="Previous reel"
+            >
+              <ChevronLeft className="w-3 h-3 text-white" />
+            </button>
+            
+            <button
+              onClick={() => {
+                console.log('Right arrow clicked');
+                scrollToReel('right');
+              }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#CD9F59]/90 hover:bg-[#CD9F59] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 shadow-lg"
+              aria-label="Next reel"
+            >
+              <ChevronRight className="w-3 h-3 text-white" />
+            </button>
+            
+            {/* Gradient overlays for scroll indication */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-neutral-900 to-transparent pointer-events-none z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-neutral-900 to-transparent pointer-events-none z-10" />
+          </div>
+          
+          {/* Scroll hint */}
+          <div className="text-center mt-6">
+            <p className="text-sm text-neutral-400 font-sans">
+              Scroll horizontally to view all reels
+            </p>
           </div>
         </div>
       </section>
