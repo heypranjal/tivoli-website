@@ -20,6 +20,7 @@ import UpcomingHotels from './components/UpcomingHotels';
 import OurStory from './components/OurStory';
 import AwardsAccolades from './components/AwardsAccolades';
 import Press from './components/Press';
+import LinkedInFeed from './components/LinkedInFeed';
 import HotelPage from './pages/HotelPage';
 import People from './pages/Investors';
 import DigitalQRPage from './pages/DigitalQRPage';
@@ -51,6 +52,7 @@ function App() {
               <CulinaryDelight />
               <AwardsAccolades />
               <Press />
+              <LinkedInFeed />
               <UpcomingHotels />
             </main>
           </>
