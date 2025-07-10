@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { Clock, ChefHat, Wine } from 'lucide-react';
+import { ImageCarousel } from '@/components/ui/ImageCarousel';
 
 interface DiningVenue {
   id: string;
@@ -13,7 +14,8 @@ interface DiningVenue {
   cuisine: string;
   hours: string;
   dressCode: string;
-  image: string;
+  image?: string;
+  images?: string[];
   specialties?: string[];
 }
 
@@ -41,16 +43,24 @@ export const DiningSection: React.FC<DiningSectionProps> = ({
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {venues.map((venue) => (
-          <div key={venue.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div key={venue.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
             <div className="relative">
-              <img
-                src={venue.image}
-                alt={venue.name}
-                className="w-full h-48 object-cover"
-                loading="lazy"
-              />
+              {venue.images && venue.images.length > 0 ? (
+                <ImageCarousel
+                  images={venue.images}
+                  alt={venue.name}
+                  className="w-full h-48 object-cover"
+                />
+              ) : (
+                <img
+                  src={venue.image}
+                  alt={venue.name}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+              )}
               {/* Cuisine Badge */}
-              <div className="absolute top-4 left-4 bg-[#CD9F59]/90 text-white px-3 py-1 rounded-full">
+              <div className="absolute top-4 left-4 bg-[#CD9F59]/90 text-white px-3 py-1 rounded-full z-10">
                 <span className="text-xs font-medium flex items-center">
                   <ChefHat className="w-3 h-3 mr-1" />
                   {venue.cuisine}
@@ -58,12 +68,12 @@ export const DiningSection: React.FC<DiningSectionProps> = ({
               </div>
             </div>
             
-            <div className="p-6">
+            <div className="p-4">
               <h3 className="font-serif text-xl text-neutral-800 mb-3">{venue.name}</h3>
               
               <p className="text-sm text-neutral-600 mb-4 line-clamp-3">{venue.description}</p>
               
-              <div className="space-y-3 mb-4">
+              <div className="mb-3">
                 {/* Hours */}
                 <div className="flex items-start">
                   <Clock className="w-4 h-4 mr-2 mt-0.5 text-neutral-500" />
@@ -72,20 +82,11 @@ export const DiningSection: React.FC<DiningSectionProps> = ({
                     <p className="text-sm text-neutral-600">{venue.hours}</p>
                   </div>
                 </div>
-                
-                {/* Dress Code */}
-                <div className="flex items-start">
-                  <Wine className="w-4 h-4 mr-2 mt-0.5 text-neutral-500" />
-                  <div>
-                    <h4 className="font-medium text-neutral-800 text-sm">Dress Code:</h4>
-                    <p className="text-sm text-neutral-600">{venue.dressCode}</p>
-                  </div>
-                </div>
               </div>
 
               {/* Specialties */}
               {venue.specialties && venue.specialties.length > 0 && (
-                <div className="mb-4">
+                <div className="mb-2">
                   <h4 className="font-medium text-neutral-800 text-sm mb-2">Specialties:</h4>
                   <div className="flex flex-wrap gap-1">
                     {venue.specialties.slice(0, 3).map((specialty, index) => (
@@ -106,7 +107,7 @@ export const DiningSection: React.FC<DiningSectionProps> = ({
               )}
             </div>
             
-            <div className="px-6 pb-6">
+            <div className="px-6 pb-4">
               <button className="w-full py-2 px-4 bg-gradient-to-r from-[#CD9F59] to-[#CD9F59]/80 text-white rounded-lg hover:from-[#CD9F59]/90 hover:to-[#CD9F59]/70 transition-all duration-200 text-sm font-medium">
                 View Menu
               </button>

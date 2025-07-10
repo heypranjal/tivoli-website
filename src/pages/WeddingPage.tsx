@@ -53,7 +53,7 @@ const weddingVideos = {
     {
       id: 'showcase-2',
       url: 'https://youtu.be/2XYNKxg-fB4',
-      title: 'Luxury Wedding Experience'
+      title: 'Wedding Asia exhibition 2025'
     },
     {
       id: 'showcase-3',
@@ -63,7 +63,7 @@ const weddingVideos = {
     {
       id: 'showcase-4',
       url: 'https://youtu.be/N9zq4E6ycvc',
-      title: 'Perfect Wedding Celebration'
+      title: 'Jai Guru Ji'
     },
     {
       id: 'showcase-5',
@@ -91,11 +91,6 @@ const weddingVideos = {
       id: 'reel-4',
       url: 'https://youtube.com/shorts/P2OqX0VUx-8?feature=share',
       title: 'Wedding Reel 4'
-    },
-    {
-      id: 'reel-5',
-      url: 'https://youtube.com/shorts/F7au_LvJaEc?feature=share',
-      title: 'Wedding Reel 5'
     }
   ]
 };

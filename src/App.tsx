@@ -30,6 +30,7 @@ import SustainabilityPage from './pages/SustainabilityPage';
 import OurStoryPage from './pages/OurStoryPage';
 import MonitoringPage from './pages/MonitoringPage';
 import WeddingPage from './pages/WeddingPage';
+import CareersPage from './pages/CareersPage';
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
         <Route path="/digital-qr" element={<DigitalQRPage />} />
         <Route path="/monitoring" element={<MonitoringPage />} />
         <Route path="/weddings" element={<WeddingPage />} />
+        <Route path="/careers" element={<CareersPage />} />
         {/* Dynamic hotel pages - all hotels now use single HotelPage component */}
         <Route path="/hotel/:hotelSlug" element={<HotelPage />} />
         {/* Redirect for renamed hotel */}
@@ -178,6 +180,7 @@ function App() {
                 © 2025 Tivoli Hotels & Resorts. All rights reserved.
               </p>
               <div className="flex flex-wrap justify-center gap-3 md:gap-4 text-xs text-neutral-400">
+                <a href="/careers" className="hover:text-[#CD9F59] transition-colors">Careers</a>
                 <a href="https://docs.google.com/document/d/1u-V_fFaQ38qcNdsPJHTkgSfqM5ZNQr8IO0cRCJdkQZ8/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#CD9F59] transition-colors">Privacy Policy</a>
                 <a href="https://docs.google.com/document/d/1ZhGmgPL8-UrSvSTQdR8RMRV3XYZvSFCyYXpghNfKop0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#CD9F59] transition-colors">Terms of Service</a>
                 <a href="/digital-qr" target="_blank" rel="noopener noreferrer" className="hover:text-[#CD9F59] transition-colors">Digital QR</a>

@@ -26,7 +26,8 @@ export interface TivoliDiningVenue {
   cuisine: string;
   hours: string;
   dressCode: string;
-  image: string;
+  image?: string;
+  images?: string[];
   specialties?: string[];
 }
 
@@ -96,7 +97,7 @@ const TIVOLI_ENHANCED_DATA = {
       name: "Emperor's Court",
       capacity: 200,
       area: '4,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//emperor%20court.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Emperor\'s%20Court.png',
       features: [
         'Sprawling outdoor space',
         'Perfect for day events',
@@ -127,42 +128,47 @@ const TIVOLI_ENHANCED_DATA = {
     {
       id: 'blue-grotto',
       name: 'Blue Grotto',
-      description: 'Exquisite Pan-Asian cuisine in an elegant underwater-themed setting with fresh seafood and signature cocktails',
-      cuisine: 'Pan-Asian',
-      hours: '12:30 PM - 11:30 PM',
-      dressCode: 'Smart Casual',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//blue%20grotto.webp',
-      specialties: ['Fresh Seafood', 'Signature Cocktails', 'Sushi Bar']
+      description: 'A luxurious poolside cafe that draws inspiration from the iconic Blue Grotto Cave in Italy, famous for its enchanting blue waters and serene ambience',
+      cuisine: 'International Cafe',
+      hours: '24 Hours',
+      images: [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Blue%20Grotto-4.png',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Blue%20Grotto-1.png',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Blue%20Grotto-3.png',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Blue%20Grotto-2.png',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Blue%20Grotto-5.png'
+      ],
+      specialties: ['Poolside Dining', 'Italian Inspired', 'All-Day Service']
     },
     {
       id: 'zuun',
-      name: 'Zuun',
-      description: 'Contemporary Pan-Asian fusion restaurant offering innovative dishes with a modern twist',
-      cuisine: 'Pan-Asian Fusion',
-      hours: '12:30 PM - 11:30 PM',
-      dressCode: 'Smart Casual',
+      name: 'Zunn',
+      description: 'Where tradition meets innovation on your plate. Experience the essence of Asia with a modern twist, offering a unique culinary journey to delight your senses',
+      cuisine: 'Modern Asian',
+      hours: '7:00 PM - 11:00 PM',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      specialties: ['Innovative Fusion', 'Modern Presentations', 'Chef Specials']
+      specialties: ['Traditional Asian', 'Modern Innovation', 'Culinary Journey']
     },
     {
       id: 'aria',
       name: 'Aria',
-      description: 'Sophisticated Modern Indian cuisine showcasing regional flavors with contemporary presentation',
-      cuisine: 'Modern Indian',
-      hours: '7:00 PM - 11:00 PM',
-      dressCode: 'Formal',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//aria.jpg',
-      specialties: ['Regional Indian Cuisine', 'Contemporary Presentations', 'Traditional Flavors']
+      description: 'An all-day dining cafe experience with a serene view of the poolside. Indulge in fresh flavorful dishes while you soak in the tranquil sunshine',
+      cuisine: 'International Cuisine',
+      hours: '12:00 PM - 6:00 PM',
+      images: [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Aria-2.png',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Aria-1.png'
+      ],
+      specialties: ['Poolside Views', 'Fresh Dishes', 'Tranquil Atmosphere']
     },
     {
       id: 'trafalgars',
       name: "Trafalgar's",
-      description: 'Upscale bar and lounge featuring premium spirits, craft cocktails, and Pan-Asian bar bites',
-      cuisine: 'Bar & Pan-Asian',
-      hours: '12:30 PM - 11:30 PM',
-      dressCode: 'Smart Casual',
+      description: 'A jazzy speakeasy where vintage charm meets modern mixology. Tucked away in an intimate setting, it boasts soulful music and expertly crafted cocktails',
+      cuisine: 'Cocktail Bar',
+      hours: '6:00 PM - 1:00 AM',
       image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Trafalgar%20bar.jpg',
-      specialties: ['Premium Spirits', 'Craft Cocktails', 'Bar Bites']
+      specialties: ['Vintage Charm', 'Craft Cocktails', 'Soulful Music']
     }
   ],
 
@@ -222,7 +228,9 @@ const TIVOLI_ENHANCED_DATA = {
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//The%20Tivoli%20Main%20Gate%20Hero-3.png',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//The%20Tivoli%20Pool%20Hero6.png',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//The%20Tivoli%20Porch%20Hero-1.png',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//The%20Tivoli-Lobby%20hero-5.png'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//The%20Tivoli-Lobby%20hero-5.png',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//lobby-1.png',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//lobby-2.png'
   ],
 
   virtualTour: {

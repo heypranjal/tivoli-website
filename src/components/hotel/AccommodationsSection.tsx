@@ -49,25 +49,39 @@ const getAmenityIcon = (amenity: string) => {
   return <Home className="w-4 h-4" />;
 };
 
-// Default image for rooms
-const getDefaultRoomImage = (roomName: string): string => {
-  // Specific room images
-  const roomImageMap: Record<string, string> = {
+// Default image(s) for rooms
+const getDefaultRoomImages = (roomName: string): string[] => {
+  // Specific room images - Club Room now has multiple images
+  const roomImageMap: Record<string, string | string[]> = {
     'deluxe room': 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Deluxe%20Room.png',
-    'superior room': 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior%20Room.png',
-    'club room': 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Club%20Room.png',
+    'superior room': [
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior-1.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior-4.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior-6.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior-5.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior-2.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior-3.png'
+    ],
+    'club room': [
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Club%20Room-1.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Club%20Room-3.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Club%20Room-4.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Club%20Room-2.png',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Club%20Room-5.png'
+    ],
     'executive suite': 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Executive%20Suite.png',
     'presidential suite': 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Presidential%20Suite.png'
   };
 
   const roomKey = roomName.toLowerCase();
   if (roomImageMap[roomKey]) {
-    return roomImageMap[roomKey];
+    const images = roomImageMap[roomKey];
+    return Array.isArray(images) ? images : [images];
   }
   
   // Fallback for any other rooms
   const slug = roomName.toLowerCase().replace(/\s+/g, '-');
-  return `https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//${slug}.jpg`;
+  return [`https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//${slug}.jpg`];
 };
 
 export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(({
@@ -163,15 +177,15 @@ export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(
               if (dbRoom.images && dbRoom.images.length > 0) {
                 return dbRoom.images;
               } else {
-                // Fallback to default image for rooms without multiple images
-                const defaultImageUrl = getDefaultRoomImage(room.name);
-                return [{
-                  id: `default-${room.id}`,
-                  url: defaultImageUrl,
-                  alt: `${room.name} - Main View`,
-                  isPrimary: true,
-                  sortOrder: 0
-                }];
+                // Fallback to default images for rooms without multiple images
+                const defaultImageUrls = getDefaultRoomImages(room.name);
+                return defaultImageUrls.map((url, index) => ({
+                  id: `default-${room.id}-${index}`,
+                  url: url,
+                  alt: `${room.name} - Image ${index + 1}`,
+                  isPrimary: index === 0,
+                  sortOrder: index
+                }));
               }
             }
           };

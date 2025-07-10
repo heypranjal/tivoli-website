@@ -72,11 +72,31 @@ export interface RoomBooking {
 export interface Lead {
   id?: string
   created_at?: string
-  source: 'venue_booking' | 'room_booking' | 'contact_form'
+  source: 'venue_booking' | 'room_booking' | 'website_contact' | 'phone_inquiry'
   booking_id?: string
+  customer_name?: string
+  customer_email?: string
+  customer_phone?: string
   status: 'new' | 'contacted' | 'qualified' | 'converted' | 'lost'
-  follow_up_date?: string
   notes?: string
+  assigned_to?: string
+  updated_at?: string
+}
+
+export interface Hotel {
+  id: string
+  slug: string
+  name: string
+  city?: string
+  state?: string
+  is_active: boolean
+  sort_order: number
+  is_featured?: boolean
+}
+
+export interface HotelFilterOptions {
+  includeInactive?: boolean
+  excludeHotelIds?: string[]
 }
 
 // Helper functions for database operations
@@ -157,6 +177,56 @@ export const supabaseHelpers = {
     }
     
     return data
+  },
+
+  // Hotel management
+  async getActiveHotels(options: HotelFilterOptions = {}) {
+    const { includeInactive = false, excludeHotelIds = [] } = options;
+    
+    let query = supabase
+      .from('hotels')
+      .select('id, slug, name, city, state, is_active, sort_order, is_featured');
+    
+    // Filter by active status unless includeInactive is true
+    if (!includeInactive) {
+      query = query.eq('is_active', true);
+    }
+    
+    // Exclude specific hotel IDs if provided
+    if (excludeHotelIds.length > 0) {
+      query = query.not('id', 'in', `(${excludeHotelIds.join(',')})`);
+    }
+    
+    // Order by sort_order and name for consistent display
+    query = query.order('sort_order', { ascending: true }).order('name', { ascending: true });
+    
+    const { data, error } = await query;
+    
+    if (error) {
+      console.error('Error fetching hotels:', error);
+      throw error;
+    }
+    
+    return data as Hotel[];
+  },
+
+  async getAllHotels(options: HotelFilterOptions = {}) {
+    return this.getActiveHotels({ ...options, includeInactive: true });
+  },
+
+  async getHotelById(hotelId: string) {
+    const { data, error } = await supabase
+      .from('hotels')
+      .select('id, slug, name, city, state, is_active, sort_order, is_featured')
+      .eq('id', hotelId)
+      .single();
+    
+    if (error) {
+      console.error('Error fetching hotel by ID:', error);
+      throw error;
+    }
+    
+    return data as Hotel;
   },
 }
 

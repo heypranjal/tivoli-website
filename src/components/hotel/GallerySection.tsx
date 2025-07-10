@@ -58,6 +58,20 @@ const defaultMedia: MediaItem[] = [
     url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//The%20Tivoli-Lobby%20hero-5.png',
     title: 'Hotel Lobby',
     description: 'Sophisticated lobby with luxury interiors'
+  },
+  {
+    id: 'img-6',
+    type: 'image',
+    url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//lobby-1.png',
+    title: 'Main Lobby Reception',
+    description: 'Reception area with elegant furnishings and welcoming ambiance'
+  },
+  {
+    id: 'img-7',
+    type: 'image',
+    url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//lobby-2.png',
+    title: 'Lobby Lounge Area',
+    description: 'Comfortable seating area with ambient lighting and modern design'
   }
 ];
 

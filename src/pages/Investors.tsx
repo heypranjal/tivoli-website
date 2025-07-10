@@ -36,12 +36,6 @@ const executiveLeadership = [
     position: "CEO",
     linkedin: "https://www.linkedin.com/in/amit-kumar-sood-51b2306a/",
     image: "https://i.ibb.co/Rkb0cQtd/amit-sood-Linkedin.jpg"
-  },
-  {
-    name: "Mr. Sanjay Kasal",
-    position: "Corp GM", 
-    linkedin: "https://www.linkedin.com/in/sanjaykasal/",
-    image: "https://i.ibb.co/21Q3Cbyx/Sanjay-Kasal.jpg"
   }
 ];
 

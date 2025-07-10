@@ -3,35 +3,11 @@ import React from 'react';
 const awards = [
   {
     id: '1',
-    name: 'World Luxury Hotel Awards',
-    category: 'Best Luxury Hotel Brand',
-    year: '2023',
-    image: 'https://images.unsplash.com/photo-1579975096649-e773152b04cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    description: 'Recognized for exceptional luxury hospitality across our global portfolio'
-  },
-  {
-    id: '2',
-    name: 'Forbes Travel Guide',
-    category: 'Five-Star Rating',
-    year: '2023',
-    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg',
-    description: 'Awarded to multiple Tivoli properties for outstanding service excellence'
-  },
-  {
-    id: '3',
-    name: 'Condé Nast Traveler',
-    category: "Readers' Choice Awards",
-    year: '2023',
-    image: 'https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    description: 'Voted among the top 50 hotel brands worldwide'
-  },
-  {
-    id: '4',
-    name: 'Travel + Leisure',
-    category: "World's Best Awards",
-    year: '2023',
-    image: 'https://images.unsplash.com/photo-1586105449897-20b5efeb3233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    description: 'Recognized for exceptional guest experiences and service standards'
+    name: 'Mr. Rohit Gupta - Chairman Tivoli Hospitality Group',
+    category: 'The Vaishya Gaurav Award by Vaishya Panorama',
+    year: '2025',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Rohit%20gupta%20Award.jpeg',
+    description: 'Honored with the prestigious Vaishya Gaurav Award, recognizing exceptional leadership and contribution to the hospitality industry'
   }
 ];
 

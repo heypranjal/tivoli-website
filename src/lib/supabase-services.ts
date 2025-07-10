@@ -24,6 +24,7 @@ type Media = Database['public']['Tables']['media']['Row']
 type Amenity = Database['public']['Tables']['amenities']['Row']
 type Room = Database['public']['Tables']['rooms']['Row']
 type Dining = Database['public']['Tables']['dining']['Row']
+type CareerApplication = Database['public']['Tables']['career_applications']['Row']
 
 /**
  * Brand Services
@@ -469,6 +470,50 @@ export const searchService = {
     
     if (error) throw error
     return data as HotelWithRelations[] || []
+  }
+}
+
+/**
+ * Career Services
+ */
+export const careerService = {
+  async submitApplication(applicationData: {
+    name: string
+    email: string
+    phone: string
+    address: string
+    position: string
+    coverLetter?: string
+    motivation: string
+    cvFilename?: string
+  }): Promise<CareerApplication> {
+    const { data, error } = await supabase
+      .from('career_applications')
+      .insert({
+        name: applicationData.name,
+        email: applicationData.email,
+        phone: applicationData.phone,
+        address: applicationData.address,
+        position: applicationData.position,
+        cover_letter: applicationData.coverLetter || null,
+        motivation: applicationData.motivation,
+        cv_filename: applicationData.cvFilename || null
+      })
+      .select()
+      .single()
+    
+    if (error) throw error
+    return data
+  },
+
+  async getAllApplications(): Promise<CareerApplication[]> {
+    const { data, error } = await supabase
+      .from('career_applications')
+      .select('*')
+      .order('created_at', { ascending: false })
+    
+    if (error) throw error
+    return data || []
   }
 }
 

@@ -334,6 +334,47 @@ export interface Database {
           updated_at?: string
         }
       }
+      career_applications: {
+        Row: {
+          id: string
+          name: string
+          email: string
+          phone: string
+          address: string
+          position: string
+          cover_letter: string | null
+          motivation: string
+          cv_filename: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          email: string
+          phone: string
+          address: string
+          position: string
+          cover_letter?: string | null
+          motivation: string
+          cv_filename?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          email?: string
+          phone?: string
+          address?: string
+          position?: string
+          cover_letter?: string | null
+          motivation?: string
+          cv_filename?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
