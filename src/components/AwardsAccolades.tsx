@@ -8,6 +8,14 @@ const awards = [
     year: '2025',
     image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Rohit%20gupta%20Award.jpeg',
     description: 'Honored with the prestigious Vaishya Gaurav Award, recognizing exceptional leadership and contribution to the hospitality industry'
+  },
+  {
+    id: '2',
+    name: 'Mr. Rohit Gupta',
+    category: 'Felicitated by Delhi Chess Association for 21st Delhi International Open Grand Masters Chess Tournament 2025',
+    year: '2025',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Rohit%20Gupta%20Chess.png',
+    description: 'Recognized by the Delhi Chess Association for outstanding contribution to the 21st Delhi International Open Grand Masters Chess Tournament'
   }
 ];
 

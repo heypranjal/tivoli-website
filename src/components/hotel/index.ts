@@ -11,6 +11,7 @@ export { default as ExperiencesSection } from './ExperiencesSection';
 export { default as SpacesSection } from './SpacesSection';
 export { default as DiningSection } from './DiningSection';
 export { default as GallerySection } from './GallerySection';
+export { default as DiginitariesSection } from './DiginitariesSection';
 export { default as WeddingDestinationSection } from './WeddingDestinationSection';
 export { default as ContactSection } from './ContactSection';
 export { RoomCard, RoomGrid } from './RoomCard';

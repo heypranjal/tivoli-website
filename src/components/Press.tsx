@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { pressReleases } from '../data/press';
+import { ImageCarousel } from './ui/ImageCarousel';
 
 export default function Press() {
 
@@ -41,24 +42,38 @@ export default function Press() {
             >
               {/* Image Container */}
               <div className="relative overflow-hidden mb-2 md:mb-3 rounded-lg shadow-lg aspect-[4/3]">
-                <img
-                  src={press.image}
-                  alt={press.title}
-                  className={`w-full h-full transition-transform duration-700 group-hover:scale-110 ${
-                    press.id === '1' ? 'object-cover object-top' : 'object-cover'
-                  }`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
+                {press.images && press.images.length > 1 ? (
+                  <div className="relative w-full h-full">
+                    <ImageCarousel
+                      images={press.images}
+                      alt={press.title}
+                      className="w-full h-full rounded-lg"
+                      autoPlay={false}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 pointer-events-none" />
+                  </div>
+                ) : (
+                  <>
+                    <img
+                      src={press.image}
+                      alt={press.title}
+                      className={`w-full h-full transition-transform duration-700 group-hover:scale-110 ${
+                        press.id === '1' ? 'object-cover object-top' : 'object-cover'
+                      }`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
+                  </>
+                )}
                 
                 {/* Publication Badge */}
-                <div className="absolute top-2 left-2">
+                <div className="absolute top-2 left-2 z-10">
                   <span className="bg-white/95 text-neutral-900 px-2 md:px-3 py-1 rounded-lg text-xs font-sans">
                     {press.publication}
                   </span>
                 </div>
                 
                 {/* Date Badge */}
-                <div className="absolute top-2 right-2">
+                <div className="absolute top-2 right-2 z-10">
                   <span className="bg-[#CD9F59] text-white px-2 md:px-3 py-1 rounded-lg text-xs font-sans">
                     {press.date}
                   </span>

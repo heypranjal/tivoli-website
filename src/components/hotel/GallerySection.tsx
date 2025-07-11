@@ -72,6 +72,13 @@ const defaultMedia: MediaItem[] = [
     url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//lobby-2.png',
     title: 'Lobby Lounge Area',
     description: 'Comfortable seating area with ambient lighting and modern design'
+  },
+  {
+    id: 'img-8',
+    type: 'image',
+    url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//lobby-3.png',
+    title: 'Lobby Entrance',
+    description: 'Elegant lobby entrance with luxurious decor and welcoming atmosphere'
   }
 ];
 
