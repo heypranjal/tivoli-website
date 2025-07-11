@@ -994,7 +994,6 @@ const royalCourtOkhlaHotel = {
   id: 'tivoli-royal-court-okhla',
   name: 'Tivoli Royal Court - Okhla',
   brand: 'tivoli',
-  location: 'delhi',
   slug: 'tivoli-royal-court-okhla',
   description: 'Experience premier banquet and event services at Tivoli Royal Court - Okhla, where every celebration becomes a masterpiece. Located in the dynamic Okhla Industrial Area, this sophisticated venue specializes in weddings, conferences, and corporate events with world-class facilities and catering services.',
   images: [

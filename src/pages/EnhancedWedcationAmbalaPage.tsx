@@ -23,6 +23,7 @@ import {
   WeddingDestinationSection,
   ContactSection,
 } from '@/components/hotel';
+import WedcationAmbalaPress from '@/components/hotel/WedcationAmbalaPress';
 import { 
   SkeletonHero,
   SkeletonOverview,
@@ -44,7 +45,7 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
     secondary: ['accommodations', 'virtual-tour'],
-    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
+    tertiary: ['experiences', 'spaces', 'dining', 'gallery', 'press'],
     background: ['wedding', 'contact', 'booking-form']
   });
 
@@ -228,6 +229,11 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
             <GallerySection />
           ) : (
             <SkeletonGallery />
+          )}
+
+          {/* Press Section - Tertiary Loading */}
+          {shouldLoad('press') && (
+            <WedcationAmbalaPress />
           )}
 
         </div>
