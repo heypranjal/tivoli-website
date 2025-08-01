@@ -62,68 +62,36 @@ export interface EnhancedTivoliData extends Hotel {
 const TIVOLI_ENHANCED_DATA = {
   spaces: [
     {
-      id: 'royal-ballroom',
-      name: 'Royal Ballroom',
-      capacity: 500,
-      area: '4,500 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/royal-ballroom.jpg',
+      id: 'marquee',
+      name: 'Marquee',
+      capacity: 400,
+      area: '5,000 sq ft',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/eventspace/Marquee-14_optimized_200.jpeg',
       features: [
-        'Fully air-conditioned space',
-        'Professional sound system', 
-        'LED lighting setup',
-        'Dedicated entrance',
-        'Premium catering capabilities',
-        'Crystal chandeliers'
-      ],
-      description: 'Our magnificent ballroom with regal ambiance perfect for grand celebrations'
-    },
-    {
-      id: 'heritage-hall',
-      name: 'Heritage Hall',
-      capacity: 250,
-      area: '2,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/heritage-hall.jpg',
-      features: [
-        'Fully air-conditioned space',
+        'Elegant marquee setting',
         'Professional sound system',
-        'LED lighting setup', 
-        'Dedicated entrance',
-        'Intimate setting perfect for celebrations',
-        'Traditional Indian decor'
+        'LED lighting setup',
+        'Climate controlled',
+        'Premium catering facilities',
+        'Sophisticated ambiance'
       ],
-      description: 'Elegant mid-sized venue with heritage charm for intimate gatherings'
+      description: 'Sophisticated marquee venue perfect for elegant celebrations and corporate events'
     },
     {
-      id: 'garden-pavilion',
-      name: 'Garden Pavilion',
-      capacity: 150,
-      area: '3,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/garden-pavilion.jpg',
+      id: 'pavilion',
+      name: 'Pavilion',
+      capacity: 300,
+      area: '4,000 sq ft',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/eventspace/Pavilion_optimized_200.jpg',
       features: [
-        'Sprawling outdoor space',
+        'Beautiful pavilion architecture',
+        'Natural lighting',
+        'Outdoor setting',
+        'Garden views',
         'Perfect for day events',
-        'Landscaped gardens',
-        'Outdoor lighting available',
-        'Natural ambiance',
-        'Weather-protected canopy'
+        'Scenic backdrop'
       ],
-      description: 'Breathtaking outdoor venue surrounded by lush gardens and natural beauty'
-    },
-    {
-      id: 'maharaja-hall',
-      name: 'Maharaja Hall',
-      capacity: 800,
-      area: '6,500 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/maharaja-hall.jpg',
-      features: [
-        'Fully air-conditioned space',
-        'Professional sound system',
-        'LED lighting setup',
-        'Dedicated entrance',
-        'Grand celebration venue',
-        'Luxurious interiors'
-      ],
-      description: 'Our largest and most opulent banquet hall for grand celebrations and royal events'
+      description: 'Stunning pavilion venue with beautiful architecture and garden views for memorable events'
     }
   ],
 
@@ -212,11 +180,11 @@ const TIVOLI_ENHANCED_DATA = {
   ],
 
   galleryImages: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/facade-hero.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/main-entrance.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/pool-area.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/lobby-interior.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/garden-view.jpg'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Marquee-14.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Marquee-9.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Pavilion.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Facade.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Facade2.jpg'
   ],
 
   virtualTour: {
@@ -226,7 +194,7 @@ const TIVOLI_ENHANCED_DATA = {
   },
 
   quickStats: {
-    rooms: 120,
+    rooms: 2, // Deluxe and Super Deluxe room types
     diningVenues: 3,
     eventCapacity: 1200,
     conciergeHours: '24/7'
@@ -342,9 +310,24 @@ export function useTivoliBijwasan(slug: string = 'tivoli-bijwasan') {
             size: '40 sq.m.',
             maxOccupancy: 2,
             bedType: 'King or Twin',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/rooms/Deluxe%20Room.jpeg'
+            ],
             amenities: ['Garden View', 'Rain Shower', 'Mini Bar', 'Smart TV', '24/7 Room Service'],
             price: { currency: 'INR', amount: 20000 }
+          },
+          {
+            id: 'super-deluxe',
+            name: 'Super Deluxe Room',
+            description: 'Luxurious 50 sq.m. room with premium amenities and stunning views',
+            size: '50 sq.m.',
+            maxOccupancy: 3,
+            bedType: 'King',
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/rooms/Super%20Deluxe.jpeg'
+            ],
+            amenities: ['Premium City View', 'Marble Bathroom', 'Premium Mini Bar', '55" Smart TV', 'Butler Service', 'Complimentary WiFi'],
+            price: { currency: 'INR', amount: 30000 }
           }
         ],
         dining: [],
@@ -370,7 +353,9 @@ export function useTivoliBijwasan(slug: string = 'tivoli-bijwasan') {
       ...TIVOLI_ENHANCED_DATA,
       // Override with any database-sourced images if available
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
         : TIVOLI_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

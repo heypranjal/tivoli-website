@@ -65,7 +65,7 @@ const WEDCATION_ENHANCED_DATA = {
       name: 'The Castle',
       capacity: '1,000 pax (Theatre Style)',
       area: '12,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Event%20space/The%20Castle.jpeg',
       features: [
         'Grand 12,000 sq ft banquet hall',
         'Theatre style seating for 1,000 guests',
@@ -81,7 +81,7 @@ const WEDCATION_ENHANCED_DATA = {
       name: 'Open Lawn',
       capacity: '1,000+ pax',
       area: '22,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Event%20space/Glass%20House1.jpeg',
       features: [
         'Expansive 22,000 sq ft outdoor space',
         'Flexible seating arrangements',
@@ -96,7 +96,7 @@ const WEDCATION_ENHANCED_DATA = {
       name: 'Pool Side & Glass House',
       capacity: 'Flexible',
       area: 'Outdoor Features',
-      image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Event%20space/Pool%20Side.jpeg',
       features: [
         'Beautiful poolside area',
         'Elegant Glass House structure',
@@ -111,7 +111,7 @@ const WEDCATION_ENHANCED_DATA = {
       name: 'Meeting Rooms',
       capacity: 'Business Events',
       area: 'Corporate Facilities',
-      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Event%20space/Glass%20House1.jpeg',
       features: [
         '1 dedicated meeting room',
         'State-of-the-art AV equipment',
@@ -131,7 +131,7 @@ const WEDCATION_ENHANCED_DATA = {
       cuisine: 'Multi-Cuisine Café',
       hours: 'Breakfast: 7:00 AM - 11:00 AM, Lunch: 11:30 AM - 3:00 PM, Dinner: 7:00 PM - 11:00 PM',
       dressCode: 'Casual',
-      image: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/dinning%20Experience/Restaurant.jpeg',
       specialties: ['Pizza & Pasta', 'Grilled Sandwiches', 'Continental Favorites', 'Quick Bites']
     },
     {
@@ -208,11 +208,11 @@ const WEDCATION_ENHANCED_DATA = {
   ],
 
   galleryImages: [
-    'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
-    'https://images.unsplash.com/photo-1465929639680-64ee080eb3ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Gallary/436A0784.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Gallary/Hotel%20Entrance.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Gallary/Pool%20Side.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Gallary/436A0522.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Gallary/436A0531.jpeg'
   ],
 
   virtualTour: {
@@ -315,7 +315,10 @@ export function useWedcationIsrana(slug: string = 'wedcation-by-tivoli-israna') 
             size: '230 sq.ft (21 sq.mt)',
             maxOccupancy: 2,
             bedType: '1 Queen Bed',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Deluxe%20Room.jpg',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Deluxe%20Washroom.JPG'
+            ],
             amenities: ['Mineral Water', 'Air Conditioning', 'Bathroom', 'Iron/Ironing Board', 'Closet', 'Chair', 'Tea Kettle', 'Minibar', 'Safe', 'Shaving Kit', 'Dental Kit', 'Slippers', 'Shampoo', 'Body Moisturizer', 'Shower Gel', 'Shower Cap', 'Sewing Kit', 'Laundry Service', 'Wi-Fi']
           },
           {
@@ -325,7 +328,10 @@ export function useWedcationIsrana(slug: string = 'wedcation-by-tivoli-israna') 
             size: '230 sq.ft (21 sq.mt)',
             maxOccupancy: 2,
             bedType: '1 Queen Bed',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Super%20Deluxe.JPG',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Super%20Deluxe%20Washroom.JPG'
+            ],
             amenities: ['Mineral Water', 'Air Conditioning', 'Room Service', 'Free Wi-Fi', 'Heater', 'Garden View', 'Balcony', 'Tea Kettle', 'Minibar', 'Safe', 'Shaving Kit', 'Dental Kit', 'Slippers', 'Shampoo', 'Body Moisturizer', 'Shower Gel', 'Shower Cap', 'Sewing Kit', 'Laundry Service']
           },
           {
@@ -335,7 +341,10 @@ export function useWedcationIsrana(slug: string = 'wedcation-by-tivoli-israna') 
             size: '480 sq.ft (45 sq.mt)',
             maxOccupancy: 3,
             bedType: '1 Queen Bed',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Queen%20Suite.JPG',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Queen%20Suite%20Washroom.JPG'
+            ],
             amenities: ['Mineral Water', 'Air Conditioning', 'Bathroom', 'Iron/Ironing Board', 'Closet', 'Chair', 'Garden View', 'Tea Kettle', 'Minibar', 'Safe', 'Shaving Kit', 'Dental Kit', 'Slippers', 'Shampoo', 'Body Moisturizer', 'Shower Gel', 'Shower Cap', 'Sewing Kit', 'Laundry Service', 'Wi-Fi']
           },
           {
@@ -345,7 +354,10 @@ export function useWedcationIsrana(slug: string = 'wedcation-by-tivoli-israna') 
             size: '480 sq.ft (45 sq.mt)',
             maxOccupancy: 3,
             bedType: '1 Queen Bed',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Suite%20De%20Salvador.JPG',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Suite%20De%20Salvador%20Washroom.JPG'
+            ],
             amenities: ['Mineral Water (additional charge)', 'Air Conditioning', 'Bathroom', 'Closet', 'Chair', 'Telephone', 'Palace View', 'Tea Kettle', 'Minibar', 'Safe', 'Shaving Kit', 'Dental Kit', 'Slippers', 'Shampoo', 'Body Moisturizer', 'Shower Gel', 'Shower Cap', 'Sewing Kit', 'Laundry Service', 'Wi-Fi']
           },
           {
@@ -355,18 +367,12 @@ export function useWedcationIsrana(slug: string = 'wedcation-by-tivoli-israna') 
             size: '480 sq.ft (45 sq.mt)',
             maxOccupancy: 3,
             bedType: '1 Queen Bed',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Case%20De%20Cancun%20Suite%20Room.JPG',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Case%20De%20Cancun%20Suite%20Room2.JPG',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Room%20Images/Case%20De%20Cancun%20Suite%20Room%20washroom.JPG'
+            ],
             amenities: ['Jacuzzi', 'Bathtub', 'Palace View', 'Tea Kettle', 'Minibar', 'Safe', 'Shaving Kit', 'Dental Kit', 'Slippers', 'Shampoo', 'Body Moisturizer', 'Shower Gel', 'Shower Cap', 'Sewing Kit', 'Laundry Service', 'Wi-Fi']
-          },
-          {
-            id: 'villas-construction',
-            name: 'Villas (Under Construction)',
-            description: 'Luxurious villas currently under construction. 28 villas will be available upon completion.',
-            size: 'Villa',
-            maxOccupancy: 6,
-            bedType: 'Private Villa',
-            images: [],
-            amenities: ['Under Construction']
           }
         ],
         dining: [],
@@ -392,7 +398,9 @@ export function useWedcationIsrana(slug: string = 'wedcation-by-tivoli-israna') 
       ...WEDCATION_ENHANCED_DATA,
       // Override with any database-sourced images if available
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
         : WEDCATION_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

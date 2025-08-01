@@ -17,8 +17,9 @@ interface MediaItem {
 }
 
 interface GallerySectionProps {
-  images?: MediaItem[];
+  images?: MediaItem[] | string[];
   videos?: MediaItem[];
+  hotelName?: string;
   className?: string;
 }
 
@@ -85,13 +86,28 @@ const defaultMedia: MediaItem[] = [
 export const GallerySection: React.FC<GallerySectionProps> = memo(({
   images = [],
   videos = [],
+  hotelName = 'Hotel',
   className = '',
 }) => {
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Convert string arrays to MediaItem arrays if needed
+  const processedImages: MediaItem[] = images.map((img, index) => {
+    if (typeof img === 'string') {
+      return {
+        id: `img-${index}`,
+        type: 'image' as const,
+        url: img,
+        title: `${hotelName} - Image ${index + 1}`,
+        description: `Gallery image from ${hotelName}`
+      };
+    }
+    return img;
+  });
+
   // Combine all media items
-  const allMedia = [...images, ...videos];
+  const allMedia = [...processedImages, ...videos];
   const mediaToShow = allMedia.length > 0 ? allMedia : defaultMedia;
 
   const openLightbox = (media: MediaItem, index: number) => {

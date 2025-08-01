@@ -191,8 +191,8 @@ export const hotels: Hotel[] = [
     slug: 'tivoli-royal-suite',
     description: 'Experience unparalleled luxury at Tivoli Royal Palace, where timeless elegance meets modern sophistication. Nestled in the heart of Palwal-Haryana, this architectural masterpiece offers a perfect blend of traditional Indian hospitality and contemporary comfort.',
     images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//banner2.jpg',
                     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalhomephoto1.jpg',
-              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto2.jpg',
               'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//updated-tivolipalwalHomephoto3.jpg',
               'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto4.jpg',
       'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto5.jpg'
@@ -272,8 +272,8 @@ export const hotels: Hotel[] = [
         maxOccupancy: 2,
         bedType: 'King or Twin',
         images: [
-          'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-          'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Deluxe%20Bedroom%20250%20sq%20feet.jpg',
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Deluxe%20Washroom.jpeg'
         ],
         amenities: [
           'City View',
@@ -285,6 +285,29 @@ export const hotels: Hotel[] = [
         price: {
           currency: 'INR',
           amount: 25000
+        }
+      },
+      {
+        id: 'standard',
+        name: 'Standard Room',
+        description: 'Comfortable 240 sq.ft room with essential amenities and modern furnishings',
+        size: '240 sq.ft',
+        maxOccupancy: 2,
+        bedType: 'Queen or Twin',
+        images: [
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Standard%20Room%20240%20sq%20Feet.jpeg',
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Standard%20Washroom.jpeg'
+        ],
+        amenities: [
+          'Air Conditioning',
+          'Private Bathroom',
+          'Wi-Fi',
+          'TV',
+          'Room Service'
+        ],
+        price: {
+          currency: 'INR',
+          amount: 18000
         }
       },
       {

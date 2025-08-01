@@ -107,6 +107,9 @@ const fetchRoomsData = async (hotelId: string): Promise<HotelRoom[]> => {
       imagesByRoom[roomImage.room_id] = [];
     }
     
+    // Skip images without valid media
+    if (!roomImage.media?.public_url) return;
+    
     const image: RoomImage = {
       id: roomImage.media.id,
       url: roomImage.media.public_url,

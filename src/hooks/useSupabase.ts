@@ -240,7 +240,7 @@ export function transformHotelData(supabaseHotel: HotelWithRelations): Hotel {
     location: supabaseHotel.location?.slug || '',
     slug: supabaseHotel.slug,
     description: supabaseHotel.description || '',
-    images: supabaseHotel.images?.map(img => img.media.public_url) || [],
+    images: supabaseHotel.images?.filter(img => img.media?.public_url).map(img => img.media.public_url) || [],
     rating: supabaseHotel.rating,
     address: {
       street: supabaseHotel.street || '',

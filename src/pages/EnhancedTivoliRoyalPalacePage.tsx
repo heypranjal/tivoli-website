@@ -6,23 +6,23 @@
 
 import React, { useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
-import { Users, MapPin } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import VenueBookingForm from '@/components/VenueBookingForm';
 import { useHotelRooms } from '@/hooks/useHotelRooms';
 import { useProgressiveLoading } from '@/hooks/useProgressiveLoading';
-import { useCachedData } from '@/hooks/useClientCache';
 import { 
   HeroSection,
   OverviewSection,
   AccommodationsSection,
   VirtualTourSection,
   ExperiencesSection,
+  SpacesSection,
   DiningSection,
   GallerySection,
   WeddingDestinationSection,
   ContactSection,
 } from '@/components/hotel';
+import { useTivoliRoyalPalace } from '@/hooks/useTivoliRoyalPalace';
 import { 
   SkeletonHero,
   SkeletonOverview,
@@ -34,7 +34,6 @@ import {
   SkeletonWedding,
   SkeletonContact
 } from '@/components/ui/SkeletonComponents';
-import { useHotel } from '@/hooks/useSupabase';
 
 const EnhancedTivoliRoyalPalacePage: React.FC = () => {
   const { hotelSlug } = useParams<{ hotelSlug: string }>();
@@ -48,8 +47,6 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
     background: ['wedding', 'contact', 'booking-form']
   });
 
-  // Hotel data with caching
-  const { data: hotelData, loading, error } = useHotel('tivoli-royal-palace');
 
   // Rooms data with progressive loading and caching
   const { 
@@ -58,82 +55,42 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
     error: roomsError 
   } = useHotelRooms('fd50d2a7-2a4b-48da-b8ed-e12403bc6cbe');
 
-  // Mock data for sections not yet in database
-  const galleryImages = [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//updated-tivolipalwalHomephoto3.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/hero-image.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/exterior-view.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/banquet-hall.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/lawn-area.jpg'
+  // Hotel data with caching using Royal Palace hook
+  const {
+    data: hotelData,
+    loading,
+    error,
+    spaces,
+    diningVenues,
+    experiences,
+    galleryImages: hookGalleryImages,
+    virtualTour,
+    quickStats: hookQuickStats,
+    socialMedia,
+  } = useTivoliRoyalPalace('tivoli-royal-suite');
+
+  // Use gallery images from hook or fallback
+  const galleryImages = hookGalleryImages || [
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/Facade_optimized_200.jpg", // Hotel Facade
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/Main_Gate_optimized_200.jpg", // Main Gate
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/pool.jpg", // Swimming Pool
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/hotelporch.jpg", // Hotel Porch
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/Lobby_optimized_200.jpg", // Hotel Lobby
   ];
 
-  const spaces = [
-    {
-      id: '1',
-      name: 'Royal Ballroom',
-      description: 'Magnificent main ballroom perfect for grand celebrations and weddings',
-      capacity: '800-1,200 guests',
-      area: '12,000 sq.ft',
-      features: ['Air Conditioning', 'Stage Setup', 'Audio/Visual Equipment', 'Dedicated Bridal Room']
-    },
-    {
-      id: '2',
-      name: 'Orchid Lawns',
-      description: 'Serene outdoor venue ideal for garden parties and outdoor celebrations',
-      capacity: '200-500 guests',
-      area: '8,000 sq.ft',
-      features: ['Garden Setting', 'Open Air', 'Natural Lighting', 'Landscaped Gardens']
-    },
-    {
-      id: '3',
-      name: 'Executive Hall',
-      description: 'Sophisticated indoor venue for corporate events and intimate gatherings',
-      capacity: '100-300 guests',
-      area: '4,000 sq.ft',
-      features: ['Air Conditioning', 'Projection Facilities', 'Conference Setup', 'Sound System']
-    }
-  ];
 
-  const diningVenues = [
-    {
-      id: '1',
-      name: 'The Palace Restaurant',
-      description: 'Multi-cuisine restaurant serving an array of delicious cuisines with impeccable service',
-      cuisine: 'Multi-Cuisine',
-      hours: 'All Day Dining',
-      features: ['Buffet Service', 'À la carte Menu', 'Live Counters', 'Custom Menus']
-    }
-  ];
 
-  const experiences = [
-    {
-      id: '1',
-      name: 'Wedding Celebrations',
-      description: 'Create unforgettable wedding memories with our comprehensive wedding services',
-      highlights: ['Customized Decor', 'Expert Planning', 'Photography Services', 'Bridal Suite']
-    },
-    {
-      id: '2',
-      name: 'Corporate Events',
-      description: 'Professional event management for conferences, seminars, and corporate gatherings',
-      highlights: ['Business Centre', 'AV Equipment', 'Catering Services', 'Parking Facilities']
-    },
-    {
-      id: '3',
-      name: 'Destination Events',
-      description: 'Comprehensive destination event planning with accommodation and venue management',
-      highlights: ['45 Guest Rooms', 'Multiple Venues', 'Event Coordination', 'Transportation']
-    }
-  ];
 
-  const quickStats = {
+  // Use quick stats from hook or fallback
+  const quickStats = hookQuickStats || {
     rooms: 45,
     diningVenues: 1,
     eventCapacity: 1500,
     conciergeHours: '24/7'
   };
 
-  const socialMedia = {
+  // Use social media from hook or fallback
+  const socialMediaData = socialMedia || {
     instagram: 'https://www.instagram.com/tivoliroyalpalace/',
     facebook: '',
     website: 'https://tivolibanquets.com/'
@@ -213,8 +170,8 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
         ) : shouldLoad('hero') && hotelData ? (
           <HeroSection
             hotelName={hotelData.name}
-            location={hotelData.city || 'Palwal'}
-            state={hotelData.state || 'Haryana'}
+            location={hotelData.address?.city || 'Palwal'}
+            state={hotelData.address?.state || 'Haryana'}
             images={galleryImages}
           />
         ) : (
@@ -233,7 +190,7 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <OverviewSection
               hotelName={hotelData.name}
               description={hotelData.description || ''}
-              location={hotelData.city || 'Palwal'}
+              location={hotelData.address?.city || 'Palwal'}
               additionalDescription={`Located conveniently beside Satya Sai Heart Hospital on NH 2, ${hotelData.name} combines accessibility with elegance. Our venue features 45 well-appointed guest rooms, multiple event spaces accommodating 200-1,500 guests, and comprehensive amenities designed to exceed every expectation for your special occasions.`}
               quickStats={quickStats}
             />
@@ -254,6 +211,16 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <SkeletonAccommodations />
           )}
 
+          {/* Virtual Tour Section - Secondary Loading */}
+          {shouldLoad('virtual-tour') && virtualTour && hotelData && (
+            <VirtualTourSection
+              hotelName={hotelData.name}
+              tourUrl={virtualTour.url}
+              thumbnailImage={virtualTour.thumbnail}
+              provider={virtualTour.provider}
+            />
+          )}
+
           {/* Experiences Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonExperiences />
@@ -263,81 +230,11 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <SkeletonExperiences />
           )}
 
-          {/* Event Spaces Section - Tertiary Loading - Custom Layout */}
+          {/* Spaces Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonSpaces />
           ) : shouldLoad('spaces') ? (
-            <section className="space-y-8">
-              <div className="text-center">
-                <h2 className="font-serif text-3xl text-neutral-800 mb-4">Event Spaces</h2>
-                <p className="text-neutral-600 leading-relaxed max-w-2xl mx-auto">
-                  Discover our exceptional venues designed to host memorable events of every scale, from intimate gatherings to grand celebrations
-                </p>
-              </div>
-              
-              {/* Three spaces in a row with better layout */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {spaces.map((space) => (
-                  <div key={space.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-                    <div className="relative">
-                      <img
-                        src={`https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/${space.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
-                        alt={space.name}
-                        className="w-full h-56 object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = `https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoli-royal-palace/event-space-placeholder.jpg`;
-                        }}
-                      />
-                      <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-sm">
-                        <div className="flex items-center text-xs font-medium text-neutral-700">
-                          <Users className="w-3 h-3 mr-1.5" />
-                          {space.capacity}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-6 flex flex-col h-full">
-                      <div className="flex-grow">
-                        <h3 className="font-serif text-xl text-neutral-800 mb-2">{space.name}</h3>
-                        
-                        <div className="flex items-center text-neutral-600 mb-3">
-                          <MapPin className="w-3 h-3 mr-1.5" />
-                          <span className="text-sm">{space.area}</span>
-                        </div>
-                        
-                        <p className="text-sm text-neutral-600 leading-relaxed mb-4">
-                          {space.description}
-                        </p>
-                        
-                        <div className="mb-4">
-                          <h4 className="text-xs font-medium text-neutral-700 uppercase tracking-wide mb-2">Key Features</h4>
-                          <ul className="space-y-1.5">
-                            {space.features.slice(0, 3).map((feature, featureIndex) => (
-                              <li key={featureIndex} className="flex items-start text-sm">
-                                <span className="mr-2 text-[#CD9F59] text-sm">•</span>
-                                <span className="text-neutral-600 text-sm">{feature}</span>
-                              </li>
-                            ))}
-                            {space.features.length > 3 && (
-                              <li className="text-xs text-neutral-500 italic">
-                                +{space.features.length - 3} more features
-                              </li>
-                            )}
-                          </ul>
-                        </div>
-                      </div>
-                      
-                      <div className="mt-auto pt-2">
-                        <button className="w-full py-2.5 px-4 bg-gradient-to-r from-[#CD9F59] to-[#CD9F59]/80 text-white rounded-lg hover:from-[#CD9F59]/90 hover:to-[#CD9F59]/70 transition-all duration-200 text-sm font-medium">
-                          View Details
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <SpacesSection spaces={spaces} />
           ) : (
             <SkeletonSpaces />
           )}
@@ -355,7 +252,7 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonGallery />
           ) : shouldLoad('gallery') ? (
-            <GallerySection />
+            <GallerySection images={galleryImages} hotelName={hotelData?.name} />
           ) : (
             <SkeletonGallery />
           )}
@@ -379,24 +276,22 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <SkeletonContact />
           ) : shouldLoad('contact') && hotelData ? (
             <ContactSection
-              address={{
-                street: hotelData.street || 'Bhagola NH 2, Beside Satya Sai Heart Hospital',
-                city: hotelData.city || 'Palwal',
-                state: hotelData.state || 'Haryana',
-                postalCode: hotelData.postal_code || '121102',
+              address={hotelData.address || {
+                street: 'Bhagola NH 2, Beside Satya Sai Heart Hospital',
+                city: 'Palwal',
+                state: 'Haryana',
+                postalCode: '121102',
                 country: 'India',
                 coordinates: {
-                  lat: hotelData.latitude || 28.1461,
-                  lng: hotelData.longitude || 77.3316
+                  lat: 28.1461,
+                  lng: 77.3316
                 }
               }}
-              contact={{
-                phone: hotelData.phone || '9818553333',
-                email: hotelData.email || 'reservations@thetivolihotels.com',
-                whatsapp: '8588850354',
-                alternatePhone: '9818553242'
+              contact={hotelData.contact || {
+                phone: '9818553333',
+                email: 'reservations@thetivolihotels.com'
               }}
-              socialMedia={socialMedia}
+              socialMedia={socialMediaData}
               mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.4514419371176!2d77.30918827548489!3d28.19359377590727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cd1fe467c304b%3A0x5d9583931a50cb3e!2sTivoli%20Royal%20Palace!5e0!3m2!1sen!2sin!4v1750533758732!5m2!1sen!2sin"
             />
           ) : (
@@ -437,24 +332,24 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             "description": hotelData.description,
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": hotelData.street || "Bhagola NH 2, Beside Satya Sai Heart Hospital",
-              "addressLocality": hotelData.city || "Palwal",
-              "addressRegion": hotelData.state || "Haryana",
-              "postalCode": hotelData.postal_code || "121102",
-              "addressCountry": "India"
+              "streetAddress": hotelData.address?.street || "Bhagola NH 2, Beside Satya Sai Heart Hospital",
+              "addressLocality": hotelData.address?.city || "Palwal",
+              "addressRegion": hotelData.address?.state || "Haryana",
+              "postalCode": hotelData.address?.postalCode || "121102",
+              "addressCountry": hotelData.address?.country || "India"
             },
-            "geo": {
+            "geo": hotelData.address?.coordinates ? {
               "@type": "GeoCoordinates",
-              "latitude": hotelData.latitude || 28.1461,
-              "longitude": hotelData.longitude || 77.3316
-            },
-            "telephone": hotelData.phone || "9818553333",
-            "email": hotelData.email || "reservations@thetivolihotels.com",
+              "latitude": hotelData.address.coordinates.lat,
+              "longitude": hotelData.address.coordinates.lng
+            } : undefined,
+            "telephone": hotelData.contact?.phone || "9818553333",
+            "email": hotelData.contact?.email || "reservations@thetivolihotels.com",
             "starRating": {
               "@type": "Rating",
               "ratingValue": hotelData.rating || 4.5
             },
-            "hasMap": `https://www.google.com/maps/search/?api=1&query=${hotelData.latitude || 28.1461},${hotelData.longitude || 77.3316}`,
+            "hasMap": `https://www.google.com/maps/search/?api=1&query=${hotelData.address?.coordinates?.lat || 28.1461},${hotelData.address?.coordinates?.lng || 77.3316}`,
             "url": window.location.href,
             "image": galleryImages[0],
             "amenityFeature": [

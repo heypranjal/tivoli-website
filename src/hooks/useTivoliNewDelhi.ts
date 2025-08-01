@@ -210,7 +210,7 @@ const TIVOLI_ENHANCED_DATA = {
       title: 'Dining Experiences',
       subtitle: 'Culinary Excellence',
       description: 'Elegant. Ambient. Refined. A dining experience like no other with world-class cuisine',
-      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//dinningorg.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1504_optimized_200.jpeg',
       category: 'Dining'
     },
     {
@@ -383,7 +383,9 @@ export function useTivoliNewDelhi(slug: string = 'the-tivoli') {
       ...TIVOLI_ENHANCED_DATA,
       // Override with any database-sourced images if available
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
         : TIVOLI_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

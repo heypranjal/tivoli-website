@@ -8,7 +8,6 @@ import React, { useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import VenueBookingForm from '@/components/VenueBookingForm';
-import { useHotelRooms } from '@/hooks/useHotelRooms';
 import { useProgressiveLoading } from '@/hooks/useProgressiveLoading';
 import { 
   HeroSection,
@@ -61,12 +60,19 @@ const EnhancedWedcationIsranaPage: React.FC = () => {
     socialMedia,
   } = useWedcationIsrana(hotelSlug || 'wedcation-by-tivoli-israna');
 
-  // Rooms data with progressive loading and caching
-  const { 
-    rooms, 
-    loading: roomsLoading, 
-    error: roomsError 
-  } = useHotelRooms('3fe2d3a7-c69d-4a90-88db-30523c8b1e4a');
+  // Transform rooms data for AccommodationsSection compatibility
+  const accommodations = hotelData?.rooms?.map(room => ({
+    id: room.id,
+    name: room.name,
+    description: room.description,
+    size: room.size,
+    capacity: room.maxOccupancy,
+    amenities: room.amenities,
+    images: room.images,
+    priceRange: 'Contact for rates'
+  })) || [];
+  const roomsLoading = loading;
+  const roomsError = error;
 
   // Set page title and meta description
   useEffect(() => {
@@ -175,7 +181,7 @@ const EnhancedWedcationIsranaPage: React.FC = () => {
             <SkeletonAccommodations />
           ) : shouldLoad('accommodations') ? (
             <AccommodationsSection
-              rooms={rooms}
+              accommodations={accommodations}
               loading={roomsLoading}
               error={roomsError}
             />
@@ -224,7 +230,7 @@ const EnhancedWedcationIsranaPage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonGallery />
           ) : shouldLoad('gallery') ? (
-            <GallerySection />
+            <GallerySection images={galleryImages} hotelName={hotelData?.name} />
           ) : (
             <SkeletonGallery />
           )}

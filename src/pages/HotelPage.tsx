@@ -14,7 +14,7 @@ import { useParams, Link } from 'react-router-dom';
 // Import the enhanced pages
 import EnhancedTivoliNewDelhiPage from './EnhancedTivoliNewDelhiPage';
 import EnhancedTivoliRoyalPalacePage from './EnhancedTivoliRoyalPalacePage';
-import TivoliHeritagePalacePage from './TivoliHeritagePalacePage';
+import EnhancedTivoliHeritagePalacePage from './EnhancedTivoliHeritagePalacePage';
 import EnhancedTivoliBijwasanPage from './EnhancedTivoliBijwasanPage';
 import TivoliLotusCourtPage from './TivoliLotusCourtPage';
 import OmniaDwarkaExpresswayPage from './OmniaDwarkaExpresswayPage';
@@ -63,13 +63,13 @@ export default function HotelPage() {
   }
   
   // Use enhanced page for Tivoli Royal Palace
-  if (hotelSlug === 'tivoli-royal-palace') {
+  if (hotelSlug === 'tivoli-royal-palace' || hotelSlug === 'tivoli-royal-suite') {
     return <EnhancedTivoliRoyalPalacePage />;
   }
   
   // Use enhanced page for Tivoli Heritage Palace
   if (hotelSlug === 'tivoli-heritage-palace') {
-    return <TivoliHeritagePalacePage />;
+    return <EnhancedTivoliHeritagePalacePage />;
   }
   
   // Use enhanced page for Tivoli Bijwasan

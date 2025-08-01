@@ -226,7 +226,7 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonGallery />
           ) : shouldLoad('gallery') ? (
-            <GallerySection />
+            <GallerySection images={galleryImages} hotelName={hotelData?.name} />
           ) : (
             <SkeletonGallery />
           )}

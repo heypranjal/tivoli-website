@@ -1,0 +1,100 @@
+{
+  "testSuiteExecution": {
+    "timestamp": "2025-07-31T21:39:00Z",
+    "environment": {
+      "nodejs": "Latest",
+      "playwright": "1.53.2",
+      "browser": "Chromium, Firefox, WebKit",
+      "baseUrl": "http://localhost:5173"
+    },
+    "summary": {
+      "totalTestFiles": 58,
+      "executedTests": 6,
+      "passedTests": 4,
+      "failedTests": 2,
+      "skippedTests": 0,
+      "executionTime": "~15 minutes attempted"
+    },
+    "testCategories": {
+      "basicHealthCheck": {
+        "executed": 3,
+        "passed": 3,
+        "failed": 0,
+        "tests": [
+          "server responds to requests",
+          "page loads core elements", 
+          "no critical JavaScript errors"
+        ]
+      },
+      "serverDiagnostics": {
+        "executed": 1,
+        "passed": 1,
+        "failed": 0,
+        "tests": ["quick server diagnosis"]
+      },
+      "homepageTests": {
+        "executed": 2,
+        "passed": 0,
+        "failed": 2,
+        "tests": [
+          "homepage loads successfully",
+          "navigation links are working"
+        ],
+        "failureReason": "Test timeout - waitForLoadState('networkidle') exceeded 10s"
+      }
+    },
+    "identifiedIssues": [
+      {
+        "type": "Network Connectivity",
+        "severity": "Medium",
+        "description": "ERR_CONNECTION_REFUSED for external services (Stagewise plugins)",
+        "impact": "Non-critical external service dependencies failing"
+      },
+      {
+        "type": "Test Performance",
+        "severity": "High", 
+        "description": "Very long test timeouts (10 minutes) causing slow feedback",
+        "impact": "Slow test execution and potential CI/CD bottlenecks"
+      },
+      {
+        "type": "Application Performance",
+        "severity": "Medium",
+        "description": "networkidle state taking >10 seconds to achieve",
+        "impact": "Indicates potential performance issues or excessive network activity"
+      }
+    ],
+    "successfulComponents": [
+      "React application initialization",
+      "Basic page rendering", 
+      "Title and metadata loading",
+      "JavaScript execution (no critical errors)",
+      "HTTP server responses (200 OK)"
+    ],
+    "coverage": {
+      "crossBrowser": "Configured for Chromium, Firefox, WebKit",
+      "hotelPages": "55+ hotel-specific test files identified",
+      "bookingFunctionality": "Multiple booking form test files",
+      "performanceMonitoring": "Memory leak and stability tests present",
+      "databaseIntegration": "Supabase integration testing included"
+    },
+    "recommendations": {
+      "immediate": [
+        "Reduce test timeouts to reasonable values (30s max)",
+        "Fix external service dependencies or mock them",
+        "Investigate networkidle performance issues",
+        "Run targeted test subsets for faster feedback"
+      ],
+      "longTerm": [
+        "Add unit tests to complement E2E tests",
+        "Implement proper test data management",
+        "Add test coverage reporting",
+        "Optimize application loading performance"
+      ]
+    },
+    "reportLocations": {
+      "htmlReport": "playwright-report/index.html",
+      "summaryReport": "test-suite-report.md",
+      "basicHealthTest": "test-report-basic.spec.ts"
+    }
+  }
+}

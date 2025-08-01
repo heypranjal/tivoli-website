@@ -129,13 +129,19 @@ export default function TivoliHeritagePalacePage() {
   }
 
   // Prepare data for components
-  const galleryImages = hotel?.images?.filter(img => img.media_type === 'gallery').map(img => img.media.public_url) || [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/swimming%20pool2rewari.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinningorg.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/grand%20celebrations%20rewari.jpg'
+  const galleryImages = hotel?.images?.filter(img => img.media_type === 'gallery' && img.media?.public_url).map(img => img.media.public_url) || [
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Facade_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Garden_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/IMG_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Lobby_Entrance_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Pool_optimized_200.jpeg'
   ];
-  const heroImages = hotel?.images?.filter(img => img.media_type === 'hero').map(img => img.media.public_url) || [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/mainpagephoto5.jpg'
+  const heroImages = [
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Entrance_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/IMG_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Lobby_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Lobby3_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Reception_optimized_200.jpeg'
   ];
   const allImages = [...heroImages, ...galleryImages];
   
@@ -174,7 +180,7 @@ export default function TivoliHeritagePalacePage() {
       id: '4',
       title: 'Social Gatherings',
       description: 'Milestone celebrations, family reunions, and festive gatherings in our beautiful heritage setting with modern amenities.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinningorg.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1508_optimized_200.jpeg',
       category: 'social'
     },
     {
@@ -193,7 +199,7 @@ export default function TivoliHeritagePalacePage() {
       name: 'GlassHouse Banquet Hall',
       capacity: '500-1000 guests',
       area: 'Signature venue',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/grand%20celebrations%20rewari.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House%20inside.jpeg',
       features: ['Fully Air-Conditioned', 'Signature Design', 'Premium Setup', 'Professional Lighting'],
       description: 'Our signature GlassHouse banquet hall offering elegant ambiance for the most important celebrations'
     },
@@ -202,7 +208,7 @@ export default function TivoliHeritagePalacePage() {
       name: 'Banquet Hall 2',
       capacity: '300-600 guests',
       area: 'Additional hall',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/mainpagephoto5.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House.jpeg',
       features: ['Fully Air-Conditioned', 'Flexible Setup', 'Modern Amenities', 'Professional Staff'],
       description: 'Additional banquet hall with versatile configuration options for medium to large events'
     },
@@ -211,7 +217,7 @@ export default function TivoliHeritagePalacePage() {
       name: 'Banquet Hall 3',
       capacity: '100-400 guests',
       area: 'Intimate venue',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/swimming%20pool2rewari.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/OCEAN%20PAVILION.jpeg',
       features: ['Fully Air-Conditioned', 'Intimate Setting', 'Corporate Ready', 'Audio/Visual Support'],
       description: 'Perfect for smaller gatherings, corporate meetings, and intimate celebrations'
     },
@@ -220,7 +226,7 @@ export default function TivoliHeritagePalacePage() {
       name: 'Outdoor Lawns',
       capacity: '500-800 guests',
       area: 'Two expansive lawns',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/corporate%20events.png',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/ROYAL%20AFFAIR.jpeg',
       features: ['Natural Setting', 'Weather Backup', 'Garden Views', 'Outdoor Ceremonies'],
       description: 'Two beautiful outdoor lawns surrounded by lush landscaping, perfect for destination weddings'
     }
@@ -291,7 +297,7 @@ export default function TivoliHeritagePalacePage() {
                 bedType: room.bed_type || '',
                 price: room.price_inr || 0,
                 amenities: room.amenities?.map(a => a.amenity.name) || [],
-                images: room.images?.map(img => img.media.public_url) || []
+                images: room.images?.filter(img => img.media?.public_url).map(img => img.media.public_url) || []
               })) || []}
             />
           ) : (
@@ -342,7 +348,7 @@ export default function TivoliHeritagePalacePage() {
                 description: restaurant.description || '',
                 cuisine: restaurant.cuisine || 'International',
                 hours: restaurant.hours || '6:00 AM - 11:00 PM',
-                image: restaurant.image_id || 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinningorg.jpg',
+                image: restaurant.image_id || 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1511_optimized_200.jpeg',
                                 specialties: []
               })) || [
                 {
@@ -351,7 +357,7 @@ export default function TivoliHeritagePalacePage() {
                   description: 'Our welcoming coffee shop offers freshly brewed beverages, light snacks, and quick bites in a comfortable setting.',
                   cuisine: 'Beverages, Snacks',
                   hours: '6:00 AM - 10:00 PM',
-                  image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinningorg.jpg',
+                  image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1504_optimized_200.jpeg',
                                     specialties: ['Fresh Coffee', 'Light Snacks', 'Quick Service']
                 },
                 {

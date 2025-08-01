@@ -134,7 +134,7 @@ export default function BrandsPage() {
                     >
                       <div className="relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] mb-4">
                         <SmartImage
-                          src={hotel.featured_image?.public_url || hotel.images?.[0]?.media.public_url || brandImage}
+                          src={hotel.featured_image?.public_url || hotel.images?.find(img => img.media?.public_url)?.media.public_url || brandImage}
                           alt={hotel.name}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />

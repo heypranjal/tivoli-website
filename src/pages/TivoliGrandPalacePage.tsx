@@ -347,7 +347,7 @@ export default function TivoliGrandPalacePage() {
               <div className="relative rounded-xl overflow-hidden group cursor-pointer">
                 <div className="aspect-[4/3] bg-gray-200 relative">
                   <img
-                    src="https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//dinningorg.jpg"
+                    src="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1511_optimized_200.jpeg"
                     alt="Dining Hall"
                     className="w-full h-full object-cover"
                   />

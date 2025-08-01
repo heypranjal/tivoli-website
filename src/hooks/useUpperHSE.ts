@@ -417,7 +417,9 @@ export function useUpperHSE(slug: string = 'upper-hse-sultanpur') {
       ...UPPER_HSE_ENHANCED_DATA,
       // Override with any database-sourced images if available
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
         : UPPER_HSE_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

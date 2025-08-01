@@ -1,0 +1,479 @@
+/**
+ * Specialized Hook for Tivoli Heritage Palace
+ * Comprehensive data fetching with enhanced features for the heritage property
+ */
+
+import { useState, useEffect, useMemo } from 'react';
+import { useHotel, useHotelMedia, transformHotelData } from './useSupabase';
+import { useCachedData } from './useClientCache';
+import { Hotel } from '@/types/hotel';
+
+// Enhanced types specific to Tivoli Heritage Palace
+export interface HeritageSpace {
+  id: string;
+  name: string;
+  capacity: number | string;
+  area: string;
+  image: string;
+  features: string[];
+  description?: string;
+}
+
+export interface HeritageDiningVenue {
+  id: string;
+  name: string;
+  description: string;
+  cuisine: string;
+  hours: string;
+  dressCode: string;
+  image?: string;
+  images?: string[];
+  specialties?: string[];
+}
+
+export interface HeritageExperience {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  category: string;
+}
+
+export interface EnhancedHeritageData extends Hotel {
+  // Additional specific data for Heritage Palace
+  spaces: HeritageSpace[];
+  diningVenues: HeritageDiningVenue[];
+  experiences: HeritageExperience[];
+  galleryImages: string[];
+  virtualTour?: {
+    url: string;
+    provider: 'spalba' | 'matterport';
+    thumbnail: string;
+  };
+  quickStats: {
+    rooms: number;
+    diningVenues: number;
+    eventCapacity: number;
+    conciergeHours: string;
+  };
+}
+
+// Static enhanced data for Tivoli Heritage Palace
+const HERITAGE_ENHANCED_DATA = {
+  heroImages: [
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Entrance_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/IMG_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Lobby_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Lobby3_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/banner%20images/Reception_optimized_200.jpeg'
+  ],
+
+  spaces: [
+    {
+      id: 'glasshouse-banquet',
+      name: 'GlassHouse Banquet Hall',
+      capacity: '500-1000 guests',
+      area: 'Signature venue',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House%20inside.jpeg',
+      features: ['Fully Air-Conditioned', 'Signature Design', 'Premium Setup', 'Professional Lighting'],
+      description: 'Our signature GlassHouse banquet hall offering elegant ambiance for the most important celebrations'
+    },
+    {
+      id: 'banquet-hall-2',
+      name: 'Banquet Hall 2',
+      capacity: '300-600 guests',
+      area: 'Additional hall',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House.jpeg',
+      features: ['Fully Air-Conditioned', 'Flexible Setup', 'Modern Amenities', 'Professional Staff'],
+      description: 'Additional banquet hall with versatile configuration options for medium to large events'
+    },
+    {
+      id: 'banquet-hall-3',
+      name: 'Banquet Hall 3',
+      capacity: '100-400 guests',
+      area: 'Intimate venue',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/OCEAN%20PAVILION.jpeg',
+      features: ['Fully Air-Conditioned', 'Intimate Setting', 'Corporate Ready', 'Audio/Visual Support'],
+      description: 'Perfect for smaller gatherings, corporate meetings, and intimate celebrations'
+    },
+    {
+      id: 'outdoor-lawns',
+      name: 'Outdoor Lawns',
+      capacity: '500-800 guests',
+      area: 'Two expansive lawns',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/ROYAL%20AFFAIR.jpeg',
+      features: ['Natural Setting', 'Weather Backup', 'Garden Views', 'Outdoor Ceremonies'],
+      description: 'Two beautiful outdoor lawns surrounded by lush landscaping, perfect for destination weddings'
+    }
+  ],
+
+  diningVenues: [
+    {
+      id: 'coffee-shop',
+      name: 'Coffee Shop',
+      description: 'Our welcoming coffee shop offers freshly brewed beverages, light snacks, and quick bites in a comfortable setting.',
+      cuisine: 'Beverages, Snacks',
+      hours: '6:00 AM - 10:00 PM',
+      dressCode: 'Casual',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1504_optimized_200.jpeg',
+      specialties: ['Fresh Coffee', 'Light Snacks', 'Quick Service']
+    },
+    {
+      id: 'catering-services',
+      name: 'Catering Services',
+      description: 'Professional catering services for all your events, from intimate gatherings to grand celebrations with customized menus.',
+      cuisine: 'Multi-cuisine Catering',
+      hours: 'By Appointment',
+      dressCode: 'Event Appropriate',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/grand%20celebrations%20rewari.jpg',
+      specialties: ['Event Catering', 'Custom Menus', 'Wedding Packages']
+    },
+    {
+      id: 'multi-cuisine-restaurant',
+      name: 'The Royal Restaurant',
+      description: 'Experience royal dining with our multi-cuisine restaurant offering Indian, Continental, and Chinese delicacies.',
+      cuisine: 'Multi-cuisine',
+      hours: '7:00 AM - 11:00 PM',
+      dressCode: 'Smart Casual',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1511_optimized_200.jpeg',
+      specialties: ['Indian Cuisine', 'Continental Dishes', 'Chinese Specialties']
+    }
+  ],
+
+  experiences: [
+    {
+      id: 'grand-weddings',
+      title: 'Grand Weddings',
+      subtitle: 'Royal Celebrations',
+      description: 'Seamless royal wedding experiences with multiple versatile spaces, outdoor ceremonies on expansive lawns, and magical poolside venues.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/pre%20wedding.jpg',
+      category: 'wedding'
+    },
+    {
+      id: 'glasshouse-experience',
+      title: 'GlassHouse Banquet',
+      subtitle: 'Signature Venue',
+      description: 'Our signature GlassHouse banquet hall provides an elegant, fully air-conditioned venue for your most important celebrations.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House%20inside.jpeg',
+      category: 'venue'
+    },
+    {
+      id: 'corporate-conferences',
+      title: 'Corporate Conferences',
+      subtitle: 'Business Excellence',
+      description: 'Three fully air-conditioned banquet halls with flexible configurations for 100-1000 attendees, perfect for business events.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/grand%20celebrations%20rewari.jpg',
+      category: 'business'
+    },
+    {
+      id: 'social-gatherings',
+      title: 'Social Gatherings',
+      subtitle: 'Memorable Moments',
+      description: 'Milestone celebrations, family reunions, and festive gatherings in our beautiful heritage setting with modern amenities.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1508_optimized_200.jpeg',
+      category: 'social'
+    },
+    {
+      id: 'pre-wedding-shoots',
+      title: 'Pre-Wedding Shoots',
+      subtitle: 'Picture Perfect',
+      description: 'Capture your special moments in our picturesque heritage setting with royal architecture and beautiful outdoor spaces.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/corporate%20events.png',
+      category: 'photography'
+    },
+    {
+      id: 'dining-experiences',
+      title: 'Dining Experiences',
+      subtitle: 'Culinary Excellence',
+      description: 'Elegant. Ambient. Refined. A dining experience like no other with world-class cuisine and traditional hospitality.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1504_optimized_200.jpeg',
+      category: 'dining'
+    },
+    {
+      id: 'gourmet-cuisine',
+      title: 'Gourmet Cuisine',
+      subtitle: 'Master Chef Creations',
+      description: 'Savor exquisite dishes crafted by our master chefs, featuring authentic Indian flavors and international delicacies.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1508_optimized_200.jpeg',
+      category: 'dining'
+    },
+    {
+      id: 'fine-dining-ambience',
+      title: 'Fine Dining Ambience',
+      subtitle: 'Luxurious Setting',
+      description: 'Immerse yourself in our sophisticated dining atmosphere, where every meal becomes a memorable celebration.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1511_optimized_200.jpeg',
+      category: 'dining'
+    },
+    {
+      id: 'heritage-luxury',
+      title: 'Heritage Luxury',
+      subtitle: 'Royal Experience',
+      description: 'Experience the grandeur of royal heritage combined with modern luxury amenities for an unforgettable stay.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/mainpagephoto5.jpg',
+      category: 'accommodation'
+    }
+  ],
+
+  galleryImages: [
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Facade_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Garden_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/IMG_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Lobby_Entrance_optimized_200.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Pool_optimized_200.jpeg'
+  ],
+
+  virtualTour: {
+    url: 'https://heritage-palace-virtual-tour.com',
+    provider: 'spalba' as const,
+    thumbnail: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/mainpagephoto5.jpg'
+  },
+
+  quickStats: {
+    rooms: 90,
+    diningVenues: 3,
+    eventCapacity: 1000,
+    conciergeHours: '24/7'
+  },
+
+  socialMedia: {
+    instagram: 'https://www.instagram.com/tivoliheritagepalace/',
+    facebook: 'https://www.facebook.com/tivoliheritagepalace'
+  }
+};
+
+/**
+ * Custom hook for Tivoli Heritage Palace data with caching and optimization
+ * Combines database data with enhanced static information
+ */
+export function useTivoliHeritagePalace(slug: string = 'tivoli-heritage-palace') {
+  const [timeoutReached, setTimeoutReached] = useState(false);
+  
+  // Use cached data with faster fallback
+  const { 
+    data: hotelData, 
+    loading, 
+    error,
+    hasCache 
+  } = useCachedData(
+    () => {
+      // Return cached hotel data fetch function
+      return new Promise((resolve, reject) => {
+        // This will be replaced with actual data fetching
+        // For now, return fallback data faster
+        setTimeout(() => {
+          resolve(null);
+        }, 100);
+      });
+    },
+    {
+      key: `heritage-hotel-${slug}`,
+      ttl: 10 * 60 * 1000, // 10 minutes cache
+      storage: 'session'
+    }
+  );
+
+  // Memoize the media filters to prevent infinite re-renders
+  const mediaFilters = useMemo(() => ({ 
+    media_type: 'gallery' as const 
+  }), []);
+
+  // Memoize the media options to prevent infinite re-renders
+  const mediaOptions = useMemo(() => ({ 
+    enabled: !!hotelData?.id 
+  }), [hotelData?.id]);
+
+  // Fetch media data from database (with stable object references)
+  const { data: mediaData, loading: mediaLoading } = useHotelMedia(
+    hotelData?.id || '', 
+    mediaFilters,
+    mediaOptions
+  );
+
+  // Faster timeout for better UX
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeoutReached(true);
+    }, 10000); // Increased to 10 seconds for testing API tracking
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Use fallback if:
+  // 1. Database queries timeout (1.5 seconds)
+  // 2. There's an error
+  // 3. No data after loading completes and no cache
+  const useFallback = timeoutReached || error || (!loading && !hotelData && !hasCache);
+
+  const enhancedData: EnhancedHeritageData | null = useMemo(() => {
+    // Fallback data if database is not configured
+    if (useFallback) {
+      return {
+        id: 'tivoli-heritage-palace',
+        name: 'Tivoli Heritage Palace',
+        brand: 'tivoli',
+        location: 'rewari',
+        slug: 'tivoli-heritage-palace',
+        description: 'Experience the grandeur of Tivoli Heritage Palace, where royal heritage meets contemporary luxury. Set amidst lush landscapes in Rewari, our palace offers an extraordinary blend of traditional architecture, modern amenities, and impeccable hospitality for weddings, corporate events, and leisure stays.',
+        images: HERITAGE_ENHANCED_DATA.galleryImages,
+        rating: 4.5,
+        address: {
+          street: 'Kanhawas, 5PF3+53X Kanhawas',
+          city: 'Rewari',
+          state: 'Haryana',
+          country: 'India',
+          postalCode: '123401',
+          coordinates: {
+            lat: 28.1935,
+            lng: 77.3092
+          }
+        },
+        contact: {
+          phone: '+91-9818553333',
+          email: 'reservations@tivoliheritagepalace.com'
+        },
+        amenities: [
+          { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Signal' },
+          { id: 'pool', name: 'Swimming Pool', description: 'Outdoor pool with heritage views', icon: 'Pool' },
+          { id: 'fitness', name: 'Fitness Center', description: 'Well-equipped fitness facility', icon: 'Dumbbell' },
+          { id: 'dining', name: 'Multi-Cuisine Dining', description: 'Coffee shop and catering services', icon: 'Utensils' },
+          { id: 'parking', name: 'Ample Parking', description: 'Spacious parking area for all guests', icon: 'Car' },
+          { id: 'banquet', name: 'Event Spaces', description: 'Multiple banquet halls and outdoor lawns', icon: 'Building' }
+        ],
+        rooms: [
+          {
+            id: 'standard',
+            name: 'Standard Room',
+            description: 'Comfortable rooms with modern amenities and heritage charm',
+            size: '300 sq.ft.',
+            maxOccupancy: 2,
+            bedType: 'King or Twin',
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/room%20images/Standard_Room2_optimized_200.jpeg',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/room%20images/Standard_Washroom_optimized_200.jpeg'
+            ],
+            amenities: ['Air Conditioning', 'LED TV', 'Mini Bar', 'Tea/Coffee Maker', '24/7 Room Service']
+          },
+          {
+            id: 'deluxe',
+            name: 'Deluxe Room',
+            description: 'Spacious deluxe rooms with enhanced comfort and luxury',
+            size: '400 sq.ft.',
+            maxOccupancy: 3,
+            bedType: 'King',
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/room%20images/Superior_Room_optimized.jpeg',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/room%20images/Superior_Room_Washroom_optimized_200.jpeg',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/room%20images/Superior_Room2_optimized_200.jpeg'
+            ],
+            amenities: ['Air Conditioning', 'LED TV', 'Mini Bar', 'Tea/Coffee Maker', '24/7 Room Service', 'Garden View']
+          },
+          {
+            id: 'suite',
+            name: 'Heritage Suite',
+            description: 'Luxurious suites with separate living area and royal décor',
+            size: '600 sq.ft.',
+            maxOccupancy: 4,
+            bedType: 'King',
+            images: [],
+            amenities: ['Air Conditioning', 'LED TV', 'Mini Bar', 'Tea/Coffee Maker', '24/7 Room Service', 'Living Area', 'Premium Amenities']
+          }
+        ],
+        dining: [],
+        features: ['Heritage Architecture', 'Multiple Event Spaces', 'Outdoor Pool', 'Wedding Destination'],
+        policies: {
+          checkIn: '2:00 PM',
+          checkOut: '12:00 PM',
+          cancellation: '24 hours before arrival',
+          pets: 'Not allowed'
+        },
+        ...HERITAGE_ENHANCED_DATA,
+      };
+    }
+
+    if (!hotelData) return null;
+
+    // Transform database data to legacy format
+    const baseHotel = transformHotelData(hotelData);
+
+    // Merge with enhanced static data
+    return {
+      ...baseHotel,
+      ...HERITAGE_ENHANCED_DATA,
+      // Override with any database-sourced images if available
+      galleryImages: mediaData?.length 
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
+        : HERITAGE_ENHANCED_DATA.galleryImages,
+    };
+  }, [hotelData, mediaData, useFallback]);
+
+  // Transform rooms to match AccommodationsSection format
+  const formattedRooms = enhancedData?.rooms?.map((room, index) => ({
+    id: room.id,
+    hotel_id: enhancedData.id,
+    name: room.name,
+    description: room.description,
+    size_sqm: null,
+    size_display: room.size || '',
+    max_occupancy: room.maxOccupancy || 2,
+    bed_type: room.bedType || '',
+    price_inr: typeof room.price === 'object' ? room.price.amount : room.price || 0,
+    sort_order: index,
+    is_active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    // Add amenities as a simple string array for compatibility
+    amenities: room.amenities?.map(amenity => 
+      typeof amenity === 'string' ? amenity : amenity.name
+    ) || [],
+    // Add images as RoomImage array
+    images: room.images?.map((image, idx) => ({
+      id: `${room.id}-image-${idx}`,
+      url: image,
+      alt: `${room.name} - Image ${idx + 1}`,
+      isPrimary: idx === 0,
+      sortOrder: idx
+    })) || [],
+    // Keep the detailed formats as well
+    room_amenities: room.amenities?.map((amenity, idx) => ({
+      id: `${room.id}-amenity-${idx}`,
+      room_id: room.id,
+      amenity_id: `amenity-${idx}`,
+      amenity: { 
+        id: `amenity-${idx}`, 
+        name: typeof amenity === 'string' ? amenity : amenity.name,
+        icon: null 
+      }
+    })) || [],
+    room_images: room.images?.map((image, idx) => ({
+      id: `${room.id}-image-${idx}`,
+      room_id: room.id,
+      media_id: `media-${idx}`,
+      display_order: idx,
+      media: { id: `media-${idx}`, public_url: image }
+    })) || []
+  })) || [];
+
+  return {
+    data: enhancedData,
+    loading: useFallback ? false : (loading || mediaLoading),
+    error: useFallback ? null : error,
+    // Expose individual sections for component-level usage
+    spaces: HERITAGE_ENHANCED_DATA.spaces,
+    diningVenues: HERITAGE_ENHANCED_DATA.diningVenues,
+    experiences: HERITAGE_ENHANCED_DATA.experiences,
+    galleryImages: enhancedData?.galleryImages || HERITAGE_ENHANCED_DATA.galleryImages,
+    virtualTour: HERITAGE_ENHANCED_DATA.virtualTour,
+    quickStats: HERITAGE_ENHANCED_DATA.quickStats,
+    socialMedia: HERITAGE_ENHANCED_DATA.socialMedia,
+    rooms: formattedRooms,
+    // Performance metrics
+    hasCache,
+    useFallback,
+  };
+}
+
+export default useTivoliHeritagePalace;

@@ -357,9 +357,11 @@ export function useTivoliLotusCourtNoida(slug: string = 'tivoli-lotus-court') {
     return {
       ...baseHotel,
       ...TIVOLI_LOTUS_COURT_ENHANCED_DATA,
-      // Override with any database-sourced images if available
+      // Override with any database-sourced images if available (with null safety)
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url) // Filter out items without valid media
+            .map(m => m.media.public_url)
         : TIVOLI_LOTUS_COURT_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

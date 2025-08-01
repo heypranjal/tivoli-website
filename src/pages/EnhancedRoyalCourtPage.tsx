@@ -8,24 +8,29 @@ import React, { useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import VenueBookingForm from '@/components/VenueBookingForm';
+import { useHotelRooms } from '@/hooks/useHotelRooms';
 import { useProgressiveLoading } from '@/hooks/useProgressiveLoading';
 import { useCachedData } from '@/hooks/useClientCache';
 import { useHotel } from '@/hooks/useSupabase';
 import { 
   HeroSection,
   OverviewSection,
-  SpacesSection,
+  AccommodationsSection,
+  VirtualTourSection,
   ExperiencesSection,
+  SpacesSection,
   DiningSection,
   GallerySection,
+  DiginitariesSection,
   WeddingDestinationSection,
   ContactSection,
 } from '@/components/hotel';
 import { 
   SkeletonHero,
   SkeletonOverview,
-  SkeletonSpaces,
+  SkeletonAccommodations,
   SkeletonExperiences,
+  SkeletonSpaces,
   SkeletonDining,
   SkeletonGallery,
   SkeletonWedding,
@@ -35,56 +40,68 @@ import {
 const EnhancedRoyalCourtPage: React.FC = () => {
   const { hotelSlug } = useParams<{ hotelSlug: string }>();
   
-  // Progressive loading configuration for venue content
+  // Progressive loading configuration
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
-    secondary: ['spaces'],
-    tertiary: ['experiences', 'dining', 'gallery'],
+    secondary: ['accommodations', 'virtual-tour'],
+    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
 
   // Fetch Royal Court data from Supabase
   const { data: hotelData, loading, error } = useHotel('tivoli-royal-court-okhla');
 
+  // Fetch room data for accommodations section
+  const { rooms: roomsData, loading: roomsLoading, error: roomsError } = useHotelRooms(hotelData?.id || '');
+
   // Transform venue data for event-focused components
-  const venueSpaces = hotelData?.rooms?.map(room => ({
-    id: room.id,
-    name: room.name,
-    description: room.description,
-    size: room.size,
-    capacity: room.maxOccupancy || 0,
-    type: room.bedType === 'Event Hall' ? 'banquet' : 'outdoor',
-    features: room.amenities || [],
-    images: hotelData.images || [],
-    pricing: {
-      starting: room.price?.amount || 0,
-      currency: room.price?.currency || 'INR'
+  const venueSpaces = [
+    {
+      id: 'astoria',
+      name: 'Astoria',
+      description: 'Elegant banquet hall perfect for grand celebrations and corporate events',
+      capacity: 300,
+      area: '5000 sq ft',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Astoria_optimized_200.jpg',
+      features: ['State-of-the-art Audio/Visual', 'Stage Setup', 'Dance Floor', 'Premium Lighting']
+    },
+    {
+      id: 'regency',
+      name: 'Regency',
+      description: 'Sophisticated event space ideal for weddings and social gatherings',
+      capacity: 250,
+      area: '4000 sq ft',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Regency%20Pre%20Function%20Area%20(2).jpeg',
+      features: ['Elegant Decor', 'Natural Lighting', 'Pre-function Area', 'Modern Amenities']
     }
-  })) || [];
+  ];
 
   // Event experiences for Royal Court
   const experiences = [
     {
       id: 'weddings',
       title: 'Dream Weddings',
+      subtitle: 'Magical Celebrations',
       description: 'Create magical moments with our comprehensive wedding services and stunning venues',
       image: hotelData?.images?.[0] || '',
-      features: ['Custom Planning', 'Destination Weddings', 'Pre-Wedding Shoots', 'Live Counters']
+      category: 'wedding'
     },
     {
       id: 'corporate',
       title: 'Corporate Events',
+      subtitle: 'Professional Excellence',
       description: 'Professional conferences and corporate gatherings with state-of-the-art facilities',
       image: hotelData?.images?.[1] || '',
-      features: ['Meeting Rooms', 'Conference Facilities', 'Audio Visual Equipment', 'Catering Services']
+      category: 'business'
     },
     {
       id: 'celebrations',
       title: 'Special Celebrations',
+      subtitle: 'Memorable Moments',
       description: 'Birthday parties, anniversaries, and milestone celebrations in elegant settings',
       image: hotelData?.images?.[2] || '',
-      features: ['Flexible Layouts', 'Custom Decorations', 'Entertainment Options', 'Photography Services']
+      category: 'social'
     }
   ];
 
@@ -95,9 +112,10 @@ const EnhancedRoyalCourtPage: React.FC = () => {
       name: 'In-house Catering',
       description: 'Exquisite culinary experiences with custom menus and live counters for all events',
       cuisine: 'Multi-cuisine',
+      hours: 'Event Hours',
+      dressCode: 'Event Appropriate',
       specialties: ['Indian Cuisine', 'Continental', 'Chinese', 'Live Chat Counter', 'Dessert Station'],
-      image: hotelData?.images?.[0] || '',
-      features: ['Custom Menus', 'Live Counters', 'Outside Catering Allowed']
+      image: hotelData?.images?.[0] || ''
     }
   ];
 
@@ -108,6 +126,31 @@ const EnhancedRoyalCourtPage: React.FC = () => {
     eventCapacity: 450,
     conciergeHours: '24/7'
   };
+
+  // Virtual tour data
+  const virtualTour = {
+    url: 'https://royal-court-virtual-tour.com',
+    thumbnail: hotelData?.images?.[0] || '',
+    provider: 'spalba' as const
+  };
+
+  // Hero section images - Updated with new Supabase URLs
+  const heroImages = [
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Entrance_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Astoria_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Facade_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Lobby_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Regency%20Pre%20Function%20Area%20(2).jpeg'
+  ];
+
+  // Gallery images - Updated with new Supabase URLs
+  const galleryImages = [
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/gallary/170A7856_1_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/gallary/170A7960_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/gallary/170A7989_1_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/gallary/170A8004_1_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/gallary/Facade_2_optimized_200.jpg'
+  ];
 
   // Social media links
   const socialMedia = {
@@ -191,7 +234,7 @@ const EnhancedRoyalCourtPage: React.FC = () => {
             hotelName={hotelData.name}
             location={hotelData.address?.city || 'Delhi'}
             state={hotelData.address?.state || 'Delhi'}
-            images={hotelData.images || []}
+            images={heroImages}
           />
         ) : (
           <SkeletonHero />
@@ -217,14 +260,33 @@ const EnhancedRoyalCourtPage: React.FC = () => {
             <SkeletonOverview />
           )}
 
-          {/* Event Spaces Section - Secondary Loading */}
+          {/* Accommodations Section - Secondary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonAccommodations />
+          ) : shouldLoad('accommodations') ? (
+            <AccommodationsSection
+              rooms={roomsData || []}
+            />
+          ) : (
+            <SkeletonAccommodations />
+          )}
+
+          {/* Virtual Tour Section - Secondary Loading */}
+          {shouldLoad('virtual-tour') && virtualTour && hotelData && (
+            <VirtualTourSection
+              hotelName={hotelData.name}
+              tourUrl={virtualTour.url}
+              thumbnailImage={virtualTour.thumbnail}
+              provider={virtualTour.provider}
+            />
+          )}
+
+          {/* Event Spaces Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonSpaces />
           ) : shouldLoad('spaces') ? (
             <SpacesSection 
               spaces={venueSpaces}
-              title="Event Venues"
-              subtitle="Elegant spaces designed for every celebration"
             />
           ) : (
             <SkeletonSpaces />
@@ -236,8 +298,6 @@ const EnhancedRoyalCourtPage: React.FC = () => {
           ) : shouldLoad('experiences') ? (
             <ExperiencesSection 
               experiences={experiences}
-              title="Event Services"
-              subtitle="Comprehensive solutions for every occasion"
             />
           ) : (
             <SkeletonExperiences />
@@ -249,8 +309,6 @@ const EnhancedRoyalCourtPage: React.FC = () => {
           ) : shouldLoad('dining') ? (
             <DiningSection 
               venues={diningVenues}
-              title="Catering Services"
-              subtitle="Exquisite culinary experiences for your events"
             />
           ) : (
             <SkeletonDining />
@@ -260,13 +318,21 @@ const EnhancedRoyalCourtPage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonGallery />
           ) : shouldLoad('gallery') ? (
-            <GallerySection images={hotelData.images || []} />
+            <GallerySection 
+              images={galleryImages}
+              hotelName="Tivoli Royal Court"
+            />
           ) : (
             <SkeletonGallery />
           )}
 
         </div>
       </div>
+
+      {/* Dignitaries Section - Tertiary Loading */}
+      {shouldLoad('gallery') && hotelData && (
+        <DiginitariesSection hotelName={hotelData.name} />
+      )}
 
       {/* Wedding Destination Section - Background Loading */}
       {showSkeletonUI ? (

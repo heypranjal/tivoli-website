@@ -61,112 +61,67 @@ export interface EnhancedWedcationData extends Hotel {
 const WEDCATION_ENHANCED_DATA = {
   spaces: [
     {
-      id: 'open-lawn',
-      name: 'Open Lawn',
-      capacity: '1,000 pax (Theatre Style)',
-      area: '22,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
-      features: [
-        'Massive 22,000 sq ft outdoor space',
-        'Theatre style seating for 1,000 guests',
-        'Classroom style seating for 600 guests',
-        'Perfect for large weddings and events',
-        'Professional lighting and sound setup'
-      ],
-      description: 'Our spectacular open lawn venue offering the largest outdoor space for grand celebrations'
-    },
-    {
-      id: 'gbr-golden-crown-hall',
-      name: 'GBR + Golden Crown Hall',
+      id: 'golden-crown-hall',
+      name: 'Golden Crown Hall',
       capacity: '300-500 pax',
       area: 'Indoor Complex',
-      image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Event%20Space/Golden%20Crown%20Hall.png',
       features: [
-        'GBR + Golden Crown Hall: 300 pax',
-        'GBR + Conference Hall: 500 pax',
+        'Golden Crown Hall: 300 pax',
+        'Combined with Conference Hall: 500 pax',
         'Fully air-conditioned',
         'Professional audio-visual equipment',
         'Elegant indoor setting'
       ],
-      description: 'Premium indoor venue complex perfect for elegant receptions and ceremonies'
+      description: 'Premium indoor venue perfect for elegant receptions and ceremonies'
     },
     {
-      id: 'saffron-hall',
-      name: 'Saffron Hall',
-      capacity: '30-150 pax',
-      area: 'Flexible Space',
-      image: 'https://images.unsplash.com/photo-1465929639680-64ee080eb3ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      features: [
-        'Saffron Hall A: 30 pax',
-        'Saffron Hall B: 30 pax',
-        'Saffron Hall + Courtyard: 150 pax',
-        'Flexible configuration options',
-        'Intimate setting for smaller gatherings'
-      ],
-      description: 'Versatile halls perfect for intimate celebrations and pre-wedding functions'
-    },
-    {
-      id: 'conference-meeting-rooms',
-      name: 'Conference & Meeting Rooms',
-      capacity: '20-100 pax',
-      area: 'Business Facilities',
-      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      features: [
-        'Conference Hall: 40 pax',
-        'Meeting Room: 20 pax',
-        'Palm Jumeirah: 100 pax',
-        'Professional AV equipment',
-        'Perfect for corporate events'
-      ],
-      description: 'Professional venues for corporate events, meetings, and business celebrations'
-    },
-    {
-      id: 'poolside-glasshouse',
-      name: 'Poolside & Glasshouse',
+      id: 'orchid-hall',
+      name: 'Orchid Hall',
       capacity: 'Flexible',
-      area: 'Outdoor Features',
-      image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      area: 'Event Space',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Event%20Space/Orchid%20Hall.png',
       features: [
-        'Beautiful poolside area',
-        'Elegant glasshouse structure',
-        'Perfect for cocktail hours',
-        'Romantic water features',
-        'Unique photogenic settings'
+        'Versatile event space',
+        'Modern amenities',
+        'Flexible configuration options',
+        'Professional lighting',
+        'Climate controlled environment'
       ],
-      description: 'Stunning poolside and glasshouse areas for unique ceremony experiences'
+      description: 'Beautiful event space perfect for weddings and special occasions'
     }
   ],
 
   diningVenues: [
     {
-      id: 'main-restaurant',
-      name: 'Main Restaurant',
-      description: 'Multi-cuisine restaurant offering Indian, Continental, and Chinese dishes with signature specialties',
+      id: 'restaurant-main',
+      name: 'Restaurant',
+      description: 'Experience exquisite culinary delights in our elegant main restaurant with a diverse menu',
       cuisine: 'Multi-Cuisine',
-      hours: 'Breakfast, Lunch, Dinner & Night Special Hours',
+      hours: 'Breakfast, Lunch & Dinner',
       dressCode: 'Smart Casual',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      specialties: ['Signature Dishes', 'Indian Cuisine', 'Continental Favorites', 'Chinese Specialties']
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/dinning%20experience/Restaurant.png',
+      specialties: ['Indian Delicacies', 'Continental Cuisine', 'Local Specialties']
     },
     {
-      id: 'coffee-shop',
-      name: 'Coffee Shop',
-      description: 'Cozy coffee shop perfect for casual meetings and light refreshments throughout the day',
-      cuisine: 'Café & Light Meals',
-      hours: 'All Day Service',
+      id: 'restaurant-ambiance',
+      name: 'Restaurant Ambiance',
+      description: 'Immerse yourself in the sophisticated ambiance of our beautifully designed dining space',
+      cuisine: 'Multi-Cuisine',
+      hours: 'All Day Dining',
+      dressCode: 'Smart Casual',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/dinning%20experience/Restaurant%20Image2.png',
+      specialties: ['Signature Dishes', 'Seasonal Menus', 'Chef Specials']
+    },
+    {
+      id: 'poolside-dining',
+      name: 'Poolside Dining',
+      description: 'Enjoy al fresco dining by the pool with refreshing beverages and delightful cuisine',
+      cuisine: 'Outdoor Dining',
+      hours: 'Lunch & Evening Service',
       dressCode: 'Casual',
-      image: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      specialties: ['Freshly Brewed Coffee', 'Light Snacks', 'Pastries', 'Quick Bites']
-    },
-    {
-      id: 'banquet-catering',
-      name: 'Banquet Catering Services',
-      description: 'Comprehensive catering services for weddings and events with customizable menus',
-      cuisine: 'Event Catering',
-      hours: 'Event Based',
-      dressCode: 'Event Appropriate',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      specialties: ['Wedding Banquets', 'Buffet Service', 'Pre-Plated Service', 'Custom Menus', 'Live Counters']
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/dinning%20experience/pool%20side%20.jpg',
+      specialties: ['Grilled Delights', 'Fresh Beverages', 'Light Bites', 'Sunset Dining']
     }
   ],
 
@@ -222,11 +177,11 @@ const WEDCATION_ENHANCED_DATA = {
   ],
 
   galleryImages: [
-    'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
-    'https://images.unsplash.com/photo-1465929639680-64ee080eb3ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Gallary/Facade.png',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Gallary/Facade3.png',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Gallary/Lobby.png',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Gallary/Pool1.jpeg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Gallary/Reception.png'
   ],
 
   virtualTour: {
@@ -344,7 +299,10 @@ export function useWedcationAmbala(slug: string = 'wedcation-by-tivoli-ambala') 
             size: 'Spacious',
             maxOccupancy: 3,
             bedType: 'King or Twin',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Executive%20Room.jpeg',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Executive%20Room%20Washroom.png'
+            ],
             amenities: ['Free WiFi', 'Smart TVs', 'Safe Locker', 'Slippers', 'Toiletries', 'Hair Dryer'],
             count: 16,
             price: { currency: 'INR', amount: 4500 }
@@ -356,10 +314,28 @@ export function useWedcationAmbala(slug: string = 'wedcation-by-tivoli-ambala') 
             size: 'Comfortable',
             maxOccupancy: 3,
             bedType: 'King or Twin',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Deluxe%20Room.jpeg',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Deluxe%20Washroom.jpeg'
+            ],
             amenities: ['Free WiFi', 'Smart TVs', 'Safe Locker', 'Slippers', 'Toiletries', 'Hair Dryer'],
             count: 16,
             price: { currency: 'INR', amount: 3500 }
+          },
+          {
+            id: 'super-deluxe',
+            name: 'Super Deluxe Room',
+            description: 'Elevated comfort with enhanced amenities and stylish interiors. Perfect for those seeking a premium experience with extra space and luxury.',
+            size: 'Extra Comfortable',
+            maxOccupancy: 3,
+            bedType: 'King',
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Super%20Deluxe.jpeg',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Super%20Deluxe%20Washroom.jpeg'
+            ],
+            amenities: ['Free WiFi', 'Smart TVs', 'Safe Locker', 'Slippers', 'Toiletries', 'Hair Dryer', 'Premium Amenities'],
+            count: 8,
+            price: { currency: 'INR', amount: 5500 }
           },
           {
             id: 'family',
@@ -380,7 +356,10 @@ export function useWedcationAmbala(slug: string = 'wedcation-by-tivoli-ambala') 
             size: 'Suite with Living Area',
             maxOccupancy: 6,
             bedType: 'Multiple Beds + Living Area',
-            images: [],
+            images: [
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Family%20Suite%20Room.png',
+              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Family%20%20Suite%20Room%20Washroom.jpeg'
+            ],
             amenities: ['Free WiFi', 'Smart TVs', 'Safe Locker', 'Slippers', 'Toiletries', 'Hair Dryer', 'Separate Living Area'],
             count: 3,
             price: { currency: 'INR', amount: 8500 }
@@ -409,7 +388,9 @@ export function useWedcationAmbala(slug: string = 'wedcation-by-tivoli-ambala') 
       ...WEDCATION_ENHANCED_DATA,
       // Override with any database-sourced images if available
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
         : WEDCATION_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

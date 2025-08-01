@@ -49,10 +49,67 @@ const getAmenityIcon = (amenity: string) => {
   return <Home className="w-4 h-4" />;
 };
 
-// Default image(s) for rooms
-const getDefaultRoomImages = (roomName: string): string[] => {
-  // Specific room images - Club Room now has multiple images
-  const roomImageMap: Record<string, string | string[]> = {
+// Default image(s) for rooms - Hotel-specific mapping
+const getDefaultRoomImages = (roomName: string, hotelId?: string): string[] => {
+  // Detect hotel context from current URL or passed hotelId
+  const currentUrl = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isRoyalPalace = currentUrl.includes('tivoli-royal-suite') || hotelId === 'fd50d2a7-2a4b-48da-b8ed-e12403bc6cbe';
+  const isWedcationAmbala = currentUrl.includes('wedcation-by-tivoli-ambala') || hotelId === 'a86c7480-542b-4f5b-bd36-0c6aebef8f61';
+  
+  // Wedcation Ambala specific room images
+  if (isWedcationAmbala) {
+    const wedcationAmbalaRoomImages: Record<string, string | string[]> = {
+      'executive room': [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Executive%20Room.jpeg',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Deluxe%20Washroom.jpeg'
+      ],
+      'deluxe room': [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Deluxe%20Room.jpeg',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Deluxe%20Washroom.jpeg'
+      ],
+      'super deluxe room': [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Super%20Deluxe.jpeg',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Super%20Deluxe%20Washroom.jpeg'
+      ],
+      'family suite': [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Family%20Suite%20Room.png',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Family%20%20Suite%20Room%20Washroom.jpeg'
+      ]
+    };
+    
+    const roomKey = roomName.toLowerCase();
+    if (wedcationAmbalaRoomImages[roomKey]) {
+      const images = wedcationAmbalaRoomImages[roomKey];
+      return Array.isArray(images) ? images : [images];
+    }
+  }
+  
+  // Royal Palace specific room images
+  if (isRoyalPalace) {
+    const royalPalaceRoomImages: Record<string, string | string[]> = {
+      'deluxe room': [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Deluxe%20Bedroom%20250%20sq%20feet.jpg',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Deluxe%20Washroom.jpeg'
+      ],
+      'standard room': [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Standard%20Room%20240%20sq%20Feet.jpeg',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Standard%20Washroom.jpeg'
+      ],
+      'palace suite': [
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto3.jpg',
+        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//tivolipalwalHomephoto4.jpg'
+      ]
+    };
+    
+    const roomKey = roomName.toLowerCase();
+    if (royalPalaceRoomImages[roomKey]) {
+      const images = royalPalaceRoomImages[roomKey];
+      return Array.isArray(images) ? images : [images];
+    }
+  }
+  
+  // Tivoli New Delhi specific room images (default)
+  const newDelhiRoomImages: Record<string, string | string[]> = {
     'deluxe room': 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Deluxe%20Room.png',
     'superior room': [
       'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Superior-1.png',
@@ -74,14 +131,19 @@ const getDefaultRoomImages = (roomName: string): string[] => {
   };
 
   const roomKey = roomName.toLowerCase();
-  if (roomImageMap[roomKey]) {
-    const images = roomImageMap[roomKey];
+  if (newDelhiRoomImages[roomKey]) {
+    const images = newDelhiRoomImages[roomKey];
     return Array.isArray(images) ? images : [images];
   }
   
   // Fallback for any other rooms
+  const baseUrl = isRoyalPalace 
+    ? 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/'
+    : isWedcationAmbala
+    ? 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/'
+    : 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1/';
   const slug = roomName.toLowerCase().replace(/\s+/g, '-');
-  return [`https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//${slug}.jpg`];
+  return [`${baseUrl}/${slug}.jpg`];
 };
 
 export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(({
@@ -122,7 +184,13 @@ export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(
   }
 
   // Determine which data to use - prioritize database rooms over legacy accommodations
-  const displayRooms = rooms?.length ? rooms : accommodations;
+  const allRooms = rooms?.length ? rooms : accommodations;
+  
+  // Filter out Family Room/Family Suite
+  const displayRooms = allRooms?.filter(room => {
+    const roomNameLower = room.name.toLowerCase();
+    return !roomNameLower.includes('family room') && !roomNameLower.includes('family suite');
+  });
 
   if (!displayRooms || displayRooms.length === 0) {
     return (
@@ -178,7 +246,7 @@ export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(
                 return dbRoom.images;
               } else {
                 // Fallback to default images for rooms without multiple images
-                const defaultImageUrls = getDefaultRoomImages(room.name);
+                const defaultImageUrls = getDefaultRoomImages(room.name, dbRoom.hotel_id);
                 return defaultImageUrls.map((url, index) => ({
                   id: `default-${room.id}-${index}`,
                   url: url,

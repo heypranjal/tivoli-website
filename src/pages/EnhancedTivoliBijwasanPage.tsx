@@ -8,9 +8,7 @@ import React, { useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import VenueBookingForm from '@/components/VenueBookingForm';
-import { useHotelRooms } from '@/hooks/useHotelRooms';
 import { useProgressiveLoading } from '@/hooks/useProgressiveLoading';
-import { useCachedData } from '@/hooks/useClientCache';
 import { 
   HeroSection,
   OverviewSection,
@@ -20,6 +18,7 @@ import {
   SpacesSection,
   DiningSection,
   GallerySection,
+  DiginitariesSection,
   WeddingDestinationSection,
   ContactSection,
 } from '@/components/hotel';
@@ -62,12 +61,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
     socialMedia,
   } = useTivoliBijwasan(hotelSlug || 'tivoli-bijwasan');
 
-  // Rooms data with progressive loading and caching
-  const { 
-    rooms, 
-    loading: roomsLoading, 
-    error: roomsError 
-  } = useHotelRooms('6ace361e-a4cf-42bb-93fb-a8638a7e411b');
+  // Note: Using static room data from useTivoliBijwasan hook instead of database rooms
 
   // Set page title and meta description
   useEffect(() => {
@@ -176,9 +170,18 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
             <SkeletonAccommodations />
           ) : shouldLoad('accommodations') ? (
             <AccommodationsSection
-              rooms={rooms}
-              loading={roomsLoading}
-              error={roomsError}
+              accommodations={hotelData?.rooms?.map(room => ({
+                id: room.id,
+                name: room.name,
+                description: room.description,
+                size: room.size || '40 sq.m.',
+                capacity: room.maxOccupancy || 2,
+                amenities: room.amenities || [],
+                images: room.images || [],
+                priceRange: room.price ? `₹${room.price.amount.toLocaleString()}` : 'Contact for rates'
+              })) || []}
+              loading={loading}
+              error={error}
             />
           ) : (
             <SkeletonAccommodations />
@@ -225,13 +228,21 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonGallery />
           ) : shouldLoad('gallery') ? (
-            <GallerySection />
+            <GallerySection 
+              images={galleryImages}
+              hotelName="Tivoli Bijwasan"
+            />
           ) : (
             <SkeletonGallery />
           )}
 
         </div>
       </div>
+
+      {/* Dignitaries Section - Tertiary Loading */}
+      {shouldLoad('gallery') && hotelData && (
+        <DiginitariesSection hotelName={hotelData.name} />
+      )}
 
       {/* Wedding Destination Section - Background Loading */}
       {showSkeletonUI ? (

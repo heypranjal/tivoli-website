@@ -62,11 +62,11 @@ export interface EnhancedRoyalPalaceData extends Hotel {
 const ROYAL_PALACE_ENHANCED_DATA = {
   spaces: [
     {
-      id: 'grand-ballroom',
-      name: 'Grand Ballroom',
+      id: 'diamond-hall',
+      name: 'Diamond Hall',
       capacity: 1200,
       area: '10,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/3.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//DIAMOND_HALL.jpg',
       features: [
         'Majestic crystal chandeliers',
         'Royal-grade acoustics system',
@@ -75,55 +75,55 @@ const ROYAL_PALACE_ENHANCED_DATA = {
         'Premium catering facilities',
         'Heritage architecture details'
       ],
-      description: 'Our magnificent grand ballroom with royal architecture and crystal chandeliers for the most prestigious events'
+      description: 'Our magnificent Diamond Hall with royal architecture and crystal chandeliers for the most prestigious events'
     },
     {
-      id: 'royal-court',
-      name: 'Royal Court',
+      id: 'emerald-hall',
+      name: 'Emerald Hall',
       capacity: 800,
       area: '8,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/5.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//EMRALDhall.jpg',
       features: [
-        'Open-air royal courtyard',
+        'Elegant emerald-themed decor',
         'Heritage stone architecture',
         'Traditional royal lighting',
-        'Landscaped royal gardens',
+        'Landscaped surroundings',
         'Perfect for traditional ceremonies',
         'Natural royal ambiance'
       ],
-      description: 'Breathtaking outdoor royal courtyard surrounded by heritage architecture and manicured royal gardens'
+      description: 'Breathtaking Emerald Hall surrounded by heritage architecture and elegant emerald-themed interiors'
     },
     {
-      id: 'imperial-hall',
-      name: 'Imperial Hall',
+      id: 'glass-house',
+      name: 'Glass House',
       capacity: 600,
       area: '6,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/6.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Glass_House.jpeg',
       features: [
-        'Climate-controlled royal ambiance',
-        'Premium sound system',
-        'Royal LED lighting setup',
-        'Private imperial entrance',
-        'Elegant setting for royal celebrations',
-        'Heritage-inspired interiors'
+        'Modern glass architecture',
+        'Natural lighting',
+        'Contemporary design',
+        'Private entrance',
+        'Elegant setting for modern celebrations',
+        'Panoramic views'
       ],
-      description: 'Elegant imperial venue with heritage-inspired interiors perfect for royal celebrations'
+      description: 'Contemporary Glass House venue with modern architecture and panoramic views perfect for stylish celebrations'
     },
     {
-      id: 'palace-gardens',
-      name: 'Palace Gardens',
+      id: 'poolside',
+      name: 'Poolside',
       capacity: 400,
       area: '12,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/2.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Poolside0.jpg',
       features: [
-        'Sprawling royal gardens',
-        'Heritage landscaping',
-        'Royal fountain centerpiece',
-        'Traditional lighting arrangements',
+        'Poolside venue',
+        'Water feature ambiance',
+        'Outdoor setting',
+        'Natural lighting',
         'Perfect for day ceremonies',
-        'Natural royal setting'
+        'Refreshing atmosphere'
       ],
-      description: 'Magnificent royal gardens with heritage landscaping and fountain centerpiece for outdoor royal events'
+      description: 'Beautiful Poolside venue with water feature ambiance and refreshing outdoor atmosphere for memorable events'
     }
   ],
 
@@ -176,7 +176,7 @@ const ROYAL_PALACE_ENHANCED_DATA = {
       title: 'Royal Weddings',
       subtitle: 'Majestic Celebrations',
       description: 'Experience the grandeur of royal wedding ceremonies in our heritage venues with traditional royal service and magnificent decor',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-bijwasan/gallery/3.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Restaurant1.jpg',
       category: 'Wedding'
     },
     {
@@ -184,7 +184,7 @@ const ROYAL_PALACE_ENHANCED_DATA = {
       title: 'Heritage Corporate Events',
       subtitle: 'Royal Business Excellence',
       description: 'Conduct prestigious corporate events in royal settings with state-of-the-art facilities and heritage ambiance',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//zunn.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Restaurant2.jpg',
       category: 'Business'
     },
     {
@@ -192,7 +192,7 @@ const ROYAL_PALACE_ENHANCED_DATA = {
       title: 'Royal Suite Experience',
       subtitle: 'Luxury Accommodation',
       description: 'Stay in our magnificent royal suites featuring heritage decor, modern amenities, and personalized royal service',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/rooms/11.jpg',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Restaurant3.jpg',
       category: 'Accommodation'
     },
     {
@@ -222,11 +222,11 @@ const ROYAL_PALACE_ENHANCED_DATA = {
   ],
 
   galleryImages: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/rooms/1.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/rooms/2.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/rooms/11.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-grand-palace/dining/2.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hotel-images/hotels/tivoli-lotus-court/gallery/2.jpg'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/Facade_optimized_200.jpg', // Hotel Facade
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/Main_Gate_optimized_200.jpg', // Main Gate
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/pool.jpg', // Swimming Pool
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/hotelporch.jpg', // Hotel Porch
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/Gallary/Lobby_optimized_200.jpg' // Hotel Lobby
   ],
 
   virtualTour: {
@@ -380,7 +380,9 @@ export function useTivoliRoyalPalace(slug: string = 'tivoli-royal-palace') {
       ...ROYAL_PALACE_ENHANCED_DATA,
       // Override with any database-sourced images if available
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
         : ROYAL_PALACE_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

@@ -19,7 +19,7 @@ export const upperHseVenues: Hotel[] = [
     slug: 'upper-hse-sultanpur',
     description: 'Delhi\'s Ultra Luxury Oval Glass House. Welcome to "The Upper HSE" by Tivoli, Delhi\'s premier ultra-luxury venue, boasting an iconic oval-shaped glass house. This exquisite property can comfortably accommodate 200 to 1000 guests, making it an ideal choice for weddings, pre-wedding ceremonies, and corporate events. The venue features a singular glass house complemented by a lush lawn area, offering versatility and elegance.',
     images: [
-      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/upper-hse-venues/sultanpur-upperhse-hp-thumbnail.jpg',
+      'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Facade.jpg',
       'https://images.unsplash.com/photo-1519167758481-83f29c7c8756?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80',
       'https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-4.0.3&auto=format&fit=crop&w=1932&q=80',
       'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'

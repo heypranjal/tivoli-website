@@ -364,7 +364,9 @@ export function useOmniaDwarkaExpressway(slug: string = 'omnia-dwarka-expressway
       ...OMNIA_DWARKA_ENHANCED_DATA,
       // Override with any database-sourced images if available
       galleryImages: mediaData?.length 
-        ? mediaData.map(m => m.media.public_url)
+        ? mediaData
+            .filter(m => m.media?.public_url)
+            .map(m => m.media.public_url)
         : OMNIA_DWARKA_ENHANCED_DATA.galleryImages,
     };
   }, [hotelData, mediaData, useFallback]);

@@ -4,7 +4,8 @@
  * Features: Complete data integration, modular components, progressive UX, performance optimization
  */
 
-import React, { useEffect, Suspense, ErrorBoundary } from 'react';
+import React, { useEffect, Suspense } from 'react';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import { useParams } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import VenueBookingForm from '@/components/VenueBookingForm';
@@ -114,18 +115,20 @@ const TivoliLotusCourtPage: React.FC = () => {
       
       {/* Hero Section - Priority Loading */}
       <div className="above-fold">
-        {showSkeletonUI ? (
-          <SkeletonHero />
-        ) : shouldLoad('hero') && hotelData ? (
-          <HeroSection
-            hotelName={hotelData.name}
-            location={hotelData.address.city}
-            state={hotelData.address.state}
-            images={galleryImages}
-          />
-        ) : (
-          <SkeletonHero />
-        )}
+        <ErrorBoundary fallback={<SkeletonHero />}>
+          {showSkeletonUI ? (
+            <SkeletonHero />
+          ) : shouldLoad('hero') && hotelData ? (
+            <HeroSection
+              hotelName={hotelData.name}
+              location={hotelData.address.city}
+              state={hotelData.address.state}
+              images={galleryImages || []}
+            />
+          ) : (
+            <SkeletonHero />
+          )}
+        </ErrorBoundary>
       </div>
 
       {/* Main Content Container */}
@@ -188,16 +191,18 @@ const TivoliLotusCourtPage: React.FC = () => {
           )}
 
           {/* Gallery Section - Tertiary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonGallery />
-          ) : shouldLoad('gallery') && galleryImages ? (
-            <GallerySection 
-              images={galleryImages}
-              hotelName={hotelData?.name || 'Tivoli Lotus Court'}
-            />
-          ) : (
-            <SkeletonGallery />
-          )}
+          <ErrorBoundary fallback={<SkeletonGallery />}>
+            {showSkeletonUI ? (
+              <SkeletonGallery />
+            ) : shouldLoad('gallery') && galleryImages?.length ? (
+              <GallerySection 
+                images={galleryImages}
+                hotelName={hotelData?.name || 'Tivoli Lotus Court'}
+              />
+            ) : (
+              <SkeletonGallery />
+            )}
+          </ErrorBoundary>
 
           {/* Wedding Destination Section - Background Loading */}
           {showSkeletonUI ? (
