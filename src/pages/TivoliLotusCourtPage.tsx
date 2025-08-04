@@ -9,13 +9,11 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import { useParams } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import VenueBookingForm from '@/components/VenueBookingForm';
-import { useHotelRooms } from '@/hooks/useHotelRooms';
 import { useProgressiveLoading } from '@/hooks/useProgressiveLoading';
 import { useCachedData } from '@/hooks/useClientCache';
 import { 
   HeroSection,
   OverviewSection,
-  AccommodationsSection,
   VirtualTourSection,
   ExperiencesSection,
   SpacesSection,
@@ -27,7 +25,6 @@ import {
 import { 
   SkeletonHero,
   SkeletonOverview,
-  SkeletonAccommodations,
   SkeletonExperiences,
   SkeletonSpaces,
   SkeletonDining,
@@ -44,7 +41,7 @@ const TivoliLotusCourtPage: React.FC = () => {
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
-    secondary: ['accommodations', 'virtual-tour'],
+    secondary: ['virtual-tour'],
     tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
@@ -62,12 +59,6 @@ const TivoliLotusCourtPage: React.FC = () => {
     socialMedia,
   } = useTivoliLotusCourtNoida(hotelSlug || 'tivoli-lotus-court');
 
-  // Rooms data with progressive loading and caching
-  const { 
-    rooms, 
-    loading: roomsLoading, 
-    error: roomsError 
-  } = useHotelRooms('fa3d0cae-ccb5-45a1-9046-862a689b90fd');
 
   // Set page title and meta description
   useEffect(() => {
@@ -150,18 +141,6 @@ const TivoliLotusCourtPage: React.FC = () => {
             <SkeletonOverview />
           )}
 
-          {/* Accommodations Section - Secondary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonAccommodations />
-          ) : shouldLoad('accommodations') ? (
-            <AccommodationsSection
-              rooms={rooms}
-              loading={roomsLoading}
-              error={roomsError}
-            />
-          ) : (
-            <SkeletonAccommodations />
-          )}
 
           {/* Experiences Section - Tertiary Loading */}
           {showSkeletonUI ? (

@@ -21,6 +21,8 @@ export const WeddingDestinationSection: React.FC<WeddingDestinationSectionProps>
   // Use specific images for different hotels
   const defaultHeroImage = hotelName?.toLowerCase().includes('bijwasan')
     ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan//Merriage%20at%20Tivoli%20Bijwasan.jpeg"
+    : hotelName?.toLowerCase().includes('lotus court')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//lotushomeimage4.jpg"
     : hotelName?.toLowerCase().includes('royal court')
     ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//Celebration%20at%20Okhla.jpeg"
     : hotelName?.toLowerCase().includes('upper hse')

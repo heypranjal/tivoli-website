@@ -62,68 +62,100 @@ export interface EnhancedTivoliData extends Hotel {
 const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
   spaces: [
     {
-      id: 'main-banquet-hall',
-      name: 'Main Banquet Hall',
-      capacity: '200-1500',
-      area: '15,000 sq ft',
+      id: 'lotus-court',
+      name: 'Lotus Court',
+      capacity: '500',
+      area: '15,550 sq ft',
       image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80',
       features: [
-        'AC Hall with climate control',
-        'Sound Proof Glasses',
+        'Grand banquet hall',
+        'AC with climate control',
         'Professional sound system', 
         'LED lighting setup',
         'Flexible seating arrangements',
         'Premium catering facilities'
       ],
-      description: 'Our premier banquet hall with 15,000 sq ft of versatile space for weddings, conferences, and corporate events'
+      description: 'Our flagship venue with 15,550 sq ft of elegant space perfect for grand weddings and large corporate events'
     },
     {
-      id: 'open-lawn',
-      name: 'Open Lawn',
-      capacity: '500-1000',
-      area: '8,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      features: [
-        'Beautiful outdoor space',
-        'Perfect for day and evening events',
-        'Landscaped gardens',
-        'Natural lighting and ambiance',
-        'Open-air celebrations',
-        'Weather backup available'
-      ],
-      description: 'Stunning outdoor venue perfect for destination weddings and pre-wedding shoots'
-    },
-    {
-      id: 'glasshouse',
-      name: 'Glasshouse',
-      capacity: '100-300',
-      area: '2,500 sq ft',
+      id: 'glass-house',
+      name: 'Glass House',
+      capacity: '120',
+      area: '3,000 sq ft',
       image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
       features: [
         'Glass-walled venue',
-        'Natural light during day',
+        'Natural light',
         'Climate controlled',
         'Intimate setting',
         'Perfect for cocktail events',
         'Garden views'
       ],
-      description: 'Elegant glass-enclosed venue offering natural light and garden views for intimate gatherings'
+      description: 'Sophisticated glass-enclosed venue offering natural light and garden views for intimate celebrations'
     },
     {
-      id: 'meeting-rooms',
-      name: 'Meeting Rooms',
-      capacity: '20-50',
-      area: '500-800 sq ft',
-      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80',
+      id: 'rooftop',
+      name: 'Rooftop',
+      capacity: '100',
+      area: '3,000 sq ft',
+      image: 'https://images.unsplash.com/photo-1510076857177-7470076d4098?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80',
       features: [
-        'Business Centre facilities',
-        'High-speed WiFi',
-        'Audio-visual equipment',
-        'Privacy and confidentiality',
-        'Professional atmosphere',
-        'Flexible configurations'
+        'Open-air venue',
+        'Panoramic views',
+        'Evening celebrations',
+        'Romantic ambiance',
+        'Weather backup available',
+        'Lighting arrangements'
       ],
-      description: 'Modern meeting rooms perfect for corporate events, conferences, and business presentations'
+      description: 'Stunning rooftop venue with panoramic views, perfect for cocktail parties and evening receptions'
+    },
+    {
+      id: 'lawn-1',
+      name: 'Lawn 1',
+      capacity: '150',
+      area: '4,000 sq ft',
+      image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      features: [
+        'Landscaped gardens',
+        'Natural ambiance',
+        'Perfect for day events',
+        'Flexible setup options',
+        'Outdoor celebrations',
+        'Photo opportunities'
+      ],
+      description: 'Beautiful outdoor lawn ideal for mehendi ceremonies, day events, and garden parties'
+    },
+    {
+      id: 'lawn-2',
+      name: 'Lawn 2',
+      capacity: '150',
+      area: '4,000 sq ft',
+      image: 'https://images.unsplash.com/photo-1522936643032-5f3cde4cad06?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      features: [
+        'Garden setting',
+        'Natural backdrop',
+        'Versatile space',
+        'Day and evening events',
+        'Open-air celebrations',
+        'Customizable decor'
+      ],
+      description: 'Picturesque lawn area perfect for outdoor ceremonies, receptions, and themed events'
+    },
+    {
+      id: 'pool-side',
+      name: 'Pool Side',
+      capacity: '50',
+      area: '2,500 sq ft',
+      image: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      features: [
+        'Poolside ambiance',
+        'Intimate gatherings',
+        'Evening parties',
+        'Romantic setting',
+        'Exclusive atmosphere',
+        'Mood lighting'
+      ],
+      description: 'Exclusive poolside venue for intimate gatherings, cocktail parties, and private celebrations'
     }
   ],
 
@@ -166,12 +198,12 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
       category: 'Business'
     },
     {
-      id: 'luxury-accommodation',
-      title: '40 Premium Rooms',
-      subtitle: 'Comfort & Convenience',
-      description: 'Choose from Standard and Super Deluxe rooms, all equipped with modern amenities and 24-hour room service',
-      image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      category: 'Accommodation'
+      id: 'grand-celebrations',
+      title: 'Grand Celebrations',
+      subtitle: 'Unforgettable Moments',
+      description: 'Create magical memories with our grand banquet halls, expert event planning, and customized celebrations for every occasion',
+      image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      category: 'Events'
     },
     {
       id: 'event-packages',
@@ -192,16 +224,16 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
   ],
 
   galleryImages: [
-    'https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=2232&q=80',
-    'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80',
-    'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Entrance_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Astoria_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Facade_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Lobby_optimized_200.jpg',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Regency%20Pre%20Function%20Area%20(2).jpeg'
   ],
 
   quickStats: {
-    rooms: 40,
-    diningVenues: 1,
+    rooms: 0,
+    diningVenues: 0,
     eventCapacity: 1500,
     conciergeHours: '24/7'
   },
@@ -302,8 +334,8 @@ export function useTivoliLotusCourtNoida(slug: string = 'tivoli-lotus-court') {
           }
         },
         contact: {
-          phone: '9212446306',
-          email: 'reservations@thetivolihotels.com'
+          phone: '9266624389',
+          email: 'Digital@thetivolihotels.com'
         },
         amenities: [
           { id: 'wifi', name: 'Wi-Fi', description: 'Complimentary wireless internet access', icon: 'Signal' },
