@@ -24,7 +24,7 @@ test('Complete Royal Court Okhla Page - Final Verification', async ({ page }) =>
       
       // Check for all required content sections
       hasExtraordinaryMoments: bodyText.includes('Your Extraordinary Moments, Our Signature Spaces'),
-      hasRegencyAstoria: bodyText.includes('REGENCY') && bodyText.includes('ASTORIA'),
+      hasRegencyAstoria: bodyText.includes('REGENCY') && bodyText.includes('Astoria Hall'),
       hasWeddingSection: bodyText.includes('Experience the pinnacle of luxury and sophistication at Tivoli Royal Court'),
       hasSocialGatherings: bodyText.includes('Social Gatherings') && bodyText.includes('Spacious Banquet Halls'),
       hasCorrectAddress: bodyText.includes('D-185, Pocket D, Okhla Phase I'),
@@ -56,14 +56,14 @@ test('Complete Royal Court Okhla Page - Final Verification', async ({ page }) =>
   console.log('  Page Title:', pageContent.title);
   console.log('  H1 Text:', pageContent.h1Text);
   console.log('  ✅ "Your Extraordinary Moments" section:', pageContent.hasExtraordinaryMoments);
-  console.log('  ✅ REGENCY & ASTORIA mentioned:', pageContent.hasRegencyAstoria);
+  console.log('  ✅ REGENCY & Astoria Hall mentioned:', pageContent.hasRegencyAstoria);
   console.log('  ✅ Wedding section content:', pageContent.hasWeddingSection);
   console.log('  ✅ Social Gatherings section:', pageContent.hasSocialGatherings);
   console.log('  ✅ Correct address (D-185, Pocket D...):', pageContent.hasCorrectAddress);
   console.log('  ✅ Venue statistics (200 parking spaces):', pageContent.hasVenueStats);
   console.log('  ✅ Capacity info (100-450 guests):', pageContent.hasCapacityInfo);
   console.log('  ✅ Event space (6,500 sq ft):', pageContent.hasEventSpace);
-  console.log('  ✅ ASTORIA details (9,000 sq ft):', pageContent.hasAstoriaDetails);
+  console.log('  ✅ Astoria Hall details (9,000 sq ft):', pageContent.hasAstoriaDetails);
   console.log('  ✅ REGENCY details (8,000 sq ft):', pageContent.hasRegencyDetails);
   console.log('  ✅ Google Maps embedded:', pageContent.hasGoogleMaps);
   console.log('  ✅ Venue Booking Form present:', pageContent.hasVenueBookingForm);

@@ -129,12 +129,12 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
     <div className="min-h-screen bg-white scroll-optimized">
       {/* Navigation loads immediately */}
       <Navigation />
-      
+
       {/* Hero Section - Priority Loading */}
       <div className="above-fold">
         {showSkeletonUI ? (
           <SkeletonHero />
-        ) : shouldLoad('hero') && hotelData ? (
+        ) : shouldLoad("hero") && hotelData ? (
           <HeroSection
             hotelName={hotelData.name}
             location={hotelData.address.city}
@@ -149,11 +149,10 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
       {/* Main Content Container */}
       <div className="container mx-auto px-4 py-8 below-fold">
         <div className="max-w-6xl mx-auto space-y-16">
-          
           {/* Overview Section - Priority Loading */}
           {showSkeletonUI ? (
             <SkeletonOverview />
-          ) : shouldLoad('overview') && hotelData ? (
+          ) : shouldLoad("overview") && hotelData ? (
             <OverviewSection
               hotelName={hotelData.name}
               description={hotelData.description}
@@ -168,18 +167,22 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           {/* Accommodations Section - Secondary Loading */}
           {showSkeletonUI ? (
             <SkeletonAccommodations />
-          ) : shouldLoad('accommodations') ? (
+          ) : shouldLoad("accommodations") ? (
             <AccommodationsSection
-              accommodations={hotelData?.rooms?.map(room => ({
-                id: room.id,
-                name: room.name,
-                description: room.description,
-                size: room.size || '40 sq.m.',
-                capacity: room.maxOccupancy || 2,
-                amenities: room.amenities || [],
-                images: room.images || [],
-                priceRange: room.price ? `₹${room.price.amount.toLocaleString()}` : 'Contact for rates'
-              })) || []}
+              accommodations={
+                hotelData?.rooms?.map((room) => ({
+                  id: room.id,
+                  name: room.name,
+                  description: room.description,
+                  size: room.size || "40 sq.m.",
+                  capacity: room.maxOccupancy || 2,
+                  amenities: room.amenities || [],
+                  images: room.images || [],
+                  priceRange: room.price
+                    ? `₹${room.price.amount.toLocaleString()}`
+                    : "Contact for rates",
+                })) || []
+              }
               loading={loading}
               error={error}
             />
@@ -188,7 +191,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           )}
 
           {/* Virtual Tour Section - Secondary Loading */}
-          {shouldLoad('virtual-tour') && virtualTour && hotelData && (
+          {shouldLoad("virtual-tour") && virtualTour && hotelData && (
             <VirtualTourSection
               hotelName={hotelData.name}
               tourUrl={virtualTour.url}
@@ -200,7 +203,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           {/* Experiences Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonExperiences />
-          ) : shouldLoad('experiences') ? (
+          ) : shouldLoad("experiences") ? (
             <ExperiencesSection experiences={experiences} />
           ) : (
             <SkeletonExperiences />
@@ -209,7 +212,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           {/* Spaces Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonSpaces />
-          ) : shouldLoad('spaces') ? (
+          ) : shouldLoad("spaces") ? (
             <SpacesSection spaces={spaces} />
           ) : (
             <SkeletonSpaces />
@@ -218,7 +221,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           {/* Dining Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonDining />
-          ) : shouldLoad('dining') ? (
+          ) : shouldLoad("dining") ? (
             <DiningSection venues={diningVenues} />
           ) : (
             <SkeletonDining />
@@ -227,27 +230,26 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           {/* Gallery Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonGallery />
-          ) : shouldLoad('gallery') ? (
-            <GallerySection 
+          ) : shouldLoad("gallery") ? (
+            <GallerySection
               images={galleryImages}
               hotelName="Tivoli Bijwasan"
             />
           ) : (
             <SkeletonGallery />
           )}
-
         </div>
       </div>
 
       {/* Dignitaries Section - Tertiary Loading */}
-      {shouldLoad('gallery') && hotelData && (
+      {shouldLoad("gallery") && hotelData && (
         <DiginitariesSection hotelName={hotelData.name} />
       )}
 
       {/* Wedding Destination Section - Background Loading */}
       {showSkeletonUI ? (
         <SkeletonWedding />
-      ) : shouldLoad('wedding') && hotelData ? (
+      ) : shouldLoad("wedding") && hotelData ? (
         <WeddingDestinationSection hotelName={hotelData.name} />
       ) : (
         <SkeletonWedding />
@@ -258,7 +260,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
         <div className="space-y-16">
           {showSkeletonUI ? (
             <SkeletonContact />
-          ) : shouldLoad('contact') && hotelData ? (
+          ) : shouldLoad("contact") && hotelData ? (
             <ContactSection
               address={hotelData.address}
               contact={hotelData.contact}
@@ -272,19 +274,26 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
       </div>
 
       {/* Booking Form Section - Background Loading */}
-      {shouldLoad('booking-form') && hotelData && (
+      {shouldLoad("booking-form") && hotelData && (
         <div className="bg-[#F8F9FA] py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="font-serif text-3xl text-neutral-800 mb-4">Plan Your Special Occasion</h2>
+                <h2 className="font-serif text-3xl text-neutral-800 mb-4">
+                  Plan Your Special Occasion
+                </h2>
                 <p className="text-neutral-600 leading-relaxed max-w-2xl mx-auto">
-                  Let our expert team help you create unforgettable memories at {hotelData.name}. 
-                  From intimate gatherings to grand celebrations, we ensure every detail is perfect.
+                  Let our expert team help you create unforgettable memories at{" "}
+                  {hotelData.name}. From intimate gatherings to grand
+                  celebrations, we ensure every detail is perfect.
                 </p>
               </div>
               <div id="venue-booking-form">
-                <Suspense fallback={<div className="h-96 bg-neutral-100 animate-pulse rounded-lg" />}>
+                <Suspense
+                  fallback={
+                    <div className="h-96 bg-neutral-100 animate-pulse rounded-lg" />
+                  }
+                >
                   <VenueBookingForm />
                 </Suspense>
               </div>
@@ -299,35 +308,37 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Hotel",
-            "name": hotelData.name,
-            "description": hotelData.description,
-            "address": {
+            name: hotelData.name,
+            description: hotelData.description,
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": hotelData.address.street,
-              "addressLocality": hotelData.address.city,
-              "addressRegion": hotelData.address.state,
-              "postalCode": hotelData.address.postalCode,
-              "addressCountry": hotelData.address.country
+              streetAddress: hotelData.address.street,
+              addressLocality: hotelData.address.city,
+              addressRegion: hotelData.address.state,
+              postalCode: hotelData.address.postalCode,
+              addressCountry: hotelData.address.country,
             },
-            "geo": hotelData.address.coordinates ? {
-              "@type": "GeoCoordinates",
-              "latitude": hotelData.address.coordinates.lat,
-              "longitude": hotelData.address.coordinates.lng
-            } : undefined,
-            "telephone": hotelData.contact.phone,
-            "email": hotelData.contact.email,
-            "starRating": {
+            geo: hotelData.address.coordinates
+              ? {
+                  "@type": "GeoCoordinates",
+                  latitude: hotelData.address.coordinates.lat,
+                  longitude: hotelData.address.coordinates.lng,
+                }
+              : undefined,
+            telephone: hotelData.contact.phone,
+            email: hotelData.contact.email,
+            starRating: {
               "@type": "Rating",
-              "ratingValue": hotelData.rating
+              ratingValue: hotelData.rating,
             },
-            "amenityFeature": hotelData.amenities.map(amenity => ({
+            amenityFeature: hotelData.amenities.map((amenity) => ({
               "@type": "LocationFeatureSpecification",
-              "name": amenity.name,
-              "value": true
+              name: amenity.name,
+              value: true,
             })),
-            "hasMap": `https://www.google.com/maps/search/?api=1&query=${hotelData.address.coordinates?.lat},${hotelData.address.coordinates?.lng}`,
-            "url": window.location.href,
-            "image": galleryImages[0]
+            hasMap: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.271232802281!2d77.06141727554925!3d28.531566075719972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ba69dddc3e1%3A0x11c796eefc4bc045!2sTivoli%20Bijwasan!5e0!3m2!1sen!2sin!4v1754253266589!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+            url: window.location.href,
+            image: galleryImages[0],
           })}
         </script>
       )}

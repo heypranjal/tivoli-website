@@ -15,9 +15,6 @@ import {
   HeroSection,
   OverviewSection,
   AccommodationsSection,
-  VirtualTourSection,
-  ExperiencesSection,
-  SpacesSection,
   DiningSection,
   GallerySection,
   WeddingDestinationSection,
@@ -27,8 +24,6 @@ import {
   SkeletonHero,
   SkeletonOverview,
   SkeletonAccommodations,
-  SkeletonExperiences,
-  SkeletonSpaces,
   SkeletonDining,
   SkeletonGallery,
   SkeletonWedding,
@@ -54,8 +49,8 @@ export default function TivoliHeritagePalacePage() {
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
-    secondary: ['accommodations', 'virtual-tour'],
-    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
+    secondary: ['accommodations'],
+    tertiary: ['dining', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
   
@@ -304,38 +299,7 @@ export default function TivoliHeritagePalacePage() {
             <SkeletonAccommodations />
           )}
 
-          {/* Virtual Tour Section - Secondary Loading */}
-          {shouldLoad('virtual-tour') && (
-            <VirtualTourSection
-              hotelName={hotel?.name || 'Tivoli Heritage Palace'}
-              tourUrl={virtualTour.url}
-              thumbnailImage={virtualTour.thumbnail}
-              provider={virtualTour.provider}
-            />
-          )}
 
-          {/* Experiences Section - Tertiary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonExperiences />
-          ) : shouldLoad('experiences') ? (
-            <ExperiencesSection
-              experiences={heritageExperiences}
-              title="Discover Heritage Luxury"
-              subtitle="Curated Experiences"
-              description="Immerse yourself in a world of refined experiences, where every moment is crafted to perfection"
-            />
-          ) : (
-            <SkeletonExperiences />
-          )}
-
-          {/* Spaces Section - Tertiary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonSpaces />
-          ) : shouldLoad('spaces') ? (
-            <SpacesSection spaces={eventSpaces} />
-          ) : (
-            <SkeletonSpaces />
-          )}
 
           {/* Dining Section - Tertiary Loading */}
           {showSkeletonUI ? (
@@ -442,7 +406,7 @@ export default function TivoliHeritagePalacePage() {
                 email: hotel?.email || 'reservations@tivoliheritagepalace.com'
               }}
               socialMedia={[]}
-              mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.4514419371176!2d77.30918827548489!3d28.19359377590727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cd1fe467c304b%3A0x5d9583931a50cb3e!2sTivoli%20Royal%20Palace!5e0!3m2!1sen!2sin!4v1744945233833!5m2!1sen!2sin"
+              mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.1266842394166!2d76.6997375755364!3d28.173062475918776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396d4f5cc79c2e43%3A0x2d9f71ec3b71483!2sTivoli%20Heritage%20Palace!5e0!3m2!1sen!2sin!4v1754289566862!5m2!1sen!2sin"
             />
           ) : (
             <SkeletonContact />

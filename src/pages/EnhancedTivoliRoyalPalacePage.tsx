@@ -264,7 +264,10 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
       {showSkeletonUI ? (
         <SkeletonWedding />
       ) : shouldLoad('wedding') && hotelData ? (
-        <WeddingDestinationSection hotelName={hotelData.name} />
+        <WeddingDestinationSection 
+          hotelName={hotelData.name} 
+          heroImage="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//updated-swimming_pool.jpg"
+        />
       ) : (
         <SkeletonWedding />
       )}

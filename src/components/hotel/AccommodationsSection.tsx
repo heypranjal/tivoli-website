@@ -186,11 +186,63 @@ export const AccommodationsSection: React.FC<AccommodationsSectionProps> = memo(
   // Determine which data to use - prioritize database rooms over legacy accommodations
   const allRooms = rooms?.length ? rooms : accommodations;
   
+  // Check if we're on Wedcation Ambala page
+  const currentUrl = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isWedcationAmbala = currentUrl.includes('wedcation-by-tivoli-ambala');
+  
   // Filter out Family Room/Family Suite
-  const displayRooms = allRooms?.filter(room => {
+  let displayRooms = allRooms?.filter(room => {
     const roomNameLower = room.name.toLowerCase();
     return !roomNameLower.includes('family room') && !roomNameLower.includes('family suite');
   });
+
+  // Add additional room types for Wedcation Ambala
+  if (isWedcationAmbala) {
+    const additionalRooms: LegacyRoom[] = [
+      {
+        id: 'super-deluxe-room',
+        name: 'Super Deluxe Room',
+        description: 'Elegantly appointed rooms featuring contemporary design and premium amenities for an elevated stay experience.',
+        size: '312 Sq. Foot',
+        capacity: 2,
+        amenities: ['Air Conditioning', 'Wi-Fi', 'Room Service', '24-hour Housekeeping'],
+        images: [
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Super%20Deluxe.jpeg',
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Super%20Deluxe%20Washroom.jpeg'
+        ],
+        priceRange: 'Contact for rates'
+      },
+      {
+        id: 'club-room',
+        name: 'Club Room',
+        description: 'Spacious and sophisticated accommodations offering enhanced comfort and exclusive club-level amenities.',
+        size: '456 Sq. Foot',
+        capacity: 3,
+        amenities: ['Air Conditioning', 'Wi-Fi', 'In-room Dining', 'Television'],
+        images: [
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Executive%20Room.jpeg',
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Deluxe%20Washroom.jpeg'
+        ],
+        priceRange: 'Contact for rates'
+      },
+      {
+        id: 'family-suite',
+        name: 'Family Suite',
+        description: 'Generous family accommodations featuring separate living areas and enhanced space for memorable family stays.',
+        size: '680 Sq. Foot',
+        capacity: 4,
+        amenities: ['Air Conditioning', 'Wi-Fi', 'Room Service', '24-hour Housekeeping'],
+        images: [
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Family%20Suite%20Room.png',
+          'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/rooms%20images/Family%20%20Suite%20Room%20Washroom.jpeg'
+        ],
+        priceRange: 'Contact for rates'
+      }
+    ];
+
+    // Combine existing rooms with additional rooms
+    displayRooms = [...(displayRooms || []), ...additionalRooms];
+  }
 
   if (!displayRooms || displayRooms.length === 0) {
     return (

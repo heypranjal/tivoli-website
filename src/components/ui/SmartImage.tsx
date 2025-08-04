@@ -91,6 +91,20 @@ export function SmartImage({
   const imgRef = useRef<HTMLImageElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   
+  // Early return if no src provided
+  if (!src) {
+    return (
+      <div className={`relative w-full h-full ${className}`} style={style}>
+        <div className="absolute inset-0 bg-neutral-100 flex items-center justify-center text-neutral-500 text-sm">
+          <div className="text-center">
+            <div className="text-neutral-400 mb-1">📷</div>
+            <div>No image</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
   // Lazy loading logic
   const shouldLoad = !lazy || priority || useIntersectionObserver(containerRef)
 

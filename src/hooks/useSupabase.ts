@@ -257,7 +257,7 @@ export function transformHotelData(supabaseHotel: HotelWithRelations): Hotel {
       phone: supabaseHotel.phone || '',
       email: supabaseHotel.email || '',
     },
-    amenities: supabaseHotel.amenities?.map(ha => ({
+    amenities: supabaseHotel.amenities?.filter(ha => ha && ha.amenity).map(ha => ({
       id: ha.amenity.id,
       name: ha.amenity.name,
       description: ha.custom_description || ha.amenity.description || '',

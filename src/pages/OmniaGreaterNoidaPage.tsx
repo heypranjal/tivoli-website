@@ -143,7 +143,7 @@ const EnhancedOmniaGreaterNoidaPage: React.FC = () => {
           <SkeletonHero />
         ) : shouldLoad('hero') && hotelData ? (
           <HeroSection
-            hotelName={hotelData.name}
+            hotelName="Omnia by Tivoli-Greater Noida"
             location={hotelData.address.city}
             state={hotelData.address.state}
             images={galleryImages}
@@ -213,7 +213,6 @@ const EnhancedOmniaGreaterNoidaPage: React.FC = () => {
             <SkeletonSpaces />
           )}
 
-          
           {/* Dining Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonDining />

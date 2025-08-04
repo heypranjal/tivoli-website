@@ -13,20 +13,16 @@ import { useCachedData } from '@/hooks/useClientCache';
 import { 
   HeroSection,
   OverviewSection,
-  AccommodationsSection,
-  VirtualTourSection,
   ExperiencesSection,
   SpacesSection,
   DiningSection,
   GallerySection,
-  DiginitariesSection,
   WeddingDestinationSection,
   ContactSection,
 } from '@/components/hotel';
 import { 
   SkeletonHero,
   SkeletonOverview,
-  SkeletonAccommodations,
   SkeletonExperiences,
   SkeletonSpaces,
   SkeletonDining,
@@ -43,7 +39,7 @@ const EnhancedUpperHSEPage: React.FC = () => {
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
-    secondary: ['accommodations', 'virtual-tour'],
+    secondary: [],
     tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
@@ -74,9 +70,9 @@ const EnhancedUpperHSEPage: React.FC = () => {
 
   // Transform hotel data to component format
   const quickStats = hotelData ? {
-    rooms: 4,
-    diningVenues: 1,
-    eventCapacity: 1000,
+    rooms: 0,
+    diningVenues: 0,
+    eventCapacity: 1200,
     conciergeHours: '24/7'
   } : {
     rooms: 4,
@@ -85,16 +81,130 @@ const EnhancedUpperHSEPage: React.FC = () => {
     conciergeHours: '24/7'
   };
 
-  const galleryImages = (hotelData as any)?.images || [];
-  const spaces = (hotelData as any)?.spaces || [];
+  // Upper HSE-specific gallery images in MediaItem format
+  const upperHSEGalleryImages = [
+    {
+      id: 'hse-img-1',
+      type: 'image' as const,
+      url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/gallary/Screenshot%202025-07-25%20144527.png',
+      title: 'Oval Glass House Interior',
+      description: 'Elegant interior view of the iconic oval-shaped glass house venue'
+    },
+    {
+      id: 'hse-img-2',
+      type: 'image' as const,
+      url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/gallary/Screenshot%202025-07-25%20144409.png',
+      title: 'Garden Landscape View',
+      description: 'Beautiful outdoor garden space with lush green landscaping'
+    },
+    {
+      id: 'hse-img-3',
+      type: 'image' as const,
+      url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/gallary/Screenshot%202025-07-25%20144608.png',
+      title: 'Venue Architecture',
+      description: 'Stunning architectural details of the ultra-luxury venue'
+    },
+    {
+      id: 'hse-img-4',
+      type: 'image' as const,
+      url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/gallary/Screenshot%202025-07-25%20144720.png',
+      title: 'Event Setup View',
+      description: 'Professional event setup in the glass house venue'
+    },
+    {
+      id: 'hse-img-5',
+      type: 'image' as const,
+      url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/hsesultanpur/gallary/Screenshot%202025-07-25%20144817.png',
+      title: 'Luxury Seating Area',
+      description: 'Premium seating arrangements with elegant décor'
+    },
+    {
+      id: 'hse-img-6',
+      type: 'image' as const,
+      url: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/gallary/Screenshot%202025-07-25%20144747.png',
+      title: 'Venue Ambiance',
+      description: 'Sophisticated ambiance and lighting of the venue space'
+    }
+  ];
+
+  // Use the MediaItem format for gallery
+  const galleryImages = upperHSEGalleryImages;
+  
+  // Create string array for components that need just URLs
+  const imageUrls = upperHSEGalleryImages.map(img => img.url);
+  // Upper HSE-specific event spaces
+  const upperHSESpaces = [
+    {
+      id: '1',
+      name: 'Oval Glass House',
+      capacity: { min: 200, max: 600 },
+      area: '10000 Sq ft',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144527.jpg',
+      features: ['Iconic Oval Architecture', 'Fully Air-Conditioned', 'Premium Setup', 'Professional Lighting'],
+      description: 'Our signature oval-shaped glass house venue offering elegant ambiance for the most important celebrations'
+    },
+    {
+      id: '2',
+      name: 'Open Lush Garden',
+      capacity: { min: 650, max: 1800 },
+      area: '30000 Sq ft',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144720.jpg',
+      features: ['Expansive Outdoor Space', 'Lush Green Gardens', 'Natural Ambiance', 'Flexible Layout'],
+      description: 'Expansive outdoor garden space perfect for large gatherings, outdoor ceremonies, and celebrations under the open sky'
+    }
+  ];
   const diningVenues = (hotelData as any)?.amenities?.filter((amenity: any) => amenity.name.toLowerCase().includes('dining')) || [];
-  const experiences = (hotelData as any)?.amenities?.map((amenity: any) => ({
-    id: amenity.id,
-    name: amenity.name,
-    description: amenity.description,
-    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    category: 'luxury'
-  })) || [];
+  // Upper HSE-specific experiences - Updated with factual content
+  const upperHSEExperiences = [
+    {
+      id: '1',
+      title: 'Grand Weddings',
+      subtitle: 'Royal Celebrations',
+      description: 'Seamless royal wedding experiences in our iconic oval-shaped glass house, outdoor ceremonies on lush lawns, and sophisticated pre-wedding events.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144720.jpg',
+      category: 'wedding'
+    },
+    {
+      id: '2',
+      title: 'Oval Glass House Events',
+      subtitle: 'Signature Venue',
+      description: 'Our signature oval-shaped glass house provides an elegant, fully air-conditioned venue for your most important celebrations with capacity for up to 1000 guests.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144527.jpg',
+      category: 'venue'
+    },
+    {
+      id: '3',
+      title: 'Corporate Conferences',
+      subtitle: 'Business Excellence',
+      description: 'Ultra-luxury venue with modern amenities, 200-car parking with valet service, and pre-function areas perfect for business events and conferences.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144817.jpg',
+      category: 'business'
+    },
+    {
+      id: '4',
+      title: 'Social Gatherings',
+      subtitle: 'Milestone Moments',
+      description: 'Milestone celebrations, family reunions, and festive gatherings in our beautiful glass house setting with serene garden spaces and luxury amenities.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144846.jpg',
+      category: 'social'
+    },
+    {
+      id: '5',
+      title: 'Pre-Wedding Shoots',
+      subtitle: 'Captured Memories',
+      description: 'Capture your special moments in our picturesque ultra-luxury setting with iconic oval glass architecture and beautiful outdoor garden spaces.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144409.jpg',
+      category: 'photography'
+    },
+    {
+      id: '6',
+      title: 'Luxury Events',
+      subtitle: 'Exclusive Occasions',
+      description: 'Host exclusive luxury events with premium catering, personalized service, and bespoke arrangements in our ultra-luxury glass house venue with world-class amenities.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur/banner/Screenshot%202025-07-25%20144720.jpg',
+      category: 'luxury'
+    }
+  ];
   const socialMedia = (hotelData as any)?.socialMedia || {};
 
   // Error state
@@ -156,7 +266,7 @@ const EnhancedUpperHSEPage: React.FC = () => {
             hotelName={(hotelData as any).name}
             location={(hotelData as any).address.city}
             state={(hotelData as any).address.state}
-            images={galleryImages}
+            images={imageUrls}
           />
         ) : (
           <SkeletonHero />
@@ -175,41 +285,20 @@ const EnhancedUpperHSEPage: React.FC = () => {
               hotelName={(hotelData as any).name}
               description={(hotelData as any).description}
               location={(hotelData as any).address.city}
-              additionalDescription={`Located in the prestigious Sultanpur Estate area of ${(hotelData as any).address.city}, The Upper HSE offers Delhi's most iconic ultra-luxury venue featuring an oval-shaped glass house complemented by expansive lush gardens. Our property accommodates 200 to 1000 guests, making it perfect for grand weddings, pre-wedding ceremonies, and corporate events with unmatched elegance and sophistication.`}
+              additionalDescription={`The combination of beautifully furnished infrastructure, delectable dining options, beautiful setting and the excellent range of guest facilities offered by the luxury venue makes it a preferred conference and event destination, an ideal venue for social gatherings and wedding celebrations.`}
               quickStats={quickStats}
             />
           ) : (
             <SkeletonOverview />
           )}
 
-          {/* Accommodations Section - Secondary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonAccommodations />
-          ) : shouldLoad('accommodations') ? (
-            <AccommodationsSection
-              rooms={(hotelData as any)?.rooms || []}
-              loading={false}
-              error={null}
-            />
-          ) : (
-            <SkeletonAccommodations />
-          )}
 
-          {/* Virtual Tour Section - Secondary Loading */}
-          {shouldLoad('virtual-tour') && hotelData && (
-            <VirtualTourSection
-              hotelName={(hotelData as any).name}
-              tourUrl="#virtual-tour"
-              thumbnailImage={galleryImages[0]}
-              provider="spalba"
-            />
-          )}
 
           {/* Experiences Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonExperiences />
           ) : shouldLoad('experiences') ? (
-            <ExperiencesSection experiences={experiences} />
+            <ExperiencesSection experiences={upperHSEExperiences} />
           ) : (
             <SkeletonExperiences />
           )}
@@ -218,7 +307,7 @@ const EnhancedUpperHSEPage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonSpaces />
           ) : shouldLoad('spaces') ? (
-            <SpacesSection spaces={spaces} />
+            <SpacesSection spaces={upperHSESpaces} />
           ) : (
             <SkeletonSpaces />
           )}
@@ -236,7 +325,10 @@ const EnhancedUpperHSEPage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonGallery />
           ) : shouldLoad('gallery') ? (
-            <GallerySection />
+            <GallerySection 
+              images={galleryImages}
+              hotelName={(hotelData as any)?.name || 'The Upper HSE - Sultanpur by Tivoli'}
+            />
           ) : (
             <SkeletonGallery />
           )}
@@ -244,12 +336,8 @@ const EnhancedUpperHSEPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Dignitaries Section - Tertiary Loading */}
-      {shouldLoad('gallery') && hotelData && (
-        <DiginitariesSection hotelName={(hotelData as any).name} />
-      )}
 
-      {/* Wedding Destination Section - Background Loading */}
+      {/* Corporate Event Destination Section - Background Loading */}
       {showSkeletonUI ? (
         <SkeletonWedding />
       ) : shouldLoad('wedding') && hotelData ? (
@@ -332,7 +420,7 @@ const EnhancedUpperHSEPage: React.FC = () => {
             })),
             "hasMap": `https://www.google.com/maps/search/?api=1&query=${(hotelData as any).address.coordinates?.lat},${(hotelData as any).address.coordinates?.lng}`,
             "url": window.location.href,
-            "image": galleryImages[0]
+            "image": galleryImages[0]?.url
           })}
         </script>
       )}

@@ -15,7 +15,6 @@ import {
   HeroSection,
   OverviewSection,
   AccommodationsSection,
-  VirtualTourSection,
   ExperiencesSection,
   SpacesSection,
   DiningSection,
@@ -44,7 +43,7 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
-    secondary: ['accommodations', 'virtual-tour'],
+    secondary: ['accommodations'],
     tertiary: ['experiences', 'spaces', 'dining', 'gallery', 'press'],
     background: ['wedding', 'contact', 'booking-form']
   });
@@ -165,7 +164,6 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
               hotelName={hotelData.name}
               description={hotelData.description}
               location={hotelData.address.city}
-              additionalDescription={`Located in the heart of ${hotelData.address.city}, Haryana, Wedcation by Tivoli offers an unmatched wedding destination experience. Our property features elegantly designed wedding venues, beautiful garden spaces, world-class dining facilities, and comprehensive wedding services designed to make your special day absolutely perfect.`}
               quickStats={quickStats}
             />
           ) : (
@@ -183,16 +181,6 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
             />
           ) : (
             <SkeletonAccommodations />
-          )}
-
-          {/* Virtual Tour Section - Secondary Loading */}
-          {shouldLoad('virtual-tour') && virtualTour && hotelData && (
-            <VirtualTourSection
-              hotelName={hotelData.name}
-              tourUrl={virtualTour.url}
-              thumbnailImage={virtualTour.thumbnail}
-              provider={virtualTour.provider}
-            />
           )}
 
           {/* Experiences Section - Tertiary Loading */}
@@ -243,7 +231,10 @@ const EnhancedWedcationAmbalaPage: React.FC = () => {
       {showSkeletonUI ? (
         <SkeletonWedding />
       ) : shouldLoad('wedding') && hotelData ? (
-        <WeddingDestinationSection hotelName={hotelData.name} />
+        <WeddingDestinationSection 
+          hotelName={hotelData.name} 
+          heroImage="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala//weddingatambala.jpg"
+        />
       ) : (
         <SkeletonWedding />
       )}

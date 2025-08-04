@@ -77,31 +77,55 @@ const EnhancedRoyalCourtPage: React.FC = () => {
     }
   ];
 
-  // Event experiences for Royal Court
+  // Event experiences for Royal Court - Updated with Tivoli New Delhi images and content
   const experiences = [
     {
-      id: 'weddings',
-      title: 'Dream Weddings',
-      subtitle: 'Magical Celebrations',
-      description: 'Create magical moments with our comprehensive wedding services and stunning venues',
-      image: hotelData?.images?.[0] || '',
-      category: 'wedding'
-    },
-    {
-      id: 'corporate',
+      id: 'corporate-events',
       title: 'Corporate Events',
-      subtitle: 'Professional Excellence',
-      description: 'Professional conferences and corporate gatherings with state-of-the-art facilities',
-      image: hotelData?.images?.[1] || '',
+      subtitle: 'Pre-wedding Rituals',
+      description: 'Traditional, joyful, colorful, sacred, festive, cultural, musical, emotional, celebratory events.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//corporate%20events%20(1).png',
       category: 'business'
     },
     {
-      id: 'celebrations',
-      title: 'Special Celebrations',
-      subtitle: 'Memorable Moments',
-      description: 'Birthday parties, anniversaries, and milestone celebrations in elegant settings',
-      image: hotelData?.images?.[2] || '',
-      category: 'social'
+      id: 'poolside-soirees',
+      title: 'Poolside Soirées',
+      subtitle: 'Heritage Architecture',
+      description: 'Exclusive retreats with private pools perfect for magical poolside weddings',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//heroimage4.jpg',
+      category: 'luxury'
+    },
+    {
+      id: 'grand-celebrations',
+      title: 'Grand Celebrations',
+      subtitle: 'Royal Events',
+      description: 'Magnificent venues for unforgettable events',
+      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//grand%20celebrations%20rewari.jpg',
+      category: 'celebration'
+    },
+    {
+      id: 'premium-rooms',
+      title: '130 Premium Rooms',
+      subtitle: 'Cultural Activities',
+      description: 'Our property features 130 stylish Premium Rooms designed for your comfort',
+      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//standard%20room.jpg',
+      category: 'accommodation'
+    },
+    {
+      id: 'dining-hall',
+      title: 'Dinning Hall',
+      subtitle: 'Wellness',
+      description: 'Elegant. Ambient. Refined. A dining experience like no other.',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1511_optimized_200.jpeg',
+      category: 'dining'
+    },
+    {
+      id: 'pre-wedding-rituals',
+      title: 'Pre Wedding Rituals',
+      subtitle: 'Wellness',
+      description: 'Experience flawless corporate events hosted at elegant, serene retreats',
+      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//pre%20wedding.jpg',
+      category: 'wedding'
     }
   ];
 
@@ -121,10 +145,10 @@ const EnhancedRoyalCourtPage: React.FC = () => {
 
   // Quick stats for overview - compatible with OverviewSection component
   const quickStats = {
-    rooms: 3, // Event spaces instead of hotel rooms
-    diningVenues: 1,
-    eventCapacity: 450,
-    conciergeHours: '24/7'
+    rooms: 0, // Event spaces instead of hotel rooms
+    diningVenues: 0,
+    eventCapacity: 600,
+    conciergeHours: "24/7",
   };
 
   // Virtual tour data
@@ -167,7 +191,7 @@ const EnhancedRoyalCourtPage: React.FC = () => {
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
         metaDescription.setAttribute('content', 
-          `${hotelData.description} Premier event venue in ${hotelData.address?.city} featuring ASTORIA and REGENCY halls, outdoor venues, and comprehensive event services.`
+          `${hotelData.description} Premier event venue in ${hotelData.address?.city} featuring Astoria Hall and REGENCY halls, outdoor venues, and comprehensive event services.`
         );
       }
     }

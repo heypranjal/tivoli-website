@@ -128,7 +128,7 @@ export default function RoyalcourtokhlaPage() {
                 Your Extraordinary Moments, Our Signature Spaces
               </h2>
               <p className="text-neutral-600 max-w-4xl mx-auto leading-relaxed">
-                Step into a world where every celebration becomes extraordinary. Tivoli Royal Court presents two magnificent halls – REGENCY and ASTORIA – each designed to transform your vision into reality. Whether you're planning an intimate gathering of 100 or a grand celebration for 450 guests, our versatile spaces adapt seamlessly to your needs.
+                Step into a world where every celebration becomes extraordinary. Tivoli Royal Court presents two magnificent halls – REGENCY and Astoria Hall – each designed to transform your vision into reality. Whether you're planning an intimate gathering of 100 or a grand celebration for 450 guests, our versatile spaces adapt seamlessly to your needs.
               </p>
             </div>
 
@@ -154,9 +154,9 @@ export default function RoyalcourtokhlaPage() {
 
             {/* Venue Details */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-              {/* ASTORIA */}
+              {/* Astoria Hall */}
               <div className="bg-neutral-50 rounded-xl p-8">
-                <h3 className="font-serif text-2xl text-neutral-800 mb-4">ASTORIA</h3>
+                <h3 className="font-serif text-2xl text-neutral-800 mb-4">Astoria Hall</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-neutral-600">Location:</span>
@@ -242,7 +242,7 @@ export default function RoyalcourtokhlaPage() {
                   <div>
                     <h3 className="font-serif text-xl text-neutral-800 mb-4">Spacious Banquet Halls</h3>
                     <p className="text-neutral-600 mb-4">
-                      With two luxurious indoor venues, Regency and Astoria, we can accommodate gatherings of up to 600 guests. The pillarless design and high ceilings create an open and inviting atmosphere for any celebration.
+                      With two luxurious indoor venues, Regency and Astoria Hall, we can accommodate gatherings of up to 600 guests. The pillarless design and high ceilings create an open and inviting atmosphere for any celebration.
                     </p>
                     
                     <h3 className="font-serif text-xl text-neutral-800 mb-4">Beautiful Outdoor Areas</h3>

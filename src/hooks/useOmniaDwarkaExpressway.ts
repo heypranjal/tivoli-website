@@ -64,7 +64,7 @@ const OMNIA_DWARKA_ENHANCED_DATA = {
     {
       id: 'mansion-hall',
       name: 'The Mansion Hall',
-      capacity: '500-1200',
+      capacity: '1200',
       area: '15,000 sq ft',
       image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80',
       features: [
@@ -80,7 +80,7 @@ const OMNIA_DWARKA_ENHANCED_DATA = {
     {
       id: 'mansion-lawn',
       name: 'The Mansion Lawn',
-      capacity: '500-1200',
+      capacity: '300',
       area: '30,000 sq ft',
       image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       features: [
@@ -112,7 +112,7 @@ const OMNIA_DWARKA_ENHANCED_DATA = {
     {
       id: 'venue-360-lawn',
       name: '360 Lawn',
-      capacity: '200-400',
+      capacity: '200-300',
       area: '18,000 sq ft',
       image: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       features: [
@@ -224,7 +224,7 @@ const OMNIA_DWARKA_ENHANCED_DATA = {
   ],
 
   quickStats: {
-    rooms: 57,
+    rooms: 0,
     diningVenues: 0, // No restaurant/coffee shop as per factual data
     eventCapacity: 1200,
     conciergeHours: 'Event Services Available'
@@ -232,7 +232,7 @@ const OMNIA_DWARKA_ENHANCED_DATA = {
 
   socialMedia: {
     instagram: 'https://www.instagram.com/omniabytivoli/',
-    facebook: 'https://www.facebook.com/omniabytivoli/'
+    facebook: 'https://www.facebook.com/people/Omnia-By-Tivoli/61572671411929/'
   }
 };
 
@@ -243,32 +243,20 @@ const OMNIA_DWARKA_ENHANCED_DATA = {
 export function useOmniaDwarkaExpressway(slug: string = 'omnia-dwarka-expressway') {
   const [timeoutReached, setTimeoutReached] = useState(false);
   
-  // Use actual Supabase data fetching
-  const { data: hotelData, loading, error } = useHotel(slug);
+  try {
+    // Use actual Supabase data fetching
+    const { data: hotelData, loading, error } = useHotel(slug);
   
-  // Backup cached data approach for fallback
-  const { 
-    data: cachedData, 
-    loading: cachedLoading, 
-    error: cachedError,
-    hasCache 
-  } = useCachedData(
-    async () => {
-      try {
-        // This could fetch from an alternative source if needed
-        return null;
-      } catch (err) {
-        console.error('Error in cached data fallback:', err);
-        return null;
-      }
-    },
-    {
-      key: `omnia-dwarka-expressway-${slug}`,
-      ttl: 10 * 60 * 1000, // 10 minutes cache
-      storage: 'session'
-    }
-  );
+  // Backup cached data approach for fallback - DISABLED TO TEST
+  const cachedData = null;
+  const cachedLoading = false;
+  const cachedError = null;
+  const hasCache = false;
 
+  // Stable references for media hook
+  const hotelId = hotelData?.id || '';
+  const hasHotelId = !!hotelData?.id;
+  
   // Memoize the media filters to prevent infinite re-renders
   const mediaFilters = useMemo(() => ({ 
     media_type: 'gallery' as const 
@@ -276,12 +264,12 @@ export function useOmniaDwarkaExpressway(slug: string = 'omnia-dwarka-expressway
 
   // Memoize the media options to prevent infinite re-renders
   const mediaOptions = useMemo(() => ({ 
-    enabled: !!hotelData?.id 
-  }), [hotelData?.id]);
+    enabled: hasHotelId 
+  }), [hasHotelId]);
 
   // Fetch media data from database (with stable object references)
   const { data: mediaData, loading: mediaLoading } = useHotelMedia(
-    hotelData?.id || '', 
+    hotelId, 
     mediaFilters,
     mediaOptions
   );
@@ -371,6 +359,16 @@ export function useOmniaDwarkaExpressway(slug: string = 'omnia-dwarka-expressway
     };
   }, [hotelData, mediaData, useFallback]);
 
+  // Calculate gallery images separately to avoid circular dependency
+  const finalGalleryImages = useMemo(() => {
+    if (mediaData?.length) {
+      return mediaData
+        .filter(m => m.media?.public_url)
+        .map(m => m.media.public_url);
+    }
+    return OMNIA_DWARKA_ENHANCED_DATA.galleryImages;
+  }, [mediaData]);
+
   return {
     data: enhancedData,
     loading: useFallback ? false : (loading || mediaLoading),
@@ -379,7 +377,7 @@ export function useOmniaDwarkaExpressway(slug: string = 'omnia-dwarka-expressway
     spaces: OMNIA_DWARKA_ENHANCED_DATA.spaces,
     diningVenues: OMNIA_DWARKA_ENHANCED_DATA.diningVenues,
     experiences: OMNIA_DWARKA_ENHANCED_DATA.experiences,
-    galleryImages: enhancedData?.galleryImages || OMNIA_DWARKA_ENHANCED_DATA.galleryImages,
+    galleryImages: finalGalleryImages,
     quickStats: OMNIA_DWARKA_ENHANCED_DATA.quickStats,
     socialMedia: OMNIA_DWARKA_ENHANCED_DATA.socialMedia,
     // Performance metrics

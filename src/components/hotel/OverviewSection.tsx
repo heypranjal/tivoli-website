@@ -20,6 +20,7 @@ interface OverviewSectionProps {
   additionalDescription?: string;
   quickStats: QuickStats;
   className?: string;
+  showHeritageVideo?: boolean;
 }
 
 export const OverviewSection: React.FC<OverviewSectionProps> = ({
@@ -29,6 +30,7 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({
   additionalDescription,
   quickStats,
   className = '',
+  showHeritageVideo = false,
 }) => {
   return (
     <section className={`space-y-8 ${className}`}>
@@ -43,6 +45,25 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({
           </p>
         )}
       </div>
+
+      {/* Heritage Palace Video - Only for Heritage Palace */}
+      {showHeritageVideo && (
+        <div className="bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-xl p-6 md:p-8">
+          <div className="text-center mb-6">
+            <h3 className="font-serif text-2xl text-neutral-800 mb-2">Experience Our Heritage</h3>
+            <p className="text-neutral-600">Take a virtual journey through the grandeur of Tivoli Heritage Palace</p>
+          </div>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              src="https://drive.google.com/file/d/1TZ1gGtU-CgH42APBDUgmX60Uh0YTp93O/preview"
+              className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title="Tivoli Heritage Palace - Virtual Experience"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

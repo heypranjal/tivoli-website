@@ -21,6 +21,7 @@ try {
  * Get the migrated URL for an image, fallback to original
  */
 export function getMigratedImageUrl(originalUrl: string): string {
+  if (!originalUrl) return '';
   return urlMapping[originalUrl] || originalUrl
 }
 
@@ -42,6 +43,7 @@ export function isImageMigrated(originalUrl: string): boolean {
  * Get image source type
  */
 export function getImageSource(url: string): 'supabase' | 'external' {
+  if (!url || typeof url !== 'string') return 'external';
   return url.includes('supabase.co') ? 'supabase' : 'external'
 }
 
@@ -58,8 +60,8 @@ export function getOptimizedImageUrl(
   }
 ): string {
   // Only optimize Supabase images
-  if (!url.includes('supabase.co')) {
-    return url
+  if (!url || typeof url !== 'string' || !url.includes('supabase.co')) {
+    return url || '';
   }
 
   const urlObj = new URL(url)

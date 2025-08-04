@@ -13,8 +13,6 @@ import {
   HeroSection,
   OverviewSection,
   AccommodationsSection,
-  VirtualTourSection,
-  ExperiencesSection,
   SpacesSection,
   DiningSection,
   GallerySection,
@@ -25,7 +23,6 @@ import {
   SkeletonHero,
   SkeletonOverview,
   SkeletonAccommodations,
-  SkeletonExperiences,
   SkeletonSpaces,
   SkeletonDining,
   SkeletonGallery,
@@ -41,8 +38,8 @@ const EnhancedWedcationIsranaPage: React.FC = () => {
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
-    secondary: ['accommodations', 'virtual-tour'],
-    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
+    secondary: ['accommodations'],
+    tertiary: ['spaces', 'dining', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
 
@@ -53,7 +50,6 @@ const EnhancedWedcationIsranaPage: React.FC = () => {
     error,
     spaces,
     diningVenues,
-    experiences,
     galleryImages,
     virtualTour,
     quickStats,
@@ -187,25 +183,6 @@ const EnhancedWedcationIsranaPage: React.FC = () => {
             />
           ) : (
             <SkeletonAccommodations />
-          )}
-
-          {/* Virtual Tour Section - Secondary Loading */}
-          {shouldLoad('virtual-tour') && virtualTour && hotelData && (
-            <VirtualTourSection
-              hotelName={hotelData.name}
-              tourUrl={virtualTour.url}
-              thumbnailImage={virtualTour.thumbnail}
-              provider={virtualTour.provider}
-            />
-          )}
-
-          {/* Experiences Section - Tertiary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonExperiences />
-          ) : shouldLoad('experiences') ? (
-            <ExperiencesSection experiences={experiences} />
-          ) : (
-            <SkeletonExperiences />
           )}
 
           {/* Spaces Section - Tertiary Loading */}

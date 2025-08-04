@@ -193,7 +193,7 @@ const WEDCATION_ENHANCED_DATA = {
   quickStats: {
     rooms: 40,
     diningVenues: 3,
-    eventCapacity: 1000,
+    eventCapacity: 2000,
     conciergeHours: '24/7'
   },
 
@@ -274,10 +274,10 @@ export function useWedcationAmbala(slug: string = 'wedcation-by-tivoli-ambala') 
           }
         },
         contact: {
-          phone: '+917075970555',
-          email: 'info@wedcationbytivoli.com',
+          phone: '+917496969594',
+          email: 'reservations.ambala@wedcationbytivoli.com',
           bookingPhone: '+917496969596',
-          bookingEmail: 'sales@wedcationbytivoli.com',
+          bookingEmail: 'reservations.ambala@wedcationbytivoli.com',
           marketing: '+917404033347',
           website: 'https://tivolibanquets.com/'
         },

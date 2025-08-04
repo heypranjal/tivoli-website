@@ -256,10 +256,11 @@ export function useTivoliLotusCourtNoida(slug: string = 'tivoli-lotus-court') {
   }), [hotelData?.id]);
 
   // Fetch media data from database (with stable object references)
+  // Only call useHotelMedia when we have a valid hotel ID
   const { data: mediaData, loading: mediaLoading } = useHotelMedia(
-    hotelData?.id || '', 
+    hotelData?.id || 'temp-disable-query', 
     mediaFilters,
-    mediaOptions
+    { ...mediaOptions, enabled: !!hotelData?.id }
   );
 
   // Faster timeout for better UX
@@ -350,17 +351,18 @@ export function useTivoliLotusCourtNoida(slug: string = 'tivoli-lotus-court') {
 
     if (!hotelData) return null;
 
-    // Transform database data to legacy format
-    const baseHotel = transformHotelData(hotelData);
+    // Transform database data to legacy format - add null safety
+    const baseHotel = hotelData ? transformHotelData(hotelData) : null;
+    if (!baseHotel) return null;
 
     // Merge with enhanced static data
     return {
       ...baseHotel,
       ...TIVOLI_LOTUS_COURT_ENHANCED_DATA,
       // Override with any database-sourced images if available (with null safety)
-      galleryImages: mediaData?.length 
+      galleryImages: (mediaData && Array.isArray(mediaData) && mediaData.length > 0)
         ? mediaData
-            .filter(m => m.media?.public_url) // Filter out items without valid media
+            .filter(m => m && m.media && m.media.public_url) // Filter out items without valid media
             .map(m => m.media.public_url)
         : TIVOLI_LOTUS_COURT_ENHANCED_DATA.galleryImages,
     };

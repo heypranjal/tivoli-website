@@ -8,8 +8,8 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { MapPin, Mail, Phone } from 'lucide-react';
-import { StagewiseToolbar } from '@stagewise/toolbar-react';
-import { ReactPlugin } from '@stagewise-plugins/react';
+// import { StagewiseToolbar } from '@stagewise/toolbar-react';
+// import { ReactPlugin } from '@stagewise-plugins/react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import OurHotels from './components/OurHotels';
@@ -22,6 +22,7 @@ import AwardsAccolades from './components/AwardsAccolades';
 import Press from './components/Press';
 import LinkedInFeed from './components/LinkedInFeed';
 import HotelPage from './pages/HotelPage';
+import EnhancedUpperHSEPage from './pages/EnhancedUpperHSEPage';
 import People from './pages/Investors';
 import DigitalQRPage from './pages/DigitalQRPage';
 import LocationsPage from './pages/LocationsPage';
@@ -35,11 +36,11 @@ import CareersPage from './pages/CareersPage';
 function App() {
   return (
     <div className="min-h-screen bg-white">
-    <StagewiseToolbar
-      config={{
-        plugins: [ReactPlugin],
-      }}
-    />
+      {/* <StagewiseToolbar
+        config={{
+          plugins: [ReactPlugin],
+        }}
+      /> */}
       <Navigation />
       <Routes>
         <Route path="/" element={
@@ -69,7 +70,9 @@ function App() {
         <Route path="/monitoring" element={<MonitoringPage />} />
         <Route path="/weddings" element={<WeddingPage />} />
         <Route path="/careers" element={<CareersPage />} />
-        {/* Dynamic hotel pages - all hotels now use single HotelPage component */}
+        {/* Specific route for Upper HSE hotel */}
+        <Route path="/hotel/upper-hse-sultanpur" element={<EnhancedUpperHSEPage />} />
+        {/* Dynamic hotel pages - use specific component for omnia-dwarka-expressway */}
         <Route path="/hotel/:hotelSlug" element={<HotelPage />} />
         {/* Redirect for renamed hotel */}
         <Route path="/hotel/tivoli-grand-palace" element={<Navigate to="/hotel/the-tivoli" replace />} />

@@ -31,15 +31,16 @@ interface UseHotelRoomsReturn {
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+// Add null safety for Supabase client creation
+const supabase = (supabaseUrl && supabaseAnonKey) ? createClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {
     storageKey: 'tivoli-rooms-auth',
   },
-});
+}) : null;
 
 // Cached room fetching function
 const fetchRoomsData = async (hotelId: string): Promise<HotelRoom[]> => {
-  if (!hotelId) {
+  if (!hotelId || !supabase) {
     return [];
   }
 
@@ -61,34 +62,44 @@ const fetchRoomsData = async (hotelId: string): Promise<HotelRoom[]> => {
 
   // Fetch amenities for all rooms
   const roomIds = roomsData.map(room => room.id);
-  const { data: amenitiesData, error: amenitiesError } = await supabase
-    .from('room_amenities')
-    .select('room_id, amenity_name')
-    .in('room_id', roomIds);
+  let amenitiesData = null;
+  if (supabase) {
+    const { data, error: amenitiesError } = await supabase
+      .from('room_amenities')
+      .select('room_id, amenity_name')
+      .in('room_id', roomIds);
 
-  if (amenitiesError) {
-    console.warn('Failed to fetch room amenities:', amenitiesError.message);
+    if (amenitiesError) {
+      console.warn('Failed to fetch room amenities:', amenitiesError.message);
+    } else {
+      amenitiesData = data;
+    }
   }
 
   // Fetch room images
-  const { data: roomImagesData, error: imagesError } = await supabase
-    .from('room_media')
-    .select(`
-      room_id,
-      sort_order,
-      is_primary,
-      media!inner (
-        id,
-        public_url,
-        alt_text,
+  let roomImagesData = null;
+  if (supabase) {
+    const { data, error: imagesError } = await supabase
+      .from('room_media')
+      .select(`
+        room_id,
+        sort_order,
+        is_primary,
+        media!inner (
+          id,
+          public_url,
+          alt_text,
         filename
       )
     `)
     .in('room_id', roomIds)
     .order('sort_order');
 
-  if (imagesError) {
-    console.warn('Failed to fetch room images:', imagesError.message);
+    if (imagesError) {
+      console.warn('Failed to fetch room images:', imagesError.message);
+    } else {
+      roomImagesData = data;
+    }
   }
 
   // Group amenities by room_id

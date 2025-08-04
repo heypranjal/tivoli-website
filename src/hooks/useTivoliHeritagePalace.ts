@@ -72,8 +72,8 @@ const HERITAGE_ENHANCED_DATA = {
   spaces: [
     {
       id: 'glasshouse-banquet',
-      name: 'GlassHouse Banquet Hall',
-      capacity: '500-1000 guests',
+      name: 'Glass House Banquet Hall',
+      capacity: '200-250 guests',
       area: 'Signature venue',
       image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House%20inside.jpeg',
       features: ['Fully Air-Conditioned', 'Signature Design', 'Premium Setup', 'Professional Lighting'],
@@ -81,8 +81,8 @@ const HERITAGE_ENHANCED_DATA = {
     },
     {
       id: 'banquet-hall-2',
-      name: 'Banquet Hall 2',
-      capacity: '300-600 guests',
+      name: 'Royal Affair Banquet',
+      capacity: '400-500 guests',
       area: 'Additional hall',
       image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House.jpeg',
       features: ['Fully Air-Conditioned', 'Flexible Setup', 'Modern Amenities', 'Professional Staff'],
@@ -90,8 +90,8 @@ const HERITAGE_ENHANCED_DATA = {
     },
     {
       id: 'banquet-hall-3',
-      name: 'Banquet Hall 3',
-      capacity: '100-400 guests',
+      name: 'Ocean Pavilion',
+      capacity: '100-150 guests',
       area: 'Intimate venue',
       image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/OCEAN%20PAVILION.jpeg',
       features: ['Fully Air-Conditioned', 'Intimate Setting', 'Corporate Ready', 'Audio/Visual Support'],
@@ -99,8 +99,8 @@ const HERITAGE_ENHANCED_DATA = {
     },
     {
       id: 'outdoor-lawns',
-      name: 'Outdoor Lawns',
-      capacity: '500-800 guests',
+      name: 'Ocean Garden',
+      capacity: '300-400 guests',
       area: 'Two expansive lawns',
       image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/ROYAL%20AFFAIR.jpeg',
       features: ['Natural Setting', 'Weather Backup', 'Garden Views', 'Outdoor Ceremonies'],
@@ -143,76 +143,52 @@ const HERITAGE_ENHANCED_DATA = {
 
   experiences: [
     {
-      id: 'grand-weddings',
-      title: 'Grand Weddings',
-      subtitle: 'Royal Celebrations',
-      description: 'Seamless royal wedding experiences with multiple versatile spaces, outdoor ceremonies on expansive lawns, and magical poolside venues.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/pre%20wedding.jpg',
-      category: 'wedding'
+      id: 'corporate-events',
+      title: 'Corporate Events',
+      subtitle: 'Professional Excellence',
+      description: 'Experience flawless corporate events hosted at elegant, sophisticated venues with state-of-the-art facilities',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//zunn.jpg',
+      category: 'Business'
     },
     {
-      id: 'glasshouse-experience',
-      title: 'GlassHouse Banquet',
-      subtitle: 'Signature Venue',
-      description: 'Our signature GlassHouse banquet hall provides an elegant, fully air-conditioned venue for your most important celebrations.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House%20inside.jpeg',
-      category: 'venue'
+      id: 'poolside-soirees',
+      title: 'Poolside Soirées',
+      subtitle: 'Heritage Architecture',
+      description: 'Exclusive retreats with private pools perfect for magical poolside weddings and intimate celebrations',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//heroimage4.jpg',
+      category: 'Wedding'
     },
     {
-      id: 'corporate-conferences',
-      title: 'Corporate Conferences',
-      subtitle: 'Business Excellence',
-      description: 'Three fully air-conditioned banquet halls with flexible configurations for 100-1000 attendees, perfect for business events.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/grand%20celebrations%20rewari.jpg',
-      category: 'business'
+      id: 'grand-celebrations',
+      title: 'Grand Celebrations',
+      subtitle: 'Royal Events',
+      description: 'Magnificent venues for unforgettable events with royal ambiance and impeccable service',
+      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//grand%20celebrations%20rewari.jpg',
+      category: 'Event'
     },
     {
-      id: 'social-gatherings',
-      title: 'Social Gatherings',
-      subtitle: 'Memorable Moments',
-      description: 'Milestone celebrations, family reunions, and festive gatherings in our beautiful heritage setting with modern amenities.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1508_optimized_200.jpeg',
-      category: 'social'
+      id: 'premium-rooms',
+      title: '130 Premium Rooms',
+      subtitle: 'Luxury Accommodation',
+      description: 'Our property features 130 stylish Premium Rooms designed for your comfort and elegance',
+      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//standard%20room.jpg',
+      category: 'Accommodation'
     },
     {
-      id: 'pre-wedding-shoots',
-      title: 'Pre-Wedding Shoots',
-      subtitle: 'Picture Perfect',
-      description: 'Capture your special moments in our picturesque heritage setting with royal architecture and beautiful outdoor spaces.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal/corporate%20events.png',
-      category: 'photography'
-    },
-    {
-      id: 'dining-experiences',
+      id: 'dining-hall',
       title: 'Dining Experiences',
       subtitle: 'Culinary Excellence',
-      description: 'Elegant. Ambient. Refined. A dining experience like no other with world-class cuisine and traditional hospitality.',
+      description: 'Elegant. Ambient. Refined. A dining experience like no other with world-class cuisine',
       image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1504_optimized_200.jpeg',
-      category: 'dining'
+      category: 'Dining'
     },
     {
-      id: 'gourmet-cuisine',
-      title: 'Gourmet Cuisine',
-      subtitle: 'Master Chef Creations',
-      description: 'Savor exquisite dishes crafted by our master chefs, featuring authentic Indian flavors and international delicacies.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1508_optimized_200.jpeg',
-      category: 'dining'
-    },
-    {
-      id: 'fine-dining-ambience',
-      title: 'Fine Dining Ambience',
-      subtitle: 'Luxurious Setting',
-      description: 'Immerse yourself in our sophisticated dining atmosphere, where every meal becomes a memorable celebration.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1511_optimized_200.jpeg',
-      category: 'dining'
-    },
-    {
-      id: 'heritage-luxury',
-      title: 'Heritage Luxury',
-      subtitle: 'Royal Experience',
-      description: 'Experience the grandeur of royal heritage combined with modern luxury amenities for an unforgettable stay.',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/mainpagephoto5.jpg',
-      category: 'accommodation'
+      id: 'pre-wedding-rituals',
+      title: 'Pre Wedding Rituals',
+      subtitle: 'Sacred Traditions',
+      description: 'Traditional, joyful, colorful, sacred, festive, cultural, musical, emotional, celebratory events',
+      image: 'https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//pre%20wedding.jpg',
+      category: 'Wedding'
     }
   ],
 
@@ -232,8 +208,8 @@ const HERITAGE_ENHANCED_DATA = {
 
   quickStats: {
     rooms: 90,
-    diningVenues: 3,
-    eventCapacity: 1000,
+    diningVenues: 2,
+    eventCapacity: 1800,
     conciergeHours: '24/7'
   },
 
@@ -346,7 +322,7 @@ export function useTivoliHeritagePalace(slug: string = 'tivoli-heritage-palace')
             id: 'standard',
             name: 'Standard Room',
             description: 'Comfortable rooms with modern amenities and heritage charm',
-            size: '300 sq.ft.',
+            size: '250 sq.ft.',
             maxOccupancy: 2,
             bedType: 'King or Twin',
             images: [
@@ -356,10 +332,10 @@ export function useTivoliHeritagePalace(slug: string = 'tivoli-heritage-palace')
             amenities: ['Air Conditioning', 'LED TV', 'Mini Bar', 'Tea/Coffee Maker', '24/7 Room Service']
           },
           {
-            id: 'deluxe',
-            name: 'Deluxe Room',
+            id: 'Superior',
+            name: ' Superior Room',
             description: 'Spacious deluxe rooms with enhanced comfort and luxury',
-            size: '400 sq.ft.',
+            size: '350 sq.ft.',
             maxOccupancy: 3,
             bedType: 'King',
             images: [
@@ -369,16 +345,7 @@ export function useTivoliHeritagePalace(slug: string = 'tivoli-heritage-palace')
             ],
             amenities: ['Air Conditioning', 'LED TV', 'Mini Bar', 'Tea/Coffee Maker', '24/7 Room Service', 'Garden View']
           },
-          {
-            id: 'suite',
-            name: 'Heritage Suite',
-            description: 'Luxurious suites with separate living area and royal décor',
-            size: '600 sq.ft.',
-            maxOccupancy: 4,
-            bedType: 'King',
-            images: [],
-            amenities: ['Air Conditioning', 'LED TV', 'Mini Bar', 'Tea/Coffee Maker', '24/7 Room Service', 'Living Area', 'Premium Amenities']
-          }
+         
         ],
         dining: [],
         features: ['Heritage Architecture', 'Multiple Event Spaces', 'Outdoor Pool', 'Wedding Destination'],
