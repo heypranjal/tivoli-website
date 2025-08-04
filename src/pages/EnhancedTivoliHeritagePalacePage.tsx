@@ -96,7 +96,7 @@ const EnhancedTivoliHeritagePalacePage: React.FC = () => {
               onClick={() => window.location.reload()}
               className="bg-[#CD9F59] text-white px-6 py-2 rounded-lg hover:bg-[#CD9F59]/90 transition-colors duration-200"
             >
-              Try Again
+              Try Again after some time
             </button>
           </div>
         </div>
