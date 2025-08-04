@@ -33,11 +33,13 @@ import {
   SkeletonWedding,
   SkeletonContact
 } from '@/components/ui/SkeletonComponents';
-import { useOmniaDwarkaExpressway } from '@/hooks/useOmniaDwarkaExpressway';
+import { useOmniaDwarkaExpressway } from '@/hooks/useOmniaDwarkaExpresswayFixed';
 
 const OmniaDwarkaExpresswayPage: React.FC = () => {
   const { hotelSlug } = useParams<{ hotelSlug: string }>();
   
+  
+  try {
   // Progressive loading configuration - same as Tivoli pattern
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
@@ -84,6 +86,20 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
 
   // Show skeleton UI while data loads (much faster than full loading screen)
   const showSkeletonUI = loading && !hotelData;
+
+  // Add early return if still loading to prevent errors
+  if (loading && !hotelData) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center">
+            <h1 className="text-2xl font-serif text-neutral-800 mb-4">Loading...</h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Error state - same pattern as Tivoli
   if (error) {
@@ -137,27 +153,16 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
           ) : shouldLoad('overview') && hotelData ? (
             <OverviewSection
               hotelName={hotelData.name}
-              description={hotelData.description}
+              description="Welcome to Omnia by Tivoli, the premier celebration destination in Dwarka. Whether you're hosting a wedding, anniversary, birthday, or corporate event, our sophisticated banquet space provides the perfect backdrop for every occasion."
               location={hotelData.address.city}
-              additionalDescription={`Located in the prestigious ${hotelData.address.city} area, Omnia By Tivoli offers an exceptional blend of contemporary luxury and urban sophistication. Our hotel features elegantly designed rooms, modern event facilities, and innovative dining venues designed to exceed every expectation.`}
+              additionalDescription="With expert event planning, gourmet cuisine, and state-of-the-art amenities, we turn your vision into a seamless and stylish reality. Designed to accommodate everything from intimate gatherings to lavish celebrations, Omnia combines modern elegance with impeccable service. Centrally located in Dwarka with excellent connectivity to all parts of Delhi NCR, Omnia by Tivoli is where unforgettable memories are made."
               quickStats={quickStats}
             />
           ) : (
             <SkeletonOverview />
           )}
 
-          {/* Accommodations Section - Secondary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonAccommodations />
-          ) : shouldLoad('accommodations') ? (
-            <AccommodationsSection
-              rooms={rooms}
-              loading={roomsLoading}
-              error={roomsError}
-            />
-          ) : (
-            <SkeletonAccommodations />
-          )}
+          {/* Accommodations Section - Removed as no rooms available */}
 
           {/* Experiences Section - Tertiary Loading */}
           {showSkeletonUI ? (
@@ -178,6 +183,7 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
           )}
 
           {/* Dining Section - Tertiary Loading */}
+          {/* Temporarily disabled - checking if this causes the error
           {showSkeletonUI ? (
             <SkeletonDining />
           ) : shouldLoad('dining') ? (
@@ -185,6 +191,7 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
           ) : (
             <SkeletonDining />
           )}
+          */}
 
           {/* Gallery Section - Tertiary Loading */}
           {showSkeletonUI ? (
@@ -202,7 +209,10 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
           {showSkeletonUI ? (
             <SkeletonWedding />
           ) : shouldLoad('wedding') && hotelData ? (
-            <WeddingDestinationSection hotelName={hotelData.name} />
+            <WeddingDestinationSection 
+              hotelName={hotelData.name} 
+              heroImage="https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniativolidwarka//wedding.jpg"
+            />
           ) : (
             <SkeletonWedding />
           )}
@@ -221,6 +231,7 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
       </div>
 
       {/* Booking Form - Loads in background, outside main container */}
+      {/* Temporarily disabled to check if this is causing the issue
       {shouldLoad('booking-form') && hotelData && (
         <Suspense fallback={<div className="h-64" />}>
           <VenueBookingForm 
@@ -230,8 +241,26 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
           />
         </Suspense>
       )}
+      */}
     </div>
   );
+  } catch (error) {
+    console.error('Error in OmniaDwarkaExpresswayPage:', error);
+    return (
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center">
+            <h1 className="text-2xl font-serif text-neutral-800 mb-4">Something went wrong</h1>
+            <p className="text-neutral-600 mb-6">Please check the console for error details</p>
+            <pre className="text-left bg-gray-100 p-4 rounded max-w-2xl mx-auto overflow-auto">
+              {String(error)}
+            </pre>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default OmniaDwarkaExpresswayPage;

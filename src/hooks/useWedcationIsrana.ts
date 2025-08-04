@@ -29,20 +29,11 @@ export interface WedcationDiningVenue {
   specialties?: string[];
 }
 
-export interface WedcationExperience {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  category: string;
-}
 
 export interface EnhancedWedcationData extends Hotel {
   // Additional specific data for Wedcation by Tivoli
   spaces: WedcationSpace[];
   diningVenues: WedcationDiningVenue[];
-  experiences: WedcationExperience[];
   galleryImages: string[];
   virtualTour?: {
     url: string;
@@ -156,57 +147,6 @@ const WEDCATION_ENHANCED_DATA = {
     }
   ],
 
-  experiences: [
-    {
-      id: 'destination-weddings',
-      title: 'Destination Weddings',
-      subtitle: '4-Star Luxury Property',
-      description: 'Comprehensive destination wedding packages with 46 rooms (18 operational, 28 under construction) and world-class venues including The Castle',
-      image: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      category: 'Wedding'
-    },
-    {
-      id: 'pre-wedding-shoots',
-      title: 'Pre-Wedding Photography',
-      subtitle: 'Castle & Gardens',
-      description: 'Stunning settings including The Castle, 22,000 sq ft open lawn, Glass House, and poolside areas for memorable photo sessions',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      category: 'Photography'
-    },
-    {
-      id: 'corporate-events',
-      title: 'Corporate Events',
-      subtitle: 'Major Corporate Clients',
-      description: 'Professional venues serving major clients like Mahindra, Adani Group, Microtek, and NC Medical College',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      category: 'Business'
-    },
-    {
-      id: 'luxury-accommodation',
-      title: '46 Premium Rooms',
-      subtitle: 'Deluxe to Suite Rooms',
-      description: '5 Deluxe (230 sq ft), 10 Super Deluxe (250 sq ft), 3 Suite Rooms (480 sq ft), plus 28 villas under construction',
-      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      category: 'Accommodation'
-    },
-    {
-      id: 'special-packages',
-      title: 'Stay + Event Packages',
-      subtitle: 'Complete Experience',
-      description: 'Special packages combining luxury accommodation with event venues and comprehensive catering services',
-      image: 'https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      category: 'Packages'
-    },
-    {
-      id: 'recreational-facilities',
-      title: 'Recreation & Wellness',
-      subtitle: 'Comprehensive Facilities',
-      description: 'Swimming pool, badminton court, cycling track, with spa, gym, and kids play area under construction',
-      image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      category: 'Recreation'
-    }
-  ],
-
   galleryImages: [
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Gallary/436A0784.jpeg',
     'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana/Gallary/Hotel%20Entrance.jpeg',
@@ -222,15 +162,15 @@ const WEDCATION_ENHANCED_DATA = {
   },
 
   quickStats: {
-    rooms: 18,
-    diningVenues: 3,
-    eventCapacity: 1000,
+    rooms: 46,
+    diningVenues: 1,
+    eventCapacity: 2000,
     conciergeHours: '24/7'
   },
 
   socialMedia: {
-    instagram: 'https://www.instagram.com/wedcationbytivoli/',
-    facebook: 'https://www.facebook.com/wedcationbytivoliisrana/',
+    instagram: 'https://www.instagram.com/wedcationisrana/',
+    facebook: 'https://www.facebook.com/profile.php?id=61572262749546',
     website: 'https://tivolibanquets.com/'
   }
 };
@@ -412,7 +352,6 @@ export function useWedcationIsrana(slug: string = 'wedcation-by-tivoli-israna') 
     // Expose individual sections for component-level usage
     spaces: WEDCATION_ENHANCED_DATA.spaces,
     diningVenues: WEDCATION_ENHANCED_DATA.diningVenues,
-    experiences: WEDCATION_ENHANCED_DATA.experiences,
     galleryImages: enhancedData?.galleryImages || WEDCATION_ENHANCED_DATA.galleryImages,
     virtualTour: WEDCATION_ENHANCED_DATA.virtualTour,
     quickStats: WEDCATION_ENHANCED_DATA.quickStats,

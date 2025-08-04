@@ -1014,184 +1014,194 @@ const bijwasanHotel = {
 
 hotels.push(bijwasanHotel);
 const royalCourtOkhlaHotel = {
-  id: 'tivoli-royal-court-okhla',
-  name: 'Tivoli Royal Court - Okhla',
-  brand: 'tivoli',
-  slug: 'tivoli-royal-court-okhla',
-  description: 'Experience premier banquet and event services at Tivoli Royal Court - Okhla, where every celebration becomes a masterpiece. Located in the dynamic Okhla Industrial Area, this sophisticated venue specializes in weddings, conferences, and corporate events with world-class facilities and catering services.',
+  id: "tivoli-royal-court-okhla",
+  name: "Tivoli Royal Court - Okhla",
+  brand: "tivoli",
+  slug: "tivoli-royal-court-okhla",
+  description:
+    "Exper premier banquet and event services at Tivoli Royal Court - Okhla, where every celebration becomes a masterpiece. Located in the dynamic Okhla Industrial Area, this sophisticated venue specializes in weddings, conferences, and corporate events with world-class facilities and catering services.",
   images: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg',
-    'https://images.unsplash.com/photo-1464808322410-1a934aab61e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg'
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg",
+    "https://images.unsplash.com/photo-1464808322410-1a934aab61e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg",
   ],
   rating: 4.5,
   address: {
-    street: 'D-185, Pocket D, Okhla Phase I, Okhla Industrial Area',
-    city: 'New Delhi',
-    state: 'Delhi',
-    country: 'India',
-    postalCode: '110020',
+    street: "D-185, Pocket D, Okhla Phase I, Okhla Industrial Area",
+    city: "New Delhi",
+    state: "Delhi",
+    country: "India",
+    postalCode: "110020",
     coordinates: {
       lat: 28.5456,
-      lng: 77.2548
-    }
+      lng: 77.2548,
+    },
   },
   contact: {
-    phone: '8588850354, 9818553333',
-    email: 'reservations@thetivolihotels.com',
-    website: 'https://tivolibanquets.com/'
+    phone: "9212466424",
+    email: "corporate@tivolihotels.co.in",
+    website: "https://tivolibanquets.com/",
   },
   amenities: [
     {
-      id: 'wifi',
-      name: 'High-Speed WiFi',
-      description: 'Complimentary high-speed internet access throughout the property',
-      icon: 'Signal'
+      id: "wifi",
+      name: "High-Speed WiFi",
+      description:
+        "Complimentary high-speed internet access throughout the property",
+      icon: "Signal",
     },
     {
-      id: 'parking',
-      name: 'Valet Parking',
-      description: 'Ample parking space for events and guests',
-      icon: 'Car'
+      id: "parking",
+      name: "Valet Parking",
+      description: "Ample parking space for events and guests",
+      icon: "Car",
     },
     {
-      id: 'catering',
-      name: 'In-house Catering',
-      description: 'Custom menus and live counters for all events',
-      icon: 'Utensils'
+      id: "catering",
+      name: "In-house Catering",
+      description: "Custom menus and live counters for all events",
+      icon: "Utensils",
     },
     {
-      id: 'events',
-      name: 'Event Services',
-      description: 'Complete event planning and destination wedding services',
-      icon: 'Calendar'
+      id: "events",
+      name: "Event Services",
+      description: "Complete event planning and destination wedding services",
+      icon: "Calendar",
     },
     {
-      id: 'photography',
-      name: 'Pre-Wedding Shoots',
-      description: 'Professional photography services and elegant backdrops',
-      icon: 'Camera'
-    }
+      id: "photography",
+      name: "Pre-Wedding Shoots",
+      description: "Professional photography services and elegant backdrops",
+      icon: "Camera",
+    },
   ],
   rooms: [],
   venues: [
     {
-      id: 'astoria',
-      name: 'ASTORIA',
-      description: '1st & 2nd Floor Combined - Perfect for grand celebrations and large gatherings',
-      size: '9,000 sq.ft',
-      capacity: '350-450 guests',
-      floor: '1st & 2nd Floor Combined',
+      id: "astoria",
+      name: "Astoria Hall",
+      description:
+        "1st & 2nd Floor Combined - Perfect for grand celebrations and large gatherings",
+      size: "9,000 sq.ft",
+      capacity: "350-450 guests",
+      floor: "1st & 2nd Floor Combined",
       images: [
-        'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80',
-        'https://images.unsplash.com/photo-1464808322410-1a934aab61e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+        "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80",
+        "https://images.unsplash.com/photo-1464808322410-1a934aab61e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       ],
       amenities: [
-        'Stage Setup',
-        'Professional Lighting',
-        'Sound System',
-        'Air Conditioning',
-        'Dance Floor'
+        "Stage Setup",
+        "Professional Lighting",
+        "Sound System",
+        "Air Conditioning",
+        "Dance Floor",
       ],
-      eventTypes: ['Weddings', 'Receptions', 'Corporate Events', 'Conferences']
+      eventTypes: ["Weddings", "Receptions", "Corporate Events", "Conferences"],
     },
     {
-      id: 'regency',
-      name: 'REGENCY',
-      description: 'Ground Floor venue ideal for intimate gatherings and corporate meetings',
-      size: '8,000 sq.ft',
-      capacity: '100-300 guests',
-      floor: 'Ground Floor',
+      id: "regency",
+      name: "REGENCY",
+      description:
+        "Ground Floor venue ideal for intimate gatherings and corporate meetings",
+      size: "8,000 sq.ft",
+      capacity: "100-300 guests",
+      floor: "Ground Floor",
       images: [
-        'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-        'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg'
+        "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image//updated-homepagae-RoyalCourt-hp-thumbnail.jpg",
       ],
       amenities: [
-        'Flexible Seating',
-        'Audio Visual Equipment',
-        'Natural Lighting',
-        'Direct Access',
-        'Catering Kitchen'
+        "Flexible Seating",
+        "Audio Visual Equipment",
+        "Natural Lighting",
+        "Direct Access",
+        "Catering Kitchen",
       ],
-      eventTypes: ['Meetings', 'Conferences', 'Small Weddings', 'Corporate Events']
+      eventTypes: [
+        "Meetings",
+        "Conferences",
+        "Small Weddings",
+        "Corporate Events",
+      ],
     },
     {
-      id: 'outdoor-venue',
-      name: 'Outdoor Venue',
-      description: 'Beautiful outdoor space for garden parties and outdoor ceremonies',
-      size: 'Variable',
-      capacity: '100-200 guests',
-      floor: 'Ground Level',
+      id: "outdoor-venue",
+      name: "Outdoor Venue",
+      description:
+        "Beautiful outdoor space for garden parties and outdoor ceremonies",
+      size: "Variable",
+      capacity: "100-200 guests",
+      floor: "Ground Level",
       images: [
-        'https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80'
+        "https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
       ],
       amenities: [
-        'Garden Setting',
-        'Weather Protection',
-        'Scenic Backdrop',
-        'Flexible Layout'
+        "Garden Setting",
+        "Weather Protection",
+        "Scenic Backdrop",
+        "Flexible Layout",
       ],
-      eventTypes: ['Garden Parties', 'Outdoor Ceremonies', 'Cocktail Events']
-    }
+      eventTypes: ["Garden Parties", "Outdoor Ceremonies", "Cocktail Events"],
+    },
   ],
   catering: {
     services: [
-      'In-house Catering',
-      'Outside Catering Allowed',
-      'Custom Menus',
-      'Live Counters',
-      'Multi-cuisine Options'
+      "In-house Catering",
+      "Outside Catering Allowed",
+      "Custom Menus",
+      "Live Counters",
+      "Multi-cuisine Options",
     ],
     specialties: [
-      'Indian Cuisine',
-      'Continental',
-      'Chinese',
-      'Live Chat Counter',
-      'Dessert Station'
+      "Indian Cuisine",
+      "Continental",
+      "Chinese",
+      "Live Chat Counter",
+      "Dessert Station",
     ],
     packageTypes: [
-      'Wedding Packages',
-      'Corporate Packages',
-      'Conference Packages',
-      'Stay + Event Packages'
-    ]
+      "Wedding Packages",
+      "Corporate Packages",
+      "Conference Packages",
+      "Stay + Event Packages",
+    ],
   },
   dining: [],
   features: [
-    'Premier Event Venue',
-    'Multiple Banquet Halls',
-    'Outdoor Venue',
-    'In-house Catering',
-    'Destination Weddings',
-    'Pre-Wedding Shoots',
-    'Corporate Events',
-    'Meeting Rooms',
-    'Valet Parking',
-    'Custom Event Planning',
-    'Professional Photography',
-    'Live Counters',
-    'Loyalty Programs'
+    "Premier Event Venue",
+    "Multiple Banquet Halls",
+    "Outdoor Venue",
+    "In-house Catering",
+    "Destination Weddings",
+    "Pre-Wedding Shoots",
+    "Corporate Events",
+    "Meeting Rooms",
+    "Valet Parking",
+    "Custom Event Planning",
+    "Professional Photography",
+    "Live Counters",
+    "Loyalty Programs",
   ],
   policies: {
-    eventBooking: 'Advance booking required',
-    catering: 'In-house and outside catering both allowed',
-    decoration: 'In-house decoration services available',
-    cancellation: '48 hours before event date',
-    capacity: '100 - 450 guests',
-    parking: 'Complimentary valet parking'
+    eventBooking: "Advance booking required",
+    catering: "In-house and outside catering both allowed",
+    decoration: "In-house decoration services available",
+    cancellation: "48 hours before event date",
+    capacity: "100 - 450 guests",
+    parking: "Complimentary valet parking",
   },
   specialServices: {
     destinationWeddings: true,
     preWeddingShoots: true,
     corporateEvents: true,
     customPackages: true,
-    loyaltyPrograms: true
+    loyaltyPrograms: true,
   },
   location: {
-    airportDistance: '20 km from IGI Airport',
-    accessibility: 'Easily accessible from major Delhi areas'
-  }
+    airportDistance: "20 km from IGI Airport",
+    accessibility: "Easily accessible from major Delhi areas",
+  },
 } as Hotel;
 
 hotels.push(royalCourtOkhlaHotel);

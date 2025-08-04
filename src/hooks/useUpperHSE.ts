@@ -205,8 +205,8 @@ const UPPER_HSE_ENHANCED_DATA = {
   },
 
   quickStats: {
-    rooms: 4,
-    diningVenues: 1,
+    rooms: 0,
+    diningVenues: 0,
     eventCapacity: 1000,
     conciergeHours: '24/7'
   },

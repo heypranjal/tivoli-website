@@ -22,6 +22,7 @@ import EnhancedUpperHSEPage from './EnhancedUpperHSEPage';
 import EnhancedWedcationAmbalaPage from './EnhancedWedcationAmbalaPage';
 import EnhancedWedcationIsranaPage from './EnhancedWedcationIsranaPage';
 import EnhancedRoyalCourtPage from './EnhancedRoyalCourtPage';
+import OmniaGreaterNoidaPage from './OmniaGreaterNoidaPage';
 import { 
   MapPin, 
   Phone, 
@@ -105,6 +106,11 @@ export default function HotelPage() {
   // Use enhanced page for Tivoli Royal Court - Okhla
   if (hotelSlug === 'tivoli-royal-court-okhla') {
     return <EnhancedRoyalCourtPage />;
+  }
+  
+  // Use enhanced page for Omnia Greater Noida
+  if (hotelSlug === 'omnia-greater-noida') {
+    return <OmniaGreaterNoidaPage />;
   }
   
   const { data: hotelData, loading: isLoading, error } = useHotel(hotelSlug || '');

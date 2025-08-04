@@ -15,9 +15,21 @@ interface WeddingDestinationSectionProps {
 
 export const WeddingDestinationSection: React.FC<WeddingDestinationSectionProps> = ({
   hotelName = "The Tivoli-New Delhi",
-  heroImage = "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//heroimage4.jpg",
+  heroImage,
   className = '',
 }) => {
+  // Use specific images for different hotels
+  const defaultHeroImage = hotelName?.toLowerCase().includes('bijwasan')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan//Merriage%20at%20Tivoli%20Bijwasan.jpeg"
+    : hotelName?.toLowerCase().includes('royal court')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt//Celebration%20at%20Okhla.jpeg"
+    : hotelName?.toLowerCase().includes('upper hse')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur//Corporate%20Event%20Image.jpeg"
+    : hotelName?.toLowerCase().includes('wedcation') && hotelName?.toLowerCase().includes('israna')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//isranafrontviewfull.jpeg"
+    : "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//updated-mainpagephoto4.jpg";
+  
+  const finalHeroImage = heroImage || defaultHeroImage;
   return (
     <section className={`py-12 bg-neutral-50 ${className}`}>
       <div className="container mx-auto px-4">
@@ -25,10 +37,16 @@ export const WeddingDestinationSection: React.FC<WeddingDestinationSectionProps>
           {/* Section Header */}
           <div className="text-center mb-8">
             <p className="text-[#CD9F59] text-xs font-medium tracking-wider uppercase mb-2">
-              YOUR DREAM WEDDING DESTINATION
+              {hotelName?.toLowerCase().includes('upper hse') 
+                ? 'YOUR PREMIER BUSINESS DESTINATION' 
+                : 'YOUR DREAM CELEBRATION DESTINATION'}
             </p>
             <h2 className="font-serif text-2xl text-neutral-800">
-              Wedding at {hotelName}
+              {hotelName?.toLowerCase().includes('upper hse') 
+                ? 'Corporate Event at' 
+                : hotelName?.toLowerCase().includes('royal court') 
+                ? 'Celebrations At' 
+                : 'Wedding at'} {hotelName}
             </h2>
           </div>
 
@@ -38,8 +56,12 @@ export const WeddingDestinationSection: React.FC<WeddingDestinationSectionProps>
             <div className="relative">
               <div className="relative rounded-xl overflow-hidden shadow-lg">
                 <SmartImage
-                  src={heroImage}
-                  alt={`Wedding venue at ${hotelName}`}
+                  src={finalHeroImage}
+                  alt={`${hotelName?.toLowerCase().includes('upper hse') 
+                    ? 'Corporate Event' 
+                    : hotelName?.toLowerCase().includes('royal court') 
+                    ? 'Celebration' 
+                    : 'Wedding'} venue at ${hotelName}`}
                   className="w-full h-[320px] object-cover"
                   optimize={{
                     width: 500,
@@ -118,7 +140,7 @@ export const WeddingDestinationSection: React.FC<WeddingDestinationSectionProps>
                   }}
                   className="w-full bg-[#CD9F59] hover:bg-[#B88D47] text-white py-3 px-6 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center space-x-2"
                 >
-                  <span>Plan Your Wedding</span>
+                  <span>{hotelName?.toLowerCase().includes('royal court') ? 'Plan Your Celebration' : 'Plan Your Wedding'}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

@@ -9,7 +9,7 @@ import { Users, Calendar, MapPin } from 'lucide-react';
 interface Space {
   id: string;
   name: string;
-  capacity: number | string;
+  capacity: number | string | { min: number; max: number };
   area: string;
   image: string;
   features: string[];
@@ -51,7 +51,9 @@ export const SpacesSection: React.FC<SpacesSectionProps> = ({
               <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full">
                 <span className="text-xs font-medium flex items-center">
                   <Users className="w-3 h-3 mr-1" />
-                  Capacity {space.capacity}
+                  Capacity {typeof space.capacity === 'object' && 'min' in space.capacity 
+                    ? `${space.capacity.min}-${space.capacity.max}` 
+                    : space.capacity}
                 </span>
               </div>
             </div>

@@ -62,148 +62,179 @@ export interface EnhancedTivoliData extends Hotel {
 const TIVOLI_ENHANCED_DATA = {
   spaces: [
     {
-      id: 'marquee',
-      name: 'Marquee',
+      id: "marquee",
+      name: "Marquee",
       capacity: 400,
-      area: '5,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/eventspace/Marquee-14_optimized_200.jpeg',
+      area: "20,000 sq ft",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/eventspace/Marquee-14_optimized_200.jpeg",
       features: [
-        'Elegant marquee setting',
-        'Professional sound system',
-        'LED lighting setup',
-        'Climate controlled',
-        'Premium catering facilities',
-        'Sophisticated ambiance'
+        "Elegant marquee setting",
+        "Professional sound system",
+        "LED lighting setup",
+        "Climate controlled",
+        "Premium catering facilities",
+        "Sophisticated ambiance",
       ],
-      description: 'Sophisticated marquee venue perfect for elegant celebrations and corporate events'
+      description:
+        "Sophisticated marquee venue perfect for elegant celebrations and corporate events",
     },
     {
-      id: 'pavilion',
-      name: 'Pavilion',
-      capacity: 300,
-      area: '4,000 sq ft',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/eventspace/Pavilion_optimized_200.jpg',
+      id: "pavilion",
+      name: "Pavilion",
+      capacity: 550,
+      area: "22,000 sq ft",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/eventspace/Pavilion_optimized_200.jpg",
       features: [
-        'Beautiful pavilion architecture',
-        'Natural lighting',
-        'Outdoor setting',
-        'Garden views',
-        'Perfect for day events',
-        'Scenic backdrop'
+        "Beautiful pavilion architecture",
+        "Natural lighting",
+        "Outdoor setting",
+        "Garden views",
+        "Perfect for day events",
+        "Scenic backdrop",
       ],
-      description: 'Stunning pavilion venue with beautiful architecture and garden views for memorable events'
-    }
+      description:
+        "Stunning pavilion venue with beautiful architecture and garden views for memorable events",
+    },
   ],
 
   diningVenues: [
     {
-      id: 'spice-route',
-      name: 'Spice Route',
-      description: 'Authentic Indian cuisine featuring regional specialties and traditional cooking techniques in an elegant setting',
-      cuisine: 'North Indian',
-      hours: '12:00 PM - 11:30 PM',
-      dressCode: 'Smart Casual',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/spice-route.jpg',
-      specialties: ['Tandoor Specialties', 'Regional Curries', 'Traditional Breads']
+      id: "spice-route",
+      name: "Spice Route",
+      description:
+        "Authentic Indian cuisine featuring regional specialties and traditional cooking techniques in an elegant setting",
+      cuisine: "North Indian",
+      hours: "12:00 PM - 11:30 PM",
+      dressCode: "Smart Casual",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/spice-route.jpg",
+      specialties: [
+        "Tandoor Specialties",
+        "Regional Curries",
+        "Traditional Breads",
+      ],
     },
     {
-      id: 'garden-cafe',
-      name: 'Garden Café',
-      description: 'Casual dining experience with continental and Indian favorites in a serene garden setting',
-      cuisine: 'Multi-Cuisine',
-      hours: '7:00 AM - 11:00 PM',
-      dressCode: 'Casual',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/garden-cafe.jpg',
-      specialties: ['All-Day Dining', 'Garden Views', 'Fresh Preparations']
+      id: "garden-cafe",
+      name: "Garden Café",
+      description:
+        "Casual dining experience with continental and Indian favorites in a serene garden setting",
+      cuisine: "Multi-Cuisine",
+      hours: "7:00 AM - 11:00 PM",
+      dressCode: "Casual",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/garden-cafe.jpg",
+      specialties: ["All-Day Dining", "Garden Views", "Fresh Preparations"],
     },
     {
-      id: 'royal-lounge',
-      name: 'Royal Lounge',
-      description: 'Premium bar and lounge featuring finest spirits, signature cocktails, and gourmet appetizers',
-      cuisine: 'Bar & Appetizers',
-      hours: '5:00 PM - 12:00 AM',
-      dressCode: 'Smart Casual',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/royal-lounge.jpg',
-      specialties: ['Premium Spirits', 'Signature Cocktails', 'Gourmet Appetizers']
-    }
+      id: "royal-lounge",
+      name: "Royal Lounge",
+      description:
+        "Premium bar and lounge featuring finest spirits, signature cocktails, and gourmet appetizers",
+      cuisine: "Bar & Appetizers",
+      hours: "5:00 PM - 12:00 AM",
+      dressCode: "Smart Casual",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/royal-lounge.jpg",
+      specialties: [
+        "Premium Spirits",
+        "Signature Cocktails",
+        "Gourmet Appetizers",
+      ],
+    },
   ],
 
   experiences: [
     {
-      id: 'wedding-ceremonies',
-      title: 'Dream Weddings',
-      subtitle: 'Magical Celebrations',
-      description: 'Create unforgettable memories with our comprehensive wedding packages in luxurious venues',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/wedding-ceremonies.jpg',
-      category: 'Wedding'
+      id: "corporate-events",
+      title: "Corporate Events",
+      subtitle: "Professional Excellence",
+      description:
+        "Experience flawless corporate events hosted at elegant, sophisticated venues with state-of-the-art facilities",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//zunn.jpg",
+      category: "Business",
     },
     {
-      id: 'corporate-meetings',
-      title: 'Business Excellence',
-      subtitle: 'Professional Venues',
-      description: 'Host successful corporate events and meetings with state-of-the-art facilities and services',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/corporate-meetings.jpg',
-      category: 'Business'
+      id: "poolside-soirees",
+      title: "Poolside Soirées",
+      subtitle: "Heritage Architecture",
+      description:
+        "Exclusive retreats with private pools perfect for magical poolside weddings and intimate celebrations",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//heroimage4.jpg",
+      category: "Wedding",
     },
     {
-      id: 'festive-celebrations',
-      title: 'Festive Celebrations',
-      subtitle: 'Cultural Events',
-      description: 'Celebrate festivals and cultural events with traditional decorations and authentic cuisine',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/festive-celebrations.jpg',
-      category: 'Event'
+      id: "grand-celebrations",
+      title: "Grand Celebrations",
+      subtitle: "Royal Events",
+      description:
+        "Magnificent venues for unforgettable events with royal ambiance and impeccable service",
+      image:
+        "https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//grand%20celebrations%20rewari.jpg",
+      category: "Event",
     },
     {
-      id: 'luxury-accommodation',
-      title: '120 Luxury Rooms',
-      subtitle: 'Comfort & Elegance',
-      description: 'Our property features 120 well-appointed rooms designed for ultimate comfort and relaxation',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/luxury-rooms.jpg',
-      category: 'Accommodation'
+      id: "premium-rooms",
+      title: "50 Premium Rooms",
+      subtitle: "Luxury Accommodation",
+      description:
+        "Our property features 50 stylish Premium Rooms designed for your comfort and elegance",
+      image:
+        "https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//standard%20room.jpg",
+      category: "Accommodation",
     },
     {
-      id: 'fine-dining',
-      title: 'Culinary Journey',
-      subtitle: 'Gastronomic Delights',
-      description: 'Embark on a culinary journey with our diverse dining options and expert chefs',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/fine-dining.jpg',
-      category: 'Dining'
+      id: "dining-hall",
+      title: "Dining Experiences",
+      subtitle: "Culinary Excellence",
+      description:
+        "Elegant. Ambient. Refined. A dining experience like no other with world-class cuisine",
+      image:
+        "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1504_optimized_200.jpeg",
+      category: "Dining",
     },
     {
-      id: 'garden-parties',
-      title: 'Garden Parties',
-      subtitle: 'Outdoor Elegance',
-      description: 'Host elegant outdoor parties and gatherings in our beautifully landscaped gardens',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/garden-parties.jpg',
-      category: 'Event'
-    }
+      id: "pre-wedding-rituals",
+      title: "Pre Wedding Rituals",
+      subtitle: "Sacred Traditions",
+      description:
+        "Traditional, joyful, colorful, sacred, festive, cultural, musical, emotional, celebratory events",
+      image:
+        "https://oawudxprjjgsdtsvroqt.supabase.co/storage/v1/object/public/tivoliheritagerewari//pre%20wedding.jpg",
+      category: "Wedding",
+    },
   ],
 
   galleryImages: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Marquee-14.jpeg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Marquee-9.jpeg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Pavilion.jpeg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Facade.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Facade2.jpg'
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Marquee-14.jpeg",
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Marquee-9.jpeg",
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Pavilion.jpeg",
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Facade.jpg",
+    "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/Banner/Facade2.jpg",
   ],
 
   virtualTour: {
-    url: 'https://spalba.com/properties/bijwasan-tivoli?share=true&play=0&nt=1',
-    provider: 'spalba' as const,
-    thumbnail: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/main-entrance.jpg'
+    url: "https://spalba.com/properties/bijwasan-tivoli?share=true&play=0&nt=1",
+    provider: "spalba" as const,
+    thumbnail:
+      "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolibijwasan/main-entrance.jpg",
   },
 
   quickStats: {
-    rooms: 2, // Deluxe and Super Deluxe room types
-    diningVenues: 3,
-    eventCapacity: 1200,
-    conciergeHours: '24/7'
+    rooms: 50, // Deluxe and Super Deluxe room types
+    diningVenues: 0,
+    eventCapacity: 1000,
+    conciergeHours: "24/7",
   },
 
   socialMedia: {
-    instagram: 'https://www.instagram.com/thetivoli.bijwasan/',
-    facebook: 'https://www.facebook.com/thetivolibijwasan'
-  }
+    instagram: "https://www.instagram.com/tivolibijwasan/",
+    facebook: "https://www.facebook.com/tivolibijwasan",
+  },
 };
 
 /**
@@ -273,70 +304,112 @@ export function useTivoliBijwasan(slug: string = 'tivoli-bijwasan') {
     // Fallback data if database is not configured
     if (useFallback) {
       return {
-        id: 'tivoli-bijwasan',
-        name: 'Tivoli Bijwasan',
-        brand: 'tivoli',
-        location: 'bijwasan',
-        slug: 'tivoli-bijwasan',
-        description: 'Experience luxury and elegance at Tivoli Bijwasan, where contemporary comfort meets traditional hospitality. Located in the serene Bijwasan area of New Delhi, this elegant property offers a perfect retreat from the bustling city life.',
+        id: "tivoli-bijwasan",
+        name: "Tivoli Bijwasan",
+        brand: "tivoli",
+        location: "bijwasan",
+        slug: "tivoli-bijwasan",
+        description:
+          "Experience luxury and elegance at Tivoli Bijwasan, where contemporary comfort meets traditional hospitality. Located in the serene Bijwasan area of New Delhi, this elegant property offers a perfect retreat from the bustling city life.",
         images: TIVOLI_ENHANCED_DATA.galleryImages,
         rating: 5,
         address: {
-          street: 'Bijwasan Road',
-          city: 'Bijwasan, New Delhi',
-          state: 'Delhi',
-          country: 'India',
-          postalCode: '110061',
+          street: "Bijwasan Road",
+          city: "Bijwasan, New Delhi",
+          state: "Delhi",
+          country: "India",
+          postalCode: "110061",
           coordinates: {
             lat: 28.5601,
-            lng: 77.0648
-          }
+            lng: 77.0648,
+          },
         },
         contact: {
-          phone: '+91 11 4747 9999, +91 985 855 3333',
-          email: 'reservations@thetivolihotels.com'
+          phone: "7290035905",
+          email: "salesbijwasan@tivolihotels.co.in",
         },
         amenities: [
-          { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Signal' },
-          { id: 'pool', name: 'Swimming Pool', description: 'Beautiful outdoor pool with garden views', icon: 'Pool' },
-          { id: 'fitness', name: 'Fitness Center', description: '24/7 modern fitness center with latest equipment', icon: 'Dumbbell' },
-          { id: 'dining', name: 'Fine Dining', description: 'Multiple dining venues with diverse cuisine options', icon: 'Utensils' }
+          {
+            id: "wifi",
+            name: "High-Speed WiFi",
+            description:
+              "Complimentary high-speed internet access throughout the property",
+            icon: "Signal",
+          },
+          {
+            id: "pool",
+            name: "Swimming Pool",
+            description: "Beautiful outdoor pool with garden views",
+            icon: "Pool",
+          },
+          {
+            id: "fitness",
+            name: "Fitness Center",
+            description: "24/7 modern fitness center with latest equipment",
+            icon: "Dumbbell",
+          },
+          {
+            id: "dining",
+            name: "Fine Dining",
+            description: "Multiple dining venues with diverse cuisine options",
+            icon: "Utensils",
+          },
         ],
         rooms: [
           {
-            id: 'deluxe',
-            name: 'Deluxe Room',
-            description: 'Spacious 40 sq.m. room with garden views and modern amenities',
-            size: '40 sq.m.',
+            id: "deluxe",
+            name: "Deluxe Room",
+            description:
+              "Spacious 40 sq.m. room with garden views and modern amenities",
+            size: "40 sq.m.",
             maxOccupancy: 2,
-            bedType: 'King or Twin',
+            bedType: "King or Twin",
             images: [
-              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/rooms/Deluxe%20Room.jpeg'
+              "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/rooms/Deluxe%20Room.jpeg",
             ],
-            amenities: ['Garden View', 'Rain Shower', 'Mini Bar', 'Smart TV', '24/7 Room Service'],
-            price: { currency: 'INR', amount: 20000 }
+            amenities: [
+              "Garden View",
+              "Rain Shower",
+              "Mini Bar",
+              "Smart TV",
+              "24/7 Room Service",
+            ],
+            price: { currency: "INR", amount: 20000 },
           },
           {
-            id: 'super-deluxe',
-            name: 'Super Deluxe Room',
-            description: 'Luxurious 50 sq.m. room with premium amenities and stunning views',
-            size: '50 sq.m.',
+            id: "super-deluxe",
+            name: "Super Deluxe Room",
+            description:
+              "Luxurious 50 sq.m. room with premium amenities and stunning views",
+            size: "50 sq.m.",
             maxOccupancy: 3,
-            bedType: 'King',
+            bedType: "King",
             images: [
-              'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/rooms/Super%20Deluxe.jpeg'
+              "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolibijwasan/rooms/Super%20Deluxe.jpeg",
             ],
-            amenities: ['Premium City View', 'Marble Bathroom', 'Premium Mini Bar', '55" Smart TV', 'Butler Service', 'Complimentary WiFi'],
-            price: { currency: 'INR', amount: 30000 }
-          }
+            amenities: [
+              "Premium City View",
+              "Marble Bathroom",
+              "Premium Mini Bar",
+              '55" Smart TV',
+              "Butler Service",
+              "Complimentary WiFi",
+            ],
+            price: { currency: "INR", amount: 30000 },
+          },
         ],
         dining: [],
-        features: ['Garden Setting', 'Luxury Spa', 'Multiple Banquet Halls', 'Outdoor Pool'],
+        features: [
+          "Garden Setting",
+          "Luxury Spa",
+          "Multiple Banquet Halls",
+          "Outdoor Pool",
+        ],
         policies: {
-          checkIn: '2:00 PM',
-          checkOut: '12:00 PM',
-          cancellation: '24 hours before arrival',
-          pets: 'Not allowed'
+          checkIn: "2:00 PM",
+          checkOut: "12:00 PM",
+          cancellation: "24 hours before arrival",
+          pets: "Not allowed",
         },
         ...TIVOLI_ENHANCED_DATA,
       };
