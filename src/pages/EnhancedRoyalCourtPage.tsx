@@ -301,27 +301,9 @@ const EnhancedRoyalCourtPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Accommodations Section - Secondary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonAccommodations />
-          ) : shouldLoad('accommodations') ? (
-            <AccommodationsSection
-              rooms={roomsData || []}
-            />
-          ) : (
-            <SkeletonAccommodations />
-          )}
-
-          {/* Virtual Tour Section - Secondary Loading */}
-          {shouldLoad('virtual-tour') && virtualTour && hotelData && (
-            <VirtualTourSection
-              hotelName={hotelData.name}
-              tourUrl={virtualTour.url}
-              thumbnailImage={virtualTour.thumbnail}
-              provider={virtualTour.provider}
-            />
-          )}
-
+          
+         
+          
           {/* Event Spaces Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonSpaces />
