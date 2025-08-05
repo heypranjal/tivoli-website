@@ -172,6 +172,23 @@ const EnhancedWedcationIsranaPage: React.FC = () => {
             <SkeletonOverview />
           )}
 
+          {/* Video Section - After Overview */}
+          <div className="bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-xl p-6 md:p-8">
+            <div className="text-center mb-6">
+              <h3 className="font-serif text-2xl text-neutral-800 mb-2">Experience Wedcation Israna</h3>
+              <p className="text-neutral-600">Discover your perfect wedding destination in Israna</p>
+            </div>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src="https://drive.google.com/file/d/1XVGa-lH_KbgP5koAyeAWhTbStrAGlCNz/preview"
+                className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title="Wedcation by Tivoli Israna - Virtual Experience"
+              />
+            </div>
+          </div>
+
           {/* Accommodations Section - Secondary Loading */}
           {showSkeletonUI ? (
             <SkeletonAccommodations />

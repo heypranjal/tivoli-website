@@ -139,6 +139,23 @@ export default function UpperHseSultanpurPage() {
               </div>
             </div>
 
+            {/* Video Section */}
+            <div className="mt-8 bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-xl p-6 md:p-8">
+              <div className="text-center mb-6">
+                <h3 className="font-serif text-2xl text-neutral-800 mb-2">Experience Our Urban Luxury</h3>
+                <p className="text-neutral-600">Take a virtual tour through The Upper HSE by Tivoli</p>
+              </div>
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src="https://drive.google.com/file/d/1TZ1gGtU-CgH42APBDUgmX60Uh0YTp93O/preview"
+                  className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title="The Upper HSE by Tivoli - Virtual Experience"
+                />
+              </div>
+            </div>
+
             {/* Luxury Experiences Section */}
             <section className="py-6 md:py-12">
               <div className="text-center mb-8">

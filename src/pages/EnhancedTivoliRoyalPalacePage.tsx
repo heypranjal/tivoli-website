@@ -14,9 +14,7 @@ import {
   HeroSection,
   OverviewSection,
   AccommodationsSection,
-  VirtualTourSection,
   ExperiencesSection,
-  SpacesSection,
   DiningSection,
   GallerySection,
   WeddingDestinationSection,
@@ -28,7 +26,6 @@ import {
   SkeletonOverview,
   SkeletonAccommodations,
   SkeletonExperiences,
-  SkeletonSpaces,
   SkeletonDining,
   SkeletonGallery,
   SkeletonWedding,
@@ -42,8 +39,8 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
   const { shouldLoad } = useProgressiveLoading({
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
-    secondary: ['accommodations', 'virtual-tour'],
-    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
+    secondary: ['accommodations'],
+    tertiary: ['experiences', 'dining', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
 
@@ -60,11 +57,9 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
     data: hotelData,
     loading,
     error,
-    spaces,
     diningVenues,
     experiences,
     galleryImages: hookGalleryImages,
-    virtualTour,
     quickStats: hookQuickStats,
     socialMedia,
   } = useTivoliRoyalPalace('tivoli-royal-suite');
@@ -198,6 +193,23 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <SkeletonOverview />
           )}
 
+          {/* Video Section - After Overview */}
+          <div className="bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-xl p-6 md:p-8">
+            <div className="text-center mb-6">
+              <h3 className="font-serif text-2xl text-neutral-800 mb-2">Experience Tivoli Royal Palace</h3>
+              <p className="text-neutral-600">Discover luxury and elegance in the heart of Palwal</p>
+            </div>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src="https://drive.google.com/file/d/1XVGa-lH_KbgP5koAyeAWhTbStrAGlCNz/preview"
+                className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title="Tivoli Royal Palace - Virtual Experience"
+              />
+            </div>
+          </div>
+
           {/* Accommodations Section - Secondary Loading */}
           {showSkeletonUI ? (
             <SkeletonAccommodations />
@@ -211,16 +223,6 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <SkeletonAccommodations />
           )}
 
-          {/* Virtual Tour Section - Secondary Loading */}
-          {shouldLoad('virtual-tour') && virtualTour && hotelData && (
-            <VirtualTourSection
-              hotelName={hotelData.name}
-              tourUrl={virtualTour.url}
-              thumbnailImage={virtualTour.thumbnail}
-              provider={virtualTour.provider}
-            />
-          )}
-
           {/* Experiences Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonExperiences />
@@ -228,15 +230,6 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <ExperiencesSection experiences={experiences} />
           ) : (
             <SkeletonExperiences />
-          )}
-
-          {/* Spaces Section - Tertiary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonSpaces />
-          ) : shouldLoad('spaces') ? (
-            <SpacesSection spaces={spaces} />
-          ) : (
-            <SkeletonSpaces />
           )}
 
           {/* Dining Section - Tertiary Loading */}
