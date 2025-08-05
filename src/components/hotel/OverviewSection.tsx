@@ -55,7 +55,10 @@ export const OverviewSection: React.FC<OverviewSectionProps> = ({
           </div>
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
-              src="https://drive.google.com/file/d/142SzKIYHlPjkWiXwLLnAAJG3Mk30csd8/preview"
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/FoXPiUA6d-c?rel=0&modestbranding=1&showinfo=0&controls=1"
+              frameBorder="0"
               className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
               allow="autoplay; encrypted-media"
               allowFullScreen

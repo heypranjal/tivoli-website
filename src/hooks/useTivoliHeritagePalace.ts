@@ -110,26 +110,6 @@ const HERITAGE_ENHANCED_DATA = {
 
   diningVenues: [
     {
-      id: 'coffee-shop',
-      name: 'Coffee Shop',
-      description: 'Our welcoming coffee shop offers freshly brewed beverages, light snacks, and quick bites in a comfortable setting.',
-      cuisine: 'Beverages, Snacks',
-      hours: '6:00 AM - 10:00 PM',
-      dressCode: 'Casual',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/dinning%20experience/IMG_1504_optimized_200.jpeg',
-      specialties: ['Fresh Coffee', 'Light Snacks', 'Quick Service']
-    },
-    {
-      id: 'catering-services',
-      name: 'Catering Services',
-      description: 'Professional catering services for all your events, from intimate gatherings to grand celebrations with customized menus.',
-      cuisine: 'Multi-cuisine Catering',
-      hours: 'By Appointment',
-      dressCode: 'Event Appropriate',
-      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/grand%20celebrations%20rewari.jpg',
-      specialties: ['Event Catering', 'Custom Menus', 'Wedding Packages']
-    },
-    {
       id: 'multi-cuisine-restaurant',
       name: 'The Royal Restaurant',
       description: 'Experience royal dining with our multi-cuisine restaurant offering Indian, Continental, and Chinese delicacies.',
@@ -208,7 +188,7 @@ const HERITAGE_ENHANCED_DATA = {
 
   quickStats: {
     rooms: 90,
-    diningVenues: 2,
+    diningVenues: 1,
     eventCapacity: 1800,
     conciergeHours: '24/7'
   },
@@ -313,7 +293,7 @@ export function useTivoliHeritagePalace(slug: string = 'tivoli-heritage-palace')
           { id: 'wifi', name: 'High-Speed WiFi', description: 'Complimentary high-speed internet access throughout the property', icon: 'Signal' },
           { id: 'pool', name: 'Swimming Pool', description: 'Outdoor pool with heritage views', icon: 'Pool' },
           { id: 'fitness', name: 'Fitness Center', description: 'Well-equipped fitness facility', icon: 'Dumbbell' },
-          { id: 'dining', name: 'Multi-Cuisine Dining', description: 'Coffee shop and catering services', icon: 'Utensils' },
+          { id: 'dining', name: 'Multi-Cuisine Dining', description: 'The Royal Restaurant with multi-cuisine offerings', icon: 'Utensils' },
           { id: 'parking', name: 'Ample Parking', description: 'Spacious parking area for all guests', icon: 'Car' },
           { id: 'banquet', name: 'Event Spaces', description: 'Multiple banquet halls and outdoor lawns', icon: 'Building' }
         ],

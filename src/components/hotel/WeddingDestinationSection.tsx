@@ -29,6 +29,8 @@ export const WeddingDestinationSection: React.FC<WeddingDestinationSectionProps>
     ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur//Corporate%20Event%20Image.jpeg"
     : hotelName?.toLowerCase().includes('wedcation') && hotelName?.toLowerCase().includes('israna')
     ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//isranafrontviewfull.jpeg"
+    : hotelName?.toLowerCase().includes('new delhi')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//The%20Tivoli%20Pool%20Hero6.png"
     : "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//updated-mainpagephoto4.jpg";
   
   const finalHeroImage = heroImage || defaultHeroImage;

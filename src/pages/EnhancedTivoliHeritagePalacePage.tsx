@@ -181,8 +181,95 @@ const EnhancedTivoliHeritagePalacePage: React.FC = () => {
             <SkeletonAccommodations />
           )}
 
-
-
+          {/* Event Spaces Section - Secondary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonSpaces />
+          ) : shouldLoad('accommodations') ? (
+            <SpacesSection spaces={[
+              {
+                id: 'royal-affair',
+                name: 'Royal Affair',
+                capacity: 500,
+                area: '11,000 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/ROYAL%20AFFAIR.jpeg',
+                features: [
+                  'Grand ballroom setting',
+                  'Crystal chandeliers',
+                  'Premium audio-visual equipment',
+                  'Dedicated bridal suite',
+                  'Professional event coordination',
+                  'Customizable lighting'
+                ],
+                description: 'Our magnificent banquet hall perfect for grand celebrations, corporate events, and royal banquets with premium amenities.'
+              },
+              {
+                id: 'glass-house',
+                name: 'Glass House',
+                capacity: 250,
+                area: '6,000 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House%20inside.jpeg',
+                features: [
+                  'Contemporary glass architecture',
+                  'Natural lighting throughout',
+                  'Climate-controlled environment',
+                  'Modern presentation facilities',
+                  'Flexible seating arrangements',
+                  'Garden views'
+                ],
+                description: 'Modern glass architecture with natural lighting, ideal for sophisticated gatherings and corporate functions.'
+              },
+              {
+                id: 'ocean-pavilion',
+                name: 'Ocean Pavilion',
+                capacity: 150,
+                area: '2,400 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/OCEAN%20PAVILION.jpeg',
+                features: [
+                  'Intimate pavilion setting',
+                  'Serene ambiance',
+                  'Private entrance',
+                  'Dedicated service staff',
+                  'Customizable décor',
+                  'Perfect for ceremonies'
+                ],
+                description: 'Serene pavilion setting perfect for intimate weddings, private parties, and exclusive events.'
+              },
+              {
+                id: 'ocean-garden',
+                name: 'Ocean Garden',
+                capacity: 400,
+                area: '8,000 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/IMG_optimized_200.jpeg',
+                features: [
+                  'Beautiful landscaped gardens',
+                  'Outdoor ceremony space',
+                  'Weather-protected options',
+                  'Romantic lighting',
+                  'Natural photo opportunities',
+                  'Seasonal floral displays'
+                ],
+                description: 'Beautiful garden venue with lush landscaping, perfect for outdoor ceremonies and receptions.'
+              },
+              {
+                id: 'sapphire-coffee-shop',
+                name: 'The Sapphire Coffee Shop',
+                capacity: '40-60',
+                area: 'Premium Café',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/eventspace/Glass%20House.jpeg',
+                features: [
+                  'Elegant café atmosphere',
+                  'Premium coffee selection',
+                  'Business meeting facilities',
+                  'Free Wi-Fi',
+                  'Quiet environment',
+                  'Light refreshments'
+                ],
+                description: 'Elegant coffee shop perfect for business meetings, casual gatherings, and premium coffee experiences.'
+              }
+            ]} />
+          ) : (
+            <SkeletonSpaces />
+          )}
 
           {/* Dining Section - Tertiary Loading */}
           {showSkeletonUI ? (
