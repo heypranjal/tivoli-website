@@ -66,7 +66,7 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
       name: 'Lotus Court',
       capacity: '500',
       area: '15,550 sq ft',
-      image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2098&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/event%20space%20/Lotus%20Court.jpeg',
       features: [
         'Grand banquet hall',
         'AC with climate control',
@@ -82,7 +82,7 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
       name: 'Glass House',
       capacity: '120',
       area: '3,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/event%20space%20/glass%20house.jpeg',
       features: [
         'Glass-walled venue',
         'Natural light',
@@ -98,7 +98,7 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
       name: 'Rooftop',
       capacity: '100',
       area: '3,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1510076857177-7470076d4098?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/event%20space%20/Glass%20House.jpeg',
       features: [
         'Open-air venue',
         'Panoramic views',
@@ -114,7 +114,7 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
       name: 'Lawn 1',
       capacity: '150',
       area: '4,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/event%20space%20/Lawn.jpeg',
       features: [
         'Landscaped gardens',
         'Natural ambiance',
@@ -130,7 +130,7 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
       name: 'Lawn 2',
       capacity: '150',
       area: '4,000 sq ft',
-      image: 'https://images.unsplash.com/photo-1522936643032-5f3cde4cad06?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/event%20space%20/lawn%202.jpeg',
       features: [
         'Garden setting',
         'Natural backdrop',

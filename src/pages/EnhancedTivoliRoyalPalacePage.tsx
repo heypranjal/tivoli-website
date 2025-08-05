@@ -15,6 +15,7 @@ import {
   OverviewSection,
   AccommodationsSection,
   ExperiencesSection,
+  SpacesSection,
   DiningSection,
   GallerySection,
   WeddingDestinationSection,
@@ -26,6 +27,7 @@ import {
   SkeletonOverview,
   SkeletonAccommodations,
   SkeletonExperiences,
+  SkeletonSpaces,
   SkeletonDining,
   SkeletonGallery,
   SkeletonWedding,
@@ -40,7 +42,7 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
     secondary: ['accommodations'],
-    tertiary: ['experiences', 'dining', 'gallery'],
+    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
 
@@ -230,6 +232,88 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             <ExperiencesSection experiences={experiences} />
           ) : (
             <SkeletonExperiences />
+          )}
+
+          {/* Event Spaces Section - Tertiary Loading */}
+          {showSkeletonUI ? (
+            <SkeletonSpaces />
+          ) : shouldLoad('spaces') ? (
+            <SpacesSection spaces={[
+              {
+                id: 'diamond-hall',
+                name: 'Diamond Hall',
+                capacity: 342,
+                area: '12,000 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//EMRALDhall.jpg',
+                features: [
+                  'Elegant crystal chandeliers',
+                  'Premium marble flooring',
+                  'State-of-the-art sound system',
+                  'Professional lighting setup',
+                  'Climate-controlled environment',
+                  'Dedicated entrance',
+                  'Spacious dance floor',
+                  'Professional event coordination'
+                ],
+                description: 'An exquisite banquet hall perfect for weddings, receptions, and special celebrations with luxurious amenities and elegant décor.'
+              },
+              {
+                id: 'glass-house',
+                name: 'Glass House',
+                capacity: 160,
+                area: '5,500 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Glass_House.jpeg',
+                features: [
+                  'Contemporary glass architecture',
+                  'Natural lighting throughout',
+                  'Modern presentation facilities',
+                  'Flexible seating arrangements',
+                  'Garden views',
+                  'Climate-controlled environment',
+                  'Professional audio-visual equipment',
+                  'Intimate setting'
+                ],
+                description: 'A modern and elegant venue with stunning glass architecture, perfect for intimate gatherings, corporate events, and private celebrations.'
+              },
+              {
+                id: 'emerald-green',
+                name: 'Emerald Green',
+                capacity: 800,
+                area: '15,000 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//EMRALDhall.jpg',
+                features: [
+                  'Expansive open-air setting',
+                  'Lush green landscaping',
+                  'Professional stage setup',
+                  'Ambient lighting system',
+                  'Weather-resistant arrangements',
+                  'Multiple seating configurations',
+                  'Photography-friendly backdrop',
+                  'Catering service areas'
+                ],
+                description: 'Our largest outdoor venue surrounded by beautiful greenery, ideal for grand weddings, cultural events, and large-scale celebrations.'
+              },
+              {
+                id: 'poolside',
+                name: 'Poolside',
+                capacity: 200,
+                area: '7,000 sq ft',
+                image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//Poolside0.jpg',
+                features: [
+                  'Scenic poolside location',
+                  'Water feature backdrop',
+                  'Ambient evening lighting',
+                  'Cocktail service area',
+                  'Comfortable lounge seating',
+                  'Open-air atmosphere',
+                  'Perfect for sunset events',
+                  'Photography opportunities'
+                ],
+                description: 'A unique poolside venue perfect for cocktail parties, intimate celebrations, and romantic evening events with stunning water views.'
+              }
+            ]} />
+          ) : (
+            <SkeletonSpaces />
           )}
 
           {/* Dining Section - Tertiary Loading */}

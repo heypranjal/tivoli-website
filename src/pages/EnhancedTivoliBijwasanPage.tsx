@@ -16,9 +16,7 @@ import {
   VirtualTourSection,
   ExperiencesSection,
   SpacesSection,
-  DiningSection,
   GallerySection,
-  DiginitariesSection,
   WeddingDestinationSection,
   ContactSection,
 } from '@/components/hotel';
@@ -28,7 +26,6 @@ import {
   SkeletonAccommodations,
   SkeletonExperiences,
   SkeletonSpaces,
-  SkeletonDining,
   SkeletonGallery,
   SkeletonWedding,
   SkeletonContact
@@ -43,7 +40,7 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
     immediate: ['navigation', 'hero'],
     priority: ['overview'],
     secondary: ['accommodations', 'virtual-tour'],
-    tertiary: ['experiences', 'spaces', 'dining', 'gallery'],
+    tertiary: ['experiences', 'spaces', 'gallery'],
     background: ['wedding', 'contact', 'booking-form']
   });
 
@@ -53,7 +50,6 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
     loading,
     error,
     spaces,
-    diningVenues,
     experiences,
     galleryImages,
     virtualTour,
@@ -235,15 +231,6 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
             <SkeletonSpaces />
           )}
 
-          {/* Dining Section - Tertiary Loading */}
-          {showSkeletonUI ? (
-            <SkeletonDining />
-          ) : shouldLoad("dining") ? (
-            <DiningSection venues={diningVenues} />
-          ) : (
-            <SkeletonDining />
-          )}
-
           {/* Gallery Section - Tertiary Loading */}
           {showSkeletonUI ? (
             <SkeletonGallery />
@@ -257,11 +244,6 @@ const EnhancedTivoliBijwasanPage: React.FC = () => {
           )}
         </div>
       </div>
-
-      {/* Dignitaries Section - Tertiary Loading */}
-      {shouldLoad("gallery") && hotelData && (
-        <DiginitariesSection hotelName={hotelData.name} />
-      )}
 
       {/* Wedding Destination Section - Background Loading */}
       {showSkeletonUI ? (
