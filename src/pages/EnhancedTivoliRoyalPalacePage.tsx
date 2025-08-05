@@ -201,7 +201,7 @@ const EnhancedTivoliRoyalPalacePage: React.FC = () => {
             </div>
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
-                src="https://drive.google.com/file/d/1XVGa-lH_KbgP5koAyeAWhTbStrAGlCNz/preview"
+                src="https://drive.google.com/file/d/1C-JIMFa7XfrtzkMzTF5ru63gydnOg__b/preview"
                 className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
                 allow="autoplay; encrypted-media"
                 allowFullScreen

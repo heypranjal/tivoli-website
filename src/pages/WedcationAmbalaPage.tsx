@@ -27,7 +27,7 @@ const amenityIcons = {
 };
 
 const villaAmenities = [
-  { id: 'bbq', name: 'BBq', icon: Flame, cost: '₹650' },
+  { id: 'bbq', name: 'BBQ', icon: Flame, cost: '₹650' },
   { id: 'lawn', name: 'Lawn', icon: Sprout },
   { id: 'pool', name: 'Swimming Pool', icon: School },
   { id: 'wifi', name: 'Wi-Fi', icon: Wifi },
