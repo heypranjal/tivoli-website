@@ -27,6 +27,18 @@ export const WeddingDestinationSection: React.FC<WeddingDestinationSectionProps>
     ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/hsesultanpur//Corporate%20Event%20Image.jpeg"
     : hotelName?.toLowerCase().includes('wedcation') && hotelName?.toLowerCase().includes('israna')
     ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationisrana//isranafrontviewfull.jpeg"
+    : hotelName?.toLowerCase().includes('the tivoli-new delhi') || hotelName?.toLowerCase().includes('tivoli grand palace')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1/The%20Tivoli%20Pool%20Hero6.png"
+    : hotelName?.toLowerCase().includes('tivoli royal palace')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/royalpalacepalwal//EMRALDhall.jpg"
+    : hotelName?.toLowerCase().includes('omnia dwarka expressway')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/omniadwarkha//omniadwarkha.jpeg"
+    : hotelName?.toLowerCase().includes('wedcation') && hotelName?.toLowerCase().includes('ambala')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/wedcationambala/Gallary/Facade.png"
+    : hotelName?.toLowerCase().includes('tivoli heritage palace')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/Gallary/Facade_optimized_200.jpeg"
+    : hotelName?.toLowerCase().includes('tivoli lotus court')
+    ? "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/Gallary/IMG_3575.jpeg"
     : "https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari//updated-mainpagephoto4.jpg";
   
   const finalHeroImage = heroImage || defaultHeroImage;
