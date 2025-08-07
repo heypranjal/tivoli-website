@@ -21,7 +21,6 @@ import {
   SpacesSection,
   DiningSection,
   GallerySection,
-  DiginitariesSection,
   WeddingDestinationSection,
   ContactSection,
 } from '@/components/hotel';
@@ -352,10 +351,6 @@ const EnhancedRoyalCourtPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Dignitaries Section - Tertiary Loading */}
-      {shouldLoad('gallery') && hotelData && (
-        <DiginitariesSection hotelName={hotelData.name} />
-      )}
 
       {/* Wedding Destination Section - Background Loading */}
       {showSkeletonUI ? (

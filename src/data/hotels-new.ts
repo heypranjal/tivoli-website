@@ -29,11 +29,11 @@ import { upperHseVenues } from './venues/upper-hse-venues'
 // Additional Tivoli venues (continuing from tivoli-venues.ts)
 const additionalTivoliVenues: Hotel[] = [
   {
-    id: 'tivoli-lake-palace',
+    id: 'tivoli-heritage-palace',
     name: 'Tivoli Heritage Palace',
     brand: 'tivoli',
     location: 'rewari-haryana',
-    slug: 'tivoli-lake-palace',
+    slug: 'tivoli-heritage-palace',
     description: 'Experience unparalleled luxury at Tivoli Heritage Palace, where timeless elegance meets modern sophistication. Nestled in the heart of Rewari-Haryana, this architectural masterpiece offers a perfect blend of traditional Indian hospitality and contemporary comfort.',
     images: [
       'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivoliheritagerewari/mainphoto6.jpg',

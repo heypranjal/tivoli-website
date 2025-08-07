@@ -1,0 +1,434 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - link "TIVOLI":
+    - /url: /
+  - link "Hotels":
+    - /url: /
+  - button "Brands":
+    - text: Brands
+    - img
+  - link "The Tivoli":
+    - /url: /locations?brand=tivoli
+    - img
+    - text: The Tivoli
+  - link "Omnia":
+    - /url: /locations?brand=omnia
+    - img
+    - text: Omnia
+  - link "The Upper HSE":
+    - /url: /locations?brand=upper-hse
+    - img
+    - text: The Upper HSE
+  - link "Wedcation":
+    - /url: /locations?brand=wedcation
+    - img
+    - text: Wedcation
+  - button "Locations":
+    - text: Locations
+    - img
+  - link "Delhi":
+    - /url: /locations?location=delhi
+    - img
+    - text: Delhi
+  - link "Noida":
+    - /url: /locations?location=noida
+    - img
+    - text: Noida
+  - link "Greater Noida":
+    - /url: /locations?location=greater-noida
+    - img
+    - text: Greater Noida
+  - link "Palwal":
+    - /url: /locations?location=palwal
+    - img
+    - text: Palwal
+  - link "Rewari":
+    - /url: /locations?location=rewari
+    - img
+    - text: Rewari
+  - link "Ambala":
+    - /url: /locations?location=ambala
+    - img
+    - text: Ambala
+  - link "Israna":
+    - /url: /locations?location=israna
+    - img
+    - text: Israna
+  - button "Offers"
+  - button "Loyalty"
+  - link "Weddings":
+    - /url: /weddings
+  - link "Our Story":
+    - /url: /our-story
+  - link "Sustainability":
+    - /url: /sustainability
+  - link "People":
+    - /url: /people
+- navigation:
+  - link "TIVOLI":
+    - /url: /
+  - link "Hotels":
+    - /url: /
+  - button "Brands":
+    - text: Brands
+    - img
+  - link "The Tivoli":
+    - /url: /locations?brand=tivoli
+    - img
+    - text: The Tivoli
+  - link "Omnia":
+    - /url: /locations?brand=omnia
+    - img
+    - text: Omnia
+  - link "The Upper HSE":
+    - /url: /locations?brand=upper-hse
+    - img
+    - text: The Upper HSE
+  - link "Wedcation":
+    - /url: /locations?brand=wedcation
+    - img
+    - text: Wedcation
+  - button "Locations":
+    - text: Locations
+    - img
+  - link "Delhi":
+    - /url: /locations?location=delhi
+    - img
+    - text: Delhi
+  - link "Noida":
+    - /url: /locations?location=noida
+    - img
+    - text: Noida
+  - link "Greater Noida":
+    - /url: /locations?location=greater-noida
+    - img
+    - text: Greater Noida
+  - link "Palwal":
+    - /url: /locations?location=palwal
+    - img
+    - text: Palwal
+  - link "Rewari":
+    - /url: /locations?location=rewari
+    - img
+    - text: Rewari
+  - link "Ambala":
+    - /url: /locations?location=ambala
+    - img
+    - text: Ambala
+  - link "Israna":
+    - /url: /locations?location=israna
+    - img
+    - text: Israna
+  - button "Offers"
+  - button "Loyalty"
+  - link "Weddings":
+    - /url: /weddings
+  - link "Our Story":
+    - /url: /our-story
+  - link "Sustainability":
+    - /url: /sustainability
+  - link "People":
+    - /url: /people
+- img "Tivoli Royal Court - Okhla - Image 1"
+- heading "Tivoli Royal Court - Okhla" [level=1]
+- paragraph: New Delhi, Delhi
+- button "Previous image":
+  - img
+- button "Next image":
+  - img
+- button "View image 1"
+- button "View image 2"
+- button "View image 3"
+- button "View image 4"
+- button "View image 5"
+- heading "About Tivoli Royal Court - Okhla" [level=2]
+- paragraph: Experience premier banquet and event services at Tivoli Royal Court - Okhla, where every celebration becomes a masterpiece. Located in the dynamic Okhla Industrial Area, this sophisticated venue specializes in weddings, conferences, and corporate events with world-class facilities and catering services.
+- paragraph: Located in the dynamic Okhla Industrial Area, Tivoli Royal Court - Okhla specializes in creating unforgettable celebrations. Our sophisticated venue features multiple banquet halls, outdoor spaces, and comprehensive event services designed to make every occasion a masterpiece.
+- img
+- text: 0 Rooms
+- img
+- text: 0 Dining Venues
+- img
+- text: 600 Event Capacity
+- img
+- text: 24/7 Concierge Service
+- heading "Accommodations" [level=2]
+- paragraph: No room information available at this time.
+- heading "Experience the Space" [level=2]
+- paragraph: Take a comprehensive virtual tour of Tivoli Royal Court - Okhla and explore every corner of our magnificent property through our interactive 3D experience.
+- heading "Tivoli Royal Court - Okhla" [level=3]
+- img
+- paragraph: Explore 3D Space
+- img
+- text: Opens in new window POWERED BY Spalba
+- paragraph: Take an immersive virtual tour of our magnificent property and discover every stunning detail
+- button "Start Virtual Tour":
+  - img
+  - text: Start Virtual Tour
+  - img
+- heading "Event Spaces" [level=2]
+- paragraph: Discover our exceptional venues designed to host memorable events of every scale
+- img "Astoria"
+- img
+- text: Capacity 300
+- heading "Astoria" [level=3]
+- img
+- text: 5000 sq ft
+- paragraph: Elegant banquet hall perfect for grand celebrations and corporate events
+- list:
+  - listitem: • State-of-the-art Audio/Visual
+  - listitem: • Stage Setup
+  - listitem: • Dance Floor
+  - listitem: • Premium Lighting
+- button "View Details"
+- img "Regency"
+- img
+- text: Capacity 250
+- heading "Regency" [level=3]
+- img
+- text: 4000 sq ft
+- paragraph: Sophisticated event space ideal for weddings and social gatherings
+- list:
+  - listitem: • Elegant Decor
+  - listitem: • Natural Lighting
+  - listitem: • Pre-function Area
+  - listitem: • Modern Amenities
+- button "View Details"
+- text: Curated Experiences
+- heading "Discover Heritage Luxury" [level=2]
+- paragraph: Immerse yourself in a world of refined experiences, where every moment is crafted to perfection
+- img "Corporate Events"
+- text: business
+- heading "Corporate Events" [level=3]
+- paragraph: Pre-wedding Rituals
+- paragraph: Traditional, joyful, colorful, sacred, festive, cultural, musical, emotional, celebratory events.
+- img
+- img "Poolside Soirées"
+- text: luxury
+- heading "Poolside Soirées" [level=3]
+- paragraph: Heritage Architecture
+- paragraph: Exclusive retreats with private pools perfect for magical poolside weddings
+- img
+- img "Grand Celebrations"
+- text: celebration
+- heading "Grand Celebrations" [level=3]
+- paragraph: Royal Events
+- paragraph: Magnificent venues for unforgettable events
+- img
+- img "130 Premium Rooms"
+- text: accommodation
+- heading "130 Premium Rooms" [level=3]
+- paragraph: Cultural Activities
+- paragraph: Our property features 130 stylish Premium Rooms designed for your comfort
+- img
+- img "Dinning Hall"
+- text: dining
+- heading "Dinning Hall" [level=3]
+- paragraph: Wellness
+- paragraph: Elegant. Ambient. Refined. A dining experience like no other.
+- img
+- img "Pre Wedding Rituals"
+- text: wedding
+- heading "Pre Wedding Rituals" [level=3]
+- paragraph: Wellness
+- paragraph: Experience flawless corporate events hosted at elegant, serene retreats
+- img
+- heading "Dining Experiences" [level=2]
+- paragraph: Embark on a culinary journey through our exceptional dining venues, each offering unique flavors and ambiance
+- img "In-house Catering"
+- img
+- text: Multi-cuisine
+- heading "In-house Catering" [level=3]
+- paragraph: Exquisite culinary experiences with custom menus and live counters for all events
+- img
+- heading "Hours:" [level=4]
+- paragraph: Event Hours
+- heading "Specialties:" [level=4]
+- text: Indian Cuisine Continental Chinese +2 more
+- button "View Menu"
+- heading "Gallery" [level=2]
+- paragraph: Explore our exquisite spaces, luxury accommodations, and world-class amenities through our curated collection of images and videos
+- img
+- text: Photo
+- heading "Tivoli Royal Court - Image 1" [level=3]
+- paragraph: Gallery image from Tivoli Royal Court
+- img
+- text: Photo
+- heading "Tivoli Royal Court - Image 2" [level=3]
+- paragraph: Gallery image from Tivoli Royal Court
+- img
+- text: Photo
+- heading "Tivoli Royal Court - Image 3" [level=3]
+- paragraph: Gallery image from Tivoli Royal Court
+- img
+- text: Photo
+- heading "Tivoli Royal Court - Image 4" [level=3]
+- paragraph: Gallery image from Tivoli Royal Court
+- img
+- text: Photo
+- heading "Tivoli Royal Court - Image 5" [level=3]
+- paragraph: Gallery image from Tivoli Royal Court
+- paragraph: DISTINGUISHED VISITORS
+- heading "Dignitaries" [level=2]
+- paragraph: Mr. Parvesh Verma, Deputy Chief Minister visiting The Tivoli to inaugurate 21st Delhi International Open Grand Masters Chess Tournament 2025
+- paragraph: YOUR DREAM CELEBRATION DESTINATION
+- heading "Celebrations At Tivoli Royal Court - Okhla" [level=2]
+- paragraph: Capacity
+- paragraph: 1500 PAX
+- paragraph: Lawn Area
+- paragraph: Lush Green
+- img
+- heading "Ample Parking" [level=3]
+- paragraph: Spacious parking area for all your guests
+- img
+- heading "Pool Access" [level=3]
+- paragraph: Beautiful poolside setting for events
+- img
+- heading "Exquisite Cuisine" [level=3]
+- paragraph: Our master chefs craft personalized menus featuring both traditional delicacies and international cuisine.
+- button "Plan Your Celebration":
+  - text: Plan Your Celebration
+  - img
+- heading "Location & Contact" [level=2]
+- paragraph: Find us at our prime location and get in touch for reservations or inquiries
+- img
+- heading "Address" [level=4]
+- paragraph: D-185, Pocket D, Okhla Phase I, Okhla Industrial Area New Delhi, Delhi 110020 India
+- link "Instagram":
+  - /url: https://instagram.com/tivolihotels
+  - img
+  - text: Instagram
+- link "Facebook":
+  - /url: https://facebook.com/tivolihotels
+  - img
+  - text: Facebook
+- img
+- heading "Phone" [level=4]
+- link "8588850354, 9818553333":
+  - /url: tel:8588850354,9818553333
+- img
+- heading "Email" [level=4]
+- link "reservations@thetivolihotels.com":
+  - /url: mailto:reservations@thetivolihotels.com
+- iframe
+- heading "Plan Your Special Event" [level=2]
+- paragraph: Let our expert team help you create unforgettable memories at Tivoli Royal Court - Okhla. From intimate gatherings to grand celebrations, we ensure every detail is perfect.
+- text: Name
+- textbox "Enter your name"
+- text: Event Type
+- combobox:
+  - option "Select event type" [selected]
+  - option "Wedding"
+  - option "MICE"
+  - option "Birthday Party"
+  - option "Cocktail Party"
+  - option "Corporate Event"
+  - option "Other"
+- img
+- img
+- text: Hotel/Venue
+- combobox:
+  - option "Select a hotel (Optional)" [selected]
+  - option "Omnia by Tivoli Dwarka Expressway - New Delhi, New Delhi"
+  - option "The Tivoli-New Delhi - New Delhi, Delhi"
+  - option "The Upper HSE - Sultanpur by Tivoli - New Delhi, Delhi"
+  - option "Wedcation by Tivoli - Ambala - Ambala, Haryana"
+  - option "Omnia by Tivoli-Greater Noida - Greater Noida, Uttar Pradesh"
+  - option "Tivoli Royal Palace Palwal - Palwal, Haryana"
+  - option "Wedcation by Tivoli - Israna - Israna, Haryana"
+  - option "Tivoli Heritage Palace - Rewari, Haryana"
+  - option "Tivoli Lotus Court - Noida - Noida, Uttar Pradesh"
+  - option "Tivoli Bijwasan - New Delhi, Delhi"
+  - option "Tivoli Royal Court - Okhla - New Delhi, Delhi"
+- img
+- text: Event Date
+- textbox
+- img
+- text: Number of Guests
+- spinbutton
+- img
+- text: Phone Number
+- textbox "Enter phone number"
+- img
+- text: Email (Optional)
+- textbox "Enter email address"
+- img
+- text: Room Requirements
+- radio "Yes, need rooms"
+- text: Yes, need rooms
+- radio "No rooms needed" [checked]
+- text: No rooms needed Budget Range (Optional)
+- combobox:
+  - option "Select budget range" [selected]
+  - option "Under 5 Lakhs"
+  - option "5 - 10 Lakhs"
+  - option "10 - 20 Lakhs"
+  - option "20 - 50 Lakhs"
+  - option "Above 50 Lakhs"
+- img
+- text: Special Requirements (Optional)
+- textbox "Any special requirements or additional information..."
+- button "Submit Enquiry"
+- contentinfo:
+  - heading "Head Office" [level=4]
+  - img
+  - paragraph: Tivoli Hospitality Group
+  - paragraph: 1-Chhatrpur, New Delhi-110074, India
+  - link "amit.sood@thetivolihotels.com":
+    - /url: mailto:amit.sood@thetivolihotels.com
+    - img
+    - text: amit.sood@thetivolihotels.com
+  - link "01147479999":
+    - /url: tel:01147479999
+    - img
+    - text: "01147479999"
+  - heading "Tivoli Net" [level=4]
+  - paragraph: Regional Sales & Reservations
+  - paragraph: The Tivoli
+  - paragraph: Omnia
+  - paragraph: The Upper HSE
+  - paragraph: Wedcation
+  - link "View All Regional Offices":
+    - /url: /tivolinet
+    - img
+    - text: View All Regional Offices
+  - 'link "Central Reservations: 01147479999"':
+    - /url: tel:01147479999
+    - img
+    - text: "Central Reservations: 01147479999"
+  - heading "Hotel Locations" [level=4]
+  - list:
+    - listitem:
+      - img
+      - paragraph: Delhi location
+      - paragraph: The Tivoli New Delhi, Tivoli Bijwasan, Tivoli Royal court - Okhla, Tivoli Upper HSE, Omnia by Tivoli Dwarka Expressway
+    - listitem:
+      - img
+      - paragraph: Noida location
+      - paragraph: Tivoli Lotus court - Noida
+    - listitem:
+      - img
+      - paragraph: PANIPAT
+      - paragraph: Wedcation by Tivoli Israna Panipat
+    - listitem:
+      - img
+      - paragraph: AMBALA
+      - paragraph: Wedcation by Tivoli Ambala
+  - heading "Find Us" [level=4]
+  - iframe
+  - paragraph: © 2025 Tivoli Hotels & Resorts. All rights reserved.
+  - link "Careers":
+    - /url: /careers
+  - link "Privacy Policy":
+    - /url: https://docs.google.com/document/d/1u-V_fFaQ38qcNdsPJHTkgSfqM5ZNQr8IO0cRCJdkQZ8/edit?usp=sharing
+  - link "Terms of Service":
+    - /url: https://docs.google.com/document/d/1ZhGmgPL8-UrSvSTQdR8RMRV3XYZvSFCyYXpghNfKop0/edit?usp=sharing
+  - link "Digital QR":
+    - /url: /digital-qr
+  - link "Cookie Policy":
+    - /url: "#"
+- button "Open Tanstack query devtools":
+  - img
+```
