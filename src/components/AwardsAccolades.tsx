@@ -16,6 +16,14 @@ const awards = [
     year: '2025',
     image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/thetivolinewdelhi1//Rohit%20Gupta%20Chess.png',
     description: 'Recognized by the Delhi Chess Association for outstanding contribution to the 21st Delhi International Open Grand Masters Chess Tournament'
+  },
+  {
+    id: '3',
+    name: 'ITCTA 2025 Winner',
+    category: 'India Tourism & Corporate Travel Awards 2025',
+    year: '2025',
+    image: 'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/homepage_image/ITCTA%20Award.jpg',
+    description: 'Honored with the prestigious ITCTA Award, recognizing excellence in hospitality and tourism industry'
   }
 ];
 

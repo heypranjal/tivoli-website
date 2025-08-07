@@ -113,7 +113,7 @@ export default function Hero() {
       {/* Booking Widget */}
       <MobileBookingButton
         onClick={toggleMobileBooking}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden"
       >
         <span className="font-serif text-base tracking-wide text-white px-6 py-2 block">
           Book Your Stay
