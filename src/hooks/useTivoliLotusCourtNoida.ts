@@ -224,11 +224,12 @@ const TIVOLI_LOTUS_COURT_ENHANCED_DATA = {
   ],
 
   galleryImages: [
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Entrance_optimized_200.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Astoria_optimized_200.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Facade_optimized_200.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Lobby_optimized_200.jpg',
-    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images/Regency%20Pre%20Function%20Area%20(2).jpeg'
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images%20Lotus%20court/Facade.webp',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images%20Lotus%20court/Facade2.webp',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images%20Lotus%20court/Glass%20House.webp',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images%20Lotus%20court/Lotus%20Court.webp',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/banner%20images%20Lotus%20court/Property%20Overview.webp',
+    'https://sivirxabbuldqkckjwmu.supabase.co/storage/v1/object/public/tivolilotuscourt/Gallery%20Lotus%20court/Gallery6.webp'
   ],
 
   quickStats: {

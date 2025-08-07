@@ -166,6 +166,7 @@ const EnhancedOmniaDwarkaExpresswayPage: React.FC = () => {
               location={hotelData.address.city}
               additionalDescription={`Located in the heart of ${hotelData.address.city}, Omnia by Tivoli Dwarka Expressway offers an exceptional blend of modern sophistication and premium hospitality. Our venue features thoughtfully designed event spaces, excellent dining options, versatile meeting facilities, and comprehensive amenities crafted to provide an outstanding experience for corporate events, celebrations, and special occasions.`}
               quickStats={quickStats}
+              hideStats={true}
             />
           ) : (
             <SkeletonOverview />

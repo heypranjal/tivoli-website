@@ -136,6 +136,7 @@ const TivoliLotusCourtPage: React.FC = () => {
               location={hotelData.address.city}
               additionalDescription={`Located in the heart of ${hotelData.address.city}, Tivoli Lotus Court offers an exceptional blend of modern luxury and traditional hospitality. Our hotel features elegantly designed rooms, comprehensive event facilities, and professional services designed to exceed every expectation.`}
               quickStats={quickStats}
+              hideStats={true}
             />
           ) : (
             <SkeletonOverview />

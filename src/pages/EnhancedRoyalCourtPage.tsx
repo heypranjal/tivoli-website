@@ -278,6 +278,7 @@ const EnhancedRoyalCourtPage: React.FC = () => {
               location={hotelData.address?.city || 'Delhi'}
               additionalDescription={`Located in the dynamic Okhla Industrial Area, ${hotelData.name} specializes in creating unforgettable celebrations. Our sophisticated venue features multiple banquet halls, outdoor spaces, and comprehensive event services designed to make every occasion a masterpiece.`}
               quickStats={quickStats}
+              hideStats={true}
             />
           ) : (
             <SkeletonOverview />

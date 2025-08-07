@@ -286,8 +286,9 @@ const EnhancedUpperHSEPage: React.FC = () => {
               hotelName={(hotelData as any).name}
               description={(hotelData as any).description}
               location={(hotelData as any).address.city}
-              additionalDescription={`The combination of beautifully furnished infrastructure, delectable dining options, beautiful setting and the excellent range of guest facilities offered by the luxury venue makes it a preferred conference and event destination, an ideal venue for social gatherings and wedding celebrations.`}
+              additionalDescription={``}
               quickStats={quickStats}
+              hideStats={true}
             />
           ) : (
             <SkeletonOverview />

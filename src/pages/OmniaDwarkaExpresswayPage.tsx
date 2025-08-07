@@ -157,6 +157,7 @@ const OmniaDwarkaExpresswayPage: React.FC = () => {
               location={hotelData.address.city}
               additionalDescription="With expert event planning, gourmet cuisine, and state-of-the-art amenities, we turn your vision into a seamless and stylish reality. Designed to accommodate everything from intimate gatherings to lavish celebrations, Omnia combines modern elegance with impeccable service. Centrally located in Dwarka with excellent connectivity to all parts of Delhi NCR, Omnia by Tivoli is where unforgettable memories are made."
               quickStats={quickStats}
+              hideStats={true}
             />
           ) : (
             <SkeletonOverview />
